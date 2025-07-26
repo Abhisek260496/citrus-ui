@@ -38,6 +38,7 @@ const Typography = (fontFamily: string): TypographyOptions => ({
     lineHeight: 1,
     fontWeight: 700,
     color: palette.common.white,
+    textTransform: "uppercase",
     ...responsiveFontSizes({ sm: 32, md: 46, lg: 58 })
   },
   h2: {
@@ -45,19 +46,22 @@ const Typography = (fontFamily: string): TypographyOptions => ({
     lineHeight: 1,
     color: palette.common.white,
     fontWeight: 700,
+    textTransform: "uppercase",
     ...responsiveFontSizes({ sm: 32, md: 46, lg: 58 })
   },
   h3: {
     fontFamily: "Poppins",
-    fontWeight: 700,
+    fontWeight: 600,
     color: palette.common.white,
     lineHeight: 1,
-    ...responsiveFontSizes({ sm: 26, md: 30, lg: 88 })
+    textTransform: "uppercase",
+    ...responsiveFontSizes({ sm: 20, md: 24, lg: 30 })
   },
   h4: {
     fontFamily: "Poppins",
     color: palette.common.white,
     lineHeight: 1.5,
+    textTransform: "uppercase",
     ...responsiveFontSizes({ sm: 20, md: 24, lg: 24 })
   },
   h5: {

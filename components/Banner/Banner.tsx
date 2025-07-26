@@ -1,6 +1,43 @@
 import assest from "@/json/assest";
 import { BannerStyled } from "@/styles/styledComponents/BannerStyled";
+import { Box, Container, List, ListItem } from "@mui/material";
 import Image from "next/image";
+import Link from "next/link";
+
+const navItems = [
+  {
+    name: "New releases",
+    path: "/new-releases"
+  },
+  {
+    name: "Clients",
+    path: "/clients"
+  },
+  {
+    name: "Case study",
+    path: "/case-study"
+  },
+  {
+    name: "Product registration",
+    path: "/product-registration"
+  },
+  {
+    name: "resellers",
+    path: "/resellers"
+  },
+  {
+    name: "e-waste",
+    path: "/e-waste"
+  },
+  {
+    name: "Blog",
+    path: "/blog"
+  },
+  {
+    name: "FAQs",
+    path: "/faqs"
+  }
+];
 
 const Banner = () => {
   return (
@@ -13,6 +50,17 @@ const Banner = () => {
           height={724}
         />
       </figure>
+      <Box className="banner_btm_block">
+        <Container fixed>
+          <List>
+            {navItems?.map((item, index) => (
+              <ListItem key={index}>
+                <Link href={item?.path}>{item?.name}</Link>
+              </ListItem>
+            ))}
+          </List>
+        </Container>
+      </Box>
     </BannerStyled>
   );
 };
