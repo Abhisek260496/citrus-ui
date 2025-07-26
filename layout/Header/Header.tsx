@@ -18,6 +18,8 @@ import { logout } from "@/reduxtoolkit/slices/userSlice";
 import { HeaderWrap } from "@/styles/styledComponents/HeaderWrapper";
 import CustomButton from "@/ui/Buttons/CustomButton";
 import MailIcon from "@/ui/Icons/MailIcon";
+import WhatsAppIcon from "@/ui/Icons/WhatsAppIcon";
+import { Button } from "@mui/material";
 import { Container } from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
@@ -159,6 +161,21 @@ export default function Header() {
               >
                 Info@citrus.com
               </CustomButton>
+              <Button
+                sx={{
+                  padding: "0px",
+                  minWidth: "0px",
+                  marginLeft: "15px",
+                  "& .MuiButton-startIcon": {
+                    marginLeft: 0,
+                    marginRight: 0
+                  },
+                  "&:hover": {
+                    backgroundColor: "transparent"
+                  }
+                }}
+                startIcon={<WhatsAppIcon />}
+              />
             </Box>
           </Toolbar>
         </Container>

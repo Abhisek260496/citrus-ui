@@ -8,7 +8,7 @@ export const HeaderWrap = styled(Box)`
 
   .headerContainer {
     background-color: transparent !important;
-    padding: 20px 0;
+    padding: 16px 0;
     transition: all 0.4s;
   }
 
