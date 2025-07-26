@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
-import React from "react";
+import Seo from "@/components/Seo/Seo";
 import useOnlineStatus from "@/hooks/useDetectOnline";
 import { Backdrop, Box, CircularProgress } from "@mui/material";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import { useRouter } from "next/router";
-import Seo from "@/components/Seo/Seo";
+import React from "react";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 
 interface wrapperProps {
   children: JSX.Element | JSX.Element[];
@@ -38,7 +38,7 @@ const Wrapper = (props: wrapperProps) => {
 
   routerText.shift();
   const favText = routerText.join("").toString().toUpperCase();
-  const projectName = "abc";
+  const projectName = "Citrus";
 
   useOnlineStatus();
 
@@ -74,10 +74,10 @@ const Wrapper = (props: wrapperProps) => {
             ? `${projectName}`
             : `${projectName} || ${favText}`
         }
-        canonical={""}
-        description={""}
-        url={""}
-        image={""}
+        canonical=""
+        description=""
+        url=""
+        image=""
       />
       <Header />
 
