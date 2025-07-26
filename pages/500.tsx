@@ -1,13 +1,9 @@
-
-import React from "react";
-import dynamic from "next/dynamic";
-import styles from "@/styles/pages/404.module.scss";
 import animationData from "@/json/lottie/404.json";
+import Wrapper from "@/layout/wrapper/Wrapper";
 import { checkWindow } from "@/lib/functions/_helpers.lib";
+import styles from "@/styles/pages/404.module.scss";
 import CustomButton from "@/ui/Buttons/CustomButton";
-
-const Lottie = dynamic(() => import("lottie-react"));
-const Wrapper = dynamic(() => import("@/layout/wrapper/Wrapper"));
+import Lottie from "lottie-react";
 
 const Index = () => {
   const reload = () => {

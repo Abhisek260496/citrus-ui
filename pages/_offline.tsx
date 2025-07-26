@@ -1,13 +1,8 @@
-import dynamic from "next/dynamic";
-import React from "react";
 import offlineJson from "@/json/lottie/offline.json";
+import Wrapper from "@/layout/wrapper/Wrapper";
 import { checkWindow } from "@/lib/functions/_helpers.lib";
-
-const Lottie = dynamic(() => import("lottie-react"));
-const Wrapper = dynamic(() => import("@/layout/wrapper/Wrapper"));
-const Container = dynamic(() => import("@mui/material/Container"));
-const Stack = dynamic(() => import("@mui/material/Stack"));
-const Button = dynamic(() => import("@mui/material/Button"));
+import { Button, Container, Stack } from "@mui/material";
+import Lottie from "lottie-react";
 
 const OfflinePage = () => {
   const handleRetry = () => {
@@ -24,7 +19,7 @@ const OfflinePage = () => {
           autoPlay
           animationData={offlineJson}
           rendererSettings={{
-            preserveAspectRatio: "xMidYMid slice",
+            preserveAspectRatio: "xMidYMid slice"
           }}
           height={300}
           width={300}

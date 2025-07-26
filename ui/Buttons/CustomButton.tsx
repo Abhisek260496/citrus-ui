@@ -1,37 +1,32 @@
 // import styles from "@/styles/components/custombutton.module.scss";
+import palette from "@/themes/palette";
 import { styled } from "@mui/material";
 import Button, { ButtonProps } from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
-
 import { memo } from "react";
 
 const CustomBtn = styled(Button)`
-  &.button {
-    padding: 13px 22px;
-    border-radius: 50px;
-    background-color: var(--color747FF4);
-    border: 1px solid var(--color747FF4);
-    color: var(--white);
-    min-width: 180px;
-    .MuiTypography-caption {
-      color: var(--white);
-      font-weight: 700;
-      font-size: 16px;
-      line-height: 1.1;
-    }
-    &:hover {
-      background-color: var(--black);
-      border: 1px solid var(--black);
-    }
+  padding: 7px 28px;
+  border-radius: 8px;
+  background-color: ${palette.text.primary};
+  border: 1px solid ${palette.text.primary};
+  color: ${palette.common.white};
+  min-width: 180px;
+  box-shadow: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  transition: all 0.4s ease-in-out;
+  &:hover {
+    background-color: transparent;
+    box-shadow: none;
   }
-
   &.buttonOutlined {
     padding: 10px 20px;
     border-radius: 50px;
     border: 1px solid var(--primaryBlue);
     color: var(--primaryBlue);
   }
-
   &.buttonText {
     padding: 10px 20px;
     border-radius: 50px;

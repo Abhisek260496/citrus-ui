@@ -15,64 +15,15 @@ import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { useAppSelector } from "@/hooks/useAppSelector";
 import assest from "@/json/assest";
 import { logout } from "@/reduxtoolkit/slices/userSlice";
-import palette from "@/themes/palette";
+import { HeaderWrap } from "@/styles/styledComponents/HeaderWrapper";
 import CustomButton from "@/ui/Buttons/CustomButton";
-import styled from "@emotion/styled";
+import MailIcon from "@/ui/Icons/MailIcon";
 import { Container } from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 const drawerWidth = 240;
-
-const HeaderWrap = styled(Box)`
-  background: ${palette?.background?.paper};
-  box-shadow: 0px 4px 58px rgba(0, 0, 0, 0.07);
-  .MuiToolbar-root {
-    min-height: auto;
-  }
-  .hdr_rgt {
-    margin-left: auto;
-  }
-
-  .headerContainer {
-    background-color: transparent !important;
-    padding: 20px 0;
-    transition: all 0.4s;
-  }
-
-  .headerLogo {
-    width: 250px;
-    display: inline-block;
-    transition: all 0.4s;
-  }
-  .navbar {
-    margin-left: 18px;
-    display: flex;
-    align-items: center;
-    li {
-      margin-right: 30px;
-      width: auto;
-      color: ${palette?.common?.black};
-      &:last-child {
-        margin-right: 0;
-      }
-      &:first-child {
-        margin-left: 0;
-      }
-      a {
-        color: ${palette?.text?.primary};
-        &:hover {
-          color: ${palette?.primary?.main};
-        }
-
-        &.active {
-          color: ${palette?.primary?.main};
-        }
-      }
-    }
-  }
-`;
 
 export default function Header() {
   const navItems = [
@@ -81,8 +32,28 @@ export default function Header() {
       route: "/"
     },
     {
-      name: "Superchargers",
-      route: "/superchargers"
+      name: "Our Story",
+      route: "/our-story"
+    },
+    {
+      name: "Citrus + Microsoft",
+      route: "/citrus-microsoft"
+    },
+    {
+      name: "Products",
+      route: "/products"
+    },
+    {
+      name: "Support",
+      route: "/support"
+    },
+    {
+      name: "CSR",
+      route: "/csr"
+    },
+    {
+      name: "Work with Us",
+      route: "/work-with-us"
     }
   ];
 
@@ -147,7 +118,11 @@ export default function Header() {
         className="headerContainer"
       >
         <Container fixed>
-          <Toolbar>
+          <Toolbar
+            sx={{
+              p: "0 !important"
+            }}
+          >
             <IconButton
               color="inherit"
               aria-label="open drawer"
@@ -160,21 +135,6 @@ export default function Header() {
             <Link href="/" className="headerLogo">
               <Image src={assest.logo} width={133} height={40} alt="logo" />
             </Link>
-            <Box className="hdr_rgt">
-              {isLoggedIn ? (
-                <CustomButton
-                  variant="contained"
-                  color="primary"
-                  onClick={handleLogout}
-                >
-                  Logout
-                </CustomButton>
-              ) : (
-                <CustomButton variant="contained" color="primary">
-                  Brochure
-                </CustomButton>
-              )}
-            </Box>
             <List
               disablePadding
               sx={{ display: { xs: "none", sm: "block" } }}
@@ -191,6 +151,15 @@ export default function Header() {
                 </ListItem>
               ))}
             </List>
+            <Box className="hdr_rgt">
+              <CustomButton
+                variant="contained"
+                color="primary"
+                startIcon={<MailIcon />}
+              >
+                Info@citrus.com
+              </CustomButton>
+            </Box>
           </Toolbar>
         </Container>
       </AppBar>

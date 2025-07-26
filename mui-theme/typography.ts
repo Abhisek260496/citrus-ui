@@ -1,5 +1,5 @@
-import { capitalize } from "@mui/material";
 import { TypographyOptions } from "@mui/material/styles/createTypography";
+import palette from "./palette";
 
 // ==============================|| DEFAULT THEME - TYPOGRAPHY  ||========================== //
 export function remToPx(value: string) {
@@ -19,104 +19,96 @@ interface responsiveFontSizesProps {
 export function responsiveFontSizes({ sm, md, lg }: responsiveFontSizesProps) {
   return {
     "@media (min-width:320px)": {
-      fontSize: pxToRem(sm),
+      fontSize: `${sm}px`
     },
     "@media (min-width:900px)": {
-      fontSize: pxToRem(md),
+      fontSize: `${md}px`
     },
     "@media (min-width:1200px)": {
-      fontSize: pxToRem(lg),
-    },
+      fontSize: `${lg}px`
+    }
   };
 }
 
 const Typography = (fontFamily: string): TypographyOptions => ({
-  htmlFontSize: 16,
+  htmlFontSize: 18,
   fontFamily,
-  // fontWeightLight: 300,
-  // fontWeightRegular: 400,
-  // fontWeightMedium: 500,
-  // fontWeightBold: 600,
   h1: {
-    fontFamily: 'corbelregular',
-    lineHeight: 1.2,
-    fontSize: 47,
-    // fontWeight: 500,
-
-    // ...responsiveFontSizes({ sm: 52, md: 58, lg: 64 })
+    fontFamily: "Poppins",
+    lineHeight: 1,
+    fontWeight: 700,
+    color: palette.common.white,
+    ...responsiveFontSizes({ sm: 32, md: 46, lg: 58 })
   },
   h2: {
-    fontFamily: 'corbelregular',
+    fontFamily: "Poppins",
     lineHeight: 1,
-    // fontWeight: 500,
-    ...responsiveFontSizes({ sm: 25, md: 25, lg: 40 }),
+    color: palette.common.white,
+    fontWeight: 700,
+    ...responsiveFontSizes({ sm: 32, md: 46, lg: 58 })
   },
   h3: {
-    fontFamily: 'corbelregular',
-   
-    lineHeight: 1.2,
-    // fontSize: pxToRem(24),
-    ...responsiveFontSizes({ sm: 26, md: 30, lg: 32 }),
+    fontFamily: "Poppins",
+    fontWeight: 700,
+    color: palette.common.white,
+    lineHeight: 1,
+    ...responsiveFontSizes({ sm: 26, md: 30, lg: 88 })
   },
   h4: {
-    fontFamily: 'corbelregular',
-   
+    fontFamily: "Poppins",
+    color: palette.common.white,
     lineHeight: 1.5,
-    // fontSize: pxToRem(20),
-    ...responsiveFontSizes({ sm: 20, md: 24, lg: 24 }),
+    ...responsiveFontSizes({ sm: 20, md: 24, lg: 24 })
   },
   h5: {
-    fontFamily: 'corbelregular',
-
+    fontFamily: "Poppins",
+    color: palette.common.white,
     lineHeight: 1.5,
-    // fontSize: pxToRem(18),
-    ...responsiveFontSizes({ sm: 19, md: 20, lg: 20 }),
+    ...responsiveFontSizes({ sm: 19, md: 20, lg: 20 })
   },
   h6: {
-    fontFamily: 'corbelregular',
-    // fontWeight: 700,
-    lineHeight: 28 / 18,
-    // fontSize: pxToRem(17),
-    ...responsiveFontSizes({ sm: 18, md: 18, lg: 18 }),
+    fontFamily: "Poppins",
+    color: palette.common.white,
+    fontWeight: 600,
+    lineHeight: 1.5,
+    ...responsiveFontSizes({ sm: 18, md: 18, lg: 18 })
   },
   subtitle1: {
     fontWeight: 600,
     lineHeight: 1.5,
-    fontSize: pxToRem(16),
+    fontSize: 26
   },
   subtitle2: {
     fontWeight: 600,
     lineHeight: 22 / 14,
-    fontSize: pxToRem(14),
+    fontSize: 14
   },
   body1: {
     lineHeight: 1.5,
-    fontSize: 16,
-    fontFamily: 'corbelregular',
+    fontSize: 18,
+    fontFamily: "karla",
+    fontWeight: 400,
+    color: palette.common.white
   },
   body2: {
     lineHeight: 22 / 14,
-    fontSize: pxToRem(14),
-    fontFamily: 'corbelregular',
+    fontSize: 14,
+    fontFamily: "karla",
+    color: palette.common.white
   },
   caption: {
-    lineHeight: 1.5,
-    fontSize: 14,
-    fontFamily: 'corbelregular',
+    lineHeight: "inherit",
+    fontSize: "inherit",
+    fontWeight: "inherit",
+    fontFamily: "inherit",
+    color: "inherit"
   },
   overline: {
     fontWeight: 700,
     lineHeight: 1.5,
-    fontSize: pxToRem(12),
-    textTransform: "uppercase",
-  },
-  button: {
-    fontFamily: 'Plus Jakarta Sans',
-    fontWeight: 700,
-    lineHeight: 24 / 14,
-    fontSize: pxToRem(14),
-    textTransform: "capitalize",
-  },
+    fontSize: 12,
+    textTransform: "uppercase"
+  }
 });
 
 export default Typography;
