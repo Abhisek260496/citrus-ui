@@ -1,5 +1,5 @@
 import palette from "@/themes/palette";
-import { Button, ButtonProps, Stack, styled } from "@mui/material";
+import { Button, Stack, StackProps, styled } from "@mui/material";
 import NextArrowIcon from "../Icons/NextArrow";
 import PreviousArrow from "../Icons/PreviousArrow";
 
@@ -24,7 +24,7 @@ const SliderButtonsStack = styled(Stack)`
     }
   }
 `;
-interface ICustomSliderButtons extends ButtonProps {
+interface ICustomSliderButtons extends StackProps {
   onClickNext?: () => void;
   onClickPrev?: () => void;
 }
@@ -37,6 +37,7 @@ const SliderButtons = ({ ...props }: ICustomSliderButtons) => {
       direction="row"
       alignItems="center"
       justifyContent="end"
+      {...props}
     >
       <Button disableRipple className="custom-prev-arrow" onClick={onClickPrev}>
         <PreviousArrow />

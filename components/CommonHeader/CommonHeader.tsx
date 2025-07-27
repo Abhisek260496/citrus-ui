@@ -1,6 +1,6 @@
 import { Typography, TypographyProps, styled } from "@mui/material";
 
-const CustomHeadingStyle = styled(Typography)`
+const CustomHeadingStyle = styled(Typography)<{ isBgWhite?: boolean }>`
   text-transform: uppercase;
   position: relative;
   span {
@@ -29,6 +29,7 @@ interface ICustomCommonHeader extends TypographyProps {
   subTitle?: string;
   degree_val?: string;
   sub_break_title?: string;
+  isBgWhite?: boolean;
 }
 const CommonHeader = ({
   mainTitle,

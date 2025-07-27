@@ -9,14 +9,6 @@ export const PowerFullStyle = styled(Box)`
       padding: 0 15px;
     }
     .slick-current {
-      .powerfull_content {
-        h3 {
-          transform: translateY(-10px);
-        }
-        p {
-          opacity: 1;
-        }
-      }
     }
   }
 `;
@@ -44,6 +36,16 @@ export const PowerFullElementStyled = styled(Box)`
       height: 100%;
       border-radius: 20px;
       /* object-fit: cover; */
+    }
+  }
+  &:hover {
+    .powerfull_content {
+      h3 {
+        transform: translateY(-10px);
+      }
+      p {
+        opacity: 1;
+      }
     }
   }
 `;

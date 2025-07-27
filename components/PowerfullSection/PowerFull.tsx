@@ -76,14 +76,15 @@ const PowerFull = (): React.ReactElement => {
   //       }
   //     });
   //   };
-
   const settings = {
     dots: false,
     arrows: false,
     infinite: true,
-    speed: 500,
+    speed: 800,
     slidesToShow: 2,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000
     // afterChange: () => updateSlideWidths()
   };
 

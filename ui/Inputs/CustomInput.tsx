@@ -1,39 +1,29 @@
-import { CommonMuiInputProps } from "@/interface/common.interface";
-import FormControl from "@mui/material/FormControl";
-import FormHelperText from "@mui/material/FormHelperText";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import { forwardRef, MutableRefObject, useId } from "react";
+import palette from "@/themes/palette";
+import { TextField, TextFieldProps, styled } from "@mui/material";
+import { forwardRef } from "react";
 
-const CustomInputWith_forwardRef = (
-  {
-    error = false,
-    label,
-    value,
-    onChange,
-    helperText = "",
-    placeholder = "",
-    type,
-    startAdornment,
-    endAdornment
-  }: CommonMuiInputProps
-) => {
-  const id = useId();
-  return (
-    <FormControl error={error} fullWidth>
-      {label}
-      <OutlinedInput
-        error={error}
-        id={id}
-        type={type}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        startAdornment={startAdornment}
-        endAdornment={endAdornment}
-      />
-      {error && <FormHelperText>{helperText}</FormHelperText>}
-    </FormControl>
-  );
+const CustomTextField = styled(TextField)`
+  .MuiInputBase-root {
+    background: #333231;
+    border-radius: 10px;
+    padding: 18px 22px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    color: ${palette.common.white};
+    input {
+      padding: 0;
+      border: none;
+      &::placeholder {
+        color: ${palette.common.white};
+        opacity: 1;
+      }
+    }
+  }
+`;
+
+const CustomInputWith_forwardRef = ({ ...props }: TextFieldProps) => {
+  return <CustomTextField {...props} />;
 };
 
 CustomInputWith_forwardRef.displayName = "CustomInput";

@@ -1,43 +1,54 @@
+import {
+  EachUpdatedElementStyled,
+  UpdatedNewsStyled
+} from "@/styles/styledComponents/UpdatedNewsStyled";
+import CalenderIcon from "@/ui/Icons/CalenderIcon";
 import { Box, BoxProps, Container, Typography } from "@mui/material";
 import Image from "next/image";
-import React, { useRef } from "react";
+import Link from "next/link";
+import { useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import { eachSmartElements } from "../../json/dummy/index";
-import {
-  EachSmartSolutionStyled,
-  SmartSolutionStyled
-} from "../../styles/styledComponents/SmartSolutionStyled";
+import { updatedDataList } from "../../json/dummy/index";
 import SliderButtons from "../../ui/Buttons/SliderButtons";
 import CommonHeader from "../CommonHeader/CommonHeader";
 
-interface EachPowerFullElementProps extends BoxProps {
+interface UpadteElementProps extends BoxProps {
   image: string;
   title: string;
-  description: string;
+  publishDate: string;
+  redirectUrl: string;
 }
-const EachPowerFullElement = ({
-  description,
+const EachUpdatedElement = ({
+  publishDate,
   image,
   title,
+  redirectUrl,
   ...props
-}: EachPowerFullElementProps) => {
+}: UpadteElementProps) => {
   // powerfull_image1
   return (
-    <EachSmartSolutionStyled {...props}>
+    <EachUpdatedElementStyled {...props}>
       <figure>
         <Image src={image} alt="powerfull_image" width={900} height={500} />
       </figure>
-      <Box className="powerfull_content">
-        <Typography variant="h3">{title}</Typography>
-        <Typography>{description}</Typography>
+      <Box className="updated_content">
+        <Typography>
+          <Typography variant="caption">
+            <CalenderIcon />
+          </Typography>
+          {publishDate}
+        </Typography>
+        <Typography variant="h5">
+          <Link href={redirectUrl}>{title}</Link>
+        </Typography>
       </Box>
-    </EachSmartSolutionStyled>
+    </EachUpdatedElementStyled>
   );
 };
 
-const SmartSolution = (): React.ReactElement => {
+const UpdatedNews = () => {
   const sliderRef = useRef<Slider | null>(null);
   const sliderWrapperRef = useRef<HTMLDivElement | null>(null);
 
@@ -46,17 +57,14 @@ const SmartSolution = (): React.ReactElement => {
     arrows: false,
     infinite: true,
     speed: 800,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
-    centerMode: true,
-    centerPadding: "150px",
     autoplay: true,
     autoplaySpeed: 2000
     // afterChange: () => updateSlideWidths()
   };
-
   return (
-    <SmartSolutionStyled className="cmn_gap cmn_gap_top">
+    <UpdatedNewsStyled className="cmn_gap">
       <Container fixed>
         <Box
           sx={{
@@ -64,8 +72,8 @@ const SmartSolution = (): React.ReactElement => {
           }}
         >
           <CommonHeader
-            subTitle="Smart solution "
-            mainTitle="across industries"
+            subTitle="Updated "
+            mainTitle="news & articles"
             sx={{ mb: "54px" }}
           />
 
@@ -84,21 +92,22 @@ const SmartSolution = (): React.ReactElement => {
             }}
           />
         </Box>
+        <Box className="global_slick" ref={sliderWrapperRef}>
+          <Slider ref={sliderRef} {...settings}>
+            {updatedDataList?.map((item, index) => (
+              <EachUpdatedElement
+                key={index}
+                image={item?.image}
+                title={item?.title}
+                publishDate={item?.publishDate}
+                redirectUrl={item?.redirectUrl}
+              />
+            ))}
+          </Slider>
+        </Box>
       </Container>
-      <Box className="global_slick" ref={sliderWrapperRef}>
-        <Slider ref={sliderRef} {...settings}>
-          {eachSmartElements?.map((item, index) => (
-            <EachPowerFullElement
-              key={index}
-              image={item?.image}
-              title={item?.title}
-              description={item?.description}
-            />
-          ))}
-        </Slider>
-      </Box>
-    </SmartSolutionStyled>
+    </UpdatedNewsStyled>
   );
 };
 
-export default SmartSolution;
+export default UpdatedNews;

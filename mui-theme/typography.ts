@@ -67,6 +67,7 @@ const Typography = (fontFamily: string): TypographyOptions => ({
   h5: {
     fontFamily: "Poppins",
     color: palette.common.white,
+    fontWeight: 600,
     lineHeight: 1.5,
     ...responsiveFontSizes({ sm: 19, md: 20, lg: 20 })
   },

@@ -1,187 +1,382 @@
 import assest from "@/json/assest";
+import palette from "@/themes/palette";
+import CustomButton from "@/ui/Buttons/CustomButton";
+import CallIcon from "@/ui/Icons/CallIcon";
+import NextArrowIcon from "@/ui/Icons/NextArrow";
+import CustomInput from "@/ui/Inputs/CustomInput";
 import styled from "@emotion/styled";
-import Image from "next/image";
-import React from "react";
+import { List, ListItem, Stack, Typography } from "@mui/material";
 import Container from "@mui/material/Container";
 import { Box } from "@mui/system";
+import Image from "next/image";
 import Link from "next/link";
-import { List, ListItem } from "@mui/material";
-import path from "path";
 import { useRouter } from "next/router";
 
 const FooterWrap = styled(Box)`
   padding: 45px 0;
-  .ftr-list {
-    display: flex;
-    align-items: center;
-    padding: 0;
-    @media (max-width: 1199px) {
-      justify-content: center;
-      margin: 8px 0;
-      flex-wrap: wrap;
-    }
-    li {
-      width: auto;
-      margin-right: 35px;
-      @media (max-width: 899px) {
-        margin: 0 17px;
-      }
-      &:last-child {
-        margin-right: 0;
-
-        @media (max-width: 899px) {
-          margin-right: 17px;
-        }
-      }
-      a {
-        font-weight: 400;
-        font-size: 15px;
-        color: var(--color3A4950);
-        text-transform: capitalize;
-        &:hover {
-          color: var(--black);
-        }
-        &.active{
-          color: var(--black);
-        }
-      }
-    }
-  }
-  .ftr-logo {
-    margin-right: 28px;
-    line-height: 0;
-    @media (max-width: 1199px) {
-      max-width: 180px;
-      margin: 0 auto;
-    }
-  }
-  .social-list {
-    display: flex;
-    align-items: center;
-    padding: 0;
-    margin-left: 50px;
-    @media (max-width: 1199px) {
-      justify-content: center;
-      margin-left: 0px;
-      margin-bottom: 15px;
-    }
-    li {
-      width: auto;
-      margin-right: 20px;
-      
-      &:last-child {
-        margin-right: 0;
-      }
-      img {
-        &:hover {
-          filter: brightness(0);
-        }
-        @media (max-width: 991px) {
-          width: 20px;
-          height: 20px;
-        }
-      }
-    }
-  }
-
-  .copy {
-    margin-left: auto;
-
-    font-size: 14px;
-    color: var(--color3A4950);
-
-    a {
-      color: var(--color3A4950);
-      &:hover {
-        color: var(--black);
-      }
-    }
-  }
-  .ftr-wrapper {
-    display: flex;
-    align-items: center;
-    @media (max-width: 1199px) {
-      display: block;
-      text-align: center;
-    }
-  }
+  background-color: #201e1d;
 `;
-
-const navItems = [
-  {
-    name: "home",
-    route: "/",
-  },
-  {
-    name: "About",
-    route: "/about",
-  },
-  {
-    name: "Products",
-    route: "/products",
-  },
-  {
-    name: "Package",
-    route: "/package",
-  },
-  {
-    name: "Contact",
-    route: "/contact",
-  },
-];
-
-
 
 const Footer = () => {
   const navItems = [
     {
-      name: "home",
-      route: "/",
+      name: "Our Story",
+      route: "/"
     },
     {
-      name: "About",
-      route: "/about",
+      name: "Citrus + Microsoft",
+      route: "/"
     },
     {
       name: "Products",
-      route: "/products",
+      route: "/"
     },
     {
-      name: "Package",
-      route: "/package",
+      name: "Service",
+      route: "/"
     },
     {
-      name: "Contact",
-      route: "/contact",
+      name: "Enquiry",
+      route: "/"
     },
+    {
+      name: "Contact us",
+      route: "/"
+    },
+    {
+      name: "CSR",
+      route: "/"
+    },
+    {
+      name: "Work with Us",
+      route: "/"
+    }
+  ];
+
+  const companyItems = [
+    {
+      name: "New releases",
+      route: "/"
+    },
+    {
+      name: "Clients",
+      route: "/"
+    },
+    {
+      name: "Case study ",
+      route: "/"
+    },
+    {
+      name: "Product registration",
+      route: "/"
+    },
+    {
+      name: "resellers",
+      route: "/"
+    },
+    {
+      name: "e-waste",
+      route: "/"
+    },
+    {
+      name: "Blog",
+      route: "/"
+    },
+    {
+      name: "FAQs",
+      route: "/"
+    }
+  ];
+
+  const socialItems = [
+    {
+      name: "Facebook",
+      img: assest.fb,
+      route: "/"
+    },
+    {
+      name: "Instagram",
+      img: assest.insta,
+      route: "/"
+    },
+    {
+      name: "Twitter",
+      img: assest.twiter,
+      route: "/"
+    },
+    {
+      name: "Linkedin",
+      img: assest.linkedin,
+      route: "/"
+    },
+    {
+      name: "Youtube",
+      img: assest.youtube,
+      route: "/"
+    }
   ];
   const router = useRouter();
   return (
-    <>
-      <FooterWrap>
-        <Container fixed>
-          <Box className="ftr-wrapper">
-            <Link href="/" className="ftr-logo">
-              <Image src={assest.logo_img} alt="" width={210} height={34} />
-            </Link>
-
-            <List className="ftr-list">
+    <FooterWrap>
+      <Container fixed>
+        <Stack direction="row" justifyContent="space-between" flexWrap="wrap">
+          <Box sx={{ width: { xs: "100%", md: "393px" } }}>
+            <Typography
+              sx={{
+                fontWeight: 600,
+                fontFamily: "Poppins",
+                fontSize: "22px",
+                mb: "30px"
+              }}
+            >
+              Contact us
+            </Typography>
+            <List
+              sx={{
+                "& .MuiListItem-root": {
+                  display: "flex",
+                  alignItems: "start",
+                  padding: "0px",
+                  marginBottom: "35px",
+                  "& :last-of-type": {
+                    marginBottom: "0px"
+                  },
+                  "& i": {
+                    marginRight: "10px",
+                    width: "46px",
+                    height: "46px",
+                    flexShrink: "0",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backgroundColor: palette.text.primary,
+                    borderRadius: "10px"
+                  },
+                  "& p": {
+                    color: "#A1A1A1",
+                    fontFamily: "Poppins",
+                    fontSize: "14px"
+                  },
+                  "& a , & address": {
+                    fontSize: "16px",
+                    fontFamily: "Poppins",
+                    color: palette.common.white,
+                    fontStyle: "normal"
+                  },
+                  "& a": {
+                    "&:hover": {
+                      color: palette.text.primary
+                    }
+                  }
+                }
+              }}
+            >
+              <ListItem>
+                <i>
+                  <CallIcon />
+                </i>
+                <Box>
+                  <Typography>Call us</Typography>
+                  <Link href="tel:+01 (845) 965 785">+01 (845) 965 785</Link>
+                </Box>
+              </ListItem>
+              <ListItem>
+                <i>
+                  <CallIcon />
+                </i>
+                <Box>
+                  <Typography>Mail us</Typography>
+                  <Link href="mailto:info@citrusindia.com">
+                    info@citrusindia.com
+                  </Link>
+                </Box>
+              </ListItem>
+              <ListItem>
+                <i>
+                  <CallIcon />
+                </i>
+                <Box>
+                  <Typography>Reach us</Typography>
+                  <address>
+                    225, A-wing, Lodha Supremus-2, Road Number 22, MIDC, Wagle
+                    Industrial Estate, Thane-West, near New Passport Office,
+                    Mumbai, Maharashtra 400604
+                  </address>
+                </Box>
+              </ListItem>
+            </List>
+          </Box>
+          <Box sx={{ width: { xs: "100%", md: "162px" } }}>
+            <Typography
+              sx={{
+                fontWeight: 600,
+                fontFamily: "Poppins",
+                fontSize: "22px",
+                mb: "30px"
+              }}
+            >
+              Quick links
+            </Typography>
+            <List
+              sx={{
+                "& .MuiListItem-root": {
+                  display: "flex",
+                  alignItems: "start",
+                  padding: "0px",
+                  marginBottom: "18px",
+                  "& :last-of-type": {
+                    marginBottom: "0px"
+                  },
+                  "& a": {
+                    textTransform: "capitalize",
+                    color: palette.common.white,
+                    "&:hover": {
+                      color: palette.text.primary
+                    }
+                  }
+                }
+              }}
+            >
               {navItems.map((item: any, index: number) => (
-                <ListItem disablePadding>
-                  <Link href={item?.route} key={item.name} className={router.pathname === item.route ? "active" : ""}>
+                <ListItem disablePadding key={index}>
+                  <Link
+                    href={item?.route}
+                    key={item.name}
+                    className={router.pathname === item.route ? "active" : ""}
+                  >
                     {item?.name}
                   </Link>
                 </ListItem>
               ))}
             </List>
- 
-            <Box className="copy">
-              © 2023 <Link href="/">Career Utility.</Link> All Rights Reserved.
-            </Box>
           </Box>
-        </Container>
-      </FooterWrap>
-    </>
+          <Box sx={{ width: { xs: "100%", md: "170px" } }}>
+            <Typography
+              sx={{
+                fontWeight: 600,
+                fontFamily: "Poppins",
+                fontSize: "22px",
+                mb: "30px"
+              }}
+            >
+              company
+            </Typography>
+            <List
+              sx={{
+                "& .MuiListItem-root": {
+                  display: "flex",
+                  alignItems: "start",
+                  padding: "0px",
+                  marginBottom: "18px",
+                  "& :last-of-type": {
+                    marginBottom: "0px"
+                  },
+                  "& a": {
+                    color: palette.common.white,
+                    textTransform: "capitalize",
+                    "&:hover": {
+                      color: palette.text.primary
+                    }
+                  }
+                }
+              }}
+            >
+              {companyItems.map((item: any, index: number) => (
+                <ListItem disablePadding key={index}>
+                  <Link
+                    href={item?.route}
+                    key={item.name}
+                    className={router.pathname === item.route ? "active" : ""}
+                  >
+                    {item?.name}
+                  </Link>
+                </ListItem>
+              ))}
+            </List>
+          </Box>
+          <Box sx={{ width: { xs: "100%", md: "333px" } }}>
+            <Typography
+              sx={{
+                fontWeight: 600,
+                fontFamily: "Poppins",
+                fontSize: "22px",
+                mb: "30px"
+              }}
+            >
+              company
+            </Typography>
+            <form
+              style={{
+                position: "relative"
+              }}
+            >
+              <CustomInput placeholder="Your mail..." fullWidth />
+              <CustomButton
+                type="submit"
+                sx={{
+                  minWidth: "auto",
+                  width: "50px",
+                  height: "50px",
+                  padding: "10px",
+                  position: "absolute",
+                  right: "5px",
+                  top: "50%",
+                  transform: "translateY(-50%)"
+                }}
+              >
+                <NextArrowIcon />
+              </CustomButton>
+            </form>
+            <List
+              sx={{
+                marginTop: "38px",
+                display: "flex",
+                alignItems: "center",
+                "& .MuiListItem-root": {
+                  display: "flex",
+                  alignItems: "center",
+                  padding: "0px",
+                  marginRight: "15px",
+                  width: "40px",
+                  height: "40px",
+                  "& :last-of-type": {
+                    marginBottom: "0px"
+                  },
+                  "& a": {
+                    display: "inline-flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: "100%",
+                    height: "100%",
+                    color: palette.common.white,
+                    textTransform: "capitalize",
+                    borderRadius: "10px",
+                    overflow: "hidden",
+                    "& img": {
+                      width: "100%",
+                      height: "100%"
+                    }
+                  }
+                }
+              }}
+            >
+              {socialItems.map((item: any, index: number) => (
+                <ListItem disablePadding key={index}>
+                  <Link href={item?.route} key={item.name}>
+                    <Image
+                      src={item?.img}
+                      alt={item?.name}
+                      width={40}
+                      height={40}
+                    />
+                  </Link>
+                </ListItem>
+              ))}
+            </List>
+          </Box>
+        </Stack>
+      </Container>
+    </FooterWrap>
   );
 };
 
