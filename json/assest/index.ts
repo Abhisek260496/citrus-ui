@@ -29,5 +29,7 @@ export default {
   twiter: "/assets/images/twitter.png",
   insta: "/assets/images/insta.png",
   linkedin: "/assets/images/linkedin.png",
-  youtube: "/assets/images/youtube.png"
+  youtube: "/assets/images/youtube.png",
+  about_us_banner: "/assets/images/about_us_banner.png",
+  collpsed_img: "/assets/images/collpsed_img.png"
 };

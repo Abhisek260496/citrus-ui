@@ -113,7 +113,10 @@ textarea {
   border: 2px solid #656664;
   border-radius: 0;
 }
-
+figure {
+  line-height: 0;
+  font-size: 0;
+}
 select {
   background: url(/assets/images/down-arrow.svg) right 10px center no-repeat;
   background-size: 20px;
