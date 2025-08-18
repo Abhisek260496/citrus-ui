@@ -36,5 +36,15 @@ export default {
   circuit_board2: "/assets/images/circuit_board2.png",
   circuit_board3: "/assets/images/circuit_board3.png",
   circuit_board4: "/assets/images/circuit_board4.png",
-  processors_img:"/assets/images/processors_img.png",
+  processors_img: "/assets/images/processors_img.png",
+  pillars_water_mark: "/assets/images/pillars_water_mark.png",
+  pillar_icon1: "/assets/images/pillar_icon1.svg",
+  pillar_icon2: "/assets/images/pillar_icon2.svg",
+  pillar_icon3: "/assets/images/pillar_icon3.svg",
+  pillar_icon4: "/assets/images/pillar_icon4.svg",
+  menu_icon: "/assets/images/menu_icon.svg",
+  aim_banner: "/assets/images/aim_banner.png",
+  iso_verified_img: "/assets/images/iso_verified_img.png",
+  iso_img1: "/assets/images/iso_img.png",
+  iso_img2: "/assets/images/iso_img2.png"
 };
