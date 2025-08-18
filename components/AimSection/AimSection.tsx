@@ -5,6 +5,31 @@ import CommonHeader from "../CommonHeader/CommonHeader";
 
 const AimSectionStyled = styled(Box)`
   position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 454px;
+    height: 454px;
+    right: -4%;
+    top: -14%;
+    background: rgba(0, 159, 227, 0.4);
+    filter: blur(200px);
+    z-index: 1;
+    pointer-events: none;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 454px;
+    height: 454px;
+    right: -4%;
+    bottom: -14%;
+    background: rgba(0, 159, 227, 0.4);
+    filter: blur(200px);
+    z-index: 1;
+    pointer-events: none;
+  }
   figure {
     width: 100%;
     img {
