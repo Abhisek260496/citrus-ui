@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 import assest from "@/json/assest";
 import palette from "@/themes/palette";
 import { Box, Container, Stack, Typography, styled } from "@mui/material";
@@ -78,6 +79,7 @@ const OurStoryBannerWrapper = styled(Box)`
   }
 
   .extended_sec {
+    transform: translateY(120px);
     margin-top: 60px;
     background-color: ${palette?.common?.white};
     border-radius: 20px;
@@ -131,7 +133,7 @@ const OurStoryBannerWrapper = styled(Box)`
         width: 224px;
       }
     }
-  }
+  } 
 `;
 
 const OurStoryBanner = () => {

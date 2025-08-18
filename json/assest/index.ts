@@ -31,5 +31,10 @@ export default {
   linkedin: "/assets/images/linkedin.png",
   youtube: "/assets/images/youtube.png",
   about_us_banner: "/assets/images/about_us_banner.png",
-  collpsed_img: "/assets/images/collpsed_img.png"
+  collpsed_img: "/assets/images/collpsed_img.png",
+  circuit_board1: "/assets/images/circuit_board1.png",
+  circuit_board2: "/assets/images/circuit_board2.png",
+  circuit_board3: "/assets/images/circuit_board3.png",
+  circuit_board4: "/assets/images/circuit_board4.png",
+  processors_img:"/assets/images/processors_img.png",
 };
