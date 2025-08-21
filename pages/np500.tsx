@@ -3,6 +3,7 @@ import CoreToEveryThing from "@/components/CoreToEveryThing/CoreToEveryThing";
 import GraphicCardSec from "@/components/GraphicCardSec/GraphicCardSec";
 import IndependentDisplay from "@/components/IndependentDisplay/IndependentDisplay";
 import Np500Banner from "@/components/Np500Banner/Np500Banner";
+import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
 import Wrapper from "@/layout/wrapper/Wrapper";
 
 const Index = () => {
@@ -13,6 +14,7 @@ const Index = () => {
       <IndependentDisplay />
       <GraphicCardSec />
       <Communicative />
+      <RelatedProducts/>
     </Wrapper>
   );
 };
