@@ -46,5 +46,13 @@ export default {
   aim_banner: "/assets/images/aim_banner.png",
   iso_verified_img: "/assets/images/iso_verified_img.png",
   iso_img1: "/assets/images/iso_img.png",
-  iso_img2: "/assets/images/iso_img2.png"
+  iso_img2: "/assets/images/iso_img2.png",
+  np500_banner: "/assets/images/np500_banner.png",
+  core_to_everything: "/assets/images/core_to_everything.jpg",
+  independent_display: "/assets/images/independent_display.png",
+  graphic_card: "/assets/images/graphic_card.png",
+  coummunicative_wire: "/assets/images/coummunicative_wire.png",
+  product1: "/assets/images/product1.png",
+  product2: "/assets/images/product2.png",
+  product3: "/assets/images/product3.png"
 };

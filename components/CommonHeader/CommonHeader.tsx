@@ -39,7 +39,7 @@ const CommonHeader = ({
   ...props
 }: ICustomCommonHeader) => {
   return (
-    <CustomHeadingStyle variant="h1" {...props}>
+    <CustomHeadingStyle variant="h2" {...props}>
       {subTitle && <Typography variant="caption">{subTitle}</Typography>}{" "}
       {mainTitle && degree_val ? (
         <Typography variant="caption" className="degree_val_parent">
