@@ -4,13 +4,14 @@ import GraphicCardSec from "@/components/GraphicCardSec/GraphicCardSec";
 import IndependentDisplay from "@/components/IndependentDisplay/IndependentDisplay";
 import Np500Banner from "@/components/Np500Banner/Np500Banner";
 import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
+import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
 
 const Index = () => {
   return (
     <Wrapper>
       <Np500Banner />
-      <CoreToEveryThing />
+      <CoreToEveryThing bgImg={assest?.core_to_everything}/>
       <IndependentDisplay />
       <GraphicCardSec />
       <Communicative />

@@ -1,5 +1,5 @@
 import assest from "@/json/assest";
-import { Box, Container, Typography, styled } from "@mui/material";
+import { Box, BoxProps, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
 
@@ -28,12 +28,16 @@ const CoreToEveryThingStyled = styled(Box)`
   }
 `;
 
-const CoreToEveryThing = () => {
+interface ICoreToEveryThingProps extends BoxProps{
+  bgImg:string
+}
+
+const CoreToEveryThing = ({bgImg,...props}:ICoreToEveryThingProps) => {
   return (
-    <CoreToEveryThingStyled>
+    <CoreToEveryThingStyled {...props}>
       <figure>
         <Image
-          src={assest?.core_to_everything}
+          src={bgImg}
           alt="core_to_everything"
           width={1600}
           height={900}

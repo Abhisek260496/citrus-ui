@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 /* eslint-disable sort-imports */
 /* eslint-disable @next/next/no-img-element */
 import {
@@ -12,6 +13,7 @@ import {
 import React from "react";
 import CommonHeader from "../CommonHeader/CommonHeader";
 import assest from "@/json/assest";
+import Link from "next/link";
 
 const EachRelatedProductStyled = styled(Box)`
   background: linear-gradient(
@@ -34,6 +36,8 @@ const EachRelatedProductStyled = styled(Box)`
     z-index: 1;
   }
   .product_fig {
+    position: relative;
+    z-index: 2;
     background: radial-gradient(
       72.61% 96.21% at 50.11% 50.14%,
       #3578c7 0%,
@@ -55,6 +59,12 @@ const EachRelatedProductStyled = styled(Box)`
     h6 {
       font-weight: 700;
       font-size: 31px;
+      a{
+        color: #fff;
+        &:hover{
+            color: #FF6106;
+        }
+      }
     }
   }
   .product_content {
@@ -87,6 +97,7 @@ interface IEachRelatedProductProps {
   processor: string;
   memory: string;
   storage: string;
+  route:string
 }
 
 const EachRelatedProduct = ({
@@ -95,7 +106,8 @@ const EachRelatedProduct = ({
   os,
   processor,
   storage,
-  title
+  title,
+  route
 }: IEachRelatedProductProps) => {
   return (
     <EachRelatedProductStyled>
@@ -103,7 +115,9 @@ const EachRelatedProduct = ({
         <figure>
           <img src={image} alt="" />
         </figure>
-        <Typography variant="h6">{title}</Typography>
+        <Typography variant="h6">
+            <Link href={route}>{title}</Link>
+        </Typography>
       </Box>
       <Box className="product_content">
         <List disablePadding>
@@ -132,7 +146,8 @@ const productList: IEachRelatedProductProps[] = [
     memory: "Supports upto 64GB 3200 MHz",
     os: "Windows 11 Pro/IoT, Linux",
     processor: " Intel Core 13th Gen. i3 1315U/ i5 1335U/ i7 1355U",
-    storage: "M.2 NVMe + 2.5″ SATA"
+    storage: "M.2 NVMe + 2.5″ SATA",
+    route:""
   },
   {
     title: "UVA Plus LOH610",
@@ -140,7 +155,8 @@ const productList: IEachRelatedProductProps[] = [
     memory: "Supports upto 64GB 3200 MHz",
     os: "Windows 11 Pro/IoT, Linux",
     processor: " Intel Core 13th Gen. i3 1315U/ i5 1335U/ i7 1355U",
-    storage: "M.2 NVMe + 2.5″ SATA"
+    storage: "M.2 NVMe + 2.5″ SATA",
+    route:""
   },
   {
     title: "RIG Plus Rugged PC",
@@ -148,7 +164,8 @@ const productList: IEachRelatedProductProps[] = [
     memory: "Supports upto 64GB 3200 MHz",
     os: "Windows 11 Pro/IoT, Linux",
     processor: " Intel Core 13th Gen. i3 1315U/ i5 1335U/ i7 1355U",
-    storage: "M.2 NVMe + 2.5″ SATA"
+    storage: "M.2 NVMe + 2.5″ SATA",
+    route:""
   }
 ];
 

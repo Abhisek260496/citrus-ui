@@ -54,5 +54,8 @@ export default {
   coummunicative_wire: "/assets/images/coummunicative_wire.png",
   product1: "/assets/images/product1.png",
   product2: "/assets/images/product2.png",
-  product3: "/assets/images/product3.png"
+  product3: "/assets/images/product3.png",
+  eon_slim_banner:"/assets/images/eon_slim_banner.png",
+  eonSlimBannerBg:"/assets/images/eonSlimBannerBg.png",
+  core_to_everything_eon_slim:"/assets/images/core_to_everything_eon_slim.jpg"
 };

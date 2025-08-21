@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 import palette from "@/themes/palette";
 import { Box, styled } from "@mui/material";
 
