@@ -71,5 +71,9 @@ export default {
     "/assets/images/core_to_everything_eon_pro13.png",
   four_display_bg: "/assets/images/four_display_bg.png",
   dual_lan_img: "/assets/images/dual_lan_img.png",
-  next_gen_bg: "/assets/images/next_gen_bg.png"
+  next_gen_bg: "/assets/images/next_gen_bg.png",
+  eon13_pro_x_img: "/assets/images/eon13_pro_x_img.png",
+  eon13_pro_x_bg: "/assets/images/eon13_pro_x_bg.png",
+  dual_storage_bg: "/assets/images/dual_storage_bg.png",
+  coummunicative_wire_pro: "/assets/images/coummunicative_wire_pro.png"
 };

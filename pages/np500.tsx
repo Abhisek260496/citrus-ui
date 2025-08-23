@@ -15,7 +15,10 @@ const Index = () => {
       <CoreToEveryThing bgImg={assest?.core_to_everything} />
       <IndependentDisplay />
       <GraphicCardSec />
-      <Communicative />
+      <Communicative
+        banner_bg={assest?.coummunicative_wire}
+        description="When uptime matters and Wi-Fi wavers, the serial stays solid. Simple, stable & reliable route of communication notably from PC to industrial controllers, sensors, routers and PoS systems."
+      />
       <RelatedProducts productList={productList} />
     </Wrapper>
   );

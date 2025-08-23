@@ -1,6 +1,5 @@
 /* eslint-disable import/order */
-import assest from "@/json/assest";
-import { Box, Container, Typography, styled } from "@mui/material";
+import { Box, BoxProps, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 
 const Eon13ProBannerStyled = styled(Box)`
@@ -14,30 +13,39 @@ const Eon13ProBannerStyled = styled(Box)`
   }
 `;
 
-const Eon13ProBanner = () => {
+interface IEon13ProBannerProps extends BoxProps {
+  banner_bg: string;
+  product_img: string;
+  description: string;
+}
+
+const Eon13ProBanner = ({
+  banner_bg,
+  product_img,
+  description,
+  ...props
+}: IEon13ProBannerProps) => {
   return (
     <Eon13ProBannerStyled
       sx={{
-        backgroundImage: `url(${assest?.eon13_pro_bg})`,
+        backgroundImage: `url(${banner_bg})`,
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover"
       }}
+      {...props}
     >
       <Container fixed>
         <Box className="eon_slim_wrapper">
           <figure>
             <Image
-              src={assest?.eon13_pro_img}
-              alt="eon_slim_banner"
+              src={product_img}
+              alt="eon_product_img"
               width={1100}
               height={500}
             />
           </figure>
-          <Typography>
-            An Ultra-Compact Micro PC with uninterrupted connectivity for
-            uninterrupted data flow.
-          </Typography>
+          <Typography>{description}</Typography>
         </Box>
       </Container>
     </Eon13ProBannerStyled>
