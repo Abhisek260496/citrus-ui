@@ -1,5 +1,11 @@
-import assest from "@/json/assest";
-import { Box, Container, Stack, Typography, styled } from "@mui/material";
+import {
+  Box,
+  BoxProps,
+  Container,
+  Stack,
+  Typography,
+  styled
+} from "@mui/material";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
 
@@ -32,12 +38,25 @@ const TwoIndependentDisplayStyled = styled(Box)`
   }
 `;
 
-const TwoIndependentDisplay = () => {
+interface ITwoIndependentDisplayProps extends BoxProps {
+  bgImg: string;
+  mainTitle: string;
+  subTitle: string;
+  description: string;
+}
+
+const TwoIndependentDisplay = ({
+  bgImg,
+  description,
+  mainTitle,
+  subTitle,
+  ...props
+}: ITwoIndependentDisplayProps) => {
   return (
-    <TwoIndependentDisplayStyled>
+    <TwoIndependentDisplayStyled {...props}>
       <figure>
         <Image
-          src={assest?.two_independent_displays_bg}
+          src={bgImg}
           alt="two_independent_displays_bg"
           width={1600}
           height={900}
@@ -53,19 +72,15 @@ const TwoIndependentDisplay = () => {
           >
             <Box>
               <CommonHeader
-                mainTitle="Independent"
-                subTitle="Two"
+                mainTitle={mainTitle}
+                subTitle={subTitle}
                 className="cmn_header"
               />
               <Typography variant="h2" className="gradient_header">
                 Displays
               </Typography>
             </Box>
-            <Typography>
-              The seamless transition between displays ensures a more efficient
-              workflow without the hassle of constantly switching tabs or
-              windows.
-            </Typography>
+            <Typography>{description}</Typography>
           </Stack>
         </Container>
       </Box>

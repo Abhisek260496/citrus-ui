@@ -13,7 +13,12 @@ const Index = () => {
     <Wrapper>
       <EonSlimBanner />
       <CoreToEveryThing bgImg={assest?.core_to_everything_eon_slim} />
-      <TwoIndependentDisplay />
+      <TwoIndependentDisplay
+        bgImg={assest?.two_independent_displays_bg}
+        mainTitle="independent"
+        subTitle="two"
+        description="The seamless transition between displays ensures a more efficient workflow without the hassle of constantly switching tabs or windows."
+      />
       <PalmSizeSection />
       <UltraBg />
       <RelatedProducts productList={productList2} />

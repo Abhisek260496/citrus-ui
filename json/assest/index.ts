@@ -64,5 +64,12 @@ export default {
   TwoDisplayBg: "/assets/images/TwoDisplayBg.jpg",
   two_independent_displays_bg: "/assets/images/two_independent_displays_bg.png",
   palm_size_bg: "/assets/images/palm_size_bg.png",
-  ultra_bg: "/assets/images/ultra_bg.png"
+  ultra_bg: "/assets/images/ultra_bg.png",
+  eon13_pro_img: "/assets/images/eon13_pro_img.png",
+  eon13_pro_bg: "/assets/images/eon13_pro_bg.png",
+  core_to_everything_eon_pro13:
+    "/assets/images/core_to_everything_eon_pro13.png",
+  four_display_bg: "/assets/images/four_display_bg.png",
+  dual_lan_img: "/assets/images/dual_lan_img.png",
+  next_gen_bg: "/assets/images/next_gen_bg.png"
 };
