@@ -1,4 +1,3 @@
-import assest from "@/json/assest";
 import { Box, BoxProps, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";

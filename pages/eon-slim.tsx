@@ -7,7 +7,6 @@ import Wrapper from '@/layout/wrapper/Wrapper'
 const Index = () => {
   return (
     <Wrapper>
-
         <EonSlimBanner/>
         <CoreToEveryThing bgImg={assest?.core_to_everything_eon_slim}/>
     </Wrapper>

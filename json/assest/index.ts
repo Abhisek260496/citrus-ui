@@ -57,5 +57,6 @@ export default {
   product3: "/assets/images/product3.png",
   eon_slim_banner:"/assets/images/eon_slim_banner.png",
   eonSlimBannerBg:"/assets/images/eonSlimBannerBg.png",
-  core_to_everything_eon_slim:"/assets/images/core_to_everything_eon_slim.jpg"
+  core_to_everything_eon_slim:"/assets/images/core_to_everything_eon_slim.jpg",
+  TwoDisplayBg:"/assets/images/TwoDisplayBg.jpg"
 };
