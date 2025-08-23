@@ -1,9 +1,9 @@
 import assest from "@/json/assest";
-import { Box, Container, Stack, Typography, styled } from "@mui/material";
+import { Box, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
 
-const DualLanStyled = styled(Box)`
+const ResistSectionStyled = styled(Box)`
   position: relative;
   figure {
     img {
@@ -23,42 +23,30 @@ const DualLanStyled = styled(Box)`
     .core_content {
       position: relative;
       height: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
     }
     .core_content_txt {
-      max-width: 690px;
+      max-width: 1111px;
+      text-align: center;
       h2 {
-        max-width: 533px;
+        /* max-width: 533px; */
         margin-bottom: 15px;
       }
       p {
-        max-width: 522px;
-      }
-    }
-    .faster_hdr {
-      font-size: 138px;
-      span {
-        font-size: 58px;
-        font-weight: 600;
-        text-transform: capitalize;
-      }
-    }
-    .btm_block {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      img {
-        margin-right: -100px;
+        /* max-width: 522px; */
       }
     }
   }
 `;
 
-const DualLan = () => {
+const ResistSection = () => {
   return (
-    <DualLanStyled>
+    <ResistSectionStyled>
       <figure>
         <Image
-          src={assest?.dual_lan_bg}
+          src={assest?.handle_bg}
           alt="dual_lan_bg"
           width={1600}
           height={900}
@@ -68,7 +56,15 @@ const DualLan = () => {
         <Container fixed>
           <Box className="core_content">
             <Box className="core_content_txt">
-              <CommonHeader mainTitle=" LAN" subTitle="Dual " />
+              <CommonHeader
+                mainTitle="Handles Vibrations, Blocks Dust, Resists "
+                subTitle="Damage"
+                className="gradient_header"
+                sx={{
+                  fontSize: "68px !important"
+                }}
+                isReversed
+              />
               <Typography>
                 Keep-up with the heavy workloads or real-time demands with dual
                 2.5 Gbps LAN that deliver double the power to enjoy smoother
@@ -76,22 +72,11 @@ const DualLan = () => {
                 extranet
               </Typography>
             </Box>
-            <Stack className="btm_block" direction="row" alignItems="center">
-              <Image
-                src={assest?.wifi_img}
-                alt="wifi_img"
-                width={452}
-                height={230}
-              />
-              <Typography variant="h2" className="faster_hdr">
-                2.5 <Typography variant="caption">x faster</Typography>
-              </Typography>
-            </Stack>
           </Box>
         </Container>
       </Box>
-    </DualLanStyled>
+    </ResistSectionStyled>
   );
 };
 
-export default DualLan;
+export default ResistSection;

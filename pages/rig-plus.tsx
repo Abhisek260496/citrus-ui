@@ -3,7 +3,9 @@ import CoreToEveryThing from "@/components/CoreToEveryThing/CoreToEveryThing";
 import DualLan from "@/components/DualLan/DualLan";
 import FourDependentDisplay from "@/components/FourDependentDisplay/FourDependentDisplay";
 import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
+import ResistSection from "@/components/ResistSection/ResistSection";
 import RigPlusBanner from "@/components/RigPlusBanner/RigPlusBanner";
+import ToughPortableSection from "@/components/ToughPortableSection/ToughPortableSection";
 import assest from "@/json/assest";
 import { productList2 } from "@/json/dummy";
 import Wrapper from "@/layout/wrapper/Wrapper";
@@ -15,6 +17,8 @@ const Index = () => {
       <CoreToEveryThing bgImg={assest?.core_to_everything} />
       <FourDependentDisplay />
       <DualLan />
+      <ResistSection />
+      <ToughPortableSection />
       <Communicative
         banner_bg={assest?.coummunicative_wire_pro}
         description="When uptime matters and Wi-Fi wavers, COM ports stay solid. Simple, stable & reliable route of
