@@ -75,5 +75,12 @@ export default {
   eon13_pro_x_img: "/assets/images/eon13_pro_x_img.png",
   eon13_pro_x_bg: "/assets/images/eon13_pro_x_bg.png",
   dual_storage_bg: "/assets/images/dual_storage_bg.png",
-  coummunicative_wire_pro: "/assets/images/coummunicative_wire_pro.png"
+  coummunicative_wire_pro: "/assets/images/coummunicative_wire_pro.png",
+  rig_plus_img: "/assets/images/rig_plus_img.png",
+  rig_plus_bg: "/assets/images/rig_plus_bg.png",
+  four_dependent_display_bg: "/assets/images/four_dependent_display_bg.png",
+  dual_lan_bg: "/assets/images/dual_lan_bg.png",
+  handle_bg: "/assets/images/handle_bg.png",
+  tough_portable_bg: "/assets/images/tough_portable_bg.png",
+  wifi_img: "/assets/images/wifi_img.png"
 };
