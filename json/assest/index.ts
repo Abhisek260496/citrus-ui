@@ -55,8 +55,14 @@ export default {
   product1: "/assets/images/product1.png",
   product2: "/assets/images/product2.png",
   product3: "/assets/images/product3.png",
-  eon_slim_banner:"/assets/images/eon_slim_banner.png",
-  eonSlimBannerBg:"/assets/images/eonSlimBannerBg.png",
-  core_to_everything_eon_slim:"/assets/images/core_to_everything_eon_slim.jpg",
-  TwoDisplayBg:"/assets/images/TwoDisplayBg.jpg"
+  product4: "/assets/images/product4.png",
+  product5: "/assets/images/product5.png",
+  product6: "/assets/images/product6.png",
+  eon_slim_banner: "/assets/images/eon_slim_banner.png",
+  eonSlimBannerBg: "/assets/images/eonSlimBannerBg.png",
+  core_to_everything_eon_slim: "/assets/images/core_to_everything_eon_slim.jpg",
+  TwoDisplayBg: "/assets/images/TwoDisplayBg.jpg",
+  two_independent_displays_bg: "/assets/images/two_independent_displays_bg.png",
+  palm_size_bg: "/assets/images/palm_size_bg.png",
+  ultra_bg: "/assets/images/ultra_bg.png"
 };

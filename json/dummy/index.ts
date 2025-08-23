@@ -1,3 +1,4 @@
+import { IEachRelatedProductProps } from "@/types/common.type";
 import assest from "../assest";
 
 export const eachPowerFullElements = [
@@ -143,5 +144,65 @@ export const updatedDataList = [
     publishDate: "Mar 21, 2025",
     title: "Nvidia GeForce RTX 3070 Ti",
     redirectUrl: "/"
+  }
+];
+
+export const productList: IEachRelatedProductProps[] = [
+  {
+    title: "EON 13ProX",
+    image: assest?.product1,
+    memory: "Supports upto 64GB 3200 MHz",
+    os: "Windows 11 Pro/IoT, Linux",
+    processor: " Intel Core 13th Gen. i3 1315U/ i5 1335U/ i7 1355U",
+    storage: "M.2 NVMe + 2.5″ SATA",
+    route: ""
+  },
+  {
+    title: "UVA Plus LOH610",
+    image: assest?.product2,
+    memory: "Supports upto 64GB 3200 MHz",
+    os: "Windows 11 Pro/IoT, Linux",
+    processor: " Intel Core 13th Gen. i3 1315U/ i5 1335U/ i7 1355U",
+    storage: "M.2 NVMe + 2.5″ SATA",
+    route: ""
+  },
+  {
+    title: "RIG Plus Rugged PC",
+    image: assest?.product3,
+    memory: "Supports upto 64GB 3200 MHz",
+    os: "Windows 11 Pro/IoT, Linux",
+    processor: " Intel Core 13th Gen. i3 1315U/ i5 1335U/ i7 1355U",
+    storage: "M.2 NVMe + 2.5″ SATA",
+    route: ""
+  }
+];
+
+export const productList2: IEachRelatedProductProps[] = [
+  {
+    title: "EON Slim E",
+    image: assest?.product4,
+    memory: "Supports upto 64GB 3200 MHz",
+    os: "Windows 11 Pro/IoT, Linux",
+    processor: " Intel Core 13th Gen. i3 1315U/ i5 1335U/ i7 1355U",
+    storage: "M.2 NVMe + 2.5″ SATA",
+    route: ""
+  },
+  {
+    title: "EON Slim N3350",
+    image: assest?.product5,
+    memory: "Supports upto 64GB 3200 MHz",
+    os: "Windows 11 Pro/IoT, Linux",
+    processor: " Intel Core 13th Gen. i3 1315U/ i5 1335U/ i7 1355U",
+    storage: "M.2 NVMe + 2.5″ SATA",
+    route: ""
+  },
+  {
+    title: "EON 14Pro",
+    image: assest?.product6,
+    memory: "Supports upto 64GB 3200 MHz",
+    os: "Windows 11 Pro/IoT, Linux",
+    processor: " Intel Core 13th Gen. i3 1315U/ i5 1335U/ i7 1355U",
+    storage: "M.2 NVMe + 2.5″ SATA",
+    route: ""
   }
 ];

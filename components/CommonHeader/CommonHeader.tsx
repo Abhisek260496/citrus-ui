@@ -30,29 +30,52 @@ interface ICustomCommonHeader extends TypographyProps {
   degree_val?: string;
   sub_break_title?: string;
   isBgWhite?: boolean;
+  isReversed?: boolean;
 }
 const CommonHeader = ({
   mainTitle,
   subTitle,
   degree_val,
   sub_break_title,
+  isReversed,
   ...props
 }: ICustomCommonHeader) => {
   return (
     <CustomHeadingStyle variant="h2" {...props}>
-      {subTitle && <Typography variant="caption">{subTitle}</Typography>}{" "}
-      {mainTitle && degree_val ? (
-        <Typography variant="caption" className="degree_val_parent">
-          {mainTitle}
-          <Typography variant="caption" className="degree_val">
-            {degree_val}
-          </Typography>
-          <Typography variant="caption" className="sub_break_title">
-            {sub_break_title}
-          </Typography>
-        </Typography>
+      {!isReversed ? (
+        <>
+          {subTitle && <Typography variant="caption">{subTitle}</Typography>}{" "}
+          {mainTitle && degree_val ? (
+            <Typography variant="caption" className="degree_val_parent">
+              {mainTitle}
+              <Typography variant="caption" className="degree_val">
+                {degree_val}
+              </Typography>
+              <Typography variant="caption" className="sub_break_title">
+                {sub_break_title}
+              </Typography>
+            </Typography>
+          ) : (
+            mainTitle || null
+          )}
+        </>
       ) : (
-        mainTitle || null
+        <>
+          {mainTitle && degree_val ? (
+            <Typography variant="caption" className="degree_val_parent">
+              {mainTitle}
+              <Typography variant="caption" className="degree_val">
+                {degree_val}
+              </Typography>
+              <Typography variant="caption" className="sub_break_title">
+                {sub_break_title}
+              </Typography>
+            </Typography>
+          ) : (
+            mainTitle || null
+          )}
+          {subTitle && <Typography variant="caption">{subTitle}</Typography>}{" "}
+        </>
       )}
     </CustomHeadingStyle>
   );
