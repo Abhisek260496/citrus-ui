@@ -1,7 +1,6 @@
 import assest from "@/json/assest";
 import { BannerStyled } from "@/styles/styledComponents/BannerStyled";
 import { Box, Container, List, ListItem } from "@mui/material";
-import Image from "next/image";
 import Link from "next/link";
 
 const navItems = [
@@ -43,12 +42,13 @@ const Banner = () => {
   return (
     <BannerStyled>
       <figure>
-        <Image
+        {/* <Image
           src={assest?.bannerImage}
           alt="banner"
           width={1600}
           height={724}
-        />
+        /> */}
+        <video src={assest?.bannerVideo} autoPlay loop muted />
       </figure>
       <Box className="banner_btm_block">
         <Container fixed>

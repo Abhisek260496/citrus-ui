@@ -82,5 +82,12 @@ export default {
   dual_lan_bg: "/assets/images/dual_lan_bg.png",
   handle_bg: "/assets/images/handle_bg.png",
   tough_portable_bg: "/assets/images/tough_portable_bg.png",
-  wifi_img: "/assets/images/wifi_img.png"
+  wifi_img: "/assets/images/wifi_img.png",
+  caseStudyBnrImg: "/assets/images/caseStudyBnrImg.png",
+  digitalSignBg: "/assets/images/digitalSignBg.png",
+  digitalSignSecRgtImg: "/assets/images/digitalSignSecRgtImg.png",
+  smartClassroomImg: "/assets/images/smartClassroomImg.png",
+  successStoryBg: "/assets/images/successStoryBg.png",
+  bannerVideo: "/assets/videos/banner_video.mp4",
+  eon_pro_360: "/assets/videos/eon_pro_360.mp4"
 };
