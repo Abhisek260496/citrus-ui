@@ -5,7 +5,7 @@ export const BannerStyled = styled(Box)`
   figure {
     line-height: 0;
     font-size: 0;
-    img {
+    video {
       width: 100%;
     }
   }

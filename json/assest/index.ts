@@ -104,4 +104,6 @@ export default {
   wasteBinImg: "/assets/images/wasteBinImg.png",
   logisticsSmallImg: "/assets/images/logisticsSmallImg.png",
   simramImg: "/assets/images/simramImg.png",
+  bannerVideo: "/assets/videos/banner_video.mp4",
+  eon_pro_360: "/assets/videos/eon_pro_360.mp4"
 };
