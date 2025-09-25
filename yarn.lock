@@ -1383,7 +1383,10 @@
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 585950b9a67637b4b9dc860d38d8ec4172c7d7b0
 "@parcel/watcher-android-arm64@2.5.1":
   version "2.5.1"
   resolved "https://registry.npmjs.org/@parcel/watcher-android-arm64/-/watcher-android-arm64-2.5.1.tgz"
@@ -1445,6 +1448,9 @@
   integrity sha512-c2KkcVN+NJmuA7CGlaGD1qJh1cLfDnQsHjE89E60vUEMlqduHGCdCLJCID5geFVM0dOtA3ZiIO8BoEQmzQVfpQ==
 
 >>>>>>> d0cf79f284271559737512162da1a609d34ead5b
+<<<<<<< HEAD
+>>>>>>> 585950b9a67637b4b9dc860d38d8ec4172c7d7b0
+=======
 >>>>>>> 585950b9a67637b4b9dc860d38d8ec4172c7d7b0
 "@parcel/watcher-win32-x64@2.5.1":
   version "2.5.1"
@@ -3517,12 +3523,18 @@ fs.realpath@^1.0.0:
   integrity sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 585950b9a67637b4b9dc860d38d8ec4172c7d7b0
 fsevents@~2.3.2:
   version "2.3.3"
   resolved "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz"
   integrity sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==
 
+<<<<<<< HEAD
+>>>>>>> 585950b9a67637b4b9dc860d38d8ec4172c7d7b0
+=======
 >>>>>>> 585950b9a67637b4b9dc860d38d8ec4172c7d7b0
 function-bind@^1.1.2:
   version "1.1.2"
