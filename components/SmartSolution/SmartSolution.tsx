@@ -57,6 +57,7 @@ const SmartSolution = (): React.ReactElement => {
 
   return (
     <SmartSolutionStyled className="cmn_gap cmn_gap_top">
+      {/* <Typography>Hello</Typography> */}
       <Container fixed>
         <Box
           sx={{
