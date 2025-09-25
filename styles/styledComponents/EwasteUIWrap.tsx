@@ -67,14 +67,12 @@ export const EwasteUIWrap = styled(Box)`
       color: #231f20;
       line-height: 1.6;
       font-size: 20px;
-      text-align: center;
     }
 
     .ewasteInfoContent {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 40px;
 
       @media (max-width: 900px) {
         flex-direction: column;
@@ -83,11 +81,7 @@ export const EwasteUIWrap = styled(Box)`
     }
 
     .ewasteInfoLeft {
-      flex: 1;
-      color: #fff;
-      border-radius: 12px;
       position: relative;
-
       .ewasteInfoHeading {
         font-size: 32px;
         font-weight: 600;
@@ -105,13 +99,61 @@ export const EwasteUIWrap = styled(Box)`
           height: auto;
         }
       }
+
+      .ewasteRgtPart {
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 45px;
+
+        p {
+          color: #231f20;
+          line-height: 1.6;
+          font-size: 20px;
+        }
+        .ewasteIntroText {
+          margin-left: auto;
+          max-width: 500px;
+        }
+
+        .ewasteSubHeading {
+          color: #231f20;
+          font-weight: 600;
+          text-transform: capitalize;
+          max-width: 500px;
+          margin-left: auto;
+        }
+        .ewasteMantraText {
+          max-width: 500px;
+        }
+        .ewasteReduceText {
+          max-width: 600px;
+        }
+
+        .ewasteReuseText {
+          max-width: 650px;
+        }
+
+        .ewasteRecycleText{
+          max-width: 750px;
+        }
+      }
     }
 
     .ewasteInfoRight {
       flex: 1;
-      padding: 20px;
-      background: #f1f2f2;
-
+      figure {
+        margin: 0;
+        img {
+          width: 100%;
+          max-width: 100%;
+          height: auto;
+        }
+      }
       .ewasteSubHeading {
         font-size: 20px;
         font-weight: 600;
@@ -210,7 +252,7 @@ export const EwasteUIWrap = styled(Box)`
   }
 
   .dosDontsWrap {
-    background: #AFBFAE;
+    background: #afbfae;
     padding: 80px 60px;
 
     .sectionTitle {
@@ -237,7 +279,7 @@ export const EwasteUIWrap = styled(Box)`
         font-size: 18px;
         line-height: 1.6;
         margin-bottom: 15px;
-            list-style-type: inherit;    
+        list-style-type: inherit;
       }
     }
   }

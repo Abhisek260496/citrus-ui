@@ -102,6 +102,9 @@ export default {
   eWasteBnrImg: "/assets/images/e-wasteBnrImg.png",
   ewasteBinImg: "/assets/images/e-wasteBinImg.png",
   wasteBinImg: "/assets/images/wasteBinImg.png",
+  eWasteRgtImg: "/assets/images/eWasteRgtImg.png",
+  ewastebgImg: "/assets/images/ewastebgImg.png",
+
   logisticsSmallImg: "/assets/images/logisticsSmallImg.png",
   simramImg: "/assets/images/simramImg.png",
   bannerVideo: "/assets/videos/banner_video.mp4",
