@@ -1,6 +1,7 @@
 /* eslint-disable import/order */
 /* eslint-disable sort-imports */
 /* eslint-disable @next/next/no-img-element */
+import { IEachRelatedProductProps } from "@/types/common.type";
 import {
   Box,
   Container,
@@ -10,10 +11,8 @@ import {
   styled,
   Typography
 } from "@mui/material";
-import React from "react";
-import CommonHeader from "../CommonHeader/CommonHeader";
-import assest from "@/json/assest";
 import Link from "next/link";
+import CommonHeader from "../CommonHeader/CommonHeader";
 
 const EachRelatedProductStyled = styled(Box)`
   background: linear-gradient(
@@ -24,7 +23,7 @@ const EachRelatedProductStyled = styled(Box)`
   backdrop-filter: blur(20px);
   border-radius: 20px;
   position: relative;
-    &::before {
+  &::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -59,10 +58,10 @@ const EachRelatedProductStyled = styled(Box)`
     h6 {
       font-weight: 700;
       font-size: 31px;
-      a{
+      a {
         color: #fff;
-        &:hover{
-            color: #FF6106;
+        &:hover {
+          color: #ff6106;
         }
       }
     }
@@ -75,13 +74,13 @@ const EachRelatedProductStyled = styled(Box)`
         font-size: 22px;
         color: #009fe3;
         display: block;
-        span{
-            /* display: inline-block; */
-            font-weight: 400;
-            color: #fff;
+        span {
+          /* display: inline-block; */
+          font-weight: 400;
+          color: #fff;
         }
-        &:not(:last-of-type){
-            margin-bottom: 10px;
+        &:not(:last-of-type) {
+          margin-bottom: 10px;
         }
       }
     }
@@ -89,16 +88,6 @@ const EachRelatedProductStyled = styled(Box)`
 `;
 
 const RelatedProductsStyled = styled(Box)``;
-
-interface IEachRelatedProductProps {
-  image: string;
-  title: string;
-  os: string;
-  processor: string;
-  memory: string;
-  storage: string;
-  route:string
-}
 
 const EachRelatedProduct = ({
   image,
@@ -116,22 +105,22 @@ const EachRelatedProduct = ({
           <img src={image} alt="" />
         </figure>
         <Typography variant="h6">
-            <Link href={route}>{title}</Link>
+          <Link href={route}>{title}</Link>
         </Typography>
       </Box>
       <Box className="product_content">
         <List disablePadding>
-          <ListItem disablePadding>OS - 
-            <Typography variant="caption">{os}</Typography>
+          <ListItem disablePadding>
+            OS -<Typography variant="caption">{os}</Typography>
           </ListItem>
-          <ListItem disablePadding>Processor - 
-             <Typography variant="caption">{processor}</Typography>
+          <ListItem disablePadding>
+            Processor -<Typography variant="caption">{processor}</Typography>
           </ListItem>
-          <ListItem disablePadding>Memory - 
-             <Typography variant="caption">{memory}</Typography>
+          <ListItem disablePadding>
+            Memory -<Typography variant="caption">{memory}</Typography>
           </ListItem>
-          <ListItem disablePadding>Storage - 
-             <Typography variant="caption">{storage}</Typography>
+          <ListItem disablePadding>
+            Storage -<Typography variant="caption">{storage}</Typography>
           </ListItem>
         </List>
       </Box>
@@ -139,44 +128,18 @@ const EachRelatedProduct = ({
   );
 };
 
-const productList: IEachRelatedProductProps[] = [
-  {
-    title: "EON 13ProX",
-    image: assest?.product1,
-    memory: "Supports upto 64GB 3200 MHz",
-    os: "Windows 11 Pro/IoT, Linux",
-    processor: " Intel Core 13th Gen. i3 1315U/ i5 1335U/ i7 1355U",
-    storage: "M.2 NVMe + 2.5″ SATA",
-    route:""
-  },
-  {
-    title: "UVA Plus LOH610",
-    image: assest?.product2,
-    memory: "Supports upto 64GB 3200 MHz",
-    os: "Windows 11 Pro/IoT, Linux",
-    processor: " Intel Core 13th Gen. i3 1315U/ i5 1335U/ i7 1355U",
-    storage: "M.2 NVMe + 2.5″ SATA",
-    route:""
-  },
-  {
-    title: "RIG Plus Rugged PC",
-    image: assest?.product3,
-    memory: "Supports upto 64GB 3200 MHz",
-    os: "Windows 11 Pro/IoT, Linux",
-    processor: " Intel Core 13th Gen. i3 1315U/ i5 1335U/ i7 1355U",
-    storage: "M.2 NVMe + 2.5″ SATA",
-    route:""
-  }
-];
+interface IRelatedProducts {
+  productList: IEachRelatedProductProps[];
+}
 
-const RelatedProducts = () => {
+const RelatedProducts = ({ productList }: IRelatedProducts) => {
   return (
     <RelatedProductsStyled className="cmn_gap">
       <Container fixed>
         <CommonHeader
           subTitle="Related"
           mainTitle=" Products"
-          sx={{ textAlign: "center", marginBottom:"62px" }}
+          sx={{ textAlign: "center", marginBottom: "62px" }}
         />
         <Grid container spacing={2}>
           {productList?.map((item, index) => (

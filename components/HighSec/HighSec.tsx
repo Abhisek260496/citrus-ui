@@ -1,0 +1,65 @@
+/* eslint-disable sort-imports */
+import assest from "@/json/assest";
+import { Box, Container, styled, Typography } from "@mui/material";
+import Image from "next/image";
+
+export const HighSecWrapper = styled(Box)`
+  position: relative;
+  padding: 100px 0;
+  height: 900px;
+  .bandwithImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 900px;
+    z-index: 1;
+  }
+  .sec_hd {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    h2 {
+      color: #fff;
+      font-weight: 400;
+      margin-bottom: 15px;
+    }
+    p {
+      color: #fff;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    span{
+        font-size: 128px;
+        font-weight: 700;
+        line-height: 1;
+    }
+  }
+`;
+
+const HighSec = () => {
+  return (
+    <HighSecWrapper>
+      <Image
+        src={assest.bandwithImg}
+        alt="bandwithImg"
+        width={1600}
+        height={987}
+        className="bandwithImg"
+      />
+      <Container fixed>
+        <Box className="sec_hd">
+          <Typography variant="h2">High bandwidth interface with</Typography>
+          <Typography variant="caption">DDR4</Typography>
+          <Typography variant="body1">
+            An energy-efficient memory module which operates at 3200Mhz, 50
+            times faster than DDR3 delivering higher data transfer rates and
+            lower power consumption making it ideal for Thin Clients.
+          </Typography>
+        </Box>
+      </Container>
+    </HighSecWrapper>
+  );
+};
+
+export default HighSec;

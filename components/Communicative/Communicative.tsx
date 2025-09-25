@@ -1,5 +1,4 @@
-import assest from "@/json/assest";
-import { Box, Container, Typography, styled } from "@mui/material";
+import { Box, BoxProps, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
 
@@ -30,12 +29,21 @@ const CommunicativeStyled = styled(Box)`
   }
 `;
 
-const Communicative = () => {
+interface ICommunicativeProps extends BoxProps {
+  banner_bg: string;
+  description: string;
+}
+
+const Communicative = ({
+  banner_bg,
+  description,
+  ...props
+}: ICommunicativeProps) => {
   return (
-    <CommunicativeStyled>
+    <CommunicativeStyled {...props}>
       <figure>
         <Image
-          src={assest?.coummunicative_wire}
+          src={banner_bg}
           alt="coummunicative_wire"
           width={1920}
           height={900}
@@ -48,9 +56,10 @@ const Communicative = () => {
             subTitle=" Easy  Communicative "
           />
           <Typography>
-            When uptime matters and Wi-Fi wavers, the serial stays solid.
+            {description}
+            {/* When uptime matters and Wi-Fi wavers, the serial stays solid.
             Simple, stable & reliable route of communication notably from PC to
-            industrial controllers, sensors, routers and PoS systems.
+            industrial controllers, sensors, routers and PoS systems. */}
           </Typography>
         </Container>
       </Box>

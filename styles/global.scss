@@ -432,6 +432,17 @@ input[type="submit"]:hover {
   // }
 }
 
+.gradient_header {
+  font-size: 158px;
+  line-height: 1 !important;
+  background: -webkit-linear-gradient(left, #00baff, #ffffff);
+  background: -o-linear-gradient(right, #00baff, #ffffff);
+  background: -moz-linear-gradient(right, #00baff, #ffffff);
+  background: linear-gradient(to right, #00baff, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 // ==============================
 .MuiContainer-root {
   @media (min-width: 1400px) {

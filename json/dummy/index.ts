@@ -1,3 +1,4 @@
+import { IEachRelatedProductProps } from "@/types/common.type";
 import assest from "../assest";
 
 export const eachPowerFullElements = [
@@ -144,4 +145,84 @@ export const updatedDataList = [
     title: "Nvidia GeForce RTX 3070 Ti",
     redirectUrl: "/"
   }
+];
+
+export const productList: IEachRelatedProductProps[] = [
+  {
+    title: "EON 13ProX",
+    image: assest?.product1,
+    memory: "Supports upto 64GB 3200 MHz",
+    os: "Windows 11 Pro/IoT, Linux",
+    processor: " Intel Core 13th Gen. i3 1315U/ i5 1335U/ i7 1355U",
+    storage: "M.2 NVMe + 2.5″ SATA",
+    route: ""
+  },
+  {
+    title: "UVA Plus LOH610",
+    image: assest?.product2,
+    memory: "Supports upto 64GB 3200 MHz",
+    os: "Windows 11 Pro/IoT, Linux",
+    processor: " Intel Core 13th Gen. i3 1315U/ i5 1335U/ i7 1355U",
+    storage: "M.2 NVMe + 2.5″ SATA",
+    route: ""
+  },
+  {
+    title: "RIG Plus Rugged PC",
+    image: assest?.product3,
+    memory: "Supports upto 64GB 3200 MHz",
+    os: "Windows 11 Pro/IoT, Linux",
+    processor: " Intel Core 13th Gen. i3 1315U/ i5 1335U/ i7 1355U",
+    storage: "M.2 NVMe + 2.5″ SATA",
+    route: ""
+  }
+];
+
+export const productList2: IEachRelatedProductProps[] = [
+  {
+    title: "EON Slim E",
+    image: assest?.product4,
+    memory: "Supports upto 64GB 3200 MHz",
+    os: "Windows 11 Pro/IoT, Linux",
+    processor: " Intel Core 13th Gen. i3 1315U/ i5 1335U/ i7 1355U",
+    storage: "M.2 NVMe + 2.5″ SATA",
+    route: ""
+  },
+  {
+    title: "EON Slim N3350",
+    image: assest?.product5,
+    memory: "Supports upto 64GB 3200 MHz",
+    os: "Windows 11 Pro/IoT, Linux",
+    processor: " Intel Core 13th Gen. i3 1315U/ i5 1335U/ i7 1355U",
+    storage: "M.2 NVMe + 2.5″ SATA",
+    route: ""
+  },
+  {
+    title: "EON 14Pro",
+    image: assest?.product6,
+    memory: "Supports upto 64GB 3200 MHz",
+    os: "Windows 11 Pro/IoT, Linux",
+    processor: " Intel Core 13th Gen. i3 1315U/ i5 1335U/ i7 1355U",
+    storage: "M.2 NVMe + 2.5″ SATA",
+    route: ""
+  }
+];
+
+export const resultListData = [
+  "Improved FIDS operational potential with almost zero downtime.",
+  "Feasible management of Multiple Displays with a single media player.",
+  "Yielded increased revenue for advertisers with greater visibility.",
+  "Smooth passenger transit due to clear information display in international airports like Mumbai & Delhi."
+];
+
+export const successStoryListData = [
+  "Citrus Thin clients & technicians not only outperformed other competitive brands but also assisted them for system implementation.",
+  "They could stop all unauthorized software & hardware use and access to malicious agents.",
+  "Had an advantage of fewer cables, greater security, lower power consumption and backup via a switch which was very important."
+];
+
+export const industrialListData = [
+  "Citrus was successful in finishing the target of 200 Smart classrooms in 7 days.",
+  "With Micro PCs replacing old CPUs the downtime was brought to almost zero.",
+  "Teachers were showing teaching materials and create presentations with Wi-Fi, a mouse, and a Bluetooth keyboard.",
+  "Teachers could transmit content using micro PCs, students were benefited from better displays."
 ];

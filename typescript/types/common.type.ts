@@ -45,8 +45,16 @@ export type userData = {
   about_title?: string;
   about_description?: string;
   cover_picture?: string;
+};
+
+export interface IEachRelatedProductProps {
+  image: string;
+  title: string;
+  os: string;
+  processor: string;
+  memory: string;
+  storage: string;
+  route: string;
 }
-
-
 
 export {};
