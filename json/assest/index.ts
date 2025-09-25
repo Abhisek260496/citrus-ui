@@ -99,8 +99,8 @@ export default {
   modeBack: "/assets/images/modeBack.png",
   modeImg: "/assets/images/modeImg.png",
   bandwithImg: "/assets/images/bandwithImg.png",
-  displayBack:"/assets/images/displayBack.png",
-  easyBack:"/assets/images/easyBack.png",
+  displayBack: "/assets/images/displayBack.png",
+  easyBack: "/assets/images/easyBack.png",
   msCopilotImg: "/assets/images/msCopilotImg.png",
   mscrt1: "/assets/images/mscrt1.png",
   win10Img: "/assets/images/win10Img.png",
@@ -115,7 +115,14 @@ export default {
   eWasteBnrImg: "/assets/images/e-wasteBnrImg.png",
   ewasteBinImg: "/assets/images/e-wasteBinImg.png",
   wasteBinImg: "/assets/images/wasteBinImg.png",
+  eWasteRgtImg: "/assets/images/eWasteRgtImg.png",
+  ewastebgImg: "/assets/images/ewastebgImg.png",
   logisticsSmallImg: "/assets/images/logisticsSmallImg.png",
   simramImg: "/assets/images/simramImg.png",
+  coreBack: "/assets/images/coreBack.png",
+  handelBack: "/assets/images/handelBack.png",
+  lanBack: "/assets/images/lanBack.png",
+  conBack:"/assets/images/conBack.png",
+  rigBanner:"/assets/images/rigBanner.png"
 
 };

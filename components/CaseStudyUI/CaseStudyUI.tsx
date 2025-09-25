@@ -10,7 +10,7 @@ import SuccessStoryComp from "./SuccessStoryComp";
 function CaseStudyUI() {
   return (
     <CaseStudyUIWrapper>
-      <figure>
+      <figure className="caseStudyBnrImg">
         <Image
           src={assest.caseStudyBnrImg}
           width={2055}

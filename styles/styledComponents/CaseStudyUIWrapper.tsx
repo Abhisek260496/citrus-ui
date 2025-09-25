@@ -2,7 +2,7 @@ import assest from "@/json/assest";
 import { Box, styled } from "@mui/material";
 
 export const CaseStudyUIWrapper = styled(Box)`
-  figure {
+  .caseStudyBnrImg {
     height: 1125px;
     /* height: 100%; */
     line-height: 0;
@@ -34,7 +34,7 @@ export const DigitalSignageCompWrap = styled(Box)`
 
     &.successStory {
       background: url(${assest.successStoryBg}) center no-repeat !important;
-      background-size: cover;
+      background-size: cover !important;
     }
 
     .secHeadWrap {
@@ -44,7 +44,27 @@ export const DigitalSignageCompWrap = styled(Box)`
     .digitalSignageHeading {
       font-size: 30px;
       font-weight: 500;
-      color: #004f7a;
+      background: linear-gradient(
+        90deg,
+        #004f7a -4.41%,
+        #00517c 0.79%,
+        #006c93 4.37%,
+        #008aac 9.57%,
+        #009fbe 14.67%,
+        #00aecb 20.41%,
+        #00b7d3 26.48%,
+        #00bcd7 33.64%,
+        #00bbd6 44.92%,
+        #00a9c1 50.99%,
+        #00879a 59.66%,
+        #005865 69.74%,
+        #00292f 79.07%,
+        #000101 86.66%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+
       margin-bottom: 10px;
       span {
         font-size: 22px;

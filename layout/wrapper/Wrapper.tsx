@@ -9,6 +9,7 @@ import Header from "../Header/Header";
 
 interface wrapperProps {
   children: JSX.Element | JSX.Element[];
+
 }
 
 const Wrapper = (props: wrapperProps) => {
@@ -79,7 +80,7 @@ const Wrapper = (props: wrapperProps) => {
         url=""
         image=""
       />
-      <Header />
+      <Header/>
 
       <Box className="body_content">{children}</Box>
 

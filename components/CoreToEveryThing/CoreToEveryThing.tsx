@@ -10,6 +10,7 @@ const CoreToEveryThingStyled = styled(Box)`
     top: 100px;
     width: 100%;
     z-index: 1;
+      object-fit: cover;
     .core_content {
       max-width: 483px;
       h2 {

@@ -70,46 +70,81 @@ function EwasteUI() {
             </Typography>
             <figure>
               <Image
-                src={assest.wasteBinImg}
+                src={assest.ewastebgImg}
+                width={1980}
+                height={1200}
+                alt="E-waste Bin"
+              />
+            </figure>
+            <Box className="ewasteRgtPart">
+              <Typography variant="body1" className="ewasteIntroText">
+                E-waste is a popular, informal name for electronic products
+                nearing the end of their “useful life”. It is loosely applied to
+                consumer and electronic & IT equipment that is near or at the
+                end of its useful life.
+              </Typography>
+
+              <Typography variant="h4" className="ewasteSubHeading">
+                What should you do with my electronic discards?
+              </Typography>
+
+              <Typography variant="body2" className="ewasteMantraText">
+                The mantra of “Reduce, Reuse, Recycle” applies here.
+              </Typography>
+
+              <Typography variant="body2" className="ewasteReduceText">
+                Reduce your generation of e-waste through smart procurement and
+                good maintenance.
+              </Typography>
+
+              <Typography variant="body2" className="ewasteReuseText">
+                Reuse still functioning electronic equipment by donating or
+                selling it to someone who can still use it.
+              </Typography>
+
+              <Typography variant="body2" className="ewasteRecycleText">
+                Recycle those products that cannot be repaired should NOT be
+                disposed of with regular garbage instead it should be given to
+                the proper E-waste recycler & dismantlers.
+              </Typography>
+            </Box>
+          </Box>
+
+          {/* <Box className="ewasteInfoRight">
+            <figure>
+              <Image
+                src={assest.eWasteRgtImg}
                 width={600}
                 height={500}
                 alt="E-waste Bin"
               />
             </figure>
-          </Box>
-
-          <Box className="ewasteInfoRight">
             <Typography variant="body1" className="ewasteInfoText">
               E-waste is a popular, informal name for electronic products
               nearing the end of their “useful life”. It is loosely applied to
               consumer and electronic & IT equipment that is near or at the end
               of its useful life.
             </Typography>
-
             <Typography variant="h4" className="ewasteSubHeading">
               What should you do with my electronic discards?
             </Typography>
-
             <Typography variant="body2" className="ewasteInfoText">
               The mantra of “Reduce, Reuse, Recycle” applies here.
             </Typography>
-
             <Typography variant="body2" className="ewasteInfoText">
               Reduce your generation of e-waste through smart procurement and
               good maintenance.
             </Typography>
-
             <Typography variant="body2" className="ewasteInfoText">
               Reuse still functioning electronic equipment by donating or
               selling it to someone who can still use it.
             </Typography>
-
             <Typography variant="body2" className="ewasteInfoText">
               Recycle those products that cannot be repaired should NOT be
               disposed of with regular garbage instead it should be given to the
               proper E-waste recycler & dismantlers.
             </Typography>
-          </Box>
+          </Box> */}
         </Box>
       </Box>
 
