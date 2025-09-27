@@ -100,9 +100,9 @@ const AimSection = () => {
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 10%", // start when section enters at 70%
-          end: "top 20%", // stretch animation over a longer distance
-          scrub: 2 // smoother, slower blend
+          start: "top 10%", 
+          end: "top 20%",
+          scrub: 2 
         }
       }
     );
