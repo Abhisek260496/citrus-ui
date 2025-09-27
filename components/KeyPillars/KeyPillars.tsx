@@ -34,35 +34,12 @@ const KeyPillarsStyled = styled(Box)`
   }
 `;
 
-const IEachKeyPillarStyled = styled(ListItem)`
+const FlipCard = styled(ListItem)`
+  perspective: 1000px;
+  width: 50%;
   padding: 0;
   padding-left: 145px;
-  width: 50%;
-  .pillar_block {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 37px 20px;
-    border: 3.5px solid #7ce3fe;
-    border-radius: 50px;
-    width: 210px;
-    min-height: 310px;
-    position: relative;
-    .pillars_water_mark {
-      position: absolute;
-      right: -190px;
-      bottom: -50px;
-      max-width: max-content;
-      z-index: -1;
-    }
-    p {
-      font-weight: 400;
-      font-size: 16px;
-      margin-top: 20px;
-      text-align: center;
-    }
-  }
+
   :nth-of-type(1),
   :nth-of-type(2) {
     margin-bottom: 40px;
@@ -76,47 +53,116 @@ const IEachKeyPillarStyled = styled(ListItem)`
   :nth-of-type(4) {
     padding-left: 325px;
   }
+
+  .flip-card-inner {
+    position: relative;
+    width: 210px;
+    min-height: 310px;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  &:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    min-height: 310px;
+    backface-visibility: hidden;
+    border: 3.5px solid #7ce3fe;
+    border-radius: 50px;
+    padding: 37px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flip-card-front {
+    /* background: white; */
+    h6{
+      text-align: center;
+      margin-top: 20px;
+    }
+  }
+
+  .flip-card-back {
+    /* background: #7ce3fe; */
+    transform: rotateY(180deg);
+    color: #fff;
+    p{
+      font-size: 16px;
+    }
+  }
+
+  .pillars_water_mark {
+    position: absolute;
+    right: -190px;
+    bottom: -50px;
+    max-width: max-content;
+    z-index: -1;
+  }
 `;
 
 interface IEachKeyPillar {
   icon: string;
   title: string;
+  content: string;
 }
 
-const EachKeyPillar = ({ icon, title }: IEachKeyPillar) => {
+const EachKeyPillar = ({ icon, title, content }: IEachKeyPillar) => {
   return (
-    <IEachKeyPillarStyled>
-      <Box className="pillar_block">
-        <Image
-          src={assest?.pillars_water_mark}
-          alt="pillars_water_mark"
-          width={445}
-          height={160}
-          className="pillars_water_mark"
-        />
-        <img src={icon} alt="icon" />
-        <Typography>{title}</Typography>
-      </Box>
-    </IEachKeyPillarStyled>
+    <FlipCard>
+      <div className="flip-card-inner">
+        {/* Front Side */}
+        <Box className="flip-card-front">
+          <Image
+            src={assest?.pillars_water_mark}
+            alt="pillars_water_mark"
+            width={445}
+            height={160}
+            className="pillars_water_mark"
+          />
+          <img src={icon} alt="icon" />
+          <Typography variant="h6">{title}</Typography>
+        </Box>
+
+        {/* Back Side */}
+        <Box className="flip-card-back">
+          <Typography variant="body1">{content}</Typography>
+        </Box>
+      </div>
+    </FlipCard>
   );
 };
 
-const pillarsList = [
+const pillarsList: IEachKeyPillar[] = [
   {
     icon: assest?.pillar_icon1,
-    title: "Longer product life"
+    title: "Longer product life",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus aperiam expedita eaque suscipit iste nam eos nostrum quia corrupti excepturi?"
   },
   {
     icon: assest?.pillar_icon2,
-    title: "Commercial grade"
+    title: "Commercial grade",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus aperiam expedita eaque suscipit iste nam eos nostrum quia corrupti excepturi?"
   },
   {
     icon: assest?.pillar_icon3,
-    title: "Elegant Designs"
+    title: "Elegant Designs",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus aperiam expedita eaque suscipit iste nam eos nostrum quia corrupti excepturi?"
   },
   {
     icon: assest?.pillar_icon4,
-    title: "3-YEARS WARRANTY POLICY"
+    title: "3-YEARS WARRANTY POLICY",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus aperiam expedita eaque suscipit iste nam eos nostrum quia corrupti excepturi?"
   }
 ];
 const KeyPillars = () => {
