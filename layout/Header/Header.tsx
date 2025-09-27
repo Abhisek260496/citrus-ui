@@ -159,7 +159,7 @@ export default function Header() {
                 color="primary"
                 startIcon={<MailIcon />}
               >
-                Info@citrus.com
+                sales@citrusindia.com
               </CustomButton>
               <Button
                 sx={{

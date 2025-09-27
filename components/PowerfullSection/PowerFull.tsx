@@ -41,41 +41,6 @@ const PowerFull = (): React.ReactElement => {
   const sliderRef = useRef<Slider | null>(null);
   const sliderWrapperRef = useRef<HTMLDivElement | null>(null);
 
-  //   const updateSlideWidths = () => {
-  //     const wrapper = sliderWrapperRef.current;
-  //     if (!wrapper) return;
-
-  //     const slides = Array.from(wrapper.querySelectorAll(".slick-slide")).filter(
-  //       (slide) => {
-  //         const el = slide as HTMLElement;
-  //         return (
-  //           !el.classList.contains("slick-cloned") && el.offsetParent !== null
-  //         );
-  //       }
-  //     ) as HTMLElement[];
-
-  //     if (slides.length === 0) return;
-
-  //     // Get the leftmost visible slide (first in viewport)
-  //     const wrapperLeft = wrapper.getBoundingClientRect().left;
-  //     let firstVisibleSlide: HTMLElement | null = null;
-
-  //     slides.forEach((slide) => {
-  //       const slideLeft = slide.getBoundingClientRect().left;
-  //       if (slideLeft >= wrapperLeft && firstVisibleSlide === null) {
-  //         firstVisibleSlide = slide;
-  //       }
-  //     });
-
-  //     // Set widths
-  //     slides.forEach((slide) => {
-  //       if (slide === firstVisibleSlide) {
-  //         slide.style.width = "80%";
-  //       } else {
-  //         slide.style.width = "20%";
-  //       }
-  //     });
-  //   };
   const settings = {
     dots: false,
     arrows: false,
@@ -85,7 +50,6 @@ const PowerFull = (): React.ReactElement => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000
-    // afterChange: () => updateSlideWidths()
   };
 
   return (
@@ -101,11 +65,9 @@ const PowerFull = (): React.ReactElement => {
           <SliderButtons
             onClickNext={() => {
               sliderRef.current?.slickNext();
-              //   setTimeout(updateSlideWidths, 50);
             }}
             onClickPrev={() => {
               sliderRef.current?.slickPrev();
-              //   setTimeout(updateSlideWidths, 50);
             }}
           />
           <Slider ref={sliderRef} {...settings}>

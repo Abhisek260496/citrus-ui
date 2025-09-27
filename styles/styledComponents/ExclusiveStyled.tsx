@@ -3,11 +3,20 @@ import { Box, styled } from "@mui/material";
 
 export const ExclusiveStyled = styled(Box)`
   .exclusive_Section {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     position: relative;
+    /* .rotaion_image{
+      width: 100%;
+      height: 400px;
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    } */
     .water_mark {
       position: absolute;
       width: 100%;
@@ -38,7 +47,10 @@ export const ExclusiveStyled = styled(Box)`
       z-index: -1;
     }
     .rotate_img {
-      transform: translateY(-100px);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 60px;
     }
     .btm_title {
       font-family: "Karla";

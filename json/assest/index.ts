@@ -122,7 +122,6 @@ export default {
   coreBack: "/assets/images/coreBack.png",
   handelBack: "/assets/images/handelBack.png",
   lanBack: "/assets/images/lanBack.png",
-  conBack:"/assets/images/conBack.png",
-  rigBanner:"/assets/images/rigBanner.png"
-
+  conBack: "/assets/images/conBack.png",
+  rigBanner: "/assets/images/rigBanner.png",
 };
