@@ -6,11 +6,11 @@ import Link from "next/link";
 const navItems = [
   {
     name: "New releases",
-    path: "/new-releases"
+    path: "#new_articles"
   },
   {
     name: "Clients",
-    path: "/clients"
+    path: "#client"
   },
   {
     name: "Case study",
@@ -53,9 +53,13 @@ const Banner = () => {
       <Box className="banner_btm_block">
         <Container fixed>
           <List>
-            {navItems?.map((item, index) => (
+            {navItems.map((item, index) => (
               <ListItem key={index}>
-                <Link href={item?.path}>{item?.name}</Link>
+                {item.path.startsWith("#") ? (
+                  <a href={item.path}>{item.name}</a>
+                ) : (
+                  <Link href={item.path}>{item.name}</Link>
+                )}
               </ListItem>
             ))}
           </List>

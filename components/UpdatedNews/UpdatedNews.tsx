@@ -65,7 +65,7 @@ const UpdatedNews = () => {
     // afterChange: () => updateSlideWidths()
   };
   return (
-    <UpdatedNewsStyled className="cmn_gap">
+    <UpdatedNewsStyled id="new_articles" className="cmn_gap">
       <Container fixed>
         <Box
           sx={{

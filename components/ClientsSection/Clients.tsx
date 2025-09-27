@@ -6,7 +6,11 @@ import CommonHeader from "../CommonHeader/CommonHeader";
 
 const Clients = () => {
   return (
-    <ClientsStyled className="cmn_gap" sx={{ bgcolor: palette.common.white }}>
+    <ClientsStyled
+      id="client"
+      className="cmn_gap"
+      sx={{ bgcolor: palette.common.white }}
+    >
       <Container fixed>
         <CommonHeader
           isBgWhite
