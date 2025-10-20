@@ -29,7 +29,7 @@ const EachPowerFullElement = ({
     <PowerFullElementStyled {...props}>
       <figure>
         <Image
-          src={mediaUrl(`sliders/${slider_image}`)}
+          src={mediaUrl(`slider/${slider_image}`)}
           alt="powerfull_image"
           width={900}
           height={500}
