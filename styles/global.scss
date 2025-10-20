@@ -467,3 +467,29 @@ input[type="submit"]:hover {
 }
 
 //   ======================
+
+
+   .menu_list {
+    background-color: #000717 ;
+      border-radius: 8px;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+      margin-top: 6px;
+      min-width: 180px;
+      padding: 8px 0;
+      transition: all 0.3s ease;
+      
+
+      .MuiMenuItem-root {
+        font-size: 15px;
+        font-weight: 400;
+        padding: 10px 16px;
+        transition: all 0.2s ease;
+        border-radius: 4px;
+        margin: 2px 8px;
+        color: #fff;
+        &:hover {
+          transform: translateX(4px);
+          color: #FF6106;
+        }
+      }
+    }

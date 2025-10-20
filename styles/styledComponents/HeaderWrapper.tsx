@@ -25,24 +25,37 @@ export const HeaderWrap = styled(Box)`
     margin-right: 40px;
     display: flex;
     align-items: center;
+
     li {
       margin-right: 30px;
       width: auto;
       color: ${palette?.common?.black};
+
       &:last-child {
         margin-right: 0;
       }
+
       &:first-child {
         margin-left: 0;
       }
-      a {
+      a,
+      button {
+               font-family: "karla";
         color: ${palette?.common?.white};
+        padding: 0;
+        font-size: 16px;
+        font-weight: 500;
+        position: relative;
+        transition: color 0.3s ease;
+
         &:hover {
           color: ${palette?.text?.primary};
+          background-color: transparent;
         }
 
         &.active {
           color: ${palette?.text?.primary};
+          background-color: transparent;
         }
       }
     }

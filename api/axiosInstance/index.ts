@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { parseCookies } from "nookies";
 import { setCookieClient } from "@/lib/functions/storage.lib";
@@ -15,12 +16,14 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use((config) => {
-  const cookies = parseCookies();
+  // const cookies = parseCookies();
 
-  const token = cookies?.career_token;
-  if (token && !!config.headers) {
-    config.headers["x-access-token"] = `${token}`;
-  }
+  // const token = cookies?.career_token;
+  // if (token && !!config.headers) {
+  //   config.headers["x-access-token"] = `${token}`;
+  // }
+
+  config.headers["Authorization"] = `Bearer 4|jQu2TnYoTwtP1gACEeToqVb3KoLQB9CrpH1HmHlOe06b8d3f`;
 
   return config;
 });
@@ -42,7 +45,7 @@ axiosInstance.interceptors.response.use(
   async (error: AxiosError<BaseApiResponse>) => {
     globalCatchError(error);
     // const { data, status, config } = error.response!;
-    const originalRequest = error.config;
+    // const originalRequest = error.config;
 
     // if (error.response.status === 401 && !originalRequest._retry) {
     //   originalRequest._retry = true;

@@ -23,7 +23,7 @@ module.exports = withPWA({
       "picsum.photos",
       "placeimg.com",
       "encrypted-tbn0.gstatic.com",
-      "career-utility.dedicateddevelopers.us"
+      "insolutes.com"
     ]
   },
   swcMinify: false,

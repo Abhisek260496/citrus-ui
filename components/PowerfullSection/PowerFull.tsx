@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 import { eachPowerFullElements } from "@/json/dummy";
 import {
   PowerFullElementStyled,
@@ -6,38 +7,56 @@ import {
 import SliderButtons from "@/ui/Buttons/SliderButtons";
 import { Box, BoxProps, Container, Typography } from "@mui/material";
 import Image from "next/image";
-import React, { useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import CommonHeader from "../CommonHeader/CommonHeader";
+import { useQuery } from "react-query";
+import { getSliders } from "@/api/functions/cms.api";
+import { ISliderResponse } from "@/interface/apiresp.interfaces";
+import {  mediaUrl } from "@/api/endpoints";
 
-interface EachPowerFullElementProps extends BoxProps {
-  image: string;
-  title: string;
-  description: string;
-}
+interface EachPowerFullElementProps extends BoxProps, ISliderResponse {}
 const EachPowerFullElement = ({
-  description,
-  image,
-  title,
+  slider_description,
+  slider_image,
+  slider_title,
   ...props
 }: EachPowerFullElementProps) => {
   // powerfull_image1
   return (
     <PowerFullElementStyled {...props}>
       <figure>
-        <Image src={image} alt="powerfull_image" width={900} height={500} />
+        <Image
+          src={mediaUrl(`sliders/${slider_image}`)}
+          alt="powerfull_image"
+          width={900}
+          height={500}
+        />
       </figure>
       <Box className="powerfull_content">
-        <Typography variant="h3">{title}</Typography>
-        <Typography>{description}</Typography>
+        <Typography variant="h3">{slider_title}</Typography>
+        <Box dangerouslySetInnerHTML={{ __html: slider_description }} />
       </Box>
     </PowerFullElementStyled>
   );
 };
 
 const PowerFull = (): React.ReactElement => {
+  const { data: slidersData } = useQuery({
+    queryKey: ["getSliderDetails"],
+    queryFn: getSliders
+  });
+
+  const activeSliders = useMemo(() => {
+    if (slidersData?.length) {
+      return slidersData?.filter((item) => item?.slider_is_active);
+    }
+  }, [slidersData?.length]);
+
+  // console.log(activeSliders, "slidersData");
+
   const sliderRef = useRef<Slider | null>(null);
   const sliderWrapperRef = useRef<HTMLDivElement | null>(null);
 
@@ -71,12 +90,10 @@ const PowerFull = (): React.ReactElement => {
             }}
           />
           <Slider ref={sliderRef} {...settings}>
-            {eachPowerFullElements?.map((item, index) => (
+            {activeSliders?.map((item, index) => (
               <EachPowerFullElement
                 key={index}
-                image={item?.image}
-                title={item?.title}
-                description={item?.description}
+                {...item}
               />
             ))}
           </Slider>

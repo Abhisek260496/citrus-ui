@@ -1,12 +1,13 @@
 export const baseUrl = process.env.NEXT_APP_BASE_URL;
 export const baseUrlApi = `${process.env.NEXT_APP_BASE_URL}/api/`;
-export const baseUrlMedia = process.env.NEXT_APP_BASE_URL;
+export const baseUrlMedia = `${process.env.NEXT_APP_BASE_URL}`;
 
 // api doc => https://militarymoves-admin.dedicateddevelopers.us/apidoc
 
 export const mediaUrl = (url: string) => {
   return `${baseUrlMedia}/uploads/${url}`;
 };
+
 
 export const endpoints = {
   auth: {
@@ -18,7 +19,10 @@ export const endpoints = {
   },
   cms: {
     about: "aboutpolicy/details",
-    faq: "faq/all"
+    faq: "faq/all",
+    clients:"/clients",
+    sliders:"/sliders",
+    industrySliders:"/industry-sliders"
   }
 };
 

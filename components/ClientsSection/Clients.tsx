@@ -1,10 +1,20 @@
-import { clientsData } from "@/json/dummy";
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable import/order */
 import { ClientsStyled } from "@/styles/styledComponents/ClientsStyled";
 import palette from "@/themes/palette";
 import { Box, Container, Grid } from "@mui/material";
 import CommonHeader from "../CommonHeader/CommonHeader";
+import { useQuery } from "react-query";
+import { ClientDetails } from "@/api/functions/cms.api";
+import { baseUrlMedia, mediaUrl } from "@/api/endpoints";
 
 const Clients = () => {
+  const { data: clientDetails } = useQuery({
+    queryKey: ["getClientDetails"],
+    queryFn: ClientDetails
+  });
+
+  console.log(clientDetails,"clientDetails")
   return (
     <ClientsStyled
       id="client"
@@ -25,9 +35,12 @@ const Clients = () => {
 
         <Box>
           <Grid container spacing={2}>
-            {clientsData.map((item, index) => (
+            {clientDetails?.map((item, index) => (
               <Grid item xs={6} md={2} key={index} alignItems="center">
-                <img src={item.img} alt="clients" />
+                <img
+                  src={ mediaUrl(`client/${item.client_image}`)}
+                  alt="clients"
+                />
               </Grid>
             ))}
           </Grid>

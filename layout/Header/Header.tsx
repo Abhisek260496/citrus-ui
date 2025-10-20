@@ -19,7 +19,7 @@ import { HeaderWrap } from "@/styles/styledComponents/HeaderWrapper";
 import CustomButton from "@/ui/Buttons/CustomButton";
 import MailIcon from "@/ui/Icons/MailIcon";
 import WhatsAppIcon from "@/ui/Icons/WhatsAppIcon";
-import { Button } from "@mui/material";
+import { Button, Menu, MenuItem } from "@mui/material";
 import { Container } from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
@@ -59,6 +59,20 @@ export default function Header() {
     }
   ];
 
+  const productItems = [
+    { name: "EON Slim", route: "/products/eon-slim" },
+    { name: "Xtreme N100", route: "/products/xtreme" },
+    { name: "EON N3350", route: "/products/eon-n3350" },
+    { name: "EON Slim N150", route: "/products/np500" },
+    { name: "EON 13Pro", route: "/products/eon-13pro" },
+    { name: "EON 13Pro X", route: "/products/eon13-proX" },
+    { name: "EON 14Pro", route: "/products/eon-14pro" },
+    { name: "UVA Plus LOH610", route: "/products/uva" },
+    { name: "RIG Plus", route: "/products/rig-plus" },
+    { name: "RIG Slim", route: "/products/rig" },
+    { name: "OPS", route: "/products/ops" }
+  ];
+
   // const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const { userData, isLoggedIn } = useAppSelector((state) => state.userSlice);
@@ -72,6 +86,16 @@ export default function Header() {
   const handleLogout = () => {
     dispatch(logout());
     router.push("/login");
+  };
+
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+
+  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleMenuClose = () => {
+    setAnchorEl(null);
   };
 
   console.log(userData, "userData");
@@ -120,39 +144,98 @@ export default function Header() {
         className="headerContainer"
       >
         <Container fixed>
-          <Toolbar
-            sx={{
-              p: "0 !important"
-            }}
-          >
+          <Toolbar sx={{ p: "0 !important" }}>
+            {/* Mobile Menu Button */}
             <IconButton
               color="inherit"
               aria-label="open drawer"
               edge="start"
-              onClick={handleDrawerToggle}
+              onClick={() => {}}
               sx={{ mr: 2, display: { sm: "none" } }}
             >
               <MenuIcon />
             </IconButton>
+
+            {/* Logo */}
             <Link href="/" className="headerLogo">
               <Image src={assest.logo} width={133} height={40} alt="logo" />
             </Link>
+
+            {/* Desktop Menu */}
             <List
               disablePadding
               sx={{ display: { xs: "none", sm: "block" } }}
               className="navbar"
+              
             >
-              {navItems.map((item, index) => (
-                <ListItem key={index} disablePadding>
-                  <Link
-                    href={item?.route}
-                    className={router.pathname === item.route ? "active" : ""}
-                  >
-                    {item?.name}
-                  </Link>
-                </ListItem>
-              ))}
+              {navItems.map((item, index) => {
+                if (item.name === "Products") {
+                  return (
+                    <ListItem key={index} disablePadding>
+                      <Button
+                      disableRipple
+                        aria-controls={open ? "product-menu" : undefined}
+                        aria-haspopup="true"
+                        aria-expanded={open ? "true" : undefined}
+                        onClick={handleMenuOpen}
+                        className={
+                          router.pathname.startsWith("/products")
+                            ? "active"
+                            : ""
+                        }
+                        sx={{
+                          color: "inherit",
+                          textTransform: "none",
+                          fontSize: "16px"
+                        }}
+                      >
+                        Products
+                      </Button>
+
+                      {/* Dropdown Menu */}
+                      <Menu
+                        id="product-menu"
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleMenuClose}
+                        MenuListProps={{
+                          "aria-labelledby": "basic-button"
+                        }}
+                        slotProps={{
+                          paper:{
+                            className:"menu_list"
+                          }
+                        }}
+                      >
+                        {productItems.map((product, idx) => (
+                          <MenuItem
+                            key={idx}
+                            onClick={handleMenuClose}
+                            component={Link}
+                            href={product.route}
+                          >
+                            {product.name}
+                          </MenuItem>
+                        ))}
+                      </Menu>
+                    </ListItem>
+                  );
+                }
+
+                return (
+                  <ListItem key={index} disablePadding>
+                    <Link
+                      href={item.route}
+                      className={router.pathname === item.route ? "active" : ""}
+                    >
+                      {item.name}
+                    </Link>
+                  </ListItem>
+                );
+              })}
             </List>
+
+            {/* Right Side Buttons */}
             <Box className="hdr_rgt">
               <CustomButton
                 variant="contained"
@@ -170,9 +253,7 @@ export default function Header() {
                     marginLeft: 0,
                     marginRight: 0
                   },
-                  "&:hover": {
-                    backgroundColor: "transparent"
-                  }
+                  "&:hover": { backgroundColor: "transparent" }
                 }}
                 startIcon={<WhatsAppIcon />}
               />
