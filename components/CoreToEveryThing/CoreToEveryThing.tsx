@@ -2,7 +2,7 @@ import { Box, BoxProps, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
 
-const CoreToEveryThingStyled = styled(Box)`
+const CoreToEveryThingStyled = styled(Box)<{isFullWidth?:boolean}>`
   position: relative;
   .core_wrapper {
     position: absolute;
@@ -12,7 +12,7 @@ const CoreToEveryThingStyled = styled(Box)`
     z-index: 1;
       object-fit: cover;
     .core_content {
-      max-width: 483px;
+      max-width:${({isFullWidth})=> isFullWidth ? "100%" : "483px"}  ;
       h2 {
         line-height: 1.3;
       }
@@ -30,12 +30,16 @@ const CoreToEveryThingStyled = styled(Box)`
 
 interface ICoreToEveryThingProps extends BoxProps{
   bgImg:string
-  bgText?:string
+  bgText?:string;
+  isFullWidth?:boolean;
+  isReversed?:boolean;
+  subTitle?:string;
+  mainTitle?:string;
 }
 
-const CoreToEveryThing = ({bgImg,bgText,...props}:ICoreToEveryThingProps) => {
+const CoreToEveryThing = ({bgImg,bgText,isFullWidth,subTitle,isReversed,mainTitle,...props}:ICoreToEveryThingProps) => {
   return (
-    <CoreToEveryThingStyled {...props}>
+    <CoreToEveryThingStyled isFullWidth={isFullWidth} {...props}>
       <figure>
         <Image
           src={bgImg}
@@ -47,7 +51,7 @@ const CoreToEveryThing = ({bgImg,bgText,...props}:ICoreToEveryThingProps) => {
       <Box className="core_wrapper">
         <Container fixed>
           <Box className="core_content">
-            <CommonHeader mainTitle="Core to everything" />
+            <CommonHeader mainTitle={mainTitle ||"Core to everything" } subTitle={subTitle} isReversed={isReversed} />
             <Typography>
               {bgText || ' Processors that are highly responsive and reliable, handling demanding creative applications with ease.'}
              
