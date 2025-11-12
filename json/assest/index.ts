@@ -133,6 +133,9 @@ export default {
   lanBack: "/assets/images/lanBack.png",
   conBack: "/assets/images/conBack.png",
   rigBanner: "/assets/images/rigBanner.png",
-  intel_arc_graphic_img:"/assets/images/intel_arc_graphic_img.png",
-  gb_per_lan_bg:"/assets/images/gb_per_lan_bg.png"
+  intel_arc_graphic_img: "/assets/images/intel_arc_graphic_img.png",
+  gb_per_lan_bg: "/assets/images/gb_per_lan_bg.png",
+  ops_banner: "/assets/images/ops_banner.png",
+  intel_iris_graphics: "/assets/images/intel_iris_graphics.png",
+  high_bandwidth_banner: "/assets/images/high_bandwidth_banner.png"
 };
