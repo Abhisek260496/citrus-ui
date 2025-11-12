@@ -30,9 +30,10 @@ const CoreToEveryThingStyled = styled(Box)`
 
 interface ICoreToEveryThingProps extends BoxProps{
   bgImg:string
+  bgText?:string
 }
 
-const CoreToEveryThing = ({bgImg,...props}:ICoreToEveryThingProps) => {
+const CoreToEveryThing = ({bgImg,bgText,...props}:ICoreToEveryThingProps) => {
   return (
     <CoreToEveryThingStyled {...props}>
       <figure>
@@ -48,8 +49,8 @@ const CoreToEveryThing = ({bgImg,...props}:ICoreToEveryThingProps) => {
           <Box className="core_content">
             <CommonHeader mainTitle="Core to everything" />
             <Typography>
-              Processors that are highly responsive and reliable, handling
-              demanding creative applications with ease.
+              {bgText || ' Processors that are highly responsive and reliable, handling demanding creative applications with ease.'}
+             
             </Typography>
           </Box>
         </Container>

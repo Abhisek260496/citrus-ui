@@ -60,7 +60,12 @@ export default {
   product6: "/assets/images/product6.png",
   eon_slim_banner: "/assets/images/eon_slim_banner.png",
   eonSlimBannerBg: "/assets/images/eonSlimBannerBg.png",
+  eon_slim_e_banner: "/assets/images/eon_slim_e_banner.png",
+eon_slim_n3350_banner:"/assets/images/eon_slim_n3350_banner.png",
+  
   core_to_everything_eon_slim: "/assets/images/core_to_everything_eon_slim.jpg",
+  eon_slim_e_core_to_everything: "/assets/images/eon_slim_e_core_to_everything.jpg",
+  neo_slim_n3550_core:"/assets/images/neo_slim_n3550_core.jpg",
   TwoDisplayBg: "/assets/images/TwoDisplayBg.jpg",
   two_independent_displays_bg: "/assets/images/two_independent_displays_bg.png",
   palm_size_bg: "/assets/images/palm_size_bg.png",
