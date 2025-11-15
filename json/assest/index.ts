@@ -60,15 +60,24 @@ export default {
   product6: "/assets/images/product6.png",
   eon_slim_banner: "/assets/images/eon_slim_banner.png",
   eonSlimBannerBg: "/assets/images/eonSlimBannerBg.png",
+  eon_slim_e_banner: "/assets/images/eon_slim_e_banner.png",
+  eon_slim_n3350_banner: "/assets/images/eon_slim_n3350_banner.png",
+
   core_to_everything_eon_slim: "/assets/images/core_to_everything_eon_slim.jpg",
+  eon_slim_e_core_to_everything:
+    "/assets/images/eon_slim_e_core_to_everything.jpg",
+  neo_slim_n3550_core: "/assets/images/neo_slim_n3550_core.jpg",
   TwoDisplayBg: "/assets/images/TwoDisplayBg.jpg",
   two_independent_displays_bg: "/assets/images/two_independent_displays_bg.png",
   palm_size_bg: "/assets/images/palm_size_bg.png",
   ultra_bg: "/assets/images/ultra_bg.png",
   eon13_pro_img: "/assets/images/eon13_pro_img.png",
+  eon_14pro_img: "/assets/images/eon_14pro_banner.png",
   eon13_pro_bg: "/assets/images/eon13_pro_bg.png",
+  eon_14pro_banner_bg: "/assets/images/eon_14pro_banner_bg.png",
   core_to_everything_eon_pro13:
     "/assets/images/core_to_everything_eon_pro13.png",
+  eon_14_pro_core: "/assets/images/eon_14_pro_core.jpg",
   four_display_bg: "/assets/images/four_display_bg.png",
   dual_lan_img: "/assets/images/dual_lan_img.png",
   next_gen_bg: "/assets/images/next_gen_bg.png",
@@ -124,4 +133,9 @@ export default {
   lanBack: "/assets/images/lanBack.png",
   conBack: "/assets/images/conBack.png",
   rigBanner: "/assets/images/rigBanner.png",
+  intel_arc_graphic_img: "/assets/images/intel_arc_graphic_img.png",
+  gb_per_lan_bg: "/assets/images/gb_per_lan_bg.png",
+  ops_banner: "/assets/images/ops_banner.png",
+  intel_iris_graphics: "/assets/images/intel_iris_graphics.png",
+  high_bandwidth_banner: "/assets/images/high_bandwidth_banner.png"
 };
