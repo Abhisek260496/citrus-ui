@@ -138,23 +138,6 @@ export default function Header() {
     </Box>
   );
 
-  // const container =
-  //   window !== undefined ? () => window().document.body : undefined;
-
-  //for adding class to header while scroll
-  // const [scroll, setScroll] = React.useState(false);
-
-  // const detectScroll = React.useCallback(() => {
-  //   setScroll(window.scrollY > 100);
-  // }, []);
-
-  // React.useEffect(() => {
-  //   window.addEventListener("scroll", detectScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", detectScroll);
-  //   };
-  // }, []);
-
   return (
     <HeaderWrap sx={{ display: "flex" }} className="main_head">
       <AppBar

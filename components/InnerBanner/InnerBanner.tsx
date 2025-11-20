@@ -1,7 +1,4 @@
-
 import { Box, styled } from "@mui/material";
-import React from "react";
-
 
 export const InnerBannerWrapper = styled(Box)`
   figure {
@@ -13,7 +10,7 @@ export const InnerBannerWrapper = styled(Box)`
   }
 `;
 
-const InnerBanner = ({bannerVideo}:{bannerVideo?:string}) => {
+const InnerBanner = ({ bannerVideo }: { bannerVideo?: string }) => {
   return (
     <InnerBannerWrapper>
       <figure>
