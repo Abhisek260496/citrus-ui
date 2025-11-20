@@ -41,3 +41,14 @@ export interface Product {
   product_updated_at: string; // or Date
   sections: any[];
 }
+
+export interface ICommonProductSection {
+  id?: number;
+  product_id?: number;
+  section_title?: string | null;
+  section_subtitle?: string | null;
+  section_content?: string;
+  section_image?: string | null;
+  section_video?: string | null;
+  section_background_image?: string | null;
+}

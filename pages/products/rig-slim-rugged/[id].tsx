@@ -8,7 +8,6 @@ import RigBanner from "@/components/RigBanner/RigBanner";
 import assest from "@/json/assest";
 import { productList2 } from "@/json/dummy";
 import Wrapper from "@/layout/wrapper/Wrapper";
-import React from "react";
 
 const Rig = () => {
   return (

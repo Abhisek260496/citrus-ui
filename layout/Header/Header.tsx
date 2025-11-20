@@ -65,8 +65,6 @@ export default function Header() {
     queryFn: getAllProducts
   });
 
-  console.log(products, "products");
-
   const productItems = React.useMemo(() => {
     if (!productsLoading && products?.length) {
       return products?.map((item) => {
@@ -75,17 +73,6 @@ export default function Header() {
             name: item?.product_title,
             route: `/products/${item?.product_slug}/${item?.product_id}`
           }
-          // { name: "EON Slim", route: "/products/eon-slim" },
-          // { name: "EON Slim E", route: "/products/eon-slim-e" },
-          // { name: "EON Slim N3350", route: "/products/eon-slim-n3350" },
-          // { name: "EON 13Pro", route: "/products/eon13-pro" },
-          // { name: "EON 13Pro X", route: "/products/eon13-proX" },
-          // { name: "EON 14Pro", route: "/products/eon-14pro" },
-          // { name: "UVA Plus LOH610", route: "/products/uva" },
-          // { name: "NEO NP500", route: "/products/np500" },
-          // { name: "RIG Plus Rugged", route: "/products/rig-plus" },
-          // { name: "RIG Slim Rugged", route: "/products/rig" },
-          // { name: "OPS", route: "/products/ops" }
         };
       });
     } else {
@@ -117,8 +104,6 @@ export default function Header() {
   const handleMenuClose = () => {
     setAnchorEl(null);
   };
-
-  console.log(userData, "userData");
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>

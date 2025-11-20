@@ -8,6 +8,10 @@ export const mediaUrl = (url: string) => {
   return `${baseUrlMedia}/uploads/${url}`;
 };
 
+export const prodcutMediaUrl = (url: string) => {
+  return `${baseUrlMedia}/uploads/product/${url}`;
+};
+
 export const endpoints = {
   auth: {
     signup: "user/existence",
@@ -22,7 +26,8 @@ export const endpoints = {
     clients: "/clients",
     sliders: "/sliders",
     industrySliders: "/industry-sliders",
-    allProducts: "/products"
+    allProducts: "/products",
+    getSingleProduct: "/products"
   }
 };
 

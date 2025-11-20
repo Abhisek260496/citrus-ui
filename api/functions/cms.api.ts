@@ -63,3 +63,14 @@ export const getAllProducts = async (): Promise<Product[]> => {
     throw error;
   }
 };
+
+export const getSingleProduct = async (id: string): Promise<Product> => {
+  try {
+    const res = await ApiRequest.get<Product>(
+      `${endpoints.cms.allProducts}/${id}`
+    );
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};

@@ -1,18 +1,19 @@
-import assest from "@/json/assest";
-import { Box, Container, styled, Typography } from "@mui/material";
+import { prodcutMediaUrl } from "@/api/endpoints";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
+import { Box, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
-import React from "react";
 
 export const ModeSecWrapper = styled(Box)`
   position: relative;
   padding: 100px 0;
   .modeBack {
-    position: absolute;
+    /* position: absolute;
     top: 0;
-    left: 0;
+    left: 0; */
     width: 100%;
-    height: 956px;
-    z-index: 1;
+    height: 100%;
+    /* z-index: 1; */
+    object-fit: contain;
   }
   .sec_hd {
     text-align: center;
@@ -32,35 +33,33 @@ export const ModeSecWrapper = styled(Box)`
   }
   .modeImg {
     max-width: 792px;
-    margin: 0  auto;
+    margin: 0 auto;
   }
 `;
 
-const ModeSec = () => {
+const ModeSec = ({ ...props }: ICommonProductSection) => {
   return (
     <ModeSecWrapper>
-      <Image
-        src={assest.modeBack}
-        alt="modeBack"
-        width={1600}
-        height={956}
-        className="modeBack"
-      />
-      <Container fixed sx={{position:"relative",zIndex:2}}>
+      <Container fixed sx={{ position: "relative", zIndex: 2 }}>
         <Box className="sec_hd">
           <Typography variant="h2">
             <strong>Centralised, Controlled</strong> & <strong>Secure</strong>{" "}
             mode of Computing
           </Typography>
-          <Typography variant="body1">
-            Thin Clients apart from being used as a Desktop PC it allows
-            operation through a central server, keeping all data off local
-            machines. This minimizes risk, strengthens data protection and
-            ensures confidential workflow to be intact
-          </Typography>
+          <Box
+            dangerouslySetInnerHTML={{
+              __html: props?.section_content || ""
+            }}
+          />
         </Box>
-        <figure className="modeImg">
-          <Image src={assest.modeImg} alt="modeImg" width={792} height={495} />
+        <figure>
+          <Image
+            src={prodcutMediaUrl(props.section_image as string)}
+            alt="modeBack"
+            width={792}
+            height={495}
+            className="modeBack"
+          />
         </figure>
       </Container>
     </ModeSecWrapper>

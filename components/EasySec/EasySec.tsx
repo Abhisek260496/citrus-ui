@@ -1,42 +1,42 @@
 /* eslint-disable sort-imports */
-import assest from "@/json/assest";
+import { prodcutMediaUrl } from "@/api/endpoints";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import { Box, Container, Stack, styled, Typography } from "@mui/material";
 import Image from "next/image";
-import React from "react";
 
 export const EasySecWrapper = styled(Box)`
   position: relative;
   padding: 100px 0;
-  height: 910px;
+  height: 1050px;
   .easyBack {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 910px;
+    height: 100%;
     z-index: 2;
     object-fit: cover;
   }
-  .sec_hd{
+  .sec_hd {
     position: relative;
     z-index: 2;
-    h2{
-        font-weight: 400;
-        color: #fff;
-        line-height: 1.3;
+    h2 {
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.3;
     }
-    p{
-        color: #fff;
-        max-width: 512px;
+    p {
+      color: #fff;
+      max-width: 512px;
     }
   }
 `;
 
-const EasySec = () => {
+const EasySec = ({ ...props }: ICommonProductSection) => {
   return (
     <EasySecWrapper>
       <Image
-        src={assest.easyBack}
+        src={prodcutMediaUrl(props?.section_background_image as string)}
         alt="easyBack"
         width={1600}
         height={910}
@@ -54,11 +54,12 @@ const EasySec = () => {
             <strong>Communicative</strong>
             <br /> Peripherals
           </Typography>
-          <Typography variant="body1">
-            When uptime matters and Wi-Fi wavers, the serial stays solid.
-            Simple, stable & reliable route of communication notably from PC to
-            industrial controllers, sensors, routers and PoS systems.
-          </Typography>
+          <Box
+            component="div"
+            dangerouslySetInnerHTML={{
+              __html: props?.section_content || ""
+            }}
+          />
         </Stack>
       </Container>
     </EasySecWrapper>

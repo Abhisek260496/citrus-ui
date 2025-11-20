@@ -1,5 +1,6 @@
 /* eslint-disable sort-imports */
-import assest from "@/json/assest";
+import { prodcutMediaUrl } from "@/api/endpoints";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import { Box, Container, Stack, styled, Typography } from "@mui/material";
 import Image from "next/image";
 
@@ -22,7 +23,7 @@ export const DisplaySecWrapper = styled(Box)`
       color: #fff;
       font-weight: 400;
     }
-    span {
+    .color_caption {
       line-height: 1;
       font-weight: 700;
       font-size: 158px;
@@ -35,17 +36,17 @@ export const DisplaySecWrapper = styled(Box)`
 
       text-shadow: 0px 15px 25px rgba(0, 0, 0, 0.25);
     }
-    p{
-        max-width: 370px;
-        color: #fff;
+    p {
+      max-width: 370px;
+      color: #fff;
     }
   }
 `;
-const DisplaySec = () => {
+const DisplaySec = ({ ...props }: ICommonProductSection) => {
   return (
     <DisplaySecWrapper>
       <Image
-        src={assest.displayBack}
+        src={prodcutMediaUrl(props?.section_background_image as string)}
         alt="displayBack"
         width={1600}
         height={908}
@@ -60,14 +61,18 @@ const DisplaySec = () => {
         >
           <Box>
             <Typography variant="h2">
-              Three <br/> <strong>independent</strong>
+              Three <br /> <strong>independent</strong>
             </Typography>
-            <Typography variant="caption">displays</Typography>
+            <Typography variant="caption" className="color_caption">
+              displays
+            </Typography>
           </Box>
-          <Typography variant="body1">
-            The seamless transition between displays ensures a more efficient
-            workflow without the hassle of constantly switching tabs or windows.
-          </Typography>
+          <Box
+            component="div"
+            dangerouslySetInnerHTML={{
+              __html: props?.section_content || ""
+            }}
+          />
         </Stack>
       </Container>
     </DisplaySecWrapper>
