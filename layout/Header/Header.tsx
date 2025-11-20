@@ -74,8 +74,6 @@ export default function Header() {
     { name: "OPS", route: "/products/ops" }
   ];
 
-
-
   // const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const { userData, isLoggedIn } = useAppSelector((state) => state.userSlice);
@@ -121,8 +119,6 @@ export default function Header() {
     </Box>
   );
 
-
-
   return (
     <HeaderWrap sx={{ display: "flex" }} className="main_head">
       <AppBar
@@ -154,14 +150,13 @@ export default function Header() {
               disablePadding
               sx={{ display: { xs: "none", sm: "block" } }}
               className="navbar"
-              
             >
               {navItems.map((item, index) => {
                 if (item.name === "Products") {
                   return (
                     <ListItem key={index} disablePadding>
                       <Button
-                      disableRipple
+                        disableRipple
                         aria-controls={open ? "product-menu" : undefined}
                         aria-haspopup="true"
                         aria-expanded={open ? "true" : undefined}
@@ -190,8 +185,8 @@ export default function Header() {
                           "aria-labelledby": "basic-button"
                         }}
                         slotProps={{
-                          paper:{
-                            className:"menu_list"
+                          paper: {
+                            className: "menu_list"
                           }
                         }}
                       >

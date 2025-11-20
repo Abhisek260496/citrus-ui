@@ -137,5 +137,7 @@ export default {
   gb_per_lan_bg: "/assets/images/gb_per_lan_bg.png",
   ops_banner: "/assets/images/ops_banner.png",
   intel_iris_graphics: "/assets/images/intel_iris_graphics.png",
-  high_bandwidth_banner: "/assets/images/high_bandwidth_banner.png"
+  high_bandwidth_banner: "/assets/images/high_bandwidth_banner.png",
+  xtreme_n_banner: "/assets/images/xtreme_n_banner.png",
+  xtreme_n: "/assets/images/xtreme_n.png"
 };

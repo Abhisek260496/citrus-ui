@@ -42,12 +42,6 @@ const Banner = () => {
   return (
     <BannerStyled>
       <figure>
-        {/* <Image
-          src={assest?.bannerImage}
-          alt="banner"
-          width={1600}
-          height={724}
-        /> */}
         <video src={assest?.bannerVideo} autoPlay loop muted />
       </figure>
       <Box className="banner_btm_block">
