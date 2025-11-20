@@ -1,4 +1,8 @@
-import { IClientResponse, ISliderResponse } from "@/interface/apiresp.interfaces";
+import {
+  IClientResponse,
+  ISliderResponse,
+  Product
+} from "@/interface/apiresp.interfaces";
 import ApiRequest from "../axiosInstance/request";
 import { endpoints } from "../endpoints";
 
@@ -31,7 +35,6 @@ export const ClientDetails = async (): Promise<IClientResponse[]> => {
   }
 };
 
-
 export const getSliders = async (): Promise<ISliderResponse[]> => {
   try {
     const res = await ApiRequest.get<ISliderResponse[]>(endpoints.cms.sliders);
@@ -41,10 +44,20 @@ export const getSliders = async (): Promise<ISliderResponse[]> => {
   }
 };
 
-
 export const getIndustrySliders = async (): Promise<ISliderResponse[]> => {
   try {
-    const res = await ApiRequest.get<ISliderResponse[]>(endpoints.cms.industrySliders);
+    const res = await ApiRequest.get<ISliderResponse[]>(
+      endpoints.cms.industrySliders
+    );
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getAllProducts = async (): Promise<Product[]> => {
+  try {
+    const res = await ApiRequest.get<Product[]>(endpoints.cms.allProducts);
     return res;
   } catch (error) {
     throw error;

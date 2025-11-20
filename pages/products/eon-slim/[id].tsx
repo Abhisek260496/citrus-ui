@@ -11,7 +11,10 @@ import Wrapper from "@/layout/wrapper/Wrapper";
 const Index = () => {
   return (
     <Wrapper>
-      <EonSlimBanner bannerImage={assest?.eon_slim_banner} bannerText="Accelerating Work with Micro Precision"/>
+      <EonSlimBanner
+        bannerImage={assest?.eon_slim_banner}
+        bannerText="Accelerating Work with Micro Precision"
+      />
       <CoreToEveryThing bgImg={assest?.core_to_everything_eon_slim} />
       <TwoIndependentDisplay
         bgImg={assest?.two_independent_displays_bg}

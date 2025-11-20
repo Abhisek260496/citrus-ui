@@ -11,6 +11,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 
+import { getAllProducts } from "@/api/functions/cms.api";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { useAppSelector } from "@/hooks/useAppSelector";
 import assest from "@/json/assest";
@@ -24,57 +25,73 @@ import { Container } from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useQuery } from "react-query";
 
 const drawerWidth = 240;
 
+const navItems = [
+  {
+    name: "Home",
+    route: "/"
+  },
+  {
+    name: "Our Story",
+    route: "/our-story"
+  },
+  {
+    name: "Citrus + Microsoft",
+    route: "/citrus-microsoft"
+  },
+  {
+    name: "Products",
+    route: "/products"
+  },
+  {
+    name: "Support",
+    route: "/support"
+  },
+  {
+    name: "CSR",
+    route: "/csr"
+  },
+  {
+    name: "Work with Us",
+    route: "/work-with-us"
+  }
+];
 export default function Header() {
-  const navItems = [
-    {
-      name: "Home",
-      route: "/"
-    },
-    {
-      name: "Our Story",
-      route: "/our-story"
-    },
-    {
-      name: "Citrus + Microsoft",
-      route: "/citrus-microsoft"
-    },
-    {
-      name: "Products",
-      route: "/products"
-    },
-    {
-      name: "Support",
-      route: "/support"
-    },
-    {
-      name: "CSR",
-      route: "/csr"
-    },
-    {
-      name: "Work with Us",
-      route: "/work-with-us"
+  const { data: products, isLoading: productsLoading } = useQuery({
+    queryKey: ["getAllProducts"],
+    queryFn: getAllProducts
+  });
+
+  console.log(products, "products");
+
+  const productItems = React.useMemo(() => {
+    if (!productsLoading && products?.length) {
+      return products?.map((item) => {
+        return {
+          ...{
+            name: item?.product_title,
+            route: `/products/${item?.product_slug}/${item?.product_id}`
+          }
+          // { name: "EON Slim", route: "/products/eon-slim" },
+          // { name: "EON Slim E", route: "/products/eon-slim-e" },
+          // { name: "EON Slim N3350", route: "/products/eon-slim-n3350" },
+          // { name: "EON 13Pro", route: "/products/eon13-pro" },
+          // { name: "EON 13Pro X", route: "/products/eon13-proX" },
+          // { name: "EON 14Pro", route: "/products/eon-14pro" },
+          // { name: "UVA Plus LOH610", route: "/products/uva" },
+          // { name: "NEO NP500", route: "/products/np500" },
+          // { name: "RIG Plus Rugged", route: "/products/rig-plus" },
+          // { name: "RIG Slim Rugged", route: "/products/rig" },
+          // { name: "OPS", route: "/products/ops" }
+        };
+      });
+    } else {
+      return [];
     }
-  ];
-
-  const productItems = [
-    { name: "Xtreme N100", route: "/products/xtreme" },
-    { name: "EON Slim", route: "/products/eon-slim" },
-    { name: "EON Slim E", route: "/products/eon-slim-e" },
-    { name: "EON Slim N3350", route: "/products/eon-slim-n3350" },
-    { name: "EON 13Pro", route: "/products/eon13-pro" },
-    { name: "EON 13Pro X", route: "/products/eon13-proX" },
-    { name: "EON 14Pro", route: "/products/eon-14pro" },
-    { name: "UVA Plus LOH610", route: "/products/uva" },
-    { name: "NEO NP500", route: "/products/np500" },
-    { name: "RIG Plus Rugged", route: "/products/rig-plus" },
-    { name: "RIG Slim Rugged", route: "/products/rig" },
-    { name: "OPS", route: "/products/ops" }
-  ];
-
-
+  }, [products, productsLoading]);
 
   // const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -169,14 +186,13 @@ export default function Header() {
               disablePadding
               sx={{ display: { xs: "none", sm: "block" } }}
               className="navbar"
-              
             >
               {navItems.map((item, index) => {
                 if (item.name === "Products") {
                   return (
                     <ListItem key={index} disablePadding>
                       <Button
-                      disableRipple
+                        disableRipple
                         aria-controls={open ? "product-menu" : undefined}
                         aria-haspopup="true"
                         aria-expanded={open ? "true" : undefined}
@@ -205,12 +221,12 @@ export default function Header() {
                           "aria-labelledby": "basic-button"
                         }}
                         slotProps={{
-                          paper:{
-                            className:"menu_list"
+                          paper: {
+                            className: "menu_list"
                           }
                         }}
                       >
-                        {productItems.map((product, idx) => (
+                        {productItems?.map((product, idx) => (
                           <MenuItem
                             key={idx}
                             onClick={handleMenuClose}
