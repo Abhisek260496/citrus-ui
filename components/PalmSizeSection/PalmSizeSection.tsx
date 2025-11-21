@@ -1,5 +1,7 @@
+import { prodcutMediaUrl } from "@/api/endpoints";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import assest from "@/json/assest";
-import { Box, Container, Typography, styled } from "@mui/material";
+import { Box, Container, styled } from "@mui/material";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
 
@@ -28,12 +30,15 @@ const PalmSizeSectionStyled = styled(Box)`
   }
 `;
 
-const PalmSizeSection = () => {
+const PalmSizeSection = ({ ...props }: ICommonProductSection) => {
   return (
     <PalmSizeSectionStyled>
       <figure>
         <Image
-          src={assest.palm_size_bg}
+          src={
+            prodcutMediaUrl(props.section_image as string) ||
+            assest.palm_size_bg
+          }
           alt="core_to_everything"
           width={1600}
           height={900}
@@ -47,11 +52,11 @@ const PalmSizeSection = () => {
               mainTitle="Palm-Sized "
               isReversed
             />
-            <Typography>
-              Easy to carry and effortless to fit into tight setups, it’s the
-              ideal solution for those who need performance without the bulk,
-              whether on the move or at the desk.
-            </Typography>
+            <Box
+              dangerouslySetInnerHTML={{
+                __html: props?.section_content || ""
+              }}
+            />
           </Box>
         </Container>
       </Box>

@@ -1,28 +1,51 @@
 /* eslint-disable import/order */
 import assest from "@/json/assest";
-import { Box, BoxProps, Container, Typography, styled } from "@mui/material";
+import {
+  Box,
+  BoxProps,
+  Container,
+  Stack,
+  Typography,
+  styled
+} from "@mui/material";
 import Image from "next/image";
 
 const EonSlimBannerStyled = styled(Box)`
   padding: 90px 0px 200px 0px;
   .eon_slim_wrapper {
     text-align: center;
-    p{
-      margin-top:40px;
+    p {
+      margin-top: 40px;
+    }
+    h1 {
+      text-transform: capitalize;
+      font-size: 164px;
+    }
+    img {
+      margin-right: 20px;
     }
   }
 `;
 
-interface IEonSlimProps extends BoxProps{
-  bannerImage:string;
-  bannerText:string
+interface IEonSlimProps extends BoxProps {
+  bannerImage: string;
+  bannerText?: string | null;
+  productImage?: string;
+  bannerTitle?: string;
 }
 
-const EonSlimBanner = ({bannerImage,bannerText,...props}:IEonSlimProps) => {
+const EonSlimBanner = ({
+  bannerImage,
+  bannerText,
+  productImage,
+  bannerTitle,
+  ...props
+}: IEonSlimProps) => {
   return (
-    <EonSlimBannerStyled {...props}
+    <EonSlimBannerStyled
+      {...props}
       sx={{
-        backgroundImage: `url(${assest?.eonSlimBannerBg})`,
+        backgroundImage: `url(${bannerImage})`,
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover"
@@ -30,9 +53,23 @@ const EonSlimBanner = ({bannerImage,bannerText,...props}:IEonSlimProps) => {
     >
       <Container fixed>
         <Box className="eon_slim_wrapper">
+          <Stack
+            direction="row"
+            alignItems="flex-end"
+            justifyContent="center"
+            mb={4}
+          >
+            <Image
+              src={assest?.eon_logo}
+              alt="eon_logo"
+              width={530}
+              height={180}
+            />
+            <Typography variant="h1">{bannerTitle}</Typography>
+          </Stack>
           <figure>
             <Image
-              src={bannerImage}
+              src={productImage as string}
               alt="eon_slim_banner"
               width={1100}
               height={500}

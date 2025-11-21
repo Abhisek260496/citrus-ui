@@ -1,30 +1,81 @@
+import { prodcutMediaUrl } from "@/api/endpoints";
+import { getSingleProduct } from "@/api/functions/cms.api";
 import CoreToEveryThing from "@/components/CoreToEveryThing/CoreToEveryThing";
 import EonSlimBanner from "@/components/EonSlimBanner/EonSlimBanner";
 import PalmSizeSection from "@/components/PalmSizeSection/PalmSizeSection";
 import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
 import TwoIndependentDisplay from "@/components/TwoIndependentDisplay/TwoIndependentDisplay";
 import UltraBg from "@/components/UltraBg/UltraBg";
-import assest from "@/json/assest";
 import { productList2 } from "@/json/dummy";
 import Wrapper from "@/layout/wrapper/Wrapper";
+import Loader from "@/ui/Loader/Loder";
+import { useRouter } from "next/router";
+import { useQuery } from "react-query";
 
 const Index = () => {
+  const router = useRouter();
+  const { id } = router.query;
+
+  const { data: singleProductData, isLoading: singleProductLoading } = useQuery(
+    {
+      queryKey: ["getSingleProduct", id],
+      queryFn: () => getSingleProduct(id as string)
+    }
+  );
+
+  // useEffect(() => {
+  //   if (!singleProductLoading && singleProductData) {
+  //     window.scrollTo({ top: 0, behavior: "smooth" });
+  //   }
+  // }, [singleProductLoading, singleProductData]);
+
+  console.log(singleProductData, "singleProductData");
+
   return (
     <Wrapper>
-      <EonSlimBanner
-        bannerImage={assest?.eon_slim_banner}
-        bannerText="Accelerating Work with Micro Precision"
-      />
-      <CoreToEveryThing bgImg={assest?.core_to_everything_eon_slim} />
-      <TwoIndependentDisplay
-        bgImg={assest?.two_independent_displays_bg}
-        mainTitle="independent"
-        subTitle="two"
-        description="The seamless transition between displays ensures a more efficient workflow without the hassle of constantly switching tabs or windows."
-      />
-      <PalmSizeSection />
-      <UltraBg />
-      <RelatedProducts productList={productList2} />
+      {singleProductLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <EonSlimBanner
+            bannerImage={prodcutMediaUrl(
+              singleProductData?.banner_background_img as string
+            )}
+            productImage={prodcutMediaUrl(
+              singleProductData?.product_img as string
+            )}
+            bannerText={singleProductData?.product_banner_description}
+            bannerTitle={singleProductData?.product_title}
+          />
+          <CoreToEveryThing
+            bgImg={prodcutMediaUrl(
+              singleProductData?.sections[0]?.section_background_image
+            )}
+            mainTitle={singleProductData?.sections[0]?.section_title}
+            bgText={singleProductData?.sections[0]?.section_content}
+          />
+          <TwoIndependentDisplay
+            bgImg={prodcutMediaUrl(
+              singleProductData?.sections[1]?.section_background_image as string
+            )}
+            mainTitle="independent"
+            subTitle="two"
+            description={singleProductData?.sections[1]?.section_content}
+            displayText={singleProductData?.sections[1]?.section_subtitle}
+          />
+          <PalmSizeSection
+            section_image={singleProductData?.sections[2]?.section_image}
+            section_content={singleProductData?.sections[2]?.section_content}
+          />
+          <UltraBg
+            section_background_image={
+              singleProductData?.sections[3]?.section_background_image
+            }
+            section_content={singleProductData?.sections[3]?.section_content}
+          />
+          <RelatedProducts productList={productList2} />
+        </>
+      )}
     </Wrapper>
   );
 };

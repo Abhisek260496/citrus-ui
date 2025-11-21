@@ -43,6 +43,7 @@ interface ITwoIndependentDisplayProps extends BoxProps {
   mainTitle: string;
   subTitle: string;
   description: string;
+  displayText?: string;
 }
 
 const TwoIndependentDisplay = ({
@@ -50,6 +51,7 @@ const TwoIndependentDisplay = ({
   description,
   mainTitle,
   subTitle,
+  displayText,
   ...props
 }: ITwoIndependentDisplayProps) => {
   return (
@@ -77,10 +79,15 @@ const TwoIndependentDisplay = ({
                 className="cmn_header"
               />
               <Typography variant="h2" className="gradient_header">
-                Displays
+                {displayText}
               </Typography>
             </Box>
-            <Typography>{description}</Typography>
+            <Box
+              component="div"
+              dangerouslySetInnerHTML={{
+                __html: description
+              }}
+            />
           </Stack>
         </Container>
       </Box>

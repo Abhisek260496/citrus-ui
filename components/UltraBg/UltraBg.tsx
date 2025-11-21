@@ -1,5 +1,7 @@
+import { prodcutMediaUrl } from "@/api/endpoints";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import assest from "@/json/assest";
-import { Box, Container, Typography, styled } from "@mui/material";
+import { Box, Container, styled } from "@mui/material";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
 
@@ -32,12 +34,15 @@ const UltraBgStyled = styled(Box)`
   }
 `;
 
-const UltraBg = () => {
+const UltraBg = ({ ...props }: ICommonProductSection) => {
   return (
     <UltraBgStyled>
       <figure>
         <Image
-          src={assest.ultra_bg}
+          src={
+            prodcutMediaUrl(props.section_background_image as string) ||
+            assest.ultra_bg
+          }
           alt="core_to_everything"
           width={1600}
           height={900}
@@ -51,11 +56,11 @@ const UltraBg = () => {
               mainTitle=" 4K Ultra HD"
               //   isReversed
             />
-            <Typography>
-              Choose your experience with the EON Slim, where every detail comes
-              to life in stunning 4K resolution at 60 fps much more in pixels as
-              compared to usual 1920×1080 resolution.
-            </Typography>
+            <Box
+              dangerouslySetInnerHTML={{
+                __html: props?.section_content || ""
+              }}
+            />
           </Box>
         </Container>
       </Box>

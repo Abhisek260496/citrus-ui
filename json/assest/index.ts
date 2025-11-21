@@ -139,5 +139,6 @@ export default {
   intel_iris_graphics: "/assets/images/intel_iris_graphics.png",
   high_bandwidth_banner: "/assets/images/high_bandwidth_banner.png",
   xtreme_n_banner: "/assets/images/xtreme_n_banner.png",
-  xtreme_n: "/assets/images/xtreme_n.png"
+  xtreme_n: "/assets/images/xtreme_n.png",
+  eon_logo: "/assets/images/eon_logo.png"
 };
