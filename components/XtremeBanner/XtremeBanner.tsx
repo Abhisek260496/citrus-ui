@@ -1,3 +1,5 @@
+import { prodcutMediaUrl } from "@/api/endpoints";
+import { IProduct } from "@/interface/apiresp.interfaces";
 import assest from "@/json/assest";
 import { Box, Container, Stack, Typography, styled } from "@mui/material";
 import Image from "next/image";
@@ -22,11 +24,14 @@ const XtremeStack = styled(Stack)(() => ({
   margin: "0 auto"
 }));
 
-const XtremeBanner = () => {
+const XtremeBanner = ({ ...props }: IProduct) => {
   return (
     <XtremeBannerStyled
       sx={{
-        backgroundImage: `url(${assest?.xtreme_n_banner})`,
+        backgroundImage: `url(${
+          prodcutMediaUrl(props?.banner_background_img as string) ||
+          assest?.xtreme_n_banner
+        })`,
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover"
@@ -36,7 +41,10 @@ const XtremeBanner = () => {
         <XtremeStack direction="row" alignItems="center">
           <figure>
             <Image
-              src={assest?.xtreme_n}
+              src={
+                prodcutMediaUrl(props?.product_banner_content as string) ||
+                assest?.xtreme_n
+              }
               alt="xtreme_n"
               width={200}
               height={585}
@@ -44,13 +52,16 @@ const XtremeBanner = () => {
           </figure>
           <Box>
             <Typography variant="h1">
-              Xtreme <Typography variant="caption">Thin Client</Typography>
+              {props?.product_banner_title_1}{" "}
+              <Typography variant="caption">
+                {props?.product_banner_title_2}
+              </Typography>
               <br />
-              <Typography variant="caption">N Series</Typography>
+              <Typography variant="caption">
+                {props?.product_banner_title_3}
+              </Typography>
             </Typography>
-            <Typography>
-              Unleashing the X-factor of business computing
-            </Typography>
+            <Typography>{props?.product_banner_description}</Typography>
           </Box>
         </XtremeStack>
       </Container>

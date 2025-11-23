@@ -10,6 +10,7 @@ import { productList2 } from "@/json/dummy";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import Loader from "@/ui/Loader/Loder";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useQuery } from "react-query";
 
 const Index = () => {
@@ -23,13 +24,11 @@ const Index = () => {
     }
   );
 
-  // useEffect(() => {
-  //   if (!singleProductLoading && singleProductData) {
-  //     window.scrollTo({ top: 0, behavior: "smooth" });
-  //   }
-  // }, [singleProductLoading, singleProductData]);
-
-  console.log(singleProductData, "singleProductData");
+  useEffect(() => {
+    if (!singleProductLoading && singleProductData) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [singleProductLoading, singleProductData]);
 
   return (
     <Wrapper>
@@ -42,10 +41,9 @@ const Index = () => {
               singleProductData?.banner_background_img as string
             )}
             productImage={prodcutMediaUrl(
-              singleProductData?.product_img as string
+              singleProductData?.product_banner_content as string
             )}
             bannerText={singleProductData?.product_banner_description}
-            bannerTitle={singleProductData?.product_title}
           />
           <CoreToEveryThing
             bgImg={prodcutMediaUrl(

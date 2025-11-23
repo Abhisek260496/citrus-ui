@@ -31,13 +31,28 @@ const Xtreme = () => {
     }
   }, [singleProductLoading, singleProductData]);
 
+  console.log(singleProductData, "singleProductData");
+
   return (
     <Wrapper>
       {singleProductLoading ? (
         <Loader />
       ) : (
         <>
-          <XtremeBanner />
+          <XtremeBanner
+            banner_background_img={
+              singleProductData?.banner_background_img as string
+            }
+            product_banner_content={
+              singleProductData?.product_banner_content as string
+            }
+            product_banner_title_1={singleProductData?.product_banner_title_1}
+            product_banner_title_2={singleProductData?.product_banner_title_2}
+            product_banner_title_3={singleProductData?.product_banner_title_3}
+            product_banner_description={
+              singleProductData?.product_banner_description
+            }
+          />
           <CoreToEveryThing
             bgImg={prodcutMediaUrl(
               singleProductData?.sections[0]?.section_image

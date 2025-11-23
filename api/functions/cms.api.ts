@@ -1,7 +1,7 @@
 import {
   IClientResponse,
-  ISliderResponse,
-  Product
+  IProductResponse,
+  ISliderResponse
 } from "@/interface/apiresp.interfaces";
 import ApiRequest from "../axiosInstance/request";
 import { endpoints } from "../endpoints";
@@ -55,18 +55,22 @@ export const getIndustrySliders = async (): Promise<ISliderResponse[]> => {
   }
 };
 
-export const getAllProducts = async (): Promise<Product[]> => {
+export const getAllProducts = async (): Promise<IProductResponse[]> => {
   try {
-    const res = await ApiRequest.get<Product[]>(endpoints.cms.allProducts);
+    const res = await ApiRequest.get<IProductResponse[]>(
+      endpoints.cms.allProducts
+    );
     return res;
   } catch (error) {
     throw error;
   }
 };
 
-export const getSingleProduct = async (id: string): Promise<Product> => {
+export const getSingleProduct = async (
+  id: string
+): Promise<IProductResponse> => {
   try {
-    const res = await ApiRequest.get<Product>(
+    const res = await ApiRequest.get<IProductResponse>(
       `${endpoints.cms.allProducts}/${id}`
     );
     return res;

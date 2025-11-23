@@ -1,13 +1,5 @@
 /* eslint-disable import/order */
-import assest from "@/json/assest";
-import {
-  Box,
-  BoxProps,
-  Container,
-  Stack,
-  Typography,
-  styled
-} from "@mui/material";
+import { Box, BoxProps, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 
 const EonSlimBannerStyled = styled(Box)`
@@ -31,14 +23,12 @@ interface IEonSlimProps extends BoxProps {
   bannerImage: string;
   bannerText?: string | null;
   productImage?: string;
-  bannerTitle?: string;
 }
 
 const EonSlimBanner = ({
   bannerImage,
   bannerText,
   productImage,
-  bannerTitle,
   ...props
 }: IEonSlimProps) => {
   return (
@@ -53,7 +43,7 @@ const EonSlimBanner = ({
     >
       <Container fixed>
         <Box className="eon_slim_wrapper">
-          <Stack
+          {/* <Stack
             direction="row"
             alignItems="flex-end"
             justifyContent="center"
@@ -66,7 +56,7 @@ const EonSlimBanner = ({
               height={180}
             />
             <Typography variant="h1">{bannerTitle}</Typography>
-          </Stack>
+          </Stack> */}
           <figure>
             <Image
               src={productImage as string}
