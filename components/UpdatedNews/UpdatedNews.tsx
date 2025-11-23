@@ -1,17 +1,21 @@
 /* eslint-disable import/order */
+import { newsMediaUrl } from "@/api/endpoints";
+import { getAllNews } from "@/api/functions/cms.api";
 import {
   EachUpdatedElementStyled,
   UpdatedNewsStyled
 } from "@/styles/styledComponents/UpdatedNewsStyled";
 import CalenderIcon from "@/ui/Icons/CalenderIcon";
+import Loader from "@/ui/Loader/Loder";
 import { Box, BoxProps, Container, Typography } from "@mui/material";
+import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
+import { useQuery } from "react-query";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import { updatedDataList } from "../../json/dummy/index";
 import SliderButtons from "../../ui/Buttons/SliderButtons";
 import CommonHeader from "../CommonHeader/CommonHeader";
 
@@ -28,11 +32,15 @@ const EachUpdatedElement = ({
   redirectUrl,
   ...props
 }: UpadteElementProps) => {
-  // powerfull_image1
   return (
     <EachUpdatedElementStyled {...props}>
       <figure>
-        <Image src={image} alt="powerfull_image" width={900} height={500} />
+        <Image
+          src={newsMediaUrl(image)}
+          alt="powerfull_image"
+          width={900}
+          height={500}
+        />
       </figure>
       <Box className="updated_content">
         <Typography>
@@ -42,7 +50,7 @@ const EachUpdatedElement = ({
           {publishDate}
         </Typography>
         <Typography variant="h5">
-          <Link href={redirectUrl}>{title}</Link>
+          <Link href={`/news-details/${redirectUrl}`}>{title}</Link>
         </Typography>
       </Box>
     </EachUpdatedElementStyled>
@@ -50,6 +58,11 @@ const EachUpdatedElement = ({
 };
 
 const UpdatedNews = () => {
+  const { data: news, isLoading: newsLoading } = useQuery({
+    queryKey: ["getALlNews"],
+    queryFn: () => getAllNews()
+  });
+
   const sliderRef = useRef<Slider | null>(null);
   const sliderWrapperRef = useRef<HTMLDivElement | null>(null);
 
@@ -62,51 +75,56 @@ const UpdatedNews = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000
-    // afterChange: () => updateSlideWidths()
   };
   return (
     <UpdatedNewsStyled id="new_articles" className="cmn_gap">
-      <Container fixed>
-        <Box
-          sx={{
-            position: "relative"
-          }}
-        >
-          <CommonHeader
-            subTitle="Updated "
-            mainTitle="news & articles"
-            sx={{ mb: "54px" }}
-          />
-
-          <SliderButtons
+      {newsLoading ? (
+        <Loader />
+      ) : (
+        <Container fixed>
+          <Box
             sx={{
-              top: "50%",
-              transform: "translateY(-50%)"
+              position: "relative"
             }}
-            onClickNext={() => {
-              sliderRef.current?.slickNext();
-              //   setTimeout(updateSlideWidths, 50);
-            }}
-            onClickPrev={() => {
-              sliderRef.current?.slickPrev();
-              //   setTimeout(updateSlideWidths, 50);
-            }}
-          />
-        </Box>
-        <Box className="global_slick" ref={sliderWrapperRef}>
-          <Slider ref={sliderRef} {...settings}>
-            {updatedDataList?.map((item, index) => (
-              <EachUpdatedElement
-                key={index}
-                image={item?.image}
-                title={item?.title}
-                publishDate={item?.publishDate}
-                redirectUrl={item?.redirectUrl}
-              />
-            ))}
-          </Slider>
-        </Box>
-      </Container>
+          >
+            <CommonHeader
+              subTitle="Updated "
+              mainTitle="news & articles"
+              sx={{ mb: "54px" }}
+            />
+
+            <SliderButtons
+              sx={{
+                top: "50%",
+                transform: "translateY(-50%)"
+              }}
+              onClickNext={() => {
+                sliderRef.current?.slickNext();
+              }}
+              onClickPrev={() => {
+                sliderRef.current?.slickPrev();
+              }}
+            />
+          </Box>
+          <Box className="global_slick" ref={sliderWrapperRef}>
+            {!!news && news.length ? (
+              <Slider ref={sliderRef} {...settings}>
+                {news?.map((item, index) => (
+                  <EachUpdatedElement
+                    key={index}
+                    image={item?.news_image}
+                    title={item?.news_title}
+                    publishDate={moment(item?.news_created_at).format(
+                      "MMM DD, YYYY"
+                    )}
+                    redirectUrl={item?.news_id.toString()}
+                  />
+                ))}
+              </Slider>
+            ) : null}
+          </Box>
+        </Container>
+      )}
     </UpdatedNewsStyled>
   );
 };

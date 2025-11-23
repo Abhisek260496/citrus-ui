@@ -1,28 +1,32 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/order */
+import { ThreeSixtymediaUrl } from "@/api/endpoints";
+import { get360Products } from "@/api/functions/cms.api";
+import { Each360ProductResponse } from "@/interface/apiresp.interfaces";
 import assest from "@/json/assest";
 import { ExclusiveStyled } from "@/styles/styledComponents/ExclusiveStyled";
-import { Box, Button, Container, Typography } from "@mui/material";
-import Image from "next/image";
-import CommonHeader from "../CommonHeader/CommonHeader";
-import { useRef, useState } from "react";
-import { ReactImageTurntable } from "react-image-turntable";
-import type { ReactImageTurntableProps } from "react-image-turntable";
 import SliderButtons from "@/ui/Buttons/SliderButtons";
+import Loader from "@/ui/Loader/Loder";
+import { Box, Container, Typography } from "@mui/material";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import type { ReactImageTurntableProps } from "react-image-turntable";
+import { ReactImageTurntable } from "react-image-turntable";
+import { useQuery } from "react-query";
 import Slider from "react-slick";
-
-interface IRotationalElementsType {
-  imagePath: string;
-  folderPath: string;
-}
+import CommonHeader from "../CommonHeader/CommonHeader";
 
 interface IExclusiveRotaionComponentProps
   extends Partial<ReactImageTurntableProps> {
-  imagePath: string;
-  folderPath: string;
+  sourceImages: Each360ProductResponse[];
 }
 
-const ExclusiveRotaionComponent = (props: IExclusiveRotaionComponentProps) => {
+const ExclusiveRotaionComponent = ({
+  ...props
+}: IExclusiveRotaionComponentProps) => {
+  const [images, setImages] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
   const [rotationDisabled, setRotationDisabled] = useState<boolean>(true);
 
   const handleKeyDown = (ev: React.KeyboardEvent<HTMLDivElement>) => {
@@ -33,33 +37,56 @@ const ExclusiveRotaionComponent = (props: IExclusiveRotaionComponentProps) => {
     }
   };
 
-  const eonProRotationImages = Array.from({ length: 120 }, (_, i) => {
-    const num = i.toString().padStart(3, "0");
-    return `/assets/images/${props?.folderPath}/${props?.imagePath}${num}.png`;
-  });
+  // const eonProRotationImages = props?.sourceImages?.map((item) => {
+  //   return `${ThreeSixtymediaUrl(item?.side_image)}`;
+  // });
+
+  useEffect(() => {
+    if (!props.sourceImages) return;
+
+    // Delay to avoid blocking UI
+    const timeout = setTimeout(() => {
+      const urls = props.sourceImages.map((item) =>
+        ThreeSixtymediaUrl(item.side_image)
+      );
+      setImages(urls);
+      setLoading(false);
+    }, 300); // small delay
+
+    return () => clearTimeout(timeout);
+  }, [props.sourceImages]);
+
+  if (loading) return <Loader />;
+
   return (
-    <ReactImageTurntable
-      images={eonProRotationImages}
-      autoRotate={{ disabled: rotationDisabled, interval: 200 }}
-      onPointerDown={() => setRotationDisabled(true)}
-      onPointerUp={() => setRotationDisabled(true)}
-      onKeyDown={handleKeyDown}
-      onKeyUp={() => setRotationDisabled(true)}
-      {...props}
-    />
+    <>
+      {images?.length ? (
+        <ReactImageTurntable
+          images={images}
+          autoRotate={{ disabled: rotationDisabled, interval: 200 }}
+          onPointerDown={() => setRotationDisabled(true)}
+          onPointerUp={() => setRotationDisabled(true)}
+          onKeyDown={handleKeyDown}
+          onKeyUp={() => setRotationDisabled(true)}
+          {...props}
+        />
+      ) : (
+        <Loader />
+      )}
+    </>
   );
 };
 
-const rotationalElements: IRotationalElementsType[] = [
-  {
-    folderPath: "EON_ProX",
-    imagePath: "EON_PROX"
-  },
-  {
-    folderPath: "EON_ProX",
-    imagePath: "EON_PROX"
-  }
-];
+// const rotationalElements: IRotationalElementsType[] = [
+//   {
+//     folderPath: "EON_ProX",
+//     imagePath: "EON_PROX"
+//   },
+//   {
+//     folderPath: "EON_ProX",
+//     imagePath: "EON_PROX"
+//   }
+// ];
 
 const Exclusive = () => {
   const sliderRef = useRef<Slider | null>(null);
@@ -73,11 +100,15 @@ const Exclusive = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: false,
-    autoplaySpeed: 2000,
-    draggable: false, // disable mouse dragging
-    swipe: false, // disable touch swipe
+    draggable: false,
+    swipe: false,
     touchMove: false
   };
+
+  const { data: products, isLoading: productsLoading } = useQuery({
+    queryKey: ["getAll360PRoducts"],
+    queryFn: () => get360Products()
+  });
 
   return (
     <ExclusiveStyled className="cmn_gap cmn_gap_top">
@@ -102,27 +133,34 @@ const Exclusive = () => {
                 sliderRef.current?.slickPrev();
               }}
               sx={{
-                position:"absolute",
-                left:"50%",
-                bottom:"40px",
-                transform:"translateX(-50%)",
-                top:"auto",
-                right:"auto",
-                zIndex:9999
+                position: "absolute",
+                left: "50%",
+                bottom: "40px",
+                transform: "translateX(-50%)",
+                top: "auto",
+                right: "auto",
+                zIndex: 9999
               }}
             />
-            <Slider ref={sliderRef} {...settings}>
-              {rotationalElements?.map((item, index: number) => (
-                <Box>
-                  <figure className="rotaion_image" key={index + 1}>
-                    <ExclusiveRotaionComponent
-                      folderPath={item?.folderPath}
-                      imagePath={item?.imagePath}
-                    />
-                  </figure>
-                </Box>
-              ))}
-            </Slider>
+            {productsLoading ? (
+              <Loader />
+            ) : (
+              <>
+                {!!products && products?.length && (
+                  <Slider ref={sliderRef} {...settings}>
+                    {products?.map((item, index) => (
+                      <Box key={index}>
+                        <figure className="rotaion_image">
+                          <ExclusiveRotaionComponent
+                            sourceImages={item.images}
+                          />
+                        </figure>
+                      </Box>
+                    ))}
+                  </Slider>
+                )}
+              </>
+            )}
           </Box>
 
           <Image

@@ -1,5 +1,7 @@
 import {
+  I360ProductResponse,
   IClientResponse,
+  INewsResponse,
   IProductResponse,
   ISliderResponse
 } from "@/interface/apiresp.interfaces";
@@ -72,6 +74,37 @@ export const getSingleProduct = async (
   try {
     const res = await ApiRequest.get<IProductResponse>(
       `${endpoints.cms.allProducts}/${id}`
+    );
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const get360Products = async (): Promise<I360ProductResponse[]> => {
+  try {
+    const res = await ApiRequest.get<I360ProductResponse[]>(
+      endpoints.cms.get360Products
+    );
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getAllNews = async (): Promise<INewsResponse[]> => {
+  try {
+    const res = await ApiRequest.get<INewsResponse[]>(endpoints.cms.getNews);
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getNews = async (id: string): Promise<INewsResponse> => {
+  try {
+    const res = await ApiRequest.get<INewsResponse>(
+      `${endpoints.cms.getNews}/${id}`
     );
     return res;
   } catch (error) {

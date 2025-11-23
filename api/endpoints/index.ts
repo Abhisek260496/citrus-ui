@@ -7,9 +7,14 @@ export const baseUrlMedia = `${process.env.NEXT_APP_BASE_URL}`;
 export const mediaUrl = (url: string) => {
   return `${baseUrlMedia}/uploads/${url}`;
 };
-
+export const ThreeSixtymediaUrl = (url: string) => {
+  return `${baseUrlMedia}/uploads/360/sides/${url}`;
+};
 export const prodcutMediaUrl = (url: string) => {
   return `${baseUrlMedia}/uploads/product/${url}`;
+};
+export const newsMediaUrl = (url: string) => {
+  return `${baseUrlMedia}/uploads/news/${url}`;
 };
 
 export const endpoints = {
@@ -27,7 +32,9 @@ export const endpoints = {
     sliders: "/sliders",
     industrySliders: "/industry-sliders",
     allProducts: "/products",
-    getSingleProduct: "/products"
+    getSingleProduct: "/products",
+    get360Products: "/product360",
+    getNews: "/news"
   }
 };
 

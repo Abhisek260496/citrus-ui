@@ -8,7 +8,7 @@ import { memo } from "react";
 const CustomBtn = styled(Button)`
   padding: 7px 28px;
   border-radius: 8px;
-  background-color: ${palette.text.primary};
+  background-color: transparent;
   border: 1px solid ${palette.text.primary};
   color: ${palette.common.white};
   min-width: 180px;

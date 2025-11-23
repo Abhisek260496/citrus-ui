@@ -51,3 +51,35 @@ export interface ICommonProductSection {
   section_video?: string | null;
   section_background_image?: string | null;
 }
+
+export interface Each360ProductResponse {
+  id: number;
+  product_360_id: number;
+  side_image: string;
+  created_at: string;
+  updated_at: string;
+}
+export interface I360ProductResponse {
+  product_360_id: number;
+  product_name: string;
+  thumb_image: string;
+  is_active: boolean;
+  images: Each360ProductResponse[];
+}
+
+export interface INewsResponse {
+  news_id: number;
+  news_title: string;
+  news_description: string;
+  news_image: string;
+  news_main_image: string | null;
+  news_slug: string;
+  banner_image: null;
+  meta_title: string;
+  meta_description: string;
+  meta_keword: string | null;
+  news_is_active: number;
+  news_created_by_id: number;
+  news_created_at: string;
+  news_updated_at: string;
+}

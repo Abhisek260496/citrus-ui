@@ -40,7 +40,7 @@ export const HeaderWrap = styled(Box)`
       }
       a,
       button {
-               font-family: "karla";
+        font-family: "karla";
         color: ${palette?.common?.white};
         padding: 0;
         font-size: 16px;
