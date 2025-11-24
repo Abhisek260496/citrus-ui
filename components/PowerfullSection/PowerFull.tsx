@@ -1,5 +1,7 @@
 /* eslint-disable import/order */
-import { eachPowerFullElements } from "@/json/dummy";
+import { mediaUrl } from "@/api/endpoints";
+import { getSliders } from "@/api/functions/cms.api";
+import { ISliderResponse } from "@/interface/apiresp.interfaces";
 import {
   PowerFullElementStyled,
   PowerFullStyle
@@ -8,14 +10,11 @@ import SliderButtons from "@/ui/Buttons/SliderButtons";
 import { Box, BoxProps, Container, Typography } from "@mui/material";
 import Image from "next/image";
 import React, { useMemo, useRef } from "react";
+import { useQuery } from "react-query";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import CommonHeader from "../CommonHeader/CommonHeader";
-import { useQuery } from "react-query";
-import { getSliders } from "@/api/functions/cms.api";
-import { ISliderResponse } from "@/interface/apiresp.interfaces";
-import {  mediaUrl } from "@/api/endpoints";
 
 interface EachPowerFullElementProps extends BoxProps, ISliderResponse {}
 const EachPowerFullElement = ({
@@ -24,7 +23,6 @@ const EachPowerFullElement = ({
   slider_title,
   ...props
 }: EachPowerFullElementProps) => {
-  // powerfull_image1
   return (
     <PowerFullElementStyled {...props}>
       <figure>
@@ -37,7 +35,7 @@ const EachPowerFullElement = ({
       </figure>
       <Box className="powerfull_content">
         <Typography variant="h3">{slider_title}</Typography>
-        <Box dangerouslySetInnerHTML={{ __html: slider_description }} />
+        <Typography>{slider_description}</Typography>
       </Box>
     </PowerFullElementStyled>
   );
@@ -67,7 +65,7 @@ const PowerFull = (): React.ReactElement => {
     speed: 800,
     slidesToShow: 2,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2000
   };
 
@@ -91,10 +89,7 @@ const PowerFull = (): React.ReactElement => {
           />
           <Slider ref={sliderRef} {...settings}>
             {activeSliders?.map((item, index) => (
-              <EachPowerFullElement
-                key={index}
-                {...item}
-              />
+              <EachPowerFullElement key={index} {...item} />
             ))}
           </Slider>
         </Box>
