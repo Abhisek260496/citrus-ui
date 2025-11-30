@@ -28,6 +28,7 @@ const EachPowerFullElement = ({
       <figure>
         <Image
           src={mediaUrl(`slider/${slider_image}`)}
+          git
           alt="powerfull_image"
           width={900}
           height={500}

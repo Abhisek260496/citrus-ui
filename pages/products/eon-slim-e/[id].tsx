@@ -6,11 +6,10 @@ import EonSlimBanner from "@/components/EonSlimBanner/EonSlimBanner";
 import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
 import TwoIndependentDisplay from "@/components/TwoIndependentDisplay/TwoIndependentDisplay";
 import UltraBg from "@/components/UltraBg/UltraBg";
-import assest from "@/json/assest";
-import { productList2 } from "@/json/dummy";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import Loader from "@/ui/Loader/Loder";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useQuery } from "react-query";
 
 const Index = () => {
@@ -24,13 +23,13 @@ const Index = () => {
     }
   );
 
-  // useEffect(() => {
-  //   if (!singleProductLoading && singleProductData) {
-  //     window.scrollTo({ top: 0, behavior: "smooth" });
-  //   }
-  // }, [singleProductLoading, singleProductData]);
+  useEffect(() => {
+    if (!singleProductLoading && singleProductData) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [singleProductLoading, singleProductData]);
 
-  console.log(singleProductData, "singleProductData");
+  console.log(singleProductData?.sections[2], "singleProductData");
   return (
     <Wrapper>
       {singleProductLoading ? (
@@ -38,31 +37,45 @@ const Index = () => {
       ) : (
         <>
           <EonSlimBanner
-            bannerImage={
-              singleProductData?.banner_background_img
-                ? prodcutMediaUrl(
-                    singleProductData?.banner_background_img as string
-                  )
-                : assest?.eonSlimBannerBg
-            }
+            bannerImage={prodcutMediaUrl(
+              singleProductData?.banner_background_img as string
+            )}
             productImage={prodcutMediaUrl(
-              singleProductData?.product_img as string
+              singleProductData?.product_banner_content as string
             )}
             bannerText={singleProductData?.product_banner_description}
           />
           <CoreToEveryThing
-            bgImg={assest?.eon_slim_e_core_to_everything}
-            bgText="A power-efficient & budget-friendly quad-core processor ideal for smooth multitasking and everyday computing."
+            bgImg={prodcutMediaUrl(
+              singleProductData?.sections[0]?.section_background_image
+            )}
+            mainTitle={singleProductData?.sections[0]?.section_title}
+            bgText={singleProductData?.sections[0]?.section_content}
           />
           <TwoIndependentDisplay
-            bgImg={assest?.two_independent_displays_bg}
-            mainTitle="independent"
-            subTitle="two"
-            description="The seamless transition between displays ensures a more efficient workflow without the hassle of constantly switching tabs or windows."
+            bgImg={prodcutMediaUrl(
+              singleProductData?.sections[1]?.section_background_image as string
+            )}
+            subTitle={singleProductData?.sections[1]?.section_title}
+            mainTitle={singleProductData?.sections[1]?.section_subtitle}
+            description={singleProductData?.sections[1]?.section_content}
+            displayText={singleProductData?.sections[1]?.section_subtitle_one}
           />
-          <EasySec />
-          <UltraBg />
-          <RelatedProducts productList={productList2} />
+          <EasySec
+            section_background_image={
+              singleProductData?.sections[2]?.section_background_image
+            }
+            section_content={singleProductData?.sections[2]?.section_content}
+          />
+          <UltraBg
+            section_background_image={
+              singleProductData?.sections[3]?.section_background_image
+            }
+            section_content={singleProductData?.sections[3]?.section_content}
+          />
+          <RelatedProducts
+            related_products={singleProductData?.related_products}
+          />
         </>
       )}
     </Wrapper>

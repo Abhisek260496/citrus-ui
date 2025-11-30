@@ -1,7 +1,11 @@
 /* eslint-disable import/order */
 /* eslint-disable sort-imports */
 /* eslint-disable @next/next/no-img-element */
-import { IEachRelatedProductProps } from "@/types/common.type";
+import { prodcutMediaUrl } from "@/api/endpoints";
+import {
+  IProductResponse,
+  IRelatedProduct
+} from "@/interface/apiresp.interfaces";
 import {
   Box,
   Container,
@@ -12,9 +16,15 @@ import {
   Typography
 } from "@mui/material";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useQueryClient } from "react-query";
 import CommonHeader from "../CommonHeader/CommonHeader";
 
-const EachRelatedProductStyled = styled(Box)`
+export const EachRelatedProductStyled = styled(Box, {
+  shouldForwardProp: (prop) => prop !== "maxProductHeight"
+})<{
+  maxProductHeight: number;
+}>`
   background: linear-gradient(
     117.46deg,
     rgba(157, 162, 239, 0.1) -9.7%,
@@ -23,6 +33,7 @@ const EachRelatedProductStyled = styled(Box)`
   backdrop-filter: blur(20px);
   border-radius: 20px;
   position: relative;
+  min-height: ${({ maxProductHeight }) => `${maxProductHeight}px`};
   &::before {
     content: "";
     position: absolute;
@@ -54,6 +65,11 @@ const EachRelatedProductStyled = styled(Box)`
       display: flex;
       justify-content: center;
       align-items: center;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
     }
     h6 {
       font-weight: 700;
@@ -90,22 +106,51 @@ const EachRelatedProductStyled = styled(Box)`
 const RelatedProductsStyled = styled(Box)``;
 
 const EachRelatedProduct = ({
-  image,
+  product_img,
   memory,
   os,
   processor,
   storage,
   title,
-  route
-}: IEachRelatedProductProps) => {
+  product_id,
+  maxProductHeight
+}: IRelatedProduct & { maxProductHeight: number }) => {
+  const [routePath, setRoutePath] = useState<{ route: string; id: string }>({
+    route: "",
+    id: ""
+  });
+  const queryClient = useQueryClient();
+  const data = queryClient.getQueryData<IProductResponse[]>(["getAllProducts"]);
+
+  useEffect(() => {
+    if (data?.length) {
+      data?.forEach((item) => {
+        if (item?.product_title === title) {
+          setRoutePath({
+            route: item?.product_slug as string,
+            id: item?.product_id?.toString() as string
+          });
+        }
+      });
+    }
+  }, [data]);
+
+  console.log(data, routePath, title, product_id, "data");
+
   return (
-    <EachRelatedProductStyled>
+    <EachRelatedProductStyled
+      className="each_product"
+      maxProductHeight={maxProductHeight}
+    >
       <Box className="product_fig">
         <figure>
-          <img src={image} alt="" />
+          <img src={prodcutMediaUrl(product_img)} alt="" />
         </figure>
         <Typography variant="h6">
-          <Link href={route}>{title}</Link>
+          {/* {title} */}
+          <Link href={`/products/${routePath?.route}/${routePath?.id}`}>
+            {title}
+          </Link>
         </Typography>
       </Box>
       <Box className="product_content">
@@ -128,11 +173,29 @@ const EachRelatedProduct = ({
   );
 };
 
-interface IRelatedProducts {
-  productList: IEachRelatedProductProps[];
+interface IRelatedProductProps {
+  related_products?: IRelatedProduct[];
 }
+const RelatedProducts = ({ related_products }: IRelatedProductProps) => {
+  const [maxProductHeight, setMaxProductHeight] = useState<number>(0);
 
-const RelatedProducts = ({ productList }: IRelatedProducts) => {
+  const setMaxHeight = () => {
+    const allProductsHeights: number[] = [];
+    document.querySelectorAll(".each_product")?.forEach((item) => {
+      allProductsHeights.push(item?.clientHeight);
+    });
+
+    setMaxProductHeight(Math.max(...allProductsHeights));
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setMaxHeight();
+    }, 1000);
+  }, []);
+
+  console.log(maxProductHeight, "maxProductHeight");
+
   return (
     <RelatedProductsStyled className="cmn_gap">
       <Container fixed>
@@ -142,9 +205,12 @@ const RelatedProducts = ({ productList }: IRelatedProducts) => {
           sx={{ textAlign: "center", marginBottom: "62px" }}
         />
         <Grid container spacing={2}>
-          {productList?.map((item, index) => (
+          {related_products?.map((item, index) => (
             <Grid item lg={4} md={6} xs={12} key={index}>
-              <EachRelatedProduct {...item} />
+              <EachRelatedProduct
+                {...item}
+                maxProductHeight={maxProductHeight}
+              />
             </Grid>
           ))}
         </Grid>

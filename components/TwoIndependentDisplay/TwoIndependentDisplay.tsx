@@ -82,8 +82,7 @@ const TwoIndependentDisplay = ({
                 {displayText}
               </Typography>
             </Box>
-            <Box
-              component="div"
+            <Typography
               dangerouslySetInnerHTML={{
                 __html: description
               }}

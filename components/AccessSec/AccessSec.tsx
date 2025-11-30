@@ -1,4 +1,5 @@
 /* eslint-disable sort-imports */
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import assest from "@/json/assest";
 import { Box, Container, Stack, styled, Typography } from "@mui/material";
 import Image from "next/image";
@@ -30,31 +31,34 @@ export const AccessSecWrapper = styled(Box)`
       margin: 0 auto;
     }
   }
-  .access_row{
+  .access_row {
     position: relative;
     z-index: 2;
-  
 
-    .access_box{
-      figure{
+    .access_box {
+      figure {
         margin: 0;
         margin-bottom: 20px;
       }
-      p{
+      p {
         font-size: 49px;
         font-weight: 700;
         text-transform: uppercase;
         text-align: center;
-        
       }
     }
   }
 `;
-const AccessSec = () => {
+const AccessSec = ({
+  section_background_image,
+  section_title,
+  section_subtitle,
+  section_content
+}: ICommonProductSection) => {
   return (
     <AccessSecWrapper>
       <Image
-        src={assest.accessBackImg}
+        src={section_background_image as string}
         alt="accessBackImg"
         width={1600}
         height={888}
@@ -63,15 +67,17 @@ const AccessSec = () => {
       <Container fixed>
         <Box className="sec_hd">
           <Typography variant="h2">
-            Access <strong>Locally & Remotely</strong>
+            {section_title} <strong>{section_subtitle}</strong>
           </Typography>
-          <Typography variant="body1">
-            Handle demanding tasks and real-time performance with ease with dual
-            2.5 GbE LAN for faster data flow and uninterrupted streaming also
-            featuring Wi-Fi and Bluetooth for effortless wireless connections
-          </Typography>
+          <Typography variant="body1">{section_content}</Typography>
         </Box>
-        <Stack direction="row" alignItems="center" justifyContent='center' gap={10} className="access_row">
+        <Stack
+          direction="row"
+          alignItems="center"
+          justifyContent="center"
+          gap={10}
+          className="access_row"
+        >
           <Box className="access_box">
             <figure>
               <Image
@@ -83,7 +89,7 @@ const AccessSec = () => {
             </figure>
             <Typography variant="body1">Lan</Typography>
           </Box>
-             <Box className="access_box">
+          <Box className="access_box">
             <figure>
               <Image
                 src={assest.wifiImg1}

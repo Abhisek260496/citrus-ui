@@ -1,3 +1,4 @@
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import { Box, styled } from "@mui/material";
 
 export const InnerBannerWrapper = styled(Box)`
@@ -10,7 +11,11 @@ export const InnerBannerWrapper = styled(Box)`
   }
 `;
 
-const InnerBanner = ({ bannerVideo }: { bannerVideo?: string }) => {
+interface IInnerBannerProps extends ICommonProductSection {
+  bannerVideo?: string;
+}
+
+const InnerBanner = ({ bannerVideo }: IInnerBannerProps) => {
   return (
     <InnerBannerWrapper>
       <figure>

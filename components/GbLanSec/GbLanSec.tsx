@@ -1,4 +1,4 @@
-import assest from "@/json/assest";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import { Box, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 
@@ -17,12 +17,11 @@ const GbLanSecStyled = styled(Box)`
       height: 100%;
     }
   }
-  .core_wrapper{
+  .core_wrapper {
     position: absolute;
     right: 0;
     bottom: 100px;
     width: 100%;
-
   }
   .core_content {
     max-width: 569px;
@@ -44,12 +43,19 @@ const GbLanSecStyled = styled(Box)`
   }
 `;
 
-const GbLanSec = () => {
+const GbLanSec = ({
+  section_background_image,
+  section_image,
+  section_content,
+  section_subtitle,
+  section_title,
+  section_video
+}: ICommonProductSection) => {
   return (
     <GbLanSecStyled className="cmn_gap">
       <figure>
         <Image
-          src={assest?.gb_per_lan_bg}
+          src={section_background_image as string}
           alt="gb_per_lan_bg"
           width={1920}
           height={1080}
@@ -62,11 +68,7 @@ const GbLanSec = () => {
               2.5 <Typography variant="caption">GBE LAN</Typography>
             </Typography>
             <Box className="core_content_left">
-              <Typography>
-                Keep-up with the heavy workloads or real-time demands with dual
-                2.5 Gbps LAN that deliver double the power to enjoy smoother
-                streaming & quicker data transfers.
-              </Typography>
+              <Typography>{section_content}</Typography>
             </Box>
           </Box>
         </Container>

@@ -19,7 +19,6 @@ import { logout } from "@/reduxtoolkit/slices/userSlice";
 import { HeaderWrap } from "@/styles/styledComponents/HeaderWrapper";
 import CustomButton from "@/ui/Buttons/CustomButton";
 import MailIcon from "@/ui/Icons/MailIcon";
-import WhatsAppIcon from "@/ui/Icons/WhatsAppIcon";
 import { Button, Menu, MenuItem } from "@mui/material";
 import { Container } from "@mui/system";
 import Image from "next/image";
@@ -60,6 +59,21 @@ const navItems = [
   }
 ];
 export default function Header() {
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const { data: products, isLoading: productsLoading } = useQuery({
     queryKey: ["getAllProducts"],
     queryFn: getAllProducts
@@ -129,7 +143,7 @@ export default function Header() {
         component="nav"
         position="static"
         elevation={0}
-        className="headerContainer"
+        className={`headerContainer ${isScrolled ? "fixedHeader" : ""}`}
       >
         <Container fixed>
           <Toolbar sx={{ p: "0 !important" }}>
@@ -231,7 +245,7 @@ export default function Header() {
               >
                 sales@citrusindia.com
               </CustomButton>
-              <Button
+              {/* <Button
                 sx={{
                   padding: "0px",
                   minWidth: "0px",
@@ -243,7 +257,7 @@ export default function Header() {
                   "&:hover": { backgroundColor: "transparent" }
                 }}
                 startIcon={<WhatsAppIcon />}
-              />
+              /> */}
             </Box>
           </Toolbar>
         </Container>

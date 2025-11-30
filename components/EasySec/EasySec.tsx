@@ -54,8 +54,7 @@ const EasySec = ({ ...props }: ICommonProductSection) => {
             <strong>Communicative</strong>
             <br /> Peripherals
           </Typography>
-          <Box
-            component="div"
+          <Typography
             dangerouslySetInnerHTML={{
               __html: props?.section_content || ""
             }}

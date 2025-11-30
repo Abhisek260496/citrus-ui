@@ -52,7 +52,7 @@ const HighSec = ({ ...props }: ICommonProductSection) => {
         <Box className="sec_hd">
           <Typography variant="h2">High bandwidth interface with</Typography>
           <Typography variant="caption">DDR4</Typography>
-          <Box
+          <Typography
             dangerouslySetInnerHTML={{
               __html: props?.section_content || ""
             }}

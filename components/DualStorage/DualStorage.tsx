@@ -1,4 +1,5 @@
-import assest from "@/json/assest";
+import { prodcutMediaUrl } from "@/api/endpoints";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import { Box, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
@@ -28,12 +29,19 @@ const DualStorageStyled = styled(Box)`
   }
 `;
 
-const DualStorage = () => {
+const DualStorage = ({
+  section_background_image,
+  section_image,
+  section_content,
+  section_subtitle,
+  section_title,
+  section_video
+}: ICommonProductSection) => {
   return (
     <DualStorageStyled>
       <figure>
         <Image
-          src={assest.dual_storage_bg}
+          src={prodcutMediaUrl(section_image as string)}
           alt="dual_storage_bg"
           width={1600}
           height={900}
@@ -42,12 +50,11 @@ const DualStorage = () => {
       <Box className="core_wrapper">
         <Container fixed>
           <Box className="core_content">
-            <CommonHeader subTitle="Dual " mainTitle="Storage" />
-            <Typography>
-              Dual storage with NVMe SSD/ 2.5” SATA 3 HDD optimizing both
-              performance and storage capacity backed by PCIe 4.0 for
-              significantly higher data transfer speeds.
-            </Typography>
+            <CommonHeader
+              mainTitle={section_subtitle as string}
+              subTitle={section_title as string}
+            />
+            <Typography>{section_content}</Typography>
           </Box>
         </Container>
       </Box>

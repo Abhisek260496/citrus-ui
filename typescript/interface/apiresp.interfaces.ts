@@ -37,8 +37,22 @@ export interface IProduct {
   product_img?: string | null;
   product_description?: string | null;
 }
+export interface IRelatedProduct {
+  product_id: number;
+  related_id: number;
+  title: string;
+  processor: string;
+  memory: string;
+  storage: string;
+  os: string;
+  product_img: string;
+  created_at: string;
+  updated_at: string;
+}
+
 export interface IProductResponse extends IProduct {
   sections: any[];
+  related_products: IRelatedProduct[];
 }
 
 export interface ICommonProductSection {
@@ -50,6 +64,7 @@ export interface ICommonProductSection {
   section_image?: string | null;
   section_video?: string | null;
   section_background_image?: string | null;
+  product_banner_content?: string | null;
 }
 
 export interface Each360ProductResponse {

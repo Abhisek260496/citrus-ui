@@ -67,8 +67,7 @@ const DisplaySec = ({ ...props }: ICommonProductSection) => {
               displays
             </Typography>
           </Box>
-          <Box
-            component="div"
+          <Typography
             dangerouslySetInnerHTML={{
               __html: props?.section_content || ""
             }}

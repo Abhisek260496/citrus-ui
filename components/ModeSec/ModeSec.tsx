@@ -46,11 +46,7 @@ const ModeSec = ({ ...props }: ICommonProductSection) => {
             <strong>Centralised, Controlled</strong> & <strong>Secure</strong>{" "}
             mode of Computing
           </Typography>
-          <Box
-            dangerouslySetInnerHTML={{
-              __html: props?.section_content || ""
-            }}
-          />
+          <Typography>{props?.section_content}</Typography>
         </Box>
         <figure>
           <Image

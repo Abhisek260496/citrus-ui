@@ -1,8 +1,7 @@
 /* eslint-disable sort-imports */
-import assest from "@/json/assest";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import { Box, Container, styled, Typography } from "@mui/material";
 import Image from "next/image";
-import React from "react";
 
 export const RicherWrapper = styled(Box)`
   position: relative;
@@ -33,11 +32,16 @@ export const RicherWrapper = styled(Box)`
   }
 `;
 
-const RicherSec = () => {
+const RicherSec = ({
+  section_background_image,
+  section_title,
+  section_subtitle,
+  section_content
+}: ICommonProductSection) => {
   return (
     <RicherWrapper>
       <Image
-        src={assest?.richerBackImg}
+        src={section_background_image as string}
         alt="richerBackImg"
         width={1600}
         height={842}
@@ -46,13 +50,9 @@ const RicherSec = () => {
       <Container fixed>
         <Box className="sec_hd">
           <Typography variant="h2">
-            Richer Visual Experience with <strong>4K Ultra HD</strong>
+            {section_title} <strong>{section_subtitle}</strong>
           </Typography>
-          <Typography variant="body1">
-            Choose your experience where every detail comes to life in stunning
-            4K resolution at 60 fps much more in pixels as compared to usual
-            1920×1080 resolution
-          </Typography>
+          <Typography variant="body1">{section_content}</Typography>
         </Box>
       </Container>
     </RicherWrapper>

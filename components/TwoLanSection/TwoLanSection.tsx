@@ -1,4 +1,5 @@
-import assest from "@/json/assest";
+import { prodcutMediaUrl } from "@/api/endpoints";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import { Box, Container, Stack, Typography, styled } from "@mui/material";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
@@ -67,14 +68,21 @@ const TwoLanSectionStyled = styled(Box)`
   }
 `;
 
-const TwoLanSection = () => {
+const TwoLanSection = ({
+  section_background_image,
+  section_image,
+  section_content,
+  section_subtitle,
+  section_title,
+  section_video
+}: ICommonProductSection) => {
   return (
     <TwoLanSectionStyled className="cmn_gap">
       <Container fixed>
         <Box className="core_wrapper">
           <figure>
             <Image
-              src={assest?.dual_lan_img}
+              src={prodcutMediaUrl(section_image as string)}
               alt="dual_lan_img"
               width={811}
               height={600}
@@ -91,15 +99,11 @@ const TwoLanSection = () => {
           >
             <Box className="core_content_left">
               <CommonHeader
-                mainTitle=" LAN"
-                subTitle="Dual"
+                mainTitle={section_subtitle as string}
+                subTitle={section_title as string}
                 className="cmn_header"
               />
-              <Typography>
-                Keep-up with the heavy workloads or real-time demands with dual
-                2.5 Gbps LAN that deliver double the power to enjoy smoother
-                streaming & quicker data transfers.
-              </Typography>
+              <Typography>{section_content}</Typography>
             </Box>
             <Typography variant="h2" className="faster_hdr">
               2.5 <Typography variant="caption">x faster</Typography>

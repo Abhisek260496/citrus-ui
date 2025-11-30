@@ -1,4 +1,4 @@
-import { Box, BoxProps, Container, styled } from "@mui/material";
+import { Box, BoxProps, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
 
@@ -59,7 +59,7 @@ const CoreToEveryThing = ({
               subTitle={subTitle}
               isReversed={isReversed}
             />
-            <Box
+            <Typography
               dangerouslySetInnerHTML={{
                 __html:
                   bgText ||

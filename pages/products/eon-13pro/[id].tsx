@@ -1,32 +1,91 @@
+import { prodcutMediaUrl } from "@/api/endpoints";
+import { getSingleProduct } from "@/api/functions/cms.api";
 import CoreToEveryThing from "@/components/CoreToEveryThing/CoreToEveryThing";
 import Eon13ProBanner from "@/components/Eon13ProBanner/Eon13ProBanner";
 import NextGenConectivity from "@/components/NextGenConectivity/NextGenConectivity";
 import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
 import TwoIndependentDisplay from "@/components/TwoIndependentDisplay/TwoIndependentDisplay";
 import TwoLanSection from "@/components/TwoLanSection/TwoLanSection";
-import assest from "@/json/assest";
-import { productList2 } from "@/json/dummy";
 import Wrapper from "@/layout/wrapper/Wrapper";
+import Loader from "@/ui/Loader/Loder";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useQuery } from "react-query";
 
 const Index = () => {
+  const router = useRouter();
+  const { id } = router.query;
+
+  const { data: singleProductData, isLoading: singleProductLoading } = useQuery(
+    {
+      queryKey: ["getSingleProduct", id],
+      queryFn: () => getSingleProduct(id as string)
+    }
+  );
+
+  useEffect(() => {
+    if (!singleProductLoading && singleProductData) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [singleProductLoading, singleProductData]);
+
+  console.log(singleProductData?.sections[3], "singleProductData");
   return (
     <Wrapper>
-      <Eon13ProBanner
-        banner_bg={assest?.eon13_pro_bg}
-        description="An Ultra-Compact Micro PC with uninterrupted connectivity for
-        uninterrupted data flow."
-        product_img={assest?.eon13_pro_img}
-      />
-      <CoreToEveryThing bgImg={assest?.core_to_everything_eon_pro13} />
-      <TwoIndependentDisplay
-        bgImg={assest?.four_display_bg}
-        mainTitle="independent"
-        subTitle="four"
-        description="With 2 × HDMIs, Display Port & Type C, run multiple applications side by side without performance drops or display limitations along with 4K Ultra HD stunning experience."
-      />
-      <TwoLanSection />
-      <NextGenConectivity />
-      <RelatedProducts productList={productList2} />
+      {singleProductLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <Eon13ProBanner
+            banner_bg={prodcutMediaUrl(
+              singleProductData?.banner_background_img as string
+            )}
+            product_img={prodcutMediaUrl(
+              singleProductData?.product_banner_content as string
+            )}
+            description={
+              singleProductData?.product_banner_description as string
+            }
+          />
+          <CoreToEveryThing
+            bgImg={prodcutMediaUrl(
+              singleProductData?.sections[0]?.section_background_image
+            )}
+            mainTitle={singleProductData?.sections[0]?.section_title}
+            bgText={singleProductData?.sections[0]?.section_content}
+          />
+          <TwoIndependentDisplay
+            bgImg={prodcutMediaUrl(
+              singleProductData?.sections[1]?.section_background_image as string
+            )}
+            subTitle={singleProductData?.sections[1]?.section_title}
+            mainTitle={singleProductData?.sections[1]?.section_subtitle}
+            description={singleProductData?.sections[1]?.section_content}
+            displayText={singleProductData?.sections[1]?.section_subtitle_one}
+          />
+          <TwoLanSection
+            section_title={singleProductData?.sections[2]?.section_title}
+            section_subtitle={singleProductData?.sections[2]?.section_subtitle}
+            section_background_image={
+              singleProductData?.sections[2]?.section_background_image
+            }
+            section_content={singleProductData?.sections[2]?.section_content}
+            section_image={singleProductData?.sections[2]?.section_image}
+          />
+          <NextGenConectivity
+            section_title={singleProductData?.sections[3]?.section_title}
+            section_subtitle={singleProductData?.sections[3]?.section_subtitle}
+            section_background_image={
+              singleProductData?.sections[3]?.section_background_image
+            }
+            section_content={singleProductData?.sections[3]?.section_content}
+            section_image={singleProductData?.sections[3]?.section_image}
+          />
+          <RelatedProducts
+            related_products={singleProductData?.related_products}
+          />
+        </>
+      )}
     </Wrapper>
   );
 };

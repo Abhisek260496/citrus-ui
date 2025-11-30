@@ -24,12 +24,14 @@ interface UpadteElementProps extends BoxProps {
   title: string;
   publishDate: string;
   redirectUrl: string;
+  news_link: string;
 }
 const EachUpdatedElement = ({
   publishDate,
   image,
   title,
   redirectUrl,
+  news_link,
   ...props
 }: UpadteElementProps) => {
   return (
@@ -50,7 +52,10 @@ const EachUpdatedElement = ({
           {publishDate}
         </Typography>
         <Typography variant="h5">
-          <Link href={`/news-details/${redirectUrl}`}>{title}</Link>
+          {/* <Link href={`/news-details/${redirectUrl}`}>{title}</Link> */}
+          <Link href={`${redirectUrl}`} target="blank">
+            {title}
+          </Link>
         </Typography>
       </Box>
     </EachUpdatedElementStyled>
@@ -73,9 +78,12 @@ const UpdatedNews = () => {
     speed: 800,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2000
   };
+
+  console.log(news, "news");
+
   return (
     <UpdatedNewsStyled id="new_articles" className="cmn_gap">
       {newsLoading ? (
@@ -117,7 +125,7 @@ const UpdatedNews = () => {
                     publishDate={moment(item?.news_created_at).format(
                       "MMM DD, YYYY"
                     )}
-                    redirectUrl={item?.news_id.toString()}
+                    redirectUrl={item?.news_link}
                   />
                 ))}
               </Slider>

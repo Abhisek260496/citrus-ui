@@ -7,7 +7,6 @@ import HighSec from "@/components/HighSec/HighSec";
 import ModeSec from "@/components/ModeSec/ModeSec";
 import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
 import XtremeBanner from "@/components/XtremeBanner/XtremeBanner";
-import { productList2 } from "@/json/dummy";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import Loader from "@/ui/Loader/Loder";
 import { useRouter } from "next/router";
@@ -82,7 +81,9 @@ const Xtreme = () => {
             }
             section_content={singleProductData?.sections[4]?.section_content}
           />
-          <RelatedProducts productList={productList2} />
+          <RelatedProducts
+            related_products={singleProductData?.related_products}
+          />
         </>
       )}
     </Wrapper>

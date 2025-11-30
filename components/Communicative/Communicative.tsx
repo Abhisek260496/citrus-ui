@@ -1,3 +1,5 @@
+import { prodcutMediaUrl } from "@/api/endpoints";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import { Box, BoxProps, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
@@ -37,13 +39,15 @@ interface ICommunicativeProps extends BoxProps {
 const Communicative = ({
   banner_bg,
   description,
+  section_title,
+  section_subtitle,
   ...props
-}: ICommunicativeProps) => {
+}: ICommunicativeProps & ICommonProductSection) => {
   return (
     <CommunicativeStyled {...props}>
       <figure>
         <Image
-          src={banner_bg}
+          src={prodcutMediaUrl(banner_bg)}
           alt="coummunicative_wire"
           width={1920}
           height={900}
@@ -52,8 +56,8 @@ const Communicative = ({
       <Box className="independent_wrapper">
         <Container fixed>
           <CommonHeader
-            mainTitle="Peripherals"
-            subTitle=" Easy  Communicative "
+            mainTitle={section_subtitle as string}
+            subTitle={section_title as string}
           />
           <Typography>
             {description}

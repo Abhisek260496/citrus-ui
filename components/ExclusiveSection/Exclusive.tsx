@@ -37,21 +37,16 @@ const ExclusiveRotaionComponent = ({
     }
   };
 
-  // const eonProRotationImages = props?.sourceImages?.map((item) => {
-  //   return `${ThreeSixtymediaUrl(item?.side_image)}`;
-  // });
-
   useEffect(() => {
     if (!props.sourceImages) return;
 
-    // Delay to avoid blocking UI
     const timeout = setTimeout(() => {
       const urls = props.sourceImages.map((item) =>
         ThreeSixtymediaUrl(item.side_image)
       );
       setImages(urls);
       setLoading(false);
-    }, 300); // small delay
+    }, 300);
 
     return () => clearTimeout(timeout);
   }, [props.sourceImages]);
@@ -76,17 +71,6 @@ const ExclusiveRotaionComponent = ({
     </>
   );
 };
-
-// const rotationalElements: IRotationalElementsType[] = [
-//   {
-//     folderPath: "EON_ProX",
-//     imagePath: "EON_PROX"
-//   },
-//   {
-//     folderPath: "EON_ProX",
-//     imagePath: "EON_PROX"
-//   }
-// ];
 
 const Exclusive = () => {
   const sliderRef = useRef<Slider | null>(null);
@@ -170,9 +154,6 @@ const Exclusive = () => {
             height={110}
             className="rotate_img"
           />
-          {/* <Button disableRipple className="btm_title">
-            Click activate 360° view
-          </Button> */}
         </Box>
       </Container>
     </ExclusiveStyled>

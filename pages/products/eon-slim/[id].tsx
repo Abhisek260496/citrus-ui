@@ -6,7 +6,6 @@ import PalmSizeSection from "@/components/PalmSizeSection/PalmSizeSection";
 import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
 import TwoIndependentDisplay from "@/components/TwoIndependentDisplay/TwoIndependentDisplay";
 import UltraBg from "@/components/UltraBg/UltraBg";
-import { productList2 } from "@/json/dummy";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import Loader from "@/ui/Loader/Loder";
 import { useRouter } from "next/router";
@@ -71,7 +70,9 @@ const Index = () => {
             }
             section_content={singleProductData?.sections[3]?.section_content}
           />
-          <RelatedProducts productList={productList2} />
+          <RelatedProducts
+            related_products={singleProductData?.related_products}
+          />
         </>
       )}
     </Wrapper>

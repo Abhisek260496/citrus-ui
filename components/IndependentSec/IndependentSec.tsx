@@ -1,8 +1,7 @@
 /* eslint-disable sort-imports */
-import assest from "@/json/assest";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import { Box, Container, styled, Typography } from "@mui/material";
 import Image from "next/image";
-import React from "react";
 
 export const IndependentWrapper = styled(Box)`
   position: relative;
@@ -21,24 +20,29 @@ export const IndependentWrapper = styled(Box)`
     z-index: 2;
     position: relative;
 
-    h2{
-        color: #041724;
-        font-weight: 400;
-        margin-bottom: 15px;
+    h2 {
+      color: #041724;
+      font-weight: 400;
+      margin-bottom: 15px;
     }
-    p{
-        color: #464646;
-        max-width: 700px;
-        margin: 0 auto;
+    p {
+      color: #464646;
+      max-width: 700px;
+      margin: 0 auto;
     }
   }
 `;
 
-const IndependentSec = () => {
+const IndependentSec = ({
+  section_background_image,
+  section_title,
+  section_subtitle,
+  section_content
+}: ICommonProductSection) => {
   return (
     <IndependentWrapper>
       <Image
-        src={assest?.independentBackImg}
+        src={section_background_image as string}
         alt="independentBackImg"
         width={1600}
         height={840}
@@ -47,12 +51,9 @@ const IndependentSec = () => {
       <Container fixed>
         <Box className="sec_hd">
           <Typography variant="h2">
-            Three <strong>Independent Displays</strong>
+            {section_title} <strong>{section_subtitle}</strong>
           </Typography>
-          <Typography variant="body1">
-            With 2 × Display Ports & an HDMI Port, run multiple applications
-            side by side without performance drop or display limitations.
-          </Typography>
+          <Typography variant="body1">{section_content}</Typography>
         </Box>
       </Container>
     </IndependentWrapper>

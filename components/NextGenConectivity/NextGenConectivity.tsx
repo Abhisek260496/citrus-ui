@@ -1,4 +1,5 @@
-import assest from "@/json/assest";
+import { prodcutMediaUrl } from "@/api/endpoints";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import { Box, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
@@ -29,12 +30,19 @@ const NextGenConectivityStyled = styled(Box)`
   }
 `;
 
-const NextGenConectivity = () => {
+const NextGenConectivity = ({
+  section_background_image,
+  section_image,
+  section_content,
+  section_subtitle,
+  section_title,
+  section_video
+}: ICommonProductSection) => {
   return (
     <NextGenConectivityStyled>
       <figure>
         <Image
-          src={assest?.next_gen_bg}
+          src={prodcutMediaUrl(section_background_image as string)}
           alt="next_gen_bg"
           width={1600}
           height={900}
@@ -43,13 +51,11 @@ const NextGenConectivity = () => {
       <Box className="core_wrapper">
         <Container fixed>
           <Box className="core_content">
-            <CommonHeader mainTitle=" Connectivity" subTitle="Next-Gen" />
-            <Typography>
-              As more devices and applications demand higher data rates, Wi-Fi
-              6E provides better coverage, especially in dense environments, by
-              reducing interference from other networks and devices, ensuring
-              stable connectivity.
-            </Typography>
+            <CommonHeader
+              mainTitle={section_subtitle as string}
+              subTitle={section_title as string}
+            />
+            <Typography>{section_content}</Typography>
           </Box>
         </Container>
       </Box>
