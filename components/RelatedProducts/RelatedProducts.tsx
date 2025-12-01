@@ -113,7 +113,8 @@ const EachRelatedProduct = ({
   storage,
   title,
   product_id,
-  maxProductHeight
+  maxProductHeight,
+  product_slug
 }: IRelatedProduct & { maxProductHeight: number }) => {
   const [routePath, setRoutePath] = useState<{ route: string; id: string }>({
     route: "",
@@ -125,7 +126,7 @@ const EachRelatedProduct = ({
   useEffect(() => {
     if (data?.length) {
       data?.forEach((item) => {
-        if (item?.product_title === title) {
+        if (item?.product_slug === product_slug) {
           setRoutePath({
             route: item?.product_slug as string,
             id: item?.product_id?.toString() as string

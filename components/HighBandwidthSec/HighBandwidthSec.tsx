@@ -1,4 +1,4 @@
-import assest from "@/json/assest";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import { Box, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
@@ -21,7 +21,12 @@ const HighBandwidthSecStyled = styled(Box)`
   }
 `;
 
-const HighBandwidthSec = () => {
+const HighBandwidthSec = ({
+  section_image,
+  section_content,
+  section_subtitle,
+  section_title
+}: ICommonProductSection) => {
   return (
     <HighBandwidthSecStyled className="cmn_gap">
       <Container fixed>
@@ -39,22 +44,18 @@ const HighBandwidthSec = () => {
           }}
         >
           <CommonHeader
-            mainTitle="DDR4"
-            subTitle=" High bandwidth interface with "
+            mainTitle={String(section_title)}
+            subTitle={String(section_subtitle)}
             sx={{
               marginBottom: "10px"
             }}
           />
-          <Typography>
-            An energy-effcient memory module which operates at 3200Mhz, 50 times
-            faster than DDR3 delivering higher data transfer rates and lower
-            power consumption making it ideal for Thin Clients.
-          </Typography>
+          <Typography>{section_content}</Typography>
         </Box>
       </Container>
       <figure>
         <Image
-          src={assest?.high_bandwidth_banner}
+          src={String(section_image)}
           alt="high_bandwidth_banner"
           width={1920}
           height={900}

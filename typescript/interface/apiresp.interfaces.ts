@@ -44,6 +44,7 @@ export interface IRelatedProduct {
   processor: string;
   memory: string;
   storage: string;
+  product_slug: string;
   os: string;
   product_img: string;
   created_at: string;
@@ -60,6 +61,7 @@ export interface ICommonProductSection {
   product_id?: number;
   section_title?: string | null;
   section_subtitle?: string | null;
+  section_subtitle_one?: string | null;
   section_content?: string;
   section_image?: string | null;
   section_video?: string | null;

@@ -1,4 +1,4 @@
-import assest from "@/json/assest";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import { Box, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 
@@ -27,12 +27,18 @@ const Np500BannerStyled = styled(Box)`
   }
 `;
 
-const Np500Banner = () => {
+const Np500Banner = ({
+  section_background_image,
+  section_title,
+  section_subtitle,
+  section_content,
+  section_image
+}: ICommonProductSection) => {
   return (
     <Np500BannerStyled>
       <figure>
         <Image
-          src={assest?.np500_banner}
+          src={section_background_image as string}
           alt="np500_banner"
           width={1920}
           height={810}
@@ -41,10 +47,8 @@ const Np500Banner = () => {
       <Box className="np500_banner_txt">
         <Container fixed>
           <Box className="np500_content">
-            <Typography variant="h1">NEO NP500</Typography>
-            <Typography>
-              Building new standards of Creative Computing
-            </Typography>
+            <Typography variant="h1">{section_title}</Typography>
+            <Typography>{section_content}</Typography>
           </Box>
         </Container>
       </Box>

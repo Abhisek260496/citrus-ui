@@ -1,4 +1,4 @@
-import assest from "@/json/assest";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import { Box, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
@@ -24,12 +24,17 @@ const IndependentDisplayStyled = styled(Box)`
   }
 `;
 
-const IndependentDisplay = () => {
+const IndependentDisplay = ({
+  section_background_image,
+  section_title,
+  section_subtitle,
+  section_content
+}: ICommonProductSection) => {
   return (
     <IndependentDisplayStyled>
       <figure>
         <Image
-          src={assest?.independent_display}
+          src={section_background_image as string}
           alt="independent_display"
           width={1920}
           height={900}
@@ -37,11 +42,15 @@ const IndependentDisplay = () => {
       </figure>
       <Box className="independent_wrapper">
         <Container fixed>
-          <CommonHeader mainTitle=" Independent Displays" subTitle="Three" />
-          <Typography>
-            With a Display Port, a VGA port & an HDMI, run multiple applications
-            side by side without performance drop or display limitations.
-          </Typography>
+          <CommonHeader
+            mainTitle={section_title as string}
+            subTitle={section_subtitle as string}
+          />
+          <Typography
+            dangerouslySetInnerHTML={{
+              __html: section_content || ""
+            }}
+          />
         </Container>
       </Box>
     </IndependentDisplayStyled>

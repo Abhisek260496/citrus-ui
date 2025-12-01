@@ -23,8 +23,6 @@ export default function Index() {
     }
   );
 
-  console.log(singleProductData, "singleProductData?.sections[1]");
-
   return (
     <Wrapper>
       {singleProductLoading ? (

@@ -1,4 +1,4 @@
-import assest from "@/json/assest";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import { Box, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
@@ -28,12 +28,17 @@ const GraphicCardSecStyled = styled(Box)`
   }
 `;
 
-const GraphicCardSec = () => {
+const GraphicCardSec = ({
+  section_background_image,
+  section_title,
+  section_subtitle,
+  section_content
+}: ICommonProductSection) => {
   return (
     <GraphicCardSecStyled>
       <figure>
         <Image
-          src={assest?.graphic_card}
+          src={section_background_image as string}
           alt="graphic_card"
           width={1920}
           height={900}
@@ -42,14 +47,14 @@ const GraphicCardSec = () => {
       <Box className="graphic_card_wrapper">
         <Container fixed>
           <CommonHeader
-            mainTitle=" Graphic/Capture card"
-            subTitle="Streamlining creative power with dedicated"
+            mainTitle={String(section_title)}
+            subTitle={section_subtitle as string}
           />
-          <Typography>
-            Edit, stream, and render with ease. Experience smooth visuals,
-            faster processing and seamless content creation all in a compact
-            form
-          </Typography>
+          <Typography
+            dangerouslySetInnerHTML={{
+              __html: section_content || ""
+            }}
+          />
         </Container>
       </Box>
     </GraphicCardSecStyled>

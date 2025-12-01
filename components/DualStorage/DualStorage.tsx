@@ -30,12 +30,10 @@ const DualStorageStyled = styled(Box)`
 `;
 
 const DualStorage = ({
-  section_background_image,
   section_image,
   section_content,
   section_subtitle,
-  section_title,
-  section_video
+  section_title
 }: ICommonProductSection) => {
   return (
     <DualStorageStyled>

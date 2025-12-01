@@ -1,8 +1,7 @@
 /* eslint-disable sort-imports */
-import assest from "@/json/assest";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import { Box, Container, styled, Typography } from "@mui/material";
 import Image from "next/image";
-import React from "react";
 
 export const RigBannerWrapper = styled(Box)`
   padding: 100px 0;
@@ -23,23 +22,27 @@ export const RigBannerWrapper = styled(Box)`
   }
 `;
 
-const RigBanner = () => {
+const RigBanner = ({
+  product_banner_content,
+  section_title,
+  section_subtitle,
+  section_content,
+  section_image
+}: ICommonProductSection) => {
   return (
     <RigBannerWrapper>
       <Container fixed>
         <Box className="banner_cnt">
           <figure>
             <Image
-              src={assest.rigBanner}
+              src={String(product_banner_content)}
               alt="rigBanner"
               width={875}
               height={461}
             />
           </figure>
-          <Typography variant="h1">RIG Slim Rugged PC</Typography>
-          <Typography variant="body1">
-            Tough Enough for the Field. Slim Enough for the Desk.
-          </Typography>
+          <Typography variant="h1">{String(section_title)}</Typography>
+          <Typography variant="body1">{section_content}</Typography>
         </Box>
       </Container>
     </RigBannerWrapper>

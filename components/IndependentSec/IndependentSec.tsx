@@ -53,7 +53,12 @@ const IndependentSec = ({
           <Typography variant="h2">
             {section_title} <strong>{section_subtitle}</strong>
           </Typography>
-          <Typography variant="body1">{section_content}</Typography>
+          {/* <Typography variant="body1">{section_content}</Typography> */}
+          <Typography
+            dangerouslySetInnerHTML={{
+              __html: section_content || ""
+            }}
+          />
         </Box>
       </Container>
     </IndependentWrapper>

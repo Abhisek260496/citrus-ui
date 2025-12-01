@@ -1,4 +1,4 @@
-import assest from "@/json/assest";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import { Box, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
@@ -14,9 +14,9 @@ const ResistSectionStyled = styled(Box)`
   .core_wrapper {
     position: absolute;
     left: 0;
-    top: 100px;
+    top: 0;
     width: 100%;
-    height: calc(100% - 200px);
+    height: 100%;
     .MuiContainer-root {
       height: 100%;
     }
@@ -26,6 +26,7 @@ const ResistSectionStyled = styled(Box)`
       display: flex;
       align-items: flex-end;
       justify-content: center;
+      padding-bottom: 100px;
     }
     .core_content_txt {
       max-width: 1111px;
@@ -41,12 +42,18 @@ const ResistSectionStyled = styled(Box)`
   }
 `;
 
-const ResistSection = () => {
+const ResistSection = ({
+  section_background_image,
+  section_title,
+  section_subtitle,
+  section_content,
+  section_subtitle_one
+}: ICommonProductSection) => {
   return (
     <ResistSectionStyled>
       <figure>
         <Image
-          src={assest?.handle_bg}
+          src={String(section_background_image)}
           alt="dual_lan_bg"
           width={1600}
           height={900}
@@ -57,20 +64,17 @@ const ResistSection = () => {
           <Box className="core_content">
             <Box className="core_content_txt">
               <CommonHeader
-                mainTitle="Handles Vibrations, Blocks Dust, Resists "
-                subTitle="Damage"
+                mainTitle={`${String(section_title)} ${String(
+                  section_subtitle
+                )}`}
+                subTitle={String(section_subtitle_one)}
                 className="gradient_header"
                 sx={{
                   fontSize: "68px !important"
                 }}
                 isReversed
               />
-              <Typography>
-                Keep-up with the heavy workloads or real-time demands with dual
-                2.5 Gbps LAN that deliver double the power to enjoy smoother
-                streaming & quicker data transfers. Supports both internet &
-                extranet
-              </Typography>
+              <Typography>{section_content}</Typography>
             </Box>
           </Box>
         </Container>

@@ -1,8 +1,7 @@
-import assest from "@/json/assest";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import styled from "@emotion/styled";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import React from "react";
 
 export const ConnectionSecWrapper = styled(Box)`
   position: relative;
@@ -46,11 +45,17 @@ export const ConnectionSecWrapper = styled(Box)`
   }
 `;
 
-const ConnectionSec = () => {
+const ConnectionSec = ({
+  section_background_image,
+  section_title,
+  section_subtitle,
+  section_content,
+  section_subtitle_one
+}: ICommonProductSection) => {
   return (
     <ConnectionSecWrapper>
       <Image
-        src={assest.conBack}
+        src={String(section_background_image)}
         alt="conBack"
         width={1600}
         height={564}
@@ -65,15 +70,14 @@ const ConnectionSec = () => {
         >
           <Box className="left_txt">
             <Typography variant="h2">
-              Cellular <strong>Connectivity</strong> with
+              {String(section_title)}{" "}
+              <strong>{String(section_subtitle)}</strong>
             </Typography>
-            <Typography variant="caption">5G/4G LTE</Typography>
+            <Typography variant="caption">
+              {String(section_subtitle_one)}
+            </Typography>
           </Box>
-          <Typography variant="body1">
-            Stay connected in remote setups or places where Wi-Fi/LAN acts weak,
-            with strong & stable 5G cellular data support built for
-            uninterrupted access.
-          </Typography>
+          <Typography variant="body1">{section_content}</Typography>
         </Stack>
       </Container>
     </ConnectionSecWrapper>

@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import assest from "@/json/assest";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import { Box, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
@@ -42,12 +42,17 @@ const ToughPortableSectionStyled = styled(Box)`
   }
 `;
 
-const ToughPortableSection = () => {
+const ToughPortableSection = ({
+  section_background_image,
+  section_title,
+  section_subtitle,
+  section_content
+}: ICommonProductSection) => {
   return (
     <ToughPortableSectionStyled>
       <figure>
         <Image
-          src={assest?.tough_portable_bg}
+          src={String(section_background_image)}
           alt="dual_lan_bg"
           width={1600}
           height={900}
@@ -57,16 +62,11 @@ const ToughPortableSection = () => {
         <Container fixed>
           <Box className="core_content">
             <Box className="core_content_txt">
-              <CommonHeader mainTitle=" & Portable" subTitle="Tough" />
-              <Typography>
-                Engineered for durability, this tough and compact Rugged PC
-                features dust-resistant chassis that blocks out dust,
-                maintaining optimal performance even in demanding harsh or
-                industrial environments. Its outer shell is designed in order to
-                protect internal hardware from impact, movement, and humidity,
-                thereby delivering dependable operation in the field, all while
-                being easy to carry and deploy wherever it's needed.
-              </Typography>
+              <CommonHeader
+                mainTitle={String(section_subtitle)}
+                subTitle={String(section_title)}
+              />
+              <Typography>{section_content}</Typography>
             </Box>
           </Box>
         </Container>

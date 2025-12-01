@@ -3,6 +3,7 @@ import { Box, Stack, Typography, styled } from "@mui/material";
 import { Container } from "@mui/system";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 
 const RigPlusBannerStyled = styled(Box)`
   position: relative;
@@ -33,12 +34,18 @@ const RigPlusBannerStyled = styled(Box)`
   }
 `;
 
-const RigPlusBanner = () => {
+const RigPlusBanner = ({
+  section_background_image,
+  section_title,
+  section_subtitle,
+  section_content,
+  section_image
+}: ICommonProductSection) => {
   return (
     <RigPlusBannerStyled>
       <figure>
         <Image
-          src={assest.rig_plus_bg}
+          src={section_background_image as string}
           alt="rig_plus_bg"
           width={1600}
           height={900}
@@ -54,13 +61,13 @@ const RigPlusBanner = () => {
             className="core_content"
           >
             <Box className="core_txt">
-              <CommonHeader mainTitle="RIG PLUS RUGGED Pc" />
-              <Typography>Indoor or Outdoor, Toughness is its Ethos</Typography>
+              <CommonHeader mainTitle={String(section_title)} />
+              <Typography>{section_content}</Typography>
             </Box>
             <Box className="core_fig">
               <figure>
                 <Image
-                  src={assest.rig_plus_img}
+                  src={section_image as string}
                   alt="rig_plus_img"
                   width={825}
                   height={510}

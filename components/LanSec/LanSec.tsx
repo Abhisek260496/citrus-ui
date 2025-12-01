@@ -1,8 +1,7 @@
 /* eslint-disable sort-imports */
-import assest from "@/json/assest";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import { Box, Container, Stack, styled, Typography } from "@mui/material";
 import Image from "next/image";
-import React from "react";
 
 export const LanSecWrapper = styled(Box)`
   position: relative;
@@ -15,41 +14,47 @@ export const LanSecWrapper = styled(Box)`
     width: 100%;
     height: 900px;
   }
-  .sec_hd{
+  .sec_hd {
     position: relative;
     z-index: 2;
-    h2{
-        font-size: 120px;
-        font-weight: 400;
-        color:#041724;
+    h2 {
+      font-size: 120px;
+      font-weight: 400;
+      color: #041724;
     }
-    p{
-        color:#4F5C65;
-        max-width: 534px;
+    p {
+      color: #4f5c65;
+      max-width: 534px;
     }
   }
 `;
 
-const LanSec = () => {
+const LanSec = ({
+  section_background_image,
+  section_title,
+  section_subtitle,
+  section_content
+}: ICommonProductSection) => {
   return (
     <LanSecWrapper>
       <Image
-        src={assest.lanBack}
+        src={String(section_background_image)}
         alt="lanBack"
         width={1600}
         height={900}
         className="lanBack"
       />
       <Container fixed>
-        <Stack direction="row" alignItems="center" justifyContent="space-between" className="sec_hd">
+        <Stack
+          direction="row"
+          alignItems="center"
+          justifyContent="space-between"
+          className="sec_hd"
+        >
           <Typography variant="h2">
-            Dual <strong>LAN</strong>
+            {String(section_title)} <strong>{String(section_subtitle)}</strong>
           </Typography>
-          <Typography variant="body1">
-            Keep-up with the heavy workloads or real-time demands with dual 2.5
-            Gbps LAN that deliver double the power to enjoy smoother streaming &
-            quicker data transfers. Supports both internet & extranet
-          </Typography>
+          <Typography variant="body1">{section_content}</Typography>
         </Stack>
       </Container>
     </LanSecWrapper>

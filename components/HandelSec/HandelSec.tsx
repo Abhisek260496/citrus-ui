@@ -1,8 +1,7 @@
 /* eslint-disable sort-imports */
-import assest from "@/json/assest";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import { Box, Container, styled, Typography } from "@mui/material";
 import Image from "next/image";
-import React from "react";
 
 export const HandelSecWrapper = styled(Box)`
   position: relative;
@@ -15,14 +14,16 @@ export const HandelSecWrapper = styled(Box)`
     width: 100%;
     height: 900px;
     z-index: 1;
-  
   }
   .sec_hd {
     position: relative;
     z-index: 2;
+    max-width: 840px;
     h2 {
       font-weight: 400;
       color: #fff;
+      margin-bottom: 30px;
+      line-height: 1.2;
     }
     p {
       color: #fff;
@@ -30,11 +31,16 @@ export const HandelSecWrapper = styled(Box)`
   }
 `;
 
-const HandelSec = () => {
+const HandelSec = ({
+  section_background_image,
+  section_title,
+  section_subtitle,
+  section_content
+}: ICommonProductSection) => {
   return (
     <HandelSecWrapper>
       <Image
-        src={assest.handelBack}
+        src={String(section_background_image)}
         alt="handelBack"
         width={1600}
         height={900}
@@ -43,18 +49,10 @@ const HandelSec = () => {
       <Container fixed>
         <Box className="sec_hd">
           <Typography variant="h2">
-            Handles{" "}
-            <strong>
-              Vibrations, <br /> Blocks Dust, Resists <br /> Damage
-            </strong>
+            {String(section_title)}
+            <strong>{String(section_subtitle)}</strong>
           </Typography>
-          <Typography variant="body1">
-            Chassis keeps the dust out ensuring long-term performance in tough
-            industrial settings while, its shock-resistant quality protects
-            internal components from drops, vibrations & moisture; together
-            making the PC reliable in environments where standard systems
-            wouldn’t last.
-          </Typography>
+          <Typography variant="body1">{section_content}</Typography>
         </Box>
       </Container>
     </HandelSecWrapper>

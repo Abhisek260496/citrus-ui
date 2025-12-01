@@ -1,4 +1,4 @@
-import assest from "@/json/assest";
+import { ICommonProductSection } from "@/interface/apiresp.interfaces";
 import { Box, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
@@ -36,12 +36,18 @@ const FourDependentDisplayStyled = styled(Box)`
   }
 `;
 
-const FourDependentDisplay = () => {
+const FourDependentDisplay = ({
+  section_background_image,
+  section_title,
+  section_subtitle,
+  section_content,
+  section_subtitle_one
+}: ICommonProductSection) => {
   return (
     <FourDependentDisplayStyled>
       <figure>
         <Image
-          src={assest?.four_dependent_display_bg}
+          src={String(section_background_image)}
           alt="core_to_everything"
           width={1600}
           height={900}
@@ -50,12 +56,13 @@ const FourDependentDisplay = () => {
       <Box className="core_wrapper">
         <Container fixed>
           <Box className="core_content">
-            <CommonHeader mainTitle="independent displays" subTitle="four " />
-            <Typography>
-              With 2 × HDMIs, Display Port & Type C, run multiple applications
-              side by side without performance drops or display limitations
-              along with 4K Ultra HD stunning experience.
-            </Typography>
+            <CommonHeader
+              mainTitle={`${String(section_subtitle)} ${String(
+                section_subtitle_one
+              )}`}
+              subTitle={String(section_title)}
+            />
+            <Typography>{section_content}</Typography>
           </Box>
         </Container>
       </Box>
