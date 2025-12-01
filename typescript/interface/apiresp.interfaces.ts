@@ -91,6 +91,7 @@ export interface INewsResponse {
   news_image: string;
   news_main_image: string | null;
   news_slug: string;
+  news_link: string;
   banner_image: null;
   meta_title: string;
   meta_description: string;

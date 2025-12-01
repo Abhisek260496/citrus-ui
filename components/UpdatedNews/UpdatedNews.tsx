@@ -24,14 +24,12 @@ interface UpadteElementProps extends BoxProps {
   title: string;
   publishDate: string;
   redirectUrl: string;
-  news_link: string;
 }
 const EachUpdatedElement = ({
   publishDate,
   image,
   title,
   redirectUrl,
-  news_link,
   ...props
 }: UpadteElementProps) => {
   return (
