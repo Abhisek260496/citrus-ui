@@ -1,3 +1,7 @@
+import {
+  getFooterCompanyLinks,
+  getFooterQuickLinks
+} from "@/api/functions/cms.api";
 import assest from "@/json/assest";
 import palette from "@/themes/palette";
 import CustomButton from "@/ui/Buttons/CustomButton";
@@ -11,6 +15,7 @@ import { Box } from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useQuery } from "react-query";
 
 const FooterWrap = styled(Box)`
   padding: 45px 0;
@@ -18,75 +23,15 @@ const FooterWrap = styled(Box)`
 `;
 
 const Footer = () => {
-  const navItems = [
-    {
-      name: "Our Story",
-      route: "/"
-    },
-    {
-      name: "Citrus + Microsoft",
-      route: "/"
-    },
-    {
-      name: "Products",
-      route: "/"
-    },
-    {
-      name: "Service",
-      route: "/"
-    },
-    {
-      name: "Enquiry",
-      route: "/"
-    },
-    {
-      name: "Contact us",
-      route: "/"
-    },
-    {
-      name: "CSR",
-      route: "/"
-    },
-    {
-      name: "Work with Us",
-      route: "/"
-    }
-  ];
+  const { data: navItems, isLoading: navItemsLoading } = useQuery({
+    queryKey: ["getAllQuickLinks"],
+    queryFn: () => getFooterQuickLinks()
+  });
 
-  const companyItems = [
-    {
-      name: "New releases",
-      route: "/"
-    },
-    {
-      name: "Clients",
-      route: "/"
-    },
-    {
-      name: "Case study ",
-      route: "/"
-    },
-    {
-      name: "Product registration",
-      route: "/"
-    },
-    {
-      name: "resellers",
-      route: "/"
-    },
-    {
-      name: "e-waste",
-      route: "/"
-    },
-    {
-      name: "Blog",
-      route: "/"
-    },
-    {
-      name: "FAQs",
-      route: "/"
-    }
-  ];
+  const { data: companyItems, isLoading: companyItemsLoading } = useQuery({
+    queryKey: ["getAllCompanyLinks"],
+    queryFn: () => getFooterCompanyLinks()
+  });
 
   const socialItems = [
     {
@@ -126,7 +71,8 @@ const Footer = () => {
                 fontWeight: 600,
                 fontFamily: "Poppins",
                 fontSize: "22px",
-                mb: "30px"
+                mb: "30px",
+                textTransform: "capitalize"
               }}
             >
               Contact us
@@ -212,7 +158,8 @@ const Footer = () => {
                 fontWeight: 600,
                 fontFamily: "Poppins",
                 fontSize: "22px",
-                mb: "30px"
+                mb: "30px",
+                textTransform: "capitalize"
               }}
             >
               Quick links
@@ -237,17 +184,23 @@ const Footer = () => {
                 }
               }}
             >
-              {navItems.map((item: any, index: number) => (
-                <ListItem disablePadding key={index}>
-                  <Link
-                    href={item?.route}
-                    key={item.name}
-                    className={router.pathname === item.route ? "active" : ""}
-                  >
-                    {item?.name}
-                  </Link>
-                </ListItem>
-              ))}
+              {!!navItems && navItems?.length && !navItemsLoading ? (
+                <>
+                  {navItems.map((item, index) => (
+                    <ListItem disablePadding key={index}>
+                      <Link
+                        href={item.link}
+                        key={item.title}
+                        className={
+                          router.pathname === item.link ? "active" : ""
+                        }
+                      >
+                        {item?.title}
+                      </Link>
+                    </ListItem>
+                  ))}
+                </>
+              ) : null}
             </List>
           </Box>
           <Box sx={{ width: { xs: "100%", md: "170px" } }}>
@@ -256,10 +209,11 @@ const Footer = () => {
                 fontWeight: 600,
                 fontFamily: "Poppins",
                 fontSize: "22px",
-                mb: "30px"
+                mb: "30px",
+                textTransform: "capitalize"
               }}
             >
-              company
+              Company
             </Typography>
             <List
               sx={{
@@ -281,17 +235,25 @@ const Footer = () => {
                 }
               }}
             >
-              {companyItems.map((item: any, index: number) => (
-                <ListItem disablePadding key={index}>
-                  <Link
-                    href={item?.route}
-                    key={item.name}
-                    className={router.pathname === item.route ? "active" : ""}
-                  >
-                    {item?.name}
-                  </Link>
-                </ListItem>
-              ))}
+              {!!companyItems &&
+              companyItems?.length &&
+              !companyItemsLoading ? (
+                <>
+                  {companyItems.map((item, index) => (
+                    <ListItem disablePadding key={index}>
+                      <Link
+                        href={item.link}
+                        key={item.title}
+                        className={
+                          router.pathname === item.link ? "active" : ""
+                        }
+                      >
+                        {item?.title}
+                      </Link>
+                    </ListItem>
+                  ))}
+                </>
+              ) : null}
             </List>
           </Box>
           <Box sx={{ width: { xs: "100%", md: "333px" } }}>
@@ -300,10 +262,11 @@ const Footer = () => {
                 fontWeight: 600,
                 fontFamily: "Poppins",
                 fontSize: "22px",
-                mb: "30px"
+                mb: "30px",
+                textTransform: "capitalize"
               }}
             >
-              company
+              Subscription
             </Typography>
             <form
               style={{

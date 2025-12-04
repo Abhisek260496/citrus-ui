@@ -1,9 +1,12 @@
 import {
   I360ProductResponse,
   IClientResponse,
+  IFooterQuickLinksResponse,
   INewsResponse,
+  IOurStoryResponse,
   IProductResponse,
-  ISliderResponse
+  ISliderResponse,
+  ISubMenuReponse
 } from "@/interface/apiresp.interfaces";
 import ApiRequest from "../axiosInstance/request";
 import { endpoints } from "../endpoints";
@@ -105,6 +108,54 @@ export const getNews = async (id: string): Promise<INewsResponse> => {
   try {
     const res = await ApiRequest.get<INewsResponse>(
       `${endpoints.cms.getNews}/${id}`
+    );
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getSubMenu = async (): Promise<ISubMenuReponse[]> => {
+  try {
+    const res = await ApiRequest.get<ISubMenuReponse[]>(
+      `${endpoints.cms.subMenu}`
+    );
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getFooterQuickLinks = async (): Promise<
+  IFooterQuickLinksResponse[]
+> => {
+  try {
+    const res = await ApiRequest.get<IFooterQuickLinksResponse[]>(
+      `${endpoints.cms.footerLinks}`
+    );
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getFooterCompanyLinks = async (): Promise<
+  IFooterQuickLinksResponse[]
+> => {
+  try {
+    const res = await ApiRequest.get<IFooterQuickLinksResponse[]>(
+      `${endpoints.cms.companyLinks}`
+    );
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getOurStory = async (): Promise<IOurStoryResponse[]> => {
+  try {
+    const res = await ApiRequest.get<IOurStoryResponse[]>(
+      `${endpoints.cms.ourStoryPage}`
     );
     return res;
   } catch (error) {

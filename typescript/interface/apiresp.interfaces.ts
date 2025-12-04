@@ -92,6 +92,7 @@ export interface INewsResponse {
   news_main_image: string | null;
   news_slug: string;
   news_link: string;
+  news_right_text: string | null;
   banner_image: null;
   meta_title: string;
   meta_description: string;
@@ -100,4 +101,91 @@ export interface INewsResponse {
   news_created_by_id: number;
   news_created_at: string;
   news_updated_at: string;
+}
+
+export interface ISubMenuReponse {
+  id: number;
+  title: string;
+  link: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface IFooterQuickLinksResponse {
+  id: number;
+  title: string;
+  link: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface IOurStoryResponse {
+  id: number;
+  title: string;
+  banner_title: string;
+  banner_content: string;
+  banner_bg_img: string | null;
+  banner_sub_elmts_one: string;
+  banner_sub_elmts_one_desc: string;
+  banner_sub_elmts_two: string;
+  banner_sub_elmts_two_desc: string;
+  banner_sub_elmts_three: string;
+  banner_sub_elmts_three_desc: string;
+  banner_sub_desc_one: string;
+  banner_sub_desc_two: string;
+  banner_sub_desc_three: string;
+  banner_sub_image: string | null;
+  slug?: string | null;
+
+  block_one_title: string;
+  block_one_bg: string | null;
+  block_one_sub_img_1: string | null;
+  block_one_sub_img_2: string | null;
+  block_one_sub_img_3: string | null;
+  block_one_sub_img_4: string | null;
+
+  block_two_title: string;
+  block_two_sub_title: string;
+  block_two_sub_title_one: string;
+  block_two_sub_icon_one: string | null;
+  block_two_sub_itext_one: string;
+  block_two_sub_title_two: string;
+  block_two_sub_icon_two: string | null;
+  block_two_sub_itext_two: string;
+  block_two_sub_title_three: string;
+  block_two_sub_icon_three: string | null;
+  block_two_sub_itext_three: string;
+  block_two_sub_title_four: string;
+  block_two_sub_icon_four: string | null;
+  block_two_sub_itext_four: string;
+
+  block_three_title: string;
+  block_three_sub_title: string;
+  block_three_image: string | null;
+  block_three_image_alt_tag?: string | null;
+  block_three_description: string;
+
+  block_four_title: string | null;
+  block_four_sub_title: string | null;
+  block_four_image: string | null;
+  block_four_image_one: string | null;
+  block_four_description?: string | null;
+  block_four_button_name?: string | null;
+  block_four_button_link?: string | null;
+
+  block_five_title?: string | null;
+  block_five_sub_title?: string | null;
+  block_five_image?: string | null;
+  block_five_description?: string | null;
+  block_five_button_name?: string | null;
+  block_five_button_link?: string | null;
+
+  banner_image?: string | null;
+
+  sub_id: number;
+  meta_title?: string | null;
+  meta_description?: string | null;
+  meta_keyword?: string | null;
+  created_at?: string | null;
+  updated_at?: string | null;
 }

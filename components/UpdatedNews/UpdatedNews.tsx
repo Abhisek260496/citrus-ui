@@ -7,7 +7,7 @@ import {
 } from "@/styles/styledComponents/UpdatedNewsStyled";
 import CalenderIcon from "@/ui/Icons/CalenderIcon";
 import Loader from "@/ui/Loader/Loder";
-import { Box, BoxProps, Container, Typography } from "@mui/material";
+import { Box, BoxProps, Container, Stack, Typography } from "@mui/material";
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
@@ -24,12 +24,14 @@ interface UpadteElementProps extends BoxProps {
   title: string;
   publishDate: string;
   redirectUrl: string;
+  news_right_text: string;
 }
 const EachUpdatedElement = ({
   publishDate,
   image,
   title,
   redirectUrl,
+  news_right_text,
   ...props
 }: UpadteElementProps) => {
   return (
@@ -43,12 +45,19 @@ const EachUpdatedElement = ({
         />
       </figure>
       <Box className="updated_content">
-        <Typography>
-          <Typography variant="caption">
-            <CalenderIcon />
+        <Stack
+          direction="row"
+          alignItems="center"
+          // justifyContent="space-between"
+        >
+          <Typography>
+            <Typography variant="caption">
+              <CalenderIcon />
+            </Typography>
+            {publishDate}
           </Typography>
-          {publishDate}
-        </Typography>
+          <Typography ml={2}>{news_right_text}</Typography>
+        </Stack>
         <Typography variant="h5">
           {/* <Link href={`/news-details/${redirectUrl}`}>{title}</Link> */}
           <Link href={`${redirectUrl}`} target="blank">
@@ -76,7 +85,7 @@ const UpdatedNews = () => {
     speed: 800,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 2000
   };
 
@@ -124,6 +133,7 @@ const UpdatedNews = () => {
                       "MMM DD, YYYY"
                     )}
                     redirectUrl={item?.news_link}
+                    news_right_text={item?.news_right_text as string}
                   />
                 ))}
               </Slider>

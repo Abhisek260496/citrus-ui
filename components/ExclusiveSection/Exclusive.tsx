@@ -8,7 +8,7 @@ import assest from "@/json/assest";
 import { ExclusiveStyled } from "@/styles/styledComponents/ExclusiveStyled";
 import SliderButtons from "@/ui/Buttons/SliderButtons";
 import Loader from "@/ui/Loader/Loder";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import type { ReactImageTurntableProps } from "react-image-turntable";
@@ -17,12 +17,26 @@ import { useQuery } from "react-query";
 import Slider from "react-slick";
 import CommonHeader from "../CommonHeader/CommonHeader";
 
+const TurnableBlock = styled(Box)`
+  position: relative;
+  .product_name {
+    /* position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    top: 100px; */
+    margin-top: 20px;
+  }
+`;
+
 interface IExclusiveRotaionComponentProps
   extends Partial<ReactImageTurntableProps> {
   sourceImages: Each360ProductResponse[];
+  product_name: string;
 }
 
 const ExclusiveRotaionComponent = ({
+  product_name,
   ...props
 }: IExclusiveRotaionComponentProps) => {
   const [images, setImages] = useState<string[]>([]);
@@ -54,7 +68,8 @@ const ExclusiveRotaionComponent = ({
   if (loading) return <Loader />;
 
   return (
-    <>
+    <TurnableBlock>
+      <CommonHeader mainTitle={product_name} className="product_name" />
       {images?.length ? (
         <ReactImageTurntable
           images={images}
@@ -68,7 +83,7 @@ const ExclusiveRotaionComponent = ({
       ) : (
         <Loader />
       )}
-    </>
+    </TurnableBlock>
   );
 };
 
@@ -137,6 +152,7 @@ const Exclusive = () => {
                         <figure className="rotaion_image">
                           <ExclusiveRotaionComponent
                             sourceImages={item.images}
+                            product_name={item?.product_name}
                           />
                         </figure>
                       </Box>

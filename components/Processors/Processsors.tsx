@@ -38,22 +38,22 @@ const ProcessorsStyled = styled(Box)`
       &:nth-of-type(1) {
         left: 0;
         top: 100px;
-        animation: leftCenterRight 3s linear infinite;
+        /* animation: leftCenterRight 3s linear infinite; */
       }
       &:nth-of-type(2) {
         right: 0;
         top: 100px;
-        animation: RightCenterLeft 3s linear infinite;
+        /* animation: RightCenterLeft 3s linear infinite; */
       }
       &:nth-of-type(3) {
         left: 0;
         bottom: 0;
-        animation: leftCenterRight 3s linear infinite;
+        /* animation: leftCenterRight 3s linear infinite; */
       }
       &:nth-of-type(4) {
         right: 0;
         bottom: 0px;
-        animation: RightCenterLeft 3s linear infinite;
+        /* animation: RightCenterLeft 3s linear infinite; */
       }
       .circuit_board {
         width: 100%;

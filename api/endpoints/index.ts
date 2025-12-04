@@ -34,7 +34,11 @@ export const endpoints = {
     allProducts: "/products",
     getSingleProduct: "/products",
     get360Products: "/product360",
-    getNews: "/news"
+    getNews: "/news",
+    subMenu: "/home-sub-menu",
+    footerLinks: "/quicklinks",
+    companyLinks: "/companylinks",
+    ourStoryPage: "/about"
   }
 };
 

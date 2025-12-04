@@ -18,7 +18,7 @@ const CustomBtn = styled(Button)`
   font-weight: 400;
   transition: all 0.4s ease-in-out;
   &:hover {
-    background-color: ${palette.text.primary};
+    background-color: transparent;
     border: 1px solid ${palette.text.primary};
     color: ${palette.common.white};
     box-shadow: none;
