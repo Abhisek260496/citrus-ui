@@ -5,6 +5,7 @@ import KeyPillars from "@/components/KeyPillars/KeyPillars";
 import OurStoryBanner from "@/components/OurStoryBanner/OurStoryBanner";
 import Processsors from "@/components/Processors/Processsors";
 import Wrapper from "@/layout/wrapper/Wrapper";
+import Loader from "@/ui/Loader/Loder";
 import { useQuery } from "react-query";
 
 const Index = () => {
@@ -19,11 +20,17 @@ const Index = () => {
 
   return (
     <Wrapper>
-      <OurStoryBanner />
-      <Processsors />
-      <KeyPillars />
-      <AimSection />
-      <IsoVerfied />
+      {ourStoryContentLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <OurStoryBanner {...ourStoryContent?.[0]} />
+          <Processsors {...ourStoryContent?.[0]} />
+          <KeyPillars {...ourStoryContent?.[0]} />
+          <AimSection {...ourStoryContent?.[0]} />
+          <IsoVerfied {...ourStoryContent?.[0]} />
+        </>
+      )}
     </Wrapper>
   );
 };

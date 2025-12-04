@@ -1,20 +1,23 @@
 export const baseUrl = process.env.NEXT_APP_BASE_URL;
 export const baseUrlApi = `${process.env.NEXT_APP_BASE_URL}/api/`;
-export const baseUrlMedia = `${process.env.NEXT_APP_BASE_URL}`;
+export const baseUrlMedia = `${process.env.NEXT_APP_BASE_URL}/uploads`;
 
 // api doc => https://militarymoves-admin.dedicateddevelopers.us/apidoc
 
 export const mediaUrl = (url: string) => {
-  return `${baseUrlMedia}/uploads/${url}`;
+  return `${baseUrlMedia}/${url}`;
 };
 export const ThreeSixtymediaUrl = (url: string) => {
-  return `${baseUrlMedia}/uploads/360/sides/${url}`;
+  return `${baseUrlMedia}/360/sides/${url}`;
 };
 export const prodcutMediaUrl = (url: string) => {
-  return `${baseUrlMedia}/uploads/product/${url}`;
+  return `${baseUrlMedia}/product/${url}`;
 };
 export const newsMediaUrl = (url: string) => {
-  return `${baseUrlMedia}/uploads/news/${url}`;
+  return `${baseUrlMedia}/news/${url}`;
+};
+export const ourStoryMediaUrl = (url: string) => {
+  return `${baseUrlMedia}/page/${url}`;
 };
 
 export const endpoints = {

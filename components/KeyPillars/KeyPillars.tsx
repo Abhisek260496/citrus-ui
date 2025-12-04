@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { ourStoryMediaUrl } from "@/api/endpoints";
 import assest from "@/json/assest";
 import {
   Box,
@@ -83,7 +84,7 @@ const FlipCard = styled(ListItem)`
 
   .flip-card-front {
     /* background: white; */
-    h6{
+    h6 {
       text-align: center;
       margin-top: 20px;
     }
@@ -93,7 +94,7 @@ const FlipCard = styled(ListItem)`
     /* background: #7ce3fe; */
     transform: rotateY(180deg);
     color: #fff;
-    p{
+    p {
       font-size: 16px;
     }
   }
@@ -109,8 +110,8 @@ const FlipCard = styled(ListItem)`
 
 interface IEachKeyPillar {
   icon: string;
-  title: string;
-  content: string;
+  title?: string;
+  content?: string;
 }
 
 const EachKeyPillar = ({ icon, title, content }: IEachKeyPillar) => {
@@ -126,7 +127,7 @@ const EachKeyPillar = ({ icon, title, content }: IEachKeyPillar) => {
             height={160}
             className="pillars_water_mark"
           />
-          <img src={icon} alt="icon" />
+          <img src={ourStoryMediaUrl(icon)} alt="icon" />
           <Typography variant="h6">{title}</Typography>
         </Box>
 
@@ -139,45 +140,53 @@ const EachKeyPillar = ({ icon, title, content }: IEachKeyPillar) => {
   );
 };
 
-const pillarsList: IEachKeyPillar[] = [
-  {
-    icon: assest?.pillar_icon1,
-    title: "Longer product life",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus aperiam expedita eaque suscipit iste nam eos nostrum quia corrupti excepturi?"
-  },
-  {
-    icon: assest?.pillar_icon2,
-    title: "Commercial grade",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus aperiam expedita eaque suscipit iste nam eos nostrum quia corrupti excepturi?"
-  },
-  {
-    icon: assest?.pillar_icon3,
-    title: "Elegant Designs",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus aperiam expedita eaque suscipit iste nam eos nostrum quia corrupti excepturi?"
-  },
-  {
-    icon: assest?.pillar_icon4,
-    title: "3-YEARS WARRANTY POLICY",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus aperiam expedita eaque suscipit iste nam eos nostrum quia corrupti excepturi?"
-  }
-];
-const KeyPillars = () => {
+interface IKeyPillarsProps {
+  block_two_title?: string;
+  block_two_sub_title?: string;
+  block_two_sub_title_one?: string;
+  block_two_sub_icon_one?: string | null;
+  block_two_sub_itext_one?: string;
+  block_two_sub_title_two?: string;
+  block_two_sub_icon_two?: string | null;
+  block_two_sub_itext_two?: string;
+  block_two_sub_title_three?: string;
+  block_two_sub_icon_three?: string | null;
+  block_two_sub_itext_three?: string;
+  block_two_sub_title_four?: string;
+  block_two_sub_icon_four?: string | null;
+  block_two_sub_itext_four?: string;
+}
+
+const KeyPillars = ({ ...props }: IKeyPillarsProps) => {
   return (
     <KeyPillarsStyled>
       <Container fixed>
         <CommonHeader
-          mainTitle="pillars"
-          subTitle="Key"
+          mainTitle={props?.block_two_sub_title}
+          subTitle={props?.block_two_title}
           sx={{ marginBottom: "100px" }}
         />
         <List disablePadding>
-          {pillarsList?.map((item, index) => {
-            return <EachKeyPillar {...item} key={index} />;
-          })}
+          <EachKeyPillar
+            icon={String(props?.block_two_sub_icon_one)}
+            title={props?.block_two_sub_title_one}
+            content={props?.block_two_sub_itext_one}
+          />
+          <EachKeyPillar
+            icon={String(props?.block_two_sub_icon_two)}
+            title={props?.block_two_sub_title_two}
+            content={props?.block_two_sub_itext_two}
+          />
+          <EachKeyPillar
+            icon={String(props?.block_two_sub_icon_three)}
+            title={props?.block_two_sub_title_three}
+            content={props?.block_two_sub_itext_three}
+          />
+          <EachKeyPillar
+            icon={String(props?.block_two_sub_icon_four)}
+            title={props?.block_two_sub_title_four}
+            content={props?.block_two_sub_itext_four}
+          />
         </List>
       </Container>
     </KeyPillarsStyled>

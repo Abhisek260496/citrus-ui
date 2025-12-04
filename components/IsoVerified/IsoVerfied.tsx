@@ -1,3 +1,4 @@
+import { ourStoryMediaUrl } from "@/api/endpoints";
 import assest from "@/json/assest";
 import { Box, Container, Grid, styled } from "@mui/material";
 import Image from "next/image";
@@ -29,8 +30,17 @@ const IsoVerfiedStyled = styled(Box)`
     z-index: -1;
   }
 `;
+interface IIsoVerifiedProps {
+  block_four_title?: string | null;
+  block_four_sub_title?: string | null;
+  block_four_image?: string | null;
+  block_four_image_one?: string | null;
+  block_four_description?: string | null;
+  block_four_button_name?: string | null;
+  block_four_button_link?: string | null;
+}
 
-const IsoVerfied = () => {
+const IsoVerfied = ({ ...props }: IIsoVerifiedProps) => {
   return (
     <IsoVerfiedStyled className="cmn_gap">
       <Image
@@ -50,7 +60,7 @@ const IsoVerfied = () => {
           <Grid container spacing={2}>
             <Grid item md={6} xs={12}>
               <Image
-                src={assest?.iso_img1}
+                src={ourStoryMediaUrl(String(props?.block_four_image))}
                 alt="iso_img1"
                 width={424}
                 height={600}
@@ -59,7 +69,7 @@ const IsoVerfied = () => {
 
             <Grid item md={6} xs={12}>
               <Image
-                src={assest?.iso_img2}
+                src={ourStoryMediaUrl(String(props?.block_four_image_one))}
                 alt="iso_img2"
                 width={424}
                 height={600}

@@ -1,5 +1,5 @@
 /* eslint-disable import/order */
-import assest from "@/json/assest";
+import { ourStoryMediaUrl } from "@/api/endpoints";
 import { Box, Container, styled } from "@mui/material";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
@@ -100,13 +100,22 @@ const ProcessorsStyled = styled(Box)`
   }
 `;
 
-const Processsors = () => {
+interface ICoreProcessorProps {
+  block_one_title?: string;
+  block_one_bg?: string | null;
+  block_one_sub_img_1?: string | null;
+  block_one_sub_img_2?: string | null;
+  block_one_sub_img_3?: string | null;
+  block_one_sub_img_4?: string | null;
+}
+
+const Processsors = ({ ...props }: ICoreProcessorProps) => {
   return (
     <ProcessorsStyled>
       <Box className="processors_fig">
         <figure>
           <Image
-            src={assest?.processors_img}
+            src={ourStoryMediaUrl(String(props?.block_one_bg))}
             alt="processors_img"
             width={1600}
             height={986}
@@ -119,7 +128,7 @@ const Processsors = () => {
           <Box className="circuit_board_otr">
             <figure className="circuit_board_wrapper">
               <Image
-                src={assest?.circuit_board1}
+                src={ourStoryMediaUrl(String(props?.block_one_sub_img_1))}
                 alt="circuit board 1"
                 width={231}
                 height={231}
@@ -129,7 +138,7 @@ const Processsors = () => {
             <figure className="circuit_board_wrapper">
               {" "}
               <Image
-                src={assest?.circuit_board2}
+                src={ourStoryMediaUrl(String(props?.block_one_sub_img_2))}
                 alt="circuit board 2"
                 width={231}
                 height={231}
@@ -140,7 +149,7 @@ const Processsors = () => {
             <figure className="circuit_board_wrapper">
               {" "}
               <Image
-                src={assest?.circuit_board3}
+                src={ourStoryMediaUrl(String(props?.block_one_sub_img_3))}
                 alt="circuit board 3"
                 width={231}
                 height={231}
@@ -151,7 +160,7 @@ const Processsors = () => {
             <figure className="circuit_board_wrapper">
               {" "}
               <Image
-                src={assest?.circuit_board4}
+                src={ourStoryMediaUrl(String(props?.block_one_sub_img_4))}
                 alt="circuit board 4"
                 width={231}
                 height={231}

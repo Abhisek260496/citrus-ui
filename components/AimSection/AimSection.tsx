@@ -1,13 +1,13 @@
 /* eslint-disable import/order */
 /* eslint-disable import/no-extraneous-dependencies */
-import assest from "@/json/assest";
 import { Box, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 import CommonHeader from "../CommonHeader/CommonHeader";
 
+import { ourStoryMediaUrl } from "@/api/endpoints";
+import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -69,7 +69,15 @@ const AimSectionStyled = styled(Box)`
   }
 `;
 
-const AimSection = () => {
+interface IAimSectionProps {
+  block_three_title?: string;
+  block_three_sub_title?: string;
+  block_three_image?: string | null;
+  block_three_image_alt_tag?: string | null;
+  block_three_description?: string;
+}
+
+const AimSection = ({ ...props }: IAimSectionProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
@@ -100,9 +108,9 @@ const AimSection = () => {
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 10%", 
+          start: "top 10%",
           end: "top 20%",
-          scrub: 2 
+          scrub: 2
         }
       }
     );
@@ -134,7 +142,7 @@ const AimSection = () => {
     <AimSectionStyled ref={sectionRef}>
       <figure className="transition_img">
         <Image
-          src={assest?.aim_banner}
+          src={ourStoryMediaUrl(String(props?.block_three_image))}
           alt="aim_banner"
           width={1600}
           height={1000}
@@ -144,19 +152,14 @@ const AimSection = () => {
         <Container fixed>
           <Box className="aim_wrapper">
             <Box className="fade-up">
-              <CommonHeader mainTitle="AIM FOR" subTitle="WE" />
+              <CommonHeader
+                mainTitle={props?.block_three_sub_title}
+                subTitle={props?.block_three_title}
+              />
             </Box>
 
             <Box className="fade-up">
-              <Typography>
-                We strive to build upon our expertise to develop
-                high-performance, eco-friendly computing solutions that not only
-                drive innovation but also grow in harmony with nature. With an
-                even greater zeal to push the boundaries of technology, we are
-                committed to empowering businesses with enhanced efficiency,
-                unwavering reliability, and a future-focused approach to
-                sustainability.
-              </Typography>
+              <Typography>{props?.block_three_description}</Typography>
             </Box>
           </Box>
         </Container>

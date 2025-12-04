@@ -1,5 +1,5 @@
 /* eslint-disable import/order */
-import assest from "@/json/assest";
+import { ourStoryMediaUrl } from "@/api/endpoints";
 import palette from "@/themes/palette";
 import { Box, Container, Stack, Typography, styled } from "@mui/material";
 import Image from "next/image";
@@ -133,16 +133,32 @@ const OurStoryBannerWrapper = styled(Box)`
         width: 224px;
       }
     }
-  } 
+  }
 `;
+interface IOurStoryBannerProps {
+  title?: string;
+  banner_title?: string;
+  banner_content?: string;
+  banner_bg_img?: string | null;
+  banner_sub_elmts_one?: string;
+  banner_sub_elmts_one_desc?: string;
+  banner_sub_elmts_two?: string;
+  banner_sub_elmts_two_desc?: string;
+  banner_sub_elmts_three?: string;
+  banner_sub_elmts_three_desc?: string;
+  banner_sub_desc_one?: string;
+  banner_sub_desc_two?: string;
+  banner_sub_desc_three?: string;
+  banner_sub_image?: string | null;
+}
 
-const OurStoryBanner = () => {
+const OurStoryBanner = ({ ...props }: IOurStoryBannerProps) => {
   return (
     <OurStoryBannerWrapper>
       <Box className="story_fig">
         <figure>
           <Image
-            src={assest?.about_us_banner}
+            src={ourStoryMediaUrl(String(props?.banner_bg_img))}
             alt="Our Story Banner"
             width={1630}
             height={950}
@@ -152,13 +168,8 @@ const OurStoryBanner = () => {
       <Box className="banner_content_wrapper">
         <Container fixed>
           <Box className="story_content">
-            <Typography variant="h1">
-              The essence of two decades driven by passion & excellence
-            </Typography>
-            <Typography variant="body1">
-              The journey so far was about pushing boundaries, embracing change
-              and most importantly making things happen!
-            </Typography>
+            <Typography variant="h1">{props?.banner_title}</Typography>
+            <Typography variant="body1">{props?.banner_content}</Typography>
           </Box>
           <Stack
             direction="row"
@@ -171,7 +182,7 @@ const OurStoryBanner = () => {
                 <Typography variant="h2">
                   <Typography variant="caption" ref={countUpRef} /> +
                   <Typography variant="caption" className="sub_title">
-                    Corporates
+                    {props?.banner_sub_elmts_two_desc}
                   </Typography>
                 </Typography>
               )}
@@ -189,7 +200,7 @@ const OurStoryBanner = () => {
                 <Typography variant="h2">
                   <Typography variant="caption" ref={countUpRef} /> +
                   <Typography variant="caption" className="sub_title">
-                    Years
+                    {props?.banner_sub_elmts_one_desc}
                   </Typography>
                 </Typography>
               )}
@@ -200,7 +211,7 @@ const OurStoryBanner = () => {
                 <Typography variant="h2">
                   <Typography variant="caption" ref={countUpRef} /> +
                   <Typography variant="caption" className="sub_title">
-                    SME clients
+                    {props?.banner_sub_elmts_three_desc}
                   </Typography>
                 </Typography>
               )}
@@ -214,41 +225,20 @@ const OurStoryBanner = () => {
               className="extended_content_stack"
             >
               <Box className="collpsed_block">
-                <Typography>
-                  Our journey of innovation began in 2004 with a bold vision to
-                  redene computing through eco-friendly, low-maintenance, and
-                  energy-ecient computing devices. Anticipating a future where
-                  IT infrastructures could be smarter and more sustainable, we
-                  set out to develop solutions that would maximize eciency &
-                  minimize power consumption
-                </Typography>
+                <Typography>{props?.banner_sub_desc_one}</Typography>
               </Box>
               <figure>
                 <Image
-                  src={assest?.collpsed_img}
+                  src={ourStoryMediaUrl(String(props?.banner_sub_image))}
                   alt="Collpsed Image"
                   width={224}
                   height={416}
                 />
               </figure>
               <Box className="expanded_block">
-                <Typography>
-                  Being one of the pioneers that introduced a paramount change
-                  in the landscape of the IT industry in instituting Thin Client
-                  technology into the Indian Market we were able to engineer
-                  cutting-edge solutions that were always ahead of the
-                  competition by sourcing all components from OEMs. With the
-                  unwavering support of Intel and Microsoft every solution we
-                  engineered was not only better but also a benchmark for
-                  reliability and eciency in terms of Innovation.
-                </Typography>
+                <Typography>{props?.banner_sub_desc_two}</Typography>
 
-                <Typography>
-                  Technology never stands still, and neither did we. Over the
-                  years, our expertise has expanded to include Micro PCs, Small
-                  Form Factor PCs (SFF), Rugged PCs and Industrial PCs catering
-                  to the ever-changing demands of the IT landscape
-                </Typography>
+                <Typography>{props?.banner_sub_desc_three}</Typography>
               </Box>
             </Stack>
           </Box>
