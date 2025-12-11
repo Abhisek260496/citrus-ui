@@ -1,6 +1,5 @@
 /* eslint-disable sort-imports */
 import { ICommonProductSection } from "@/interface/apiresp.interfaces";
-import assest from "@/json/assest";
 import { Box, Container, Stack, styled, Typography } from "@mui/material";
 import Image from "next/image";
 
@@ -53,12 +52,16 @@ const AccessSec = ({
   section_background_image,
   section_title,
   section_subtitle,
-  section_content
+  section_content,
+  section_image_one,
+  section_image,
+  section_sub_title_one,
+  section_sub_title_two
 }: ICommonProductSection) => {
   return (
     <AccessSecWrapper>
       <Image
-        src={section_background_image as string}
+        src={String(section_background_image)}
         alt="accessBackImg"
         width={1600}
         height={888}
@@ -81,24 +84,24 @@ const AccessSec = ({
           <Box className="access_box">
             <figure>
               <Image
-                src={assest.wifiImg}
+                src={String(section_image)}
                 alt="wifiImg"
                 width={364}
                 height={362}
               />
             </figure>
-            <Typography variant="body1">Lan</Typography>
+            <Typography variant="body1">{section_sub_title_one}</Typography>
           </Box>
           <Box className="access_box">
             <figure>
               <Image
-                src={assest.wifiImg1}
+                src={String(section_image_one)}
                 alt="wifiImg1"
                 width={364}
                 height={362}
               />
             </figure>
-            <Typography variant="body1">Wifi</Typography>
+            <Typography variant="body1">{section_sub_title_two}</Typography>
           </Box>
         </Stack>
       </Container>

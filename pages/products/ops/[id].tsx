@@ -22,13 +22,19 @@ const Index = () => {
     }
   );
 
+  console.log(singleProductData, "singleProductData");
+
   return (
     <Wrapper>
       {singleProductLoading ? (
         <Loader />
       ) : (
         <>
-          <OpsBanner />
+          <OpsBanner
+            bannerVideo={prodcutMediaUrl(
+              String(singleProductData?.product_banner_content)
+            )}
+          />
           <IntelGraphicSec
             section_title={singleProductData?.sections[0]?.section_title}
             section_subtitle={singleProductData?.sections[0]?.section_subtitle}

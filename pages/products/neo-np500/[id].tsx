@@ -59,12 +59,18 @@ const Index = () => {
             section_title={singleProductData?.sections[2]?.section_title}
             section_subtitle={singleProductData?.sections[2]?.section_subtitle}
             section_content={singleProductData?.sections[2]?.section_content}
+            section_subtitle_one={
+              singleProductData?.sections[2]?.section_subtitle_one
+            }
           />
           <Communicative
             banner_bg={singleProductData?.sections[3]?.section_background_image}
             description={singleProductData?.sections[3]?.section_content}
             section_title={singleProductData?.sections[3]?.section_title}
             section_subtitle={singleProductData?.sections[3]?.section_subtitle}
+            section_subtitle_one={
+              singleProductData?.sections[3]?.section_subtitle_one
+            }
           />
           <RelatedProducts
             related_products={singleProductData?.related_products}

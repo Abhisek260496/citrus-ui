@@ -140,5 +140,15 @@ export default {
   high_bandwidth_banner: "/assets/images/high_bandwidth_banner.png",
   xtreme_n_banner: "/assets/images/xtreme_n_banner.png",
   xtreme_n: "/assets/images/xtreme_n.png",
-  eon_logo: "/assets/images/eon_logo.png"
+  eon_logo: "/assets/images/eon_logo.png",
+  csr_banner: "/assets/images/csr_banner.png",
+  csr_img1: "/assets/images/csr_img1.png",
+  csr_img2: "/assets/images/csr_img2.png",
+  vatsalay_img1: "/assets/images/vatsalay_img1.png",
+  vatsalay_img2: "/assets/images/vatsalay_img2.png",
+  vatsalay_img3: "/assets/images/vatsalay_img3.png",
+  vatsalay_img4: "/assets/images/vatsalay_img4.png",
+  vatsalay_img5: "/assets/images/vatsalay_img5.png",
+  support_banner: "/assets/images/support_banner.png",
+  eon_13pro_banner_bg: "/assets/videos/eon_13pro_banner_bg_crop.gif"
 };

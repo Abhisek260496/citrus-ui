@@ -23,6 +23,8 @@ export default function Index() {
     }
   );
 
+  console.log(singleProductData?.sections[4], "singleProductData?.sections[4]");
+
   return (
     <Wrapper>
       {singleProductLoading ? (
@@ -73,6 +75,18 @@ export default function Index() {
             section_title={singleProductData?.sections[4]?.section_title}
             section_subtitle={singleProductData?.sections[4]?.section_subtitle}
             section_content={singleProductData?.sections[4]?.section_content}
+            section_image_one={prodcutMediaUrl(
+              String(singleProductData?.sections[4]?.section_image_one)
+            )}
+            section_image={prodcutMediaUrl(
+              String(singleProductData?.sections[4]?.section_image)
+            )}
+            section_sub_title_two={
+              singleProductData?.sections[4]?.section_sub_title_two
+            }
+            section_sub_title_one={
+              singleProductData?.sections[4]?.section_sub_title_one
+            }
           />
           <RelatedProducts
             related_products={singleProductData?.related_products}

@@ -32,7 +32,8 @@ const GraphicCardSec = ({
   section_background_image,
   section_title,
   section_subtitle,
-  section_content
+  section_content,
+  section_subtitle_one
 }: ICommonProductSection) => {
   return (
     <GraphicCardSecStyled>
@@ -47,7 +48,9 @@ const GraphicCardSec = ({
       <Box className="graphic_card_wrapper">
         <Container fixed>
           <CommonHeader
-            mainTitle={String(section_title)}
+            mainTitle={`${section_title as string} ${String(
+              section_subtitle_one
+            )}`}
             subTitle={section_subtitle as string}
           />
           <Typography

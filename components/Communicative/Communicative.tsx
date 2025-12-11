@@ -41,6 +41,7 @@ const Communicative = ({
   description,
   section_title,
   section_subtitle,
+  section_subtitle_one,
   ...props
 }: ICommunicativeProps & ICommonProductSection) => {
   return (
@@ -56,8 +57,10 @@ const Communicative = ({
       <Box className="independent_wrapper">
         <Container fixed>
           <CommonHeader
-            mainTitle={section_subtitle as string}
-            subTitle={section_title as string}
+            mainTitle={`${section_subtitle as string} ${String(
+              section_subtitle_one
+            )}`}
+            subTitle={`${section_title as string}`}
           />
           <Typography>
             {description}

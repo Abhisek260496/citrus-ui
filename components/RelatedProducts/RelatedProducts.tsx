@@ -160,7 +160,13 @@ const EachRelatedProduct = ({
             OS -<Typography variant="caption">{os}</Typography>
           </ListItem>
           <ListItem disablePadding>
-            Processor -<Typography variant="caption">{processor}</Typography>
+            Processor -{" "}
+            <Typography
+              variant="caption"
+              dangerouslySetInnerHTML={{
+                __html: processor || ""
+              }}
+            />
           </ListItem>
           <ListItem disablePadding>
             Memory -<Typography variant="caption">{memory}</Typography>

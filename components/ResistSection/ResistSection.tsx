@@ -5,7 +5,9 @@ import CommonHeader from "../CommonHeader/CommonHeader";
 
 const ResistSectionStyled = styled(Box)`
   position: relative;
+  min-height: 900px;
   figure {
+    height: 100%;
     img {
       width: 100%;
       height: 100%;

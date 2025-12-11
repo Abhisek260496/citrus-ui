@@ -67,6 +67,9 @@ export interface ICommonProductSection {
   section_video?: string | null;
   section_background_image?: string | null;
   product_banner_content?: string | null;
+  section_image_one?: string | null;
+  section_sub_title_one?: string | null;
+  section_sub_title_two?: string | null;
 }
 
 export interface Each360ProductResponse {

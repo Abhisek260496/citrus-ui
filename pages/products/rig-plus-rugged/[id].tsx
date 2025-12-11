@@ -24,7 +24,7 @@ const Index = () => {
     }
   );
 
-  console.log(singleProductData?.sections[5], "singleProductData?.sections[1]");
+  // console.log(singleProductData?.sections[3], "singleProductData?.sections[3]");
 
   return (
     <Wrapper>
@@ -89,6 +89,9 @@ const Index = () => {
             description={singleProductData?.sections[4]?.section_content}
             section_title={singleProductData?.sections[4]?.section_title}
             section_subtitle={singleProductData?.sections[4]?.section_subtitle}
+            section_subtitle_one={
+              singleProductData?.sections[4]?.section_subtitle_one
+            }
           />
           <ToughPortableSection
             section_background_image={prodcutMediaUrl(

@@ -1,4 +1,5 @@
 /* eslint-disable import/order */
+import assest from "@/json/assest";
 import { Box, BoxProps, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 
@@ -39,7 +40,7 @@ const Eon13ProBanner = ({
         <Box className="eon_slim_wrapper">
           <figure>
             <Image
-              src={product_img}
+              src={assest?.eon_13pro_banner_bg}
               alt="eon_product_img"
               width={1100}
               height={500}

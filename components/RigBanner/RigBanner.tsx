@@ -5,11 +5,23 @@ import Image from "next/image";
 
 export const RigBannerWrapper = styled(Box)`
   padding: 100px 0;
-  background-color: #fff;
+  position: relative;
+  min-height: 900px;
+  /* background-color: #fff; */
   .banner_cnt {
     text-align: center;
     figure {
       margin: 0 0 15px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
     h1 {
       font-size: 68px;
@@ -18,6 +30,14 @@ export const RigBannerWrapper = styled(Box)`
     p {
       font-size: 18px;
       color: #4f5c65;
+    }
+    .banner_block {
+      position: relative;
+      z-index: 9;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 100px;
     }
   }
 `;
@@ -41,8 +61,10 @@ const RigBanner = ({
               height={461}
             />
           </figure>
-          <Typography variant="h1">{String(section_title)}</Typography>
-          <Typography variant="body1">{section_content}</Typography>
+          <Box className="banner_block">
+            <Typography variant="h1">{String(section_title)}</Typography>
+            <Typography variant="body1">{section_content}</Typography>
+          </Box>
         </Box>
       </Container>
     </RigBannerWrapper>
