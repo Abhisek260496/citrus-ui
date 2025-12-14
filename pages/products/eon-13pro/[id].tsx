@@ -6,6 +6,7 @@ import NextGenConectivity from "@/components/NextGenConectivity/NextGenConectivi
 import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
 import TwoIndependentDisplay from "@/components/TwoIndependentDisplay/TwoIndependentDisplay";
 import TwoLanSection from "@/components/TwoLanSection/TwoLanSection";
+import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import Loader from "@/ui/Loader/Loder";
 import { useRouter } from "next/router";
@@ -29,7 +30,7 @@ const Index = () => {
     }
   }, [singleProductLoading, singleProductData]);
 
-  console.log(singleProductData?.sections[3], "singleProductData");
+  console.log(singleProductData, "singleProductData");
   return (
     <Wrapper>
       {singleProductLoading ? (
@@ -46,6 +47,7 @@ const Index = () => {
             description={
               singleProductData?.product_banner_description as string
             }
+            static_img={assest?.eon13_pro_img}
           />
           <CoreToEveryThing
             bgImg={prodcutMediaUrl(

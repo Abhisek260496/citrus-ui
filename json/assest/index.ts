@@ -150,5 +150,6 @@ export default {
   vatsalay_img4: "/assets/images/vatsalay_img4.png",
   vatsalay_img5: "/assets/images/vatsalay_img5.png",
   support_banner: "/assets/images/support_banner.png",
-  eon_13pro_banner_bg: "/assets/videos/eon_13pro_banner_bg_crop.gif"
+  eon_13pro_banner_bg: "/assets/videos/eon_13pro_banner_bg_crop.gif",
+  support_banner_bg: "/assets/images/support_banner_bg.png"
 };

@@ -1,5 +1,4 @@
 import CommonHeader from "@/components/CommonHeader/CommonHeader";
-import CSRBanner from "@/components/CSRBanner/CSRBanner";
 import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import {
@@ -71,10 +70,64 @@ const CommonStyledSection = styled(Box)`
   }
 `;
 
+const SupportBannerStyled = styled(Box)`
+  position: relative;
+  .banner_wrapper {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    .banner_txt {
+      max-width: 700px;
+      margin-left: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h2 {
+        font-size: 100px;
+        color: #1a242c;
+        text-transform: capitalize;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 30px;
+        color: #1a242c;
+      }
+    }
+  }
+  figure {
+    height: 700px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+`;
+
 const Index = () => {
   return (
     <Wrapper>
-      <CSRBanner />
+      <SupportBannerStyled>
+        <figure>
+          <Image
+            src={assest?.support_banner_bg}
+            alt="support_banner_bg"
+            width={1600}
+            height={900}
+          />
+        </figure>
+        <Box className="banner_wrapper">
+          <Container fixed>
+            <Box className="banner_txt">
+              <CommonHeader mainTitle="Support" />
+              <Typography>
+                We’re Here to answer any question you have
+              </Typography>
+            </Box>
+          </Container>
+        </Box>
+      </SupportBannerStyled>
       <CommonStyledSection>
         <Container fixed>
           <Box className="cmn_gap">

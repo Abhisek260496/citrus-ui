@@ -6,6 +6,7 @@ import GbLanSec from "@/components/GbLanSec/GbLanSec";
 import NextGenConectivity from "@/components/NextGenConectivity/NextGenConectivity";
 import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
 import TwoIndependentDisplay from "@/components/TwoIndependentDisplay/TwoIndependentDisplay";
+import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import Loader from "@/ui/Loader/Loder";
 import { useRouter } from "next/router";
@@ -38,6 +39,7 @@ const Index = () => {
             description={
               singleProductData?.product_banner_description as string
             }
+            static_img={assest?.eon_14pro_img}
           />
           <CoreToEveryThing
             bgImg={prodcutMediaUrl(

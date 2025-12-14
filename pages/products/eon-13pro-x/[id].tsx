@@ -8,6 +8,7 @@ import NextGenConectivity from "@/components/NextGenConectivity/NextGenConectivi
 import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
 import TwoIndependentDisplay from "@/components/TwoIndependentDisplay/TwoIndependentDisplay";
 import TwoLanSection from "@/components/TwoLanSection/TwoLanSection";
+import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import Loader from "@/ui/Loader/Loder";
 import { useRouter } from "next/router";
@@ -24,13 +25,10 @@ const Index = () => {
     }
   );
 
-  // useEffect(() => {
-  //   if (!singleProductLoading && singleProductData) {
-  //     window.scrollTo({ top: 0, behavior: "smooth" });
-  //   }
-  // }, [singleProductLoading, singleProductData]);
-
-  console.log(singleProductData?.sections[2], "singleProductData");
+  console.log(
+    prodcutMediaUrl(singleProductData?.product_banner_content as string),
+    "singleProductData"
+  );
   return (
     <Wrapper>
       {singleProductLoading ? (
@@ -47,6 +45,7 @@ const Index = () => {
             description={
               singleProductData?.product_banner_description as string
             }
+            static_img={assest?.eon13_pro_x_img}
           />
           <CoreToEveryThing
             bgImg={prodcutMediaUrl(
