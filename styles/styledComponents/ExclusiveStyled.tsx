@@ -45,12 +45,29 @@ export const ExclusiveStyled = styled(Box)`
       -webkit-text-fill-color: transparent;
       text-fill-color: transparent;
       z-index: -1;
+
+      @media (max-width: 1499px) {
+        font-size: 240px;
+      }
+      @media (max-width: 1199px) {
+        font-size: 200px;
+      }
+      @media (max-width: 899px) {
+        font-size: 140px;
+      }
+      @media (max-width: 599px) {
+        font-size: 80px;
+      }
     }
     .rotate_img {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
       bottom: 60px;
+
+      @media (max-width: 599px) {
+        bottom: 45px;
+      }
     }
     .btm_title {
       font-family: "Karla";
@@ -66,6 +83,12 @@ export const ExclusiveStyled = styled(Box)`
         background-color: transparent;
         color: ${palette.text.primary};
       }
+    }
+  }
+
+  .exclusiveSecSliderBtn {
+    @media (max-width: 599px) {
+      bottom: 25px;
     }
   }
 `;

@@ -16,6 +16,17 @@ const SliderButtonsStack = styled(Stack)`
     height: 45px;
     padding: 5px;
     min-width: auto;
+
+    @media (max-width: 899px) {
+      width: 35px;
+      height: 35px;
+    }
+
+    svg {
+      @media (max-width: 899px) {
+        width: 12px;
+      }
+    }
     &:not(:last-of-type) {
       margin-right: 10px;
     }
@@ -27,16 +38,18 @@ const SliderButtonsStack = styled(Stack)`
 interface ICustomSliderButtons extends StackProps {
   onClickNext?: () => void;
   onClickPrev?: () => void;
+  className?: string;
 }
 
 // Custom Prev Arrow
-const SliderButtons = ({ ...props }: ICustomSliderButtons) => {
+const SliderButtons = ({ className, ...props }: ICustomSliderButtons) => {
   const { onClickNext, onClickPrev } = props;
   return (
     <SliderButtonsStack
       direction="row"
       alignItems="center"
       justifyContent="end"
+      className={className}
       {...props}
     >
       <Button disableRipple className="custom-prev-arrow" onClick={onClickPrev}>

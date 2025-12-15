@@ -66,7 +66,21 @@ const PowerFull = (): React.ReactElement => {
     slidesToShow: 2,
     slidesToScroll: 1,
     autoplay: false,
-    autoplaySpeed: 2000
+    autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 1399,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 899,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
   };
 
   return (
@@ -75,7 +89,13 @@ const PowerFull = (): React.ReactElement => {
         <CommonHeader
           subTitle="powerful"
           mainTitle="performance PCS"
-          sx={{ mb: "54px" }}
+          sx={{
+            mb: {
+              xl: "54px",
+              lg: "100px",
+              xs: "100px"
+            }
+          }}
         />
 
         <Box className="global_slick" ref={sliderWrapperRef}>
@@ -86,6 +106,7 @@ const PowerFull = (): React.ReactElement => {
             onClickPrev={() => {
               sliderRef.current?.slickPrev();
             }}
+            className="powerfulSecSliderBtn"
           />
           <Slider ref={sliderRef} {...settings}>
             {activeSliders?.map((item, index) => (

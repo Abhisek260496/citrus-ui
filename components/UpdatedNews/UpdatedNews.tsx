@@ -86,7 +86,21 @@ const UpdatedNews = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000
+    autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 1399,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 899,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
   };
 
   console.log(news, "news");
@@ -105,7 +119,13 @@ const UpdatedNews = () => {
             <CommonHeader
               subTitle="Updated "
               mainTitle="news & articles"
-              sx={{ mb: "54px" }}
+              sx={{
+                mb: {
+                  xl: "54px",
+                  lg: "100px",
+                  xs: "100px"
+                }
+              }}
             />
 
             <SliderButtons
@@ -119,6 +139,7 @@ const UpdatedNews = () => {
               onClickPrev={() => {
                 sliderRef.current?.slickPrev();
               }}
+              className="updatedsecSliderBtn"
             />
           </Box>
           <Box className="global_slick" ref={sliderWrapperRef}>

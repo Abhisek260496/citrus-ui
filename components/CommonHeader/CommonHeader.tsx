@@ -3,6 +3,18 @@ import { Typography, TypographyProps, styled } from "@mui/material";
 const CustomHeadingStyle = styled(Typography)<{ isBgWhite?: boolean }>`
   text-transform: uppercase;
   position: relative;
+
+  h2 {
+    @media (max-width: 1199px) {
+      font-size: 48px;
+    }
+    @media (max-width: 899px) {
+      font-size: 38px;
+    }
+    @media (max-width: 599px) {
+      font-size: 22px;
+    }
+  }
   span {
     font-weight: 400;
   }
@@ -15,12 +27,25 @@ const CustomHeadingStyle = styled(Typography)<{ isBgWhite?: boolean }>`
       left: 109px;
       font-size: 33px;
       font-weight: 700;
+
+      @media (max-width: 1199px) {
+        top: -6px;
+        left: 85px;
+        font-size: 25px;
+      }
+      @media (max-width: 899px) {
+        left: 60px;
+        font-size: 18px;
+      }
     }
   }
   .sub_break_title {
     font-weight: 700;
     display: inline-block;
     margin-left: 30px;
+    @media (max-width: 899px) {
+      margin-left: 20px;
+    }
   }
 `;
 

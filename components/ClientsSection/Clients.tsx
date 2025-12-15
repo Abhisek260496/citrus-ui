@@ -92,6 +92,18 @@ const Clients = () => {
               pagination: false,
               pauseOnHover: false,
               pauseOnFocus: false
+              // breakpoints: {
+              //   1199: {
+              //     perPage: 3
+              //   },
+              //   899: {
+              //     perPage: 2
+              //   },
+              //   599: {
+              //     perPage: 1,
+              //     gap: "0.75rem"
+              //   }
+              // }
             }}
             extensions={{ AutoScroll }}
           >

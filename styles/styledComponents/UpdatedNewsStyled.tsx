@@ -4,7 +4,7 @@ import { Box, styled } from "@mui/material";
 
 export const UpdatedNewsStyled = styled(Box)`
   .slick-slider {
-    .slick-track {
+    .slick-list {
       margin: 0 -15px;
     }
     .slick-slide {
@@ -20,6 +20,10 @@ export const UpdatedNewsStyled = styled(Box)`
         }
       }
     }
+  }
+
+  .updatedsecSliderBtn {
+    top: 75px;
   }
 `;
 

@@ -1,4 +1,5 @@
 import CommonHeader from "@/components/CommonHeader/CommonHeader";
+import SupportSection from "@/components/SupportSection/SupportSection";
 import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import {
@@ -128,6 +129,7 @@ const Index = () => {
           </Container>
         </Box>
       </SupportBannerStyled>
+      <SupportSection />
       <CommonStyledSection>
         <Container fixed>
           <Box className="cmn_gap">

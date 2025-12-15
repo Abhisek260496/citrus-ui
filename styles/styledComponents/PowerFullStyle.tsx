@@ -2,13 +2,19 @@ import { Box, styled } from "@mui/material";
 
 export const PowerFullStyle = styled(Box)`
   .slick-slider {
-    .slick-track {
+    .slick-list {
       margin: 0 -15px;
     }
     .slick-slide {
       padding: 0 15px;
     }
     .slick-current {
+    }
+  }
+
+  .powerfulSecSliderBtn {
+    @media (max-width: 899px) {
+      top: -75px;
     }
   }
 `;

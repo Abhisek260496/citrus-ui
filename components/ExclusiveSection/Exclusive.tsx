@@ -245,8 +245,9 @@ const Exclusive = () => {
                 transform: "translateX(-50%)",
                 top: "auto",
                 right: "auto",
-                zIndex: 9999
+                zIndex: 9
               }}
+              className="exclusiveSecSliderBtn"
             />
 
             <Slider ref={sliderRef} {...settings}>

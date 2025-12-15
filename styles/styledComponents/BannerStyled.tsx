@@ -12,10 +12,13 @@ export const BannerStyled = styled(Box)`
   .banner_btm_block {
     background-color: ${palette.background.neutral};
     padding: 30px 0;
+
     ul {
       display: flex;
       padding: 0;
       justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
       li {
         width: auto;
         padding: 0;

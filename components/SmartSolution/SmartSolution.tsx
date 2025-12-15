@@ -1,23 +1,22 @@
 /* eslint-disable import/order */
 /* eslint-disable no-unused-vars */
 /* eslint-disable unused-imports/no-unused-imports */
+import { mediaUrl } from "@/api/endpoints";
+import { getIndustrySliders } from "@/api/functions/cms.api";
+import { ISliderResponse } from "@/interface/apiresp.interfaces";
 import { Box, BoxProps, Container, Typography } from "@mui/material";
 import Image from "next/image";
 import React, { useMemo, useRef } from "react";
+import { useQuery } from "react-query";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import { eachSmartElements } from "../../json/dummy/index";
 import {
   EachSmartSolutionStyled,
   SmartSolutionStyled
 } from "../../styles/styledComponents/SmartSolutionStyled";
 import SliderButtons from "../../ui/Buttons/SliderButtons";
 import CommonHeader from "../CommonHeader/CommonHeader";
-import { useQuery } from "react-query";
-import { getIndustrySliders } from "@/api/functions/cms.api";
-import { ISliderResponse } from "@/interface/apiresp.interfaces";
-import { mediaUrl } from "@/api/endpoints";
 
 interface EachPowerFullElementProps extends BoxProps, ISliderResponse {}
 const EachPowerFullElement = ({
@@ -70,7 +69,27 @@ const SmartSolution = (): React.ReactElement => {
     centerMode: true,
     centerPadding: "150px",
     autoplay: false,
-    autoplaySpeed: 2000
+    autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 1399,
+        settings: {
+          centerPadding: "100px"
+        }
+      },
+      {
+        breakpoint: 899,
+        settings: {
+          centerPadding: "50px"
+        }
+      },
+      {
+        breakpoint: 599,
+        settings: {
+          centerPadding: "15px"
+        }
+      }
+    ]
     // afterChange: () => updateSlideWidths()
   };
 
@@ -86,10 +105,18 @@ const SmartSolution = (): React.ReactElement => {
           <CommonHeader
             subTitle="Smart solution "
             mainTitle="across industries"
-            sx={{ mb: "54px" }}
+            sx={{
+              mb: {
+                xl: "54px",
+                lg: "100px",
+                xs: "100px"
+              }
+            }}
+            className="smartSecHead"
           />
 
           <SliderButtons
+            className="smartSecSliderBtn"
             sx={{
               top: "50%",
               transform: "translateY(-50%)"

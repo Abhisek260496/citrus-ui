@@ -1,14 +1,11 @@
 /* eslint-disable react/no-unused-prop-types */
-import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import * as React from "react";
 
 import { getAllProducts } from "@/api/functions/cms.api";
@@ -16,17 +13,22 @@ import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { useAppSelector } from "@/hooks/useAppSelector";
 import assest from "@/json/assest";
 import { logout } from "@/reduxtoolkit/slices/userSlice";
-import { HeaderWrap } from "@/styles/styledComponents/HeaderWrapper";
+import {
+  DrawerStyle,
+  HeaderWrap
+} from "@/styles/styledComponents/HeaderWrapper";
 import CustomButton from "@/ui/Buttons/CustomButton";
+import CrossIcon from "@/ui/Icons/CrossIcon";
+import HambarMenuIcon from "@/ui/Icons/HambarMenuIcon";
 import MailIcon from "@/ui/Icons/MailIcon";
-import { Button, Menu, MenuItem } from "@mui/material";
+import { Button, IconButton, Menu, MenuItem } from "@mui/material";
 import { Container } from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useQuery } from "react-query";
 
-const drawerWidth = 240;
+const drawerWidth = 320;
 
 const navItems = [
   {
@@ -120,21 +122,91 @@ export default function Header() {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem disablePadding>
-            <Link href={item?.route} key={item.name}>
-              {item.name}
-            </Link>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
+    <DrawerStyle>
+      <IconButton className="crossBtn" onClick={handleDrawerToggle}>
+        <CrossIcon />
+      </IconButton>
+      <Box sx={{ textAlign: "center" }} className="drawerInnerContent">
+        <Link href="/" className="headerLogo">
+          <Image src={assest.logo} width={133} height={40} alt="logo" />
+        </Link>
+        <Divider />
+        <List disablePadding className="navList">
+          {navItems.map((item, index) => {
+            if (item.name === "Products") {
+              return (
+                <ListItem key={index} disablePadding>
+                  <Button
+                    disableRipple
+                    aria-controls={open ? "product-menu" : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? "true" : undefined}
+                    onClick={handleMenuOpen}
+                    className={
+                      router.pathname.startsWith("/products") ? "active" : ""
+                    }
+                    sx={{
+                      color: "inherit",
+                      textTransform: "none",
+                      fontSize: "16px"
+                    }}
+                  >
+                    Products
+                  </Button>
+
+                  {/* Dropdown Menu */}
+                  <Menu
+                    id="product-menu"
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleMenuClose}
+                    MenuListProps={{
+                      "aria-labelledby": "basic-button"
+                    }}
+                    slotProps={{
+                      paper: {
+                        className: "menu_list"
+                      }
+                    }}
+                  >
+                    {productItems?.map((product, idx) => (
+                      <MenuItem
+                        key={idx}
+                        onClick={handleMenuClose}
+                        component={Link}
+                        href={product.route}
+                      >
+                        {product.name}
+                      </MenuItem>
+                    ))}
+                  </Menu>
+                </ListItem>
+              );
+            }
+
+            return (
+              <ListItem key={index} disablePadding>
+                <Link
+                  href={item.route}
+                  className={router.pathname === item.route ? "active" : ""}
+                >
+                  {item.name}
+                </Link>
+              </ListItem>
+            );
+          })}
+        </List>
+
+        <CustomButton
+          variant="contained"
+          color="primary"
+          startIcon={<MailIcon />}
+          className="emilBtn"
+        >
+          sales@citrusindia.com
+        </CustomButton>
+      </Box>
+    </DrawerStyle>
   );
 
   return (
@@ -147,28 +219,13 @@ export default function Header() {
       >
         <Container fixed>
           <Toolbar sx={{ p: "0 !important" }}>
-            {/* Mobile Menu Button */}
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={() => {}}
-              sx={{ mr: 2, display: { sm: "none" } }}
-            >
-              <MenuIcon />
-            </IconButton>
-
             {/* Logo */}
             <Link href="/" className="headerLogo">
               <Image src={assest.logo} width={133} height={40} alt="logo" />
             </Link>
 
             {/* Desktop Menu */}
-            <List
-              disablePadding
-              sx={{ display: { xs: "none", sm: "block" } }}
-              className="navbar"
-            >
+            <List disablePadding className="navbar">
               {navItems.map((item, index) => {
                 if (item.name === "Products") {
                   return (
@@ -242,6 +299,7 @@ export default function Header() {
                 variant="contained"
                 color="primary"
                 startIcon={<MailIcon />}
+                className="emilBtn"
               >
                 sales@citrusindia.com
               </CustomButton>
@@ -258,7 +316,17 @@ export default function Header() {
                 }}
                 startIcon={<WhatsAppIcon />}
               /> */}
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                className="menuBtn"
+              >
+                <HambarMenuIcon />
+              </IconButton>
             </Box>
+            {/* Mobile Menu Button */}
           </Toolbar>
         </Container>
       </AppBar>
@@ -267,6 +335,7 @@ export default function Header() {
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
+          anchor="right"
           ModalProps={{
             keepMounted: true
           }}
@@ -274,7 +343,9 @@ export default function Header() {
             display: { xs: "block", lg: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
-              width: drawerWidth
+              width: drawerWidth,
+              borderRadius: "15px 0 0 15px",
+              overflow: "visible"
             }
           }}
         >

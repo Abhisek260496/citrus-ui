@@ -2,13 +2,21 @@ import { Box, styled } from "@mui/material";
 
 export const SmartSolutionStyled = styled(Box)`
   .slick-slider {
-    .slick-track {
+    .slick-list {
       margin: 0 -15px;
     }
     .slick-slide {
       padding: 0 15px;
     }
     .slick-current {
+    }
+  }
+
+  .smartSecSliderBtn {
+    @media (max-width: 1499px) {
+      top: 80px;
+
+      transform: none;
     }
   }
 `;

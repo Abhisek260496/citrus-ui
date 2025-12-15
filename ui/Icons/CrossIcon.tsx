@@ -1,0 +1,29 @@
+function CrossIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      version="1.1"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      width={22}
+      height={22}
+      x={0}
+      y={0}
+      viewBox="0 0 254000 254000"
+      xmlSpace="preserve"
+      fillRule="evenodd"
+      className=""
+    >
+      <g>
+        <path
+          fill="currentcolor"
+          d="M127000 0c70129 0 127000 56871 127000 127000s-56871 127000-127000 127000S0 197129 0 127000 56871 0 127000 0zM62810 172969l45969-45969-45969-45969c-2637-2638-2637-6941 0-9578l8643-8643c2637-2637 6940-2637 9578 0l45969 45969 45969-45969c2638-2637 6941-2637 9578 0l8643 8643c2637 2637 2637 6940 0 9578l-45969 45969 45969 45969c2637 2638 2637 6941 0 9578l-8643 8643c-2637 2637-6940 2637-9578 0l-45969-45969-45969 45969c-2638 2637-6941 2637-9578 0l-8643-8643c-2637-2637-2637-6940 0-9578z"
+          opacity={1}
+          data-original="currentcolor"
+          className=""
+        />
+      </g>
+    </svg>
+  );
+}
+
+export default CrossIcon;
