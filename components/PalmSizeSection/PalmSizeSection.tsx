@@ -13,6 +13,12 @@ const PalmSizeSectionStyled = styled(Box)`
     top: 160px;
     width: 100%;
     z-index: 1;
+    @media (max-width: 899px) {
+      top: 100px;
+    }
+    @media (max-width: 599px) {
+      top: 30px;
+    }
     .core_content {
       max-width: 858px;
       text-align: center;
@@ -23,6 +29,9 @@ const PalmSizeSectionStyled = styled(Box)`
     }
   }
   figure {
+    @media (max-width: 599px) {
+      height: 350px;
+    }
     img {
       width: 100%;
       height: 100%;

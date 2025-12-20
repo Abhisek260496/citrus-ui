@@ -83,7 +83,7 @@ const AimSection = ({ ...props }: IAimSectionProps) => {
   useGSAP(() => {
     if (!sectionRef.current) return;
 
-    // Text movement + opacity (scrubbed full range)
+
     gsap.fromTo(
       sectionRef.current.querySelectorAll(".fade-up"),
       { opacity: 0, y: 100 },
@@ -115,7 +115,7 @@ const AimSection = ({ ...props }: IAimSectionProps) => {
       }
     );
 
-    // Image fade-in (same as before)
+
     gsap.fromTo(
       sectionRef.current.querySelector(".transition_img"),
       {

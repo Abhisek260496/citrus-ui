@@ -35,6 +35,12 @@ const TwoLanSectionStyled = styled(Box)`
       top: 0;
       width: 100%;
       z-index: 2;
+
+      @media (max-width: 1199px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
       .core_content_left {
         max-width: 455px;
         h2 {
@@ -43,10 +49,25 @@ const TwoLanSectionStyled = styled(Box)`
       }
       .faster_hdr {
         font-size: 138px;
+        @media (max-width: 1199px) {
+          font-size: 90px;
+        }
+        @media (max-width: 899px) {
+          font-size: 60px;
+        }
+        @media (max-width: 599px) {
+          font-size: 40px;
+        }
         span {
           font-size: 58px;
           font-weight: 600;
           text-transform: capitalize;
+          @media (max-width: 899px) {
+            font-size: 38px;
+          }
+          @media (max-width: 599px) {
+            font-size: 28px;
+          }
         }
       }
     }
@@ -65,6 +86,28 @@ const TwoLanSectionStyled = styled(Box)`
     background: linear-gradient(to bottom, #12132f, rgba(1, 2, 20, 0.661));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    @media (max-width: 1499px) {
+      font-size: 250px;
+    }
+    @media (max-width: 1199px) {
+      font-size: 12.492vw;
+    }
+    @media (max-width: 899px) {
+      /* font-size: 150px; */
+    }
+  }
+
+  .dual_lan_Fig {
+    @media (max-width: 1199px) {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    @media (max-width: 899px) {
+      max-width: 500px;
+    }
+    @media (max-width: 599px) {
+      max-width: 400px;
+    }
   }
 `;
 
@@ -80,7 +123,7 @@ const TwoLanSection = ({
     <TwoLanSectionStyled className="cmn_gap">
       <Container fixed>
         <Box className="core_wrapper">
-          <figure>
+          <figure className="dual_lan_Fig">
             <Image
               src={prodcutMediaUrl(section_image as string)}
               alt="dual_lan_img"

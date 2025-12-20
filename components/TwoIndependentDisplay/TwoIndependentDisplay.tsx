@@ -17,7 +17,18 @@ const TwoIndependentDisplayStyled = styled(Box)`
     top: 100px;
     width: 100%;
     z-index: 1;
+    @media (max-width: 899px) {
+      top: 60px;
+    }
+    @media (max-width: 599px) {
+      top: 30px;
+    }
     .core_content {
+      @media (max-width: 1499px) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
       .cmn_header {
         max-width: 483px;
       }
@@ -27,10 +38,17 @@ const TwoIndependentDisplayStyled = styled(Box)`
       p {
         max-width: 333px;
         margin-left: auto;
+        @media (max-width: 1499px) {
+          margin-left: 0;
+          max-width: 100%;
+        }
       }
     }
   }
   figure {
+    @media (max-width: 599px) {
+      height: 350px;
+    }
     img {
       width: 100%;
       height: 100%;

@@ -6,6 +6,9 @@ import CommonHeader from "../CommonHeader/CommonHeader";
 const FourDependentDisplayStyled = styled(Box)`
   position: relative;
   figure {
+    @media (max-width: 899px) {
+      height: 450px;
+    }
     img {
       width: 100%;
       height: 100%;
@@ -32,6 +35,9 @@ const FourDependentDisplayStyled = styled(Box)`
       bottom: 0;
       right: 0;
       max-width: 522px;
+      @media (max-width: 899px) {
+        max-width: 100%;
+      }
     }
   }
 `;

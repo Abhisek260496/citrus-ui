@@ -16,6 +16,16 @@ const KeyPillarsStyled = styled(Box)`
   padding: 100px 0;
   position: relative;
   overflow: hidden;
+
+  @media (max-width: 1199px) {
+    padding: 80px 0;
+  }
+  @media (max-width: 899px) {
+    padding: 60px 0;
+  }
+  @media (max-width: 599px) {
+    padding: 30px 0;
+  }
   &::after {
     content: "";
     position: absolute;
@@ -32,6 +42,9 @@ const KeyPillarsStyled = styled(Box)`
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
+    @media (max-width: 1199px) {
+      gap: 20px;
+    }
   }
 `;
 
@@ -40,19 +53,39 @@ const FlipCard = styled(ListItem)`
   width: 50%;
   padding: 0;
   padding-left: 145px;
+  @media (max-width: 1199px) {
+    padding-left: 0;
+    width: calc(50% - 10px);
+  }
+  @media (max-width: 599px) {
+    padding-left: 0;
+    width: 100%;
+  }
 
   :nth-of-type(1),
   :nth-of-type(2) {
     margin-bottom: 40px;
+    @media (max-width: 1199px) {
+      margin-bottom: 0;
+    }
   }
   :nth-of-type(2) {
     padding-left: 80px;
+    @media (max-width: 1199px) {
+      padding-left: 0;
+    }
   }
   :nth-of-type(3) {
     justify-content: flex-end;
+    @media (max-width: 1199px) {
+      justify-content: flex-start;
+    }
   }
   :nth-of-type(4) {
     padding-left: 325px;
+    @media (max-width: 1199px) {
+      padding-left: 0;
+    }
   }
 
   .flip-card-inner {
@@ -61,6 +94,9 @@ const FlipCard = styled(ListItem)`
     min-height: 310px;
     transition: transform 0.8s;
     transform-style: preserve-3d;
+    @media (max-width: 1199px) {
+      width: 100%;
+    }
   }
 
   &:hover .flip-card-inner {
@@ -80,6 +116,9 @@ const FlipCard = styled(ListItem)`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media (max-width: 1199px) {
+      border-radius: 30px;
+    }
   }
 
   .flip-card-front {
@@ -105,6 +144,9 @@ const FlipCard = styled(ListItem)`
     bottom: -50px;
     max-width: max-content;
     z-index: -1;
+    @media (max-width: 1199px) {
+      display: none;
+    }
   }
 `;
 
@@ -164,7 +206,15 @@ const KeyPillars = ({ ...props }: IKeyPillarsProps) => {
         <CommonHeader
           mainTitle={props?.block_two_sub_title}
           subTitle={props?.block_two_title}
-          sx={{ marginBottom: "100px" }}
+          sx={{
+            marginBottom: {
+              xl: "100px",
+              lg: "80px",
+              md: "60px",
+              sm: "40px",
+              xs: "20px"
+            }
+          }}
         />
         <List disablePadding>
           <EachKeyPillar

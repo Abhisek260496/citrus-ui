@@ -34,12 +34,17 @@ const jobList = [
 
 function JobListSection() {
   return (
-    <JobListSectionWrap>
+    <JobListSectionWrap className="cmn_gap">
       <Container>
         <Box className="jobListSection">
           {jobList.map((job) => (
             <Box className="jobCard" key={job.id}>
-              <Stack direction="row" gap={4} alignItems="flex-start">
+              <Stack
+                direction="row"
+                gap={{ lg: 4, md: 3, sm: 2, xs: 1 }}
+                alignItems="flex-start"
+                className="jobDetailStack"
+              >
                 <Box className="jobIcon">
                   <BusinessCenterOutlinedIcon />
                 </Box>
@@ -69,11 +74,10 @@ function JobListSection() {
                     </Stack>
                   </Stack>
                 </Box>
-
-                <IconButton className="jobArrow" disableRipple>
-                  <ChevronRightIcon />
-                </IconButton>
               </Stack>
+              <IconButton className="jobArrow" disableRipple>
+                <ChevronRightIcon />
+              </IconButton>
             </Box>
           ))}
         </Box>

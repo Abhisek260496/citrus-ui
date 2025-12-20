@@ -6,6 +6,15 @@ import Image from "next/image";
 export const ModeSecWrapper = styled(Box)`
   position: relative;
   padding: 100px 0;
+  @media (max-width: 1199px) {
+    padding: 80px 0;
+  }
+  @media (max-width: 899px) {
+    padding: 60px 0;
+  }
+  @media (max-width: 599px) {
+    padding: 30px 0;
+  }
   .modeBack {
     /* position: absolute;
     top: 0;
@@ -24,6 +33,8 @@ export const ModeSecWrapper = styled(Box)`
       color: #fff;
       font-weight: 400;
       margin-bottom: 15px;
+      @media (max-width: 1199px) {
+      }
     }
     p {
       color: #fff;

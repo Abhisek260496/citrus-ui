@@ -11,6 +11,15 @@ const GraphicCardSecStyled = styled(Box)`
     top: 120px;
     width: 100%;
     z-index: 1;
+    @media (max-width: 1199px) {
+      top: 100px;
+    }
+    @media (max-width: 899px) {
+      top: 60px;
+    }
+    @media (max-width: 599px) {
+      top: 30px;
+    }
     h2 {
       margin-bottom: 25px;
       max-width: 1077px;
@@ -18,9 +27,16 @@ const GraphicCardSecStyled = styled(Box)`
     }
     p {
       max-width: 335px;
+
+      @media (max-width: 899px) {
+        max-width: 100%;
+      }
     }
   }
   figure {
+    @media (max-width: 599px) {
+      height: 450px;
+    }
     img {
       width: 100%;
       height: 100%;

@@ -34,6 +34,12 @@ export const EachRelatedProductStyled = styled(Box, {
   border-radius: 20px;
   position: relative;
   min-height: ${({ maxProductHeight }) => `${maxProductHeight}px`};
+  height: 100%;
+
+  @media (max-width: 899px) {
+    height: auto;
+    min-height: auto;
+  }
   &::before {
     content: "";
     position: absolute;
@@ -59,6 +65,11 @@ export const EachRelatedProductStyled = styled(Box, {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 899px) {
+      padding: 30px;
+      border-radius: 15px 15px 0px 0px;
+    }
     figure {
       height: 200px;
       margin-bottom: 20px;
@@ -74,6 +85,16 @@ export const EachRelatedProductStyled = styled(Box, {
     h6 {
       font-weight: 700;
       font-size: 31px;
+
+      @media (max-width: 1499px) {
+        font-size: 25px;
+      }
+      @media (max-width: 899px) {
+        font-size: 22px;
+      }
+      @media (max-width: 599px) {
+        font-size: 20px;
+      }
       a {
         color: #fff;
         &:hover {
@@ -84,12 +105,25 @@ export const EachRelatedProductStyled = styled(Box, {
   }
   .product_content {
     padding: 40px 40px 70px 40px;
+
+    @media (max-width: 899px) {
+      padding: 30px 30px 50px 30px;
+    }
+    @media (max-width: 599px) {
+      padding: 20px 20px 30px 20px;
+    }
     ul {
       li {
         font-weight: 700;
         font-size: 22px;
         color: #009fe3;
         display: block;
+        @media (max-width: 899px) {
+          font-size: 20px;
+        }
+        @media (max-width: 599px) {
+          font-size: 18px;
+        }
         span {
           /* display: inline-block; */
           font-weight: 400;

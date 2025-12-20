@@ -2,12 +2,11 @@ import assest from "@/json/assest";
 import { CitrusMicrosoftUIWrap } from "@/styles/styledComponents/CitrusMicrosoftUIWrap";
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import Link from "next/link";
 
 function CitrusMicrosoftUI() {
   return (
     <CitrusMicrosoftUIWrap>
-      <Stack
+      {/* <Stack
         className="headerStack"
         direction="row"
         alignItems="center"
@@ -44,7 +43,7 @@ function CitrusMicrosoftUI() {
             alt="msCitrusHeaderRgt"
           />
         </figure>
-      </Stack>
+      </Stack> */}
       <Box className="msCitrusbnrBlk">
         <figure>
           <Image
@@ -64,8 +63,13 @@ function CitrusMicrosoftUI() {
             with technology that’s built for today and ready for tomorrow.
           </Typography>
 
-          <Grid container spacing={8} className="heroGridWrap">
-            <Grid item xs={12} md={4}>
+          <Grid
+            container
+            spacing={{ xs: 2, md: 4, lg: 6, xl: 8 }}
+            className="heroGridWrap"
+            justifyContent="center"
+          >
+            <Grid item xs={12} md={6} lg={4}>
               <Box className="heroCard">
                 <figure>
                   <Image
@@ -92,7 +96,7 @@ function CitrusMicrosoftUI() {
               </Box>
             </Grid>
 
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={6} lg={4}>
               <Box className="heroCard">
                 <figure>
                   <Image
@@ -121,7 +125,7 @@ function CitrusMicrosoftUI() {
               </Box>
             </Grid>
 
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={6} lg={4}>
               <Box className="heroCard">
                 <figure>
                   <Image

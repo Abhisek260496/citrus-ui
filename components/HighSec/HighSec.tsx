@@ -8,6 +8,17 @@ export const HighSecWrapper = styled(Box)`
   position: relative;
   padding: 100px 0;
   height: 900px;
+  @media (max-width: 1199px) {
+    padding: 80px 0;
+    height: 700px;
+  }
+  @media (max-width: 899px) {
+    padding: 60px 0;
+    height: 100%;
+  }
+  @media (max-width: 599px) {
+    padding: 30px 0;
+  }
   .bandwithImg {
     position: absolute;
     top: 0;
@@ -15,6 +26,12 @@ export const HighSecWrapper = styled(Box)`
     width: 100%;
     height: 900px;
     z-index: 1;
+    @media (max-width: 1199px) {
+      height: 700px;
+    }
+    @media (max-width: 899px) {
+      height: 100%;
+    }
   }
   .sec_hd {
     text-align: center;
@@ -34,6 +51,15 @@ export const HighSecWrapper = styled(Box)`
       font-size: 128px;
       font-weight: 700;
       line-height: 1;
+      @media (max-width: 1199px) {
+        font-size: 100px;
+      }
+      @media (max-width: 899px) {
+        font-size: 80px;
+      }
+      @media (max-width: 599px) {
+        font-size: 50px;
+      }
     }
   }
 `;

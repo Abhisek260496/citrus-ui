@@ -8,6 +8,17 @@ export const DisplaySecWrapper = styled(Box)`
   position: relative;
   padding: 100px 0;
   height: 900px;
+  @media (max-width: 1199px) {
+    padding: 80px 0;
+    height: 700px;
+  }
+  @media (max-width: 899px) {
+    padding: 60px 0;
+    height: 100%;
+  }
+  @media (max-width: 599px) {
+    padding: 30px 0;
+  }
   .displayBack {
     position: absolute;
     top: 0;
@@ -15,10 +26,21 @@ export const DisplaySecWrapper = styled(Box)`
     width: 100%;
     height: 900px;
     z-index: 1;
+    @media (max-width: 1199px) {
+      height: 700px;
+    }
+    @media (max-width: 899px) {
+      height: 100%;
+    }
   }
   .sec_hd {
     position: relative;
     z-index: 2;
+    @media (max-width: 1199px) {
+      flex-direction: column;
+      gap: 20px;
+      align-items: flex-start;
+    }
     h2 {
       color: #fff;
       font-weight: 400;
@@ -35,10 +57,22 @@ export const DisplaySecWrapper = styled(Box)`
       text-fill-color: transparent;
 
       text-shadow: 0px 15px 25px rgba(0, 0, 0, 0.25);
+      @media (max-width: 1199px) {
+        font-size: 118px;
+      }
+      @media (max-width: 899px) {
+        font-size: 90px;
+      }
+      @media (max-width: 599px) {
+        font-size: 70px;
+      }
     }
     p {
       max-width: 370px;
       color: #fff;
+      @media (max-width: 1199px) {
+        max-width: 100%;
+      }
     }
   }
 `;

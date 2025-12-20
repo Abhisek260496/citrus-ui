@@ -19,9 +19,19 @@ import {
 } from "@/styles/styledComponents/HeaderWrapper";
 import CustomButton from "@/ui/Buttons/CustomButton";
 import CrossIcon from "@/ui/Icons/CrossIcon";
+import ExpandMoreIcon from "@/ui/Icons/ExpandMoreIcon";
 import HambarMenuIcon from "@/ui/Icons/HambarMenuIcon";
 import MailIcon from "@/ui/Icons/MailIcon";
-import { Button, IconButton, Menu, MenuItem } from "@mui/material";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Button,
+  IconButton,
+  Menu,
+  MenuItem,
+  Typography
+} from "@mui/material";
 import { Container } from "@mui/system";
 import Image from "next/image";
 import Link from "next/link";
@@ -127,84 +137,82 @@ export default function Header() {
         <CrossIcon />
       </IconButton>
       <Box sx={{ textAlign: "center" }} className="drawerInnerContent">
-        <Link href="/" className="headerLogo">
+        <Link href="/" className="drawerHeaderLogo">
           <Image src={assest.logo} width={133} height={40} alt="logo" />
         </Link>
         <Divider />
-        <List disablePadding className="navList">
-          {navItems.map((item, index) => {
-            if (item.name === "Products") {
+        <Box className="listUtrWrap">
+          <List disablePadding className="navList">
+            {navItems.map((item, index) => {
+              if (item.name === "Products") {
+                return (
+                  <ListItem key={index} disablePadding>
+                    <Accordion
+                      disableGutters
+                      elevation={0}
+                      square
+                      className={
+                        router.pathname.startsWith("/products")
+                          ? "activeAccordion"
+                          : ""
+                      }
+                    >
+                      {/* Accordion Header */}
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="products-content"
+                        id="products-header"
+                        className="accordionSummary"
+                      >
+                        <Typography component="span" className="accordionTitle">
+                          Products
+                        </Typography>
+                      </AccordionSummary>
+
+                      {/* Accordion Content */}
+                      <AccordionDetails className="accordionDetails">
+                        <List disablePadding>
+                          {productItems?.map((product, idx) => (
+                            <ListItem key={idx} disablePadding>
+                              <Button
+                                component={Link}
+                                href={product.route}
+                                disableRipple
+                                className="productListItem"
+                              >
+                                {product.name}
+                              </Button>
+                            </ListItem>
+                          ))}
+                        </List>
+                      </AccordionDetails>
+                    </Accordion>
+                  </ListItem>
+                );
+              }
+
               return (
                 <ListItem key={index} disablePadding>
-                  <Button
-                    disableRipple
-                    aria-controls={open ? "product-menu" : undefined}
-                    aria-haspopup="true"
-                    aria-expanded={open ? "true" : undefined}
-                    onClick={handleMenuOpen}
-                    className={
-                      router.pathname.startsWith("/products") ? "active" : ""
-                    }
-                    sx={{
-                      color: "inherit",
-                      textTransform: "none",
-                      fontSize: "16px"
-                    }}
+                  <Link
+                    href={item.route}
+                    className={router.pathname === item.route ? "active" : ""}
                   >
-                    Products
-                  </Button>
-
-                  {/* Dropdown Menu */}
-                  <Menu
-                    id="product-menu"
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleMenuClose}
-                    MenuListProps={{
-                      "aria-labelledby": "basic-button"
-                    }}
-                    slotProps={{
-                      paper: {
-                        className: "menu_list"
-                      }
-                    }}
-                  >
-                    {productItems?.map((product, idx) => (
-                      <MenuItem
-                        key={idx}
-                        onClick={handleMenuClose}
-                        component={Link}
-                        href={product.route}
-                      >
-                        {product.name}
-                      </MenuItem>
-                    ))}
-                  </Menu>
+                    {item.name}
+                  </Link>
                 </ListItem>
               );
-            }
+            })}
+          </List>
 
-            return (
-              <ListItem key={index} disablePadding>
-                <Link
-                  href={item.route}
-                  className={router.pathname === item.route ? "active" : ""}
-                >
-                  {item.name}
-                </Link>
-              </ListItem>
-            );
-          })}
-        </List>
-
-        <CustomButton
-          variant="contained"
-          color="primary"
-          startIcon={<MailIcon />}
-          className="emilBtn"
-        >
-          sales@citrusindia.com
-        </CustomButton>
+          <CustomButton
+            variant="contained"
+            color="primary"
+            startIcon={<MailIcon />}
+            className="emilBtn"
+          >
+            sales@citrusindia.com
+          </CustomButton>
+        </Box>
       </Box>
     </DrawerStyle>
   );

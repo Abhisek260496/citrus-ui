@@ -7,11 +7,31 @@ import { useEffect, useState } from "react";
 const Eon13ProBannerStyled = styled(Box)`
   padding: 90px 0px 200px 0px;
 
+  @media (max-width: 1499px) {
+    padding: 70px 0px 150px 0px;
+  }
+  @media (max-width: 1199px) {
+    padding: 50px 0px 100px 0px;
+  }
+  @media (max-width: 899px) {
+    padding: 40px 0px 70px 0px;
+  }
+  @media (max-width: 599px) {
+    padding: 30px 0px 50px 0px;
+  }
+
   .eon_slim_wrapper {
     text-align: center;
     p {
       max-width: 628px;
       margin: 0 auto;
+    }
+  }
+
+  .productBnrFig {
+    @media (max-width: 1199px) {
+      max-width: 600px;
+      margin: 0 auto 20px;
     }
   }
 `;
@@ -73,7 +93,7 @@ const Eon13ProBanner = ({
     >
       <Container fixed>
         <Box className="eon_slim_wrapper">
-          <figure>
+          <figure className="productBnrFig">
             {showGif ? (
               <Image
                 src={product_img}

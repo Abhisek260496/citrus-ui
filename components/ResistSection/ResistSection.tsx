@@ -6,7 +6,19 @@ import CommonHeader from "../CommonHeader/CommonHeader";
 const ResistSectionStyled = styled(Box)`
   position: relative;
   min-height: 900px;
+
+  @media (max-width: 1199px) {
+    min-height: 600px;
+  }
+  @media (max-width: 899px) {
+    min-height: 500px;
+  }
+  @media (max-width: 599px) {
+    min-height: 450px;
+  }
   figure {
+    position: absolute;
+    width: 100%;
     height: 100%;
     img {
       width: 100%;
@@ -36,6 +48,15 @@ const ResistSectionStyled = styled(Box)`
       h2 {
         /* max-width: 533px; */
         margin-bottom: 15px;
+        @media (max-width: 1199px) {
+          font-size: 50px !important;
+        }
+        @media (max-width: 899px) {
+          font-size: 35px !important;
+        }
+        @media (max-width: 599px) {
+          font-size: 30px !important;
+        }
       }
       p {
         /* max-width: 522px; */

@@ -4,10 +4,15 @@ import { Box, Container, styled, Typography } from "@mui/material";
 import Image from "next/image";
 
 export const RigBannerWrapper = styled(Box)`
-  padding: 100px 0;
   position: relative;
   min-height: 900px;
   /* background-color: #fff; */
+  @media (max-width: 1199px) {
+    height: 700px;
+  }
+  @media (max-width: 899px) {
+    height: 500px;
+  }
   .banner_cnt {
     text-align: center;
     figure {
@@ -17,6 +22,7 @@ export const RigBannerWrapper = styled(Box)`
       top: 0;
       width: 100%;
       height: 100%;
+
       img {
         width: 100%;
         height: 100%;
@@ -26,6 +32,20 @@ export const RigBannerWrapper = styled(Box)`
     h1 {
       font-size: 68px;
       color: #041724;
+
+      @media (max-width: 1499px) {
+        font-size: 58px;
+      }
+
+      @media (max-width: 1199px) {
+        font-size: 48px;
+      }
+      @media (max-width: 899px) {
+        font-size: 38px;
+      }
+      @media (max-width: 599px) {
+        font-size: 25px;
+      }
     }
     p {
       font-size: 18px;
@@ -50,7 +70,7 @@ const RigBanner = ({
   section_image
 }: ICommonProductSection) => {
   return (
-    <RigBannerWrapper>
+    <RigBannerWrapper className="cmn_gap">
       <Container fixed>
         <Box className="banner_cnt">
           <figure>

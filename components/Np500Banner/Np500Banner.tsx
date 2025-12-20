@@ -10,16 +10,41 @@ const Np500BannerStyled = styled(Box)`
     bottom: 100px;
     z-index: 1;
     width: 100%;
+    @media (max-width: 1199px) {
+      bottom: 80px;
+    }
+    @media (max-width: 899px) {
+      bottom: 40px;
+    }
+    @media (max-width: 599px) {
+      bottom: 20px;
+    }
     .np500_content {
       max-width: 563px;
       margin-left: auto;
       h1 {
         margin-bottom: 17px;
         font-size: 100px;
+
+        @media (max-width: 1199px) {
+          font-size: 80px;
+        }
+        @media (max-width: 899px) {
+          font-size: 60px;
+        }
+        @media (max-width: 599px) {
+          font-size: 40px;
+        }
       }
     }
   }
   figure {
+    @media (max-width: 899px) {
+      height: 500px;
+    }
+    @media (max-width: 599px) {
+      height: 400px;
+    }
     img {
       width: 100%;
       height: 100%;

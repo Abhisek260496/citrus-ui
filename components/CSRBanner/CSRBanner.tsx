@@ -5,6 +5,14 @@ import Image from "next/image";
 const CSRBannerWrapper = styled(Box)`
   position: relative;
   min-height: 900px;
+  height: 900px;
+  @media (max-width: 899px) {
+    min-height: auto;
+    height: 700px;
+  }
+  @media (max-width: 599px) {
+    height: 450px;
+  }
   .banner_bg {
     width: 100%;
     height: 100%;
@@ -45,12 +53,29 @@ const CSRBannerWrapper = styled(Box)`
       font-size: 65px;
       letter-spacing: 0.012207em;
       margin-bottom: 20px;
+      @media (max-width: 1199px) {
+        font-size: 55px;
+      }
+      @media (max-width: 899px) {
+        font-size: 45px;
+        margin-bottom: 15px;
+      }
+      @media (max-width: 599px) {
+        font-size: 35px;
+        margin-bottom: 10px;
+      }
       span {
         color: #f57e22;
       }
     }
     p {
       font-size: 30px;
+      @media (max-width: 899px) {
+        font-size: 25px;
+      }
+      @media (max-width: 599px) {
+        font-size: 22px;
+      }
     }
   }
 `;

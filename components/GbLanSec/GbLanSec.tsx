@@ -5,12 +5,24 @@ import Image from "next/image";
 const GbLanSecStyled = styled(Box)`
   position: relative;
   height: 933px;
+  @media (max-width: 899px) {
+    height: 500px;
+  }
+  @media (max-width: 599px) {
+    height: 350px;
+  }
   figure {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
+    @media (max-width: 899px) {
+      height: 500px;
+    }
+    @media (max-width: 599px) {
+      height: 350px;
+    }
     img {
       object-fit: cover;
       width: 100%;
@@ -22,6 +34,10 @@ const GbLanSecStyled = styled(Box)`
     right: 0;
     bottom: 100px;
     width: 100%;
+
+    @media (max-width: 899px) {
+      bottom: 50px;
+    }
   }
   .core_content {
     max-width: 569px;
@@ -34,10 +50,22 @@ const GbLanSecStyled = styled(Box)`
     }
     .faster_hdr {
       font-size: 138px;
+      @media (max-width: 1199px) {
+        font-size: 100px;
+      }
+      @media (max-width: 899px) {
+        font-size: 70px;
+      }
       span {
         font-size: 58px;
         font-weight: 600;
         text-transform: capitalize;
+        @media (max-width: 899px) {
+          font-size: 48px;
+        }
+        @media (max-width: 599px) {
+          font-size: 38px;
+        }
       }
     }
   }
@@ -53,7 +81,7 @@ const GbLanSec = ({
 }: ICommonProductSection) => {
   return (
     <GbLanSecStyled className="cmn_gap">
-      <figure>
+      <figure className="gb_per_lanFig">
         <Image
           src={section_background_image as string}
           alt="gb_per_lan_bg"

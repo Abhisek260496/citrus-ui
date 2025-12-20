@@ -4,6 +4,7 @@ import CommonHeader from "../CommonHeader/CommonHeader";
 
 const CoreToEveryThingStyled = styled(Box)<{ isFullWidth?: boolean }>`
   position: relative;
+
   .core_wrapper {
     position: absolute;
     left: 0;
@@ -11,8 +12,17 @@ const CoreToEveryThingStyled = styled(Box)<{ isFullWidth?: boolean }>`
     width: 100%;
     z-index: 1;
     object-fit: cover;
+    @media (max-width: 899px) {
+      top: 60px;
+    }
+    @media (max-width: 599px) {
+      top: 30px;
+    }
     .core_content {
       max-width: ${({ isFullWidth }) => (isFullWidth ? "100%" : "483px")};
+      @media (max-width: 1199px) {
+        max-width: 100%;
+      }
       h2 {
         line-height: 1.3;
       }
@@ -20,6 +30,10 @@ const CoreToEveryThingStyled = styled(Box)<{ isFullWidth?: boolean }>`
   }
   figure {
     /* height: 860px; */
+    @media (max-width: 599px) {
+      height: 350px;
+    }
+
     img {
       width: 100%;
       height: 100%;
@@ -48,7 +62,7 @@ const CoreToEveryThing = ({
 }: ICoreToEveryThingProps) => {
   return (
     <CoreToEveryThingStyled isFullWidth={isFullWidth} {...props}>
-      <figure>
+      <figure className="core_to_everythingFig">
         <Image src={bgImg} alt="core_to_everything" width={1600} height={900} />
       </figure>
       <Box className="core_wrapper">

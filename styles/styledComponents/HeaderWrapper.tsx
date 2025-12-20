@@ -101,7 +101,7 @@ export const HeaderWrap = styled(Box)`
     align-items: center;
 
     .emilBtn {
-      @media (max-width: 1499px) {
+      @media (max-width: 899px) {
         display: none;
       }
     }
@@ -133,11 +133,19 @@ export const DrawerStyle = styled(Box)`
     left: -15px;
     color: #ff6106;
   }
+
   .drawerInnerContent {
     /* height: 100%; */
 
+    .listUtrWrap {
+      margin-top: 20px;
+      max-height: calc(100svh - 120px);
+      height: 100%;
+      overflow-y: auto;
+      padding-right: 15px;
+      margin-right: -15px;
+    }
     .navList {
-      margin-top: 10px;
       li {
         &:not(:last-child) {
           margin-bottom: 15px;
@@ -152,6 +160,30 @@ export const DrawerStyle = styled(Box)`
 
           &.active {
             color: #ff6106;
+          }
+        }
+      }
+
+      .MuiAccordion-root {
+        width: 100%;
+        background: transparent;
+
+        .MuiAccordionSummary-root {
+          padding: 0;
+          min-height: auto;
+
+          .MuiAccordionSummary-content {
+            margin: 0;
+          }
+        }
+
+        .MuiAccordionDetails-root {
+          padding: 0;
+          margin-top: 10px;
+
+          .MuiButtonBase-root {
+            padding: 0;
+            justify-content: flex-start;
           }
         }
       }

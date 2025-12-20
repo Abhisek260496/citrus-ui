@@ -12,11 +12,24 @@ const IndependentDisplayStyled = styled(Box)`
     width: 100%;
     z-index: 1;
     text-align: center;
+
+    @media (max-width: 1199px) {
+      top: 100px;
+    }
+    @media (max-width: 899px) {
+      top: 60px;
+    }
+    @media (max-width: 599px) {
+      top: 30px;
+    }
     h2 {
       margin-bottom: 25px;
     }
   }
   figure {
+    @media (max-width: 599px) {
+      height: 350px;
+    }
     img {
       width: 100%;
       height: 100%;

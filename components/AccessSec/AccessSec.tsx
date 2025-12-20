@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export const AccessSecWrapper = styled(Box)`
   position: relative;
-  padding: 100px 0;
+
   .accessBackImg {
     position: absolute;
     width: 100%;
@@ -13,6 +13,10 @@ export const AccessSecWrapper = styled(Box)`
     top: 0;
     left: 0;
     z-index: 1;
+
+    @media (max-width: 1199px) {
+      height: 100%;
+    }
   }
   .sec_hd {
     text-align: center;
@@ -38,12 +42,28 @@ export const AccessSecWrapper = styled(Box)`
       figure {
         margin: 0;
         margin-bottom: 20px;
+        @media (max-width: 1199px) {
+          max-width: 200px;
+        }
+        @media (max-width: 899px) {
+          max-width: 150px;
+        }
       }
       p {
         font-size: 49px;
         font-weight: 700;
         text-transform: uppercase;
         text-align: center;
+
+        @media (max-width: 1199px) {
+          font-size: 39px;
+        }
+        @media (max-width: 899px) {
+          font-size: 30px;
+        }
+        @media (max-width: 599px) {
+          font-size: 25px;
+        }
       }
     }
   }
@@ -59,7 +79,7 @@ const AccessSec = ({
   section_sub_title_two
 }: ICommonProductSection) => {
   return (
-    <AccessSecWrapper>
+    <AccessSecWrapper className="cmn_gap">
       <Image
         src={String(section_background_image)}
         alt="accessBackImg"

@@ -6,6 +6,12 @@ import CommonHeader from "../CommonHeader/CommonHeader";
 const DualLanStyled = styled(Box)`
   position: relative;
   figure {
+    @media (max-width: 899px) {
+      height: 450px;
+    }
+    @media (max-width: 599px) {
+      height: 350px;
+    }
     img {
       width: 100%;
       height: 100%;
@@ -17,6 +23,12 @@ const DualLanStyled = styled(Box)`
     top: 100px;
     width: 100%;
     height: calc(100% - 200px);
+    @media (max-width: 899px) {
+      top: 60px;
+    }
+    @media (max-width: 599px) {
+      top: 30px;
+    }
     .MuiContainer-root {
       height: 100%;
     }
@@ -26,28 +38,71 @@ const DualLanStyled = styled(Box)`
     }
     .core_content_txt {
       max-width: 690px;
+      @media (max-width: 1199px) {
+        max-width: 100%;
+      }
       h2 {
         max-width: 533px;
         margin-bottom: 15px;
       }
       p {
         max-width: 522px;
+        @media (max-width: 1199px) {
+          max-width: 100%;
+        }
       }
     }
     .faster_hdr {
       font-size: 138px;
+
+      @media (max-width: 1199px) {
+        font-size: 100px;
+      }
+      @media (max-width: 899px) {
+        font-size: 60px;
+      }
+      @media (max-width: 599px) {
+        font-size: 30px;
+      }
       span {
         font-size: 58px;
         font-weight: 600;
         text-transform: capitalize;
+        @media (max-width: 899px) {
+          font-size: 38px;
+        }
+        @media (max-width: 599px) {
+          font-size: 22px;
+        }
       }
     }
     .btm_block {
       position: absolute;
       bottom: 0;
       right: 0;
+
+      @media (max-width: 1199px) {
+        bottom: -20px;
+      }
+      @media (max-width: 899px) {
+        bottom: -100px;
+      }
+      @media (max-width: 599px) {
+        bottom: -150px;
+      }
       img {
         margin-right: -100px;
+
+        @media (max-width: 1199px) {
+          margin-right: 0;
+          width: 300px;
+        }
+        @media (max-width: 899px) {
+          width: 200px;
+        }
+        @media (max-width: 599px) {
+          width: 150px;
+        }
       }
     }
   }

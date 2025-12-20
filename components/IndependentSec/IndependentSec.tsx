@@ -7,6 +7,19 @@ export const IndependentWrapper = styled(Box)`
   position: relative;
   padding: 100px 0;
   height: 840px;
+
+  @media (max-width: 1199px) {
+    padding: 80px 0;
+    height: 600px;
+  }
+  @media (max-width: 899px) {
+    padding: 60px 0;
+    height: 450px;
+  }
+  @media (max-width: 599px) {
+    padding: 30px 0;
+    height: 350px;
+  }
   .independent_img {
     position: absolute;
     top: 0;
@@ -14,6 +27,9 @@ export const IndependentWrapper = styled(Box)`
     width: 100%;
     height: 840px;
     z-index: 1;
+    @media (max-width: 1199px) {
+      height: 100%;
+    }
   }
   .sec_hd {
     text-align: center;

@@ -8,6 +8,17 @@ export const EasySecWrapper = styled(Box)`
   position: relative;
   padding: 100px 0;
   height: 1050px;
+  @media (max-width: 1199px) {
+    padding: 80px 0;
+    height: 700px;
+  }
+  @media (max-width: 899px) {
+    padding: 100px 0 100px;
+    height: 100%;
+  }
+  @media (max-width: 599px) {
+    padding: 80px 0 150px;
+  }
   .easyBack {
     position: absolute;
     top: 0;
@@ -20,6 +31,11 @@ export const EasySecWrapper = styled(Box)`
   .sec_hd {
     position: relative;
     z-index: 2;
+
+    @media (max-width: 1199px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
     h2 {
       font-weight: 400;
       color: #fff;
@@ -28,6 +44,9 @@ export const EasySecWrapper = styled(Box)`
     p {
       color: #fff;
       max-width: 512px;
+      @media (max-width: 1199px) {
+        max-width: 100%;
+      }
     }
   }
 `;

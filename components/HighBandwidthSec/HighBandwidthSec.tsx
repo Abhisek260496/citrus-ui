@@ -6,6 +6,16 @@ import CommonHeader from "../CommonHeader/CommonHeader";
 const HighBandwidthSecStyled = styled(Box)`
   position: relative;
   height: 900px;
+
+  @media (max-width: 1199px) {
+    height: 700px;
+  }
+  @media (max-width: 899px) {
+    height: 500px;
+  }
+  @media (max-width: 599px) {
+    height: 350px;
+  }
   figure {
     position: absolute;
     left: 0;

@@ -2,74 +2,17 @@ import CommonHeader from "@/components/CommonHeader/CommonHeader";
 import CSRBanner from "@/components/CSRBanner/CSRBanner";
 import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
+import { CommonStyledSection } from "@/styles/styledComponents/CommonStyledSection";
 import {
   Box,
   Container,
   List,
   ListItem,
   Stack,
-  Typography,
-  styled
+  Typography
 } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import Image from "next/image";
-
-const CommonStyledSection = styled(Box)`
-  background-color: #fff;
-  p {
-    color: #231f20;
-    font-weight: 500;
-  }
-  .csr_img_block {
-    position: relative;
-    figure {
-      height: 600px;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-  }
-  .color_block {
-    position: absolute;
-    left: 0;
-    bottom: 35px;
-    padding: 20px 40px;
-    background-color: #a82480;
-    p {
-      font-weight: 700;
-      font-size: 30px;
-      letter-spacing: 0.00585938em;
-      color: #ffffff;
-    }
-  }
-  .list_block {
-    padding-left: 70px;
-    li {
-      color: #231f20;
-      span {
-        font-weight: 700;
-        font-size: 25px;
-      }
-      &:not(:last-of-type) {
-        margin-bottom: 40px;
-      }
-    }
-  }
-  .gray_block {
-    padding: 40px 70px;
-    background-color: #e6e7e8;
-    figure {
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-  }
-`;
 
 const Index = () => {
   return (
@@ -97,7 +40,7 @@ const Index = () => {
           </Box>
         </Container>
         <Grid2 container spacing={2}>
-          <Grid2 lg={7} sm={6} xs={12}>
+          <Grid2 lg={7} md={6} xs={12}>
             <Box className="csr_img_block">
               <Box className="color_block">
                 <Typography>Lorem ipsum Lorem ipsum</Typography>
@@ -112,7 +55,7 @@ const Index = () => {
               </figure>
             </Box>
           </Grid2>
-          <Grid2 lg={5} sm={6} xs={12}>
+          <Grid2 lg={5} md={6} xs={12}>
             <Box className="csr_img_block">
               <Box className="color_block">
                 <Typography>Lorem ipsum Lorem ipsum</Typography>
@@ -158,75 +101,110 @@ const Index = () => {
         </Container>
         <Box className="gray_block">
           <Stack
-            direction={{ xs: "column", sm: "row" }}
-            spacing={2}
+            direction={{ sm: "column", md: "row" }}
+            gap={2}
             width="100%"
+            className="galleryMainStack"
           >
             {/* Left Large Image */}
-            <Box flex={{ sm: 4, md: 4 }} width="100%">
-              <figure style={{ height: "616px" }}>
+            <Box
+              flex={{ sm: 4, md: 4 }}
+              width="100%"
+              className="galleryLeftImageBox"
+            >
+              <figure
+                style={{ height: "616px" }}
+                className="galleryFigureLarge"
+              >
                 <Image
                   src={assest?.vatsalay_img1}
                   alt="vatsalay_img1"
                   width={650}
                   height={600}
+                  className="galleryImage"
                 />
               </figure>
             </Box>
 
             {/* Middle 3-Image Section */}
             <Stack
-              direction="row"
-              spacing={2}
+              direction={{ sm: "column", md: "row" }}
+              gap={2}
               flex={{ sm: 5, md: 5 }}
               width="100%"
+              className="galleryMiddleStack"
             >
               {/* Left (2 stacked images) */}
-              <Stack spacing={2} flex={1} width="100%">
-                <Box width="100%">
-                  <figure style={{ height: "300px" }}>
+              <Stack
+                gap={2}
+                flex={1}
+                width="100%"
+                className="galleryMiddleLeftStack"
+              >
+                <Box width="100%" className="gallerySmallImageBox">
+                  <figure
+                    style={{ height: "300px" }}
+                    className="galleryFigureSmall"
+                  >
                     <Image
                       src={assest?.vatsalay_img1}
                       alt="vatsalay_img1"
                       width={650}
                       height={300}
+                      className="galleryImage"
                     />
                   </figure>
                 </Box>
 
-                <Box width="100%">
-                  <figure style={{ height: "300px" }}>
+                <Box width="100%" className="gallerySmallImageBox">
+                  <figure
+                    style={{ height: "300px" }}
+                    className="galleryFigureSmall"
+                  >
                     <Image
                       src={assest?.vatsalay_img1}
                       alt="vatsalay_img1"
                       width={650}
                       height={300}
+                      className="galleryImage"
                     />
                   </figure>
                 </Box>
               </Stack>
 
               {/* Right (single tall image) */}
-              <Box flex={1} width="100%">
-                <figure style={{ height: "616px" }}>
+              <Box flex={1} width="100%" className="galleryMiddleRightImageBox">
+                <figure
+                  style={{ height: "616px" }}
+                  className="galleryFigureLarge"
+                >
                   <Image
                     src={assest?.vatsalay_img1}
                     alt="vatsalay_img1"
                     width={650}
                     height={600}
+                    className="galleryImage"
                   />
                 </figure>
               </Box>
             </Stack>
 
             {/* Right Large Image */}
-            <Box flex={{ sm: 3, md: 3 }} width="100%">
-              <figure style={{ height: "616px" }}>
+            <Box
+              flex={{ sm: 3, md: 3 }}
+              width="100%"
+              className="galleryRightImageBox"
+            >
+              <figure
+                style={{ height: "616px" }}
+                className="galleryFigureLarge"
+              >
                 <Image
                   src={assest?.vatsalay_img1}
                   alt="vatsalay_img1"
                   width={650}
                   height={600}
+                  className="galleryImage"
                 />
               </figure>
             </Box>

@@ -344,6 +344,16 @@ input[type="submit"]:hover {
   background: linear-gradient(to right, #00baff, #ffffff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  @media (max-width: 1199px) {
+    font-size: 118px;
+  }
+  @media (max-width: 899px) {
+    font-size: 80px;
+  }
+  @media (max-width: 599px) {
+    font-size: 45px;
+  }
 }
 
 // ==============================

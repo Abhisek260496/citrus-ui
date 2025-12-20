@@ -7,6 +7,12 @@ import CommonHeader from "../CommonHeader/CommonHeader";
 const ToughPortableSectionStyled = styled(Box)`
   position: relative;
   figure {
+    @media (max-width: 899px) {
+      height: 450px;
+    }
+    @media (max-width: 599px) {
+      height: 550px;
+    }
     img {
       width: 100%;
       height: 100%;
@@ -18,6 +24,13 @@ const ToughPortableSectionStyled = styled(Box)`
     top: 100px;
     width: 100%;
     height: calc(100% - 200px);
+
+    @media (max-width: 899px) {
+      top: 60px;
+    }
+    @media (max-width: 599px) {
+      top: 30px;
+    }
     .MuiContainer-root {
       height: 100%;
     }

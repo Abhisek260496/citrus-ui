@@ -12,6 +12,14 @@ const CommunicativeStyled = styled(Box)`
     top: 120px;
     width: 100%;
     z-index: 1;
+
+    @media (max-width: 899px) {
+      top: 70px;
+    }
+
+    @media (max-width: 599px) {
+      top: 30px;
+    }
     h2 {
       margin-bottom: 25px;
       max-width: 811px;
@@ -21,9 +29,17 @@ const CommunicativeStyled = styled(Box)`
       max-width: 335px;
       margin-left: auto;
       margin-right: 280px;
+      @media (max-width: 899px) {
+        max-width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+      }
     }
   }
   figure {
+    @media (max-width: 599px) {
+      height: 350px;
+    }
     img {
       width: 100%;
       height: 100%;

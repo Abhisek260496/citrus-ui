@@ -5,8 +5,14 @@ import Image from "next/image";
 
 export const HandelSecWrapper = styled(Box)`
   position: relative;
-  padding: 100px 0;
   height: 900px;
+  @media (max-width: 1199px) {
+    height: 700px;
+  }
+  @media (max-width: 899px) {
+    height: 500px;
+  }
+
   .handelBack {
     position: absolute;
     top: 0;
@@ -14,6 +20,9 @@ export const HandelSecWrapper = styled(Box)`
     width: 100%;
     height: 900px;
     z-index: 1;
+    @media (max-width: 1199px) {
+      height: 100%;
+    }
   }
   .sec_hd {
     position: relative;
@@ -24,6 +33,13 @@ export const HandelSecWrapper = styled(Box)`
       color: #fff;
       margin-bottom: 30px;
       line-height: 1.2;
+
+      @media (max-width: 1199px) {
+        margin-bottom: 20px;
+      }
+      @media (max-width: 899px) {
+        margin-bottom: 15px;
+      }
     }
     p {
       color: #fff;
@@ -38,7 +54,7 @@ const HandelSec = ({
   section_content
 }: ICommonProductSection) => {
   return (
-    <HandelSecWrapper>
+    <HandelSecWrapper className="cmn_gap">
       <Image
         src={String(section_background_image)}
         alt="handelBack"

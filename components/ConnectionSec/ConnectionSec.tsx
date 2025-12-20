@@ -8,23 +8,57 @@ export const ConnectionSecWrapper = styled(Box)`
   padding: 100px 0 0;
   background: #fff;
   height: 952px;
+
+  @media (max-width: 1199px) {
+    padding: 80px 0 0;
+  }
+  @media (max-width: 899px) {
+    padding: 60px 0 0;
+  }
+  @media (max-width: 599px) {
+    padding: 30px 0 0;
+  }
   .conBack {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 564px;
+    @media (max-width: 1199px) {
+      height: 650px;
+    }
   }
   .sec_hd {
     position: relative;
     z-index: 2;
+
+    @media (max-width: 1499px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
     .left_txt {
       width: calc(100% - 400px);
+      @media (max-width: 1499px) {
+        width: 100%;
+      }
     }
     h2 {
       font-size: 58px;
       color: #041724;
       font-weight: 400;
+      @media (max-width: 1499px) {
+        font-size: 50px;
+      }
+      @media (max-width: 1199px) {
+        font-size: 40px;
+      }
+      @media (max-width: 899px) {
+        font-size: 30px;
+      }
+      /* @media (max-width: 899px) {
+        font-size: 30px;
+      } */
     }
     span {
       display: block;
@@ -37,6 +71,18 @@ export const ConnectionSecWrapper = styled(Box)`
       -webkit-text-fill-color: transparent;
       background-clip: text;
       text-fill-color: transparent;
+      @media (max-width: 1499px) {
+        font-size: 100px;
+      }
+      @media (max-width: 1199px) {
+        font-size: 80px;
+      }
+      @media (max-width: 899px) {
+        font-size: 50px;
+      }
+      @media (max-width: 599px) {
+        font-size: 35px;
+      }
     }
     p {
       max-width: 404px;

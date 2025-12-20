@@ -24,11 +24,11 @@ const supportList = [
 
 function SupportSection() {
   return (
-    <SupportSectionWrap>
+    <SupportSectionWrap className="cmn_gap">
       <Container>
         <Grid container spacing={4} justifyContent="center">
           {supportList.map((item) => (
-            <Grid item xs={12} sm={4} key={item.id}>
+            <Grid item xs={12} md={4} key={item.id}>
               <Box className="supportCard">
                 <Box className="supportIcon">{item.icon}</Box>
                 <Typography className="supportTitle">{item.title}</Typography>
