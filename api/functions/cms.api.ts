@@ -1,12 +1,14 @@
 import {
   I360ProductResponse,
+  ICareerResponse,
   IClientResponse,
   IFooterQuickLinksResponse,
   INewsResponse,
   IOurStoryResponse,
   IProductResponse,
   ISliderResponse,
-  ISubMenuReponse
+  ISubMenuReponse,
+  IWorkWithUsResponse
 } from "@/interface/apiresp.interfaces";
 import ApiRequest from "../axiosInstance/request";
 import { endpoints } from "../endpoints";
@@ -156,6 +158,39 @@ export const getOurStory = async (): Promise<IOurStoryResponse[]> => {
   try {
     const res = await ApiRequest.get<IOurStoryResponse[]>(
       `${endpoints.cms.ourStoryPage}`
+    );
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getWorks = async (): Promise<IWorkWithUsResponse> => {
+  try {
+    const res = await ApiRequest.get<IWorkWithUsResponse>(
+      `${endpoints.cms.getWorks}`
+    );
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getJobs = async (): Promise<ICareerResponse[]> => {
+  try {
+    const res = await ApiRequest.get<ICareerResponse[]>(
+      `${endpoints.cms.getJobs}`
+    );
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getJob = async (id: string): Promise<ICareerResponse> => {
+  try {
+    const res = await ApiRequest.get<ICareerResponse>(
+      `${endpoints.cms.getJobs}/${id}`
     );
     return res;
   } catch (error) {

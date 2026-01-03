@@ -192,3 +192,99 @@ export interface IOurStoryResponse {
   created_at?: string | null;
   updated_at?: string | null;
 }
+
+export interface IWorkWithUsResponse {
+  id: number;
+  title: string;
+  main_title: string | null;
+  content: string | null;
+  sub_title: string | null;
+  image: string | null;
+  slug: string;
+  button_name: string | null;
+  button_link: string | null;
+  mission: string | null;
+  vission: string | null;
+
+  block_one_title: string | null;
+  block_one_description: string | null;
+  block_one_title_one: string | null;
+  block_one_description_one: string | null;
+  block_one_title_two: string | null;
+  block_one_description_two: string | null;
+  block_one_title_three: string | null;
+  block_one_description_three: string | null;
+  block_one_sub_title: string | null;
+  block_one_button_name: string | null;
+  block_one_button_link: string | null;
+  block_one_address: string | null;
+  block_one_phone: string | null;
+  block_one_location_link: string | null;
+  block_one_email: string | null;
+  block_one_website: string | null;
+  block_one_image: string | null;
+  block_one_image1: string | null;
+  block_one_image2: string | null;
+  block_one_image_alt_tag: string | null;
+
+  block_two_title: string | null;
+  block_two_sub_title: string | null;
+  block_two_image: string | null;
+  block_two_image_alt_tag: string | null;
+  block_two_description: string | null;
+  block_two_button_name: string | null;
+  block_two_button_link: string | null;
+
+  block_three_title: string | null;
+  block_three_sub_title: string | null;
+  block_three_image: string | null;
+  block_three_image_alt_tag: string | null;
+  block_three_description: string | null;
+  block_three_button_name: string | null;
+  block_three_button_link: string | null;
+
+  block_four_title: string | null;
+  block_four_sub_title: string | null;
+  block_four_image: string | null;
+  block_four_image_alt_tag: string | null;
+  block_four_description: string | null;
+  block_four_button_name: string | null;
+  block_four_button_link: string | null;
+
+  block_five_title: string | null;
+  block_five_sub_title: string | null;
+  block_five_image: string | null;
+  block_five_description: string | null;
+  block_five_button_name: string | null;
+  block_five_button_link: string | null;
+
+  banner_image: string | null;
+  sub_id: number;
+
+  meta_title: string | null;
+  meta_description: string | null;
+  meta_keyword: string | null;
+
+  created_at: string | null;
+  updated_at: string | null;
+}
+
+export interface ICareerResponse {
+  career_id: number;
+  career_title: string;
+  career_type: string;
+  career_location: string;
+  career_slug: string;
+  career_banner_image: string | null;
+  career_description: string;
+  career_responsibilities: string;
+  career_requirements: string;
+
+  meta_title: string | null;
+  meta_description: string | null;
+  meta_keyword: string | null;
+
+  career_is_active: number;
+  career_created_at: string;
+  career_updated_at: string;
+}

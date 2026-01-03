@@ -13,6 +13,9 @@ export const ThreeSixtymediaUrl = (url: string) => {
 export const prodcutMediaUrl = (url: string) => {
   return `${baseUrlMedia}/product/${url}`;
 };
+export const careerMediaUrl = (url: string) => {
+  return `${baseUrlMedia}/career/${url}`;
+};
 export const newsMediaUrl = (url: string) => {
   return `${baseUrlMedia}/news/${url}`;
 };
@@ -41,7 +44,9 @@ export const endpoints = {
     subMenu: "/home-sub-menu",
     footerLinks: "/quicklinks",
     companyLinks: "/companylinks",
-    ourStoryPage: "/about"
+    ourStoryPage: "/about",
+    getWorks: "/works/12",
+    getJobs: "/jobs"
   }
 };
 

@@ -20,10 +20,30 @@ const CustomTextField = styled(TextField)`
       }
     }
   }
+  &.isTypeTwo {
+    .MuiInputBase-root {
+      background: #fff;
+      border-radius: 7px;
+      padding: 10px 15px;
+      font-size: 12px;
+      color: #0c0d0c;
+      input {
+        &::placeholder {
+          color: #0c0d0c;
+          opacity: 0.5;
+        }
+      }
+    }
+  }
 `;
 
-const CustomInputWith_forwardRef = ({ ...props }: TextFieldProps) => {
-  return <CustomTextField {...props} />;
+const CustomInputWith_forwardRef = ({
+  isTypeTwo,
+  ...props
+}: TextFieldProps & { isTypeTwo?: boolean }) => {
+  return (
+    <CustomTextField {...props} className={`${isTypeTwo ? "isTypeTwo" : ""}`} />
+  );
 };
 
 CustomInputWith_forwardRef.displayName = "CustomInput";

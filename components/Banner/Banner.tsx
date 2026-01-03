@@ -5,41 +5,6 @@ import { Box, Container, List, ListItem } from "@mui/material";
 import Link from "next/link";
 import { useQuery } from "react-query";
 
-// const navItems = [
-//   {
-//     name: "New releases",
-//     path: "#new_articles"
-//   },
-//   {
-//     name: "Clients",
-//     path: "#client"
-//   },
-//   {
-//     name: "Case study",
-//     path: "/case-study"
-//   },
-//   // {
-//   //   name: "Product registration",
-//   //   path: "/product-registration"
-//   // },
-//   // {
-//   //   name: "resellers",
-//   //   path: "/resellers"
-//   // },
-//   {
-//     name: "e-waste",
-//     path: "/e-waste"
-//   },
-//   {
-//     name: "Blog",
-//     path: "/blog"
-//   },
-//   {
-//     name: "FAQs",
-//     path: "/faqs"
-//   }
-// ];
-
 const Banner = () => {
   const { data: navItems, isLoading: navItemsLaoding } = useQuery({
     queryKey: ["getSubMenu"],
