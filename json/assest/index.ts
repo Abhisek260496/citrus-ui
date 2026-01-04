@@ -152,5 +152,9 @@ export default {
   support_banner: "/assets/images/support_banner.png",
   eon_13pro_banner_bg: "/assets/videos/eon_13pro_banner_bg_crop.gif",
   support_banner_bg: "/assets/images/support_banner_bg.png",
-  workWithUsBnrImg: "/assets/images/workWithUsBnrImg.png"
+  workWithUsBnrImg: "/assets/images/workWithUsBnrImg.png",
+  warrenty_logo: "/assets/images/warrenty_logo.svg",
+  warranty_banner: "/assets/images/warranty_banner.png",
+  technical_support_banner: "/assets/images/technical_support_banner.png",
+  texh_logo: "/assets/images/texh_logo.svg"
 };

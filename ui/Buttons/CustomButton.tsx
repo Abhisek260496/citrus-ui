@@ -34,13 +34,17 @@ const CustomBtn = styled(Button)`
     border-radius: 50px;
     color: var(--primaryBlue);
   }
+  &.isTypeTwo {
+    background-color: ${palette.text.primary};
+  }
 `;
 const CustomButtonMemo = ({
   loading = false,
+  isTypeTwo,
   ...props
-}: { loading?: boolean } & ButtonProps) => {
+}: { loading?: boolean; isTypeTwo?: boolean } & ButtonProps) => {
   return (
-    <CustomBtn {...props}>
+    <CustomBtn className={`${isTypeTwo ? "isTypeTwo" : ""}`} {...props}>
       {loading && <CircularProgress size={15} color="inherit" />}
       {props?.children}
     </CustomBtn>

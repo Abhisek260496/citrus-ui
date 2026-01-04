@@ -1,7 +1,9 @@
 import { careerMediaUrl } from "@/api/endpoints";
 import { getJob } from "@/api/functions/cms.api";
 import Wrapper from "@/layout/wrapper/Wrapper";
+import CustomButton from "@/ui/Buttons/CustomButton";
 import CustomInput from "@/ui/Inputs/CustomInput";
+import Loader from "@/ui/Loader/Loder";
 import {
   Box,
   Checkbox,
@@ -90,143 +92,151 @@ const Index = () => {
   console.log(jobData, "jobData");
 
   return (
-    <Wrapper>
-      <SalesWrapperStyled>
-        <figure className="banner_fig">
-          <Image
-            src={careerMediaUrl(jobData?.career_banner_image as string)}
-            alt=""
-            width={1900}
-            height={1000}
-          />
-        </figure>
-        <Box className="cmn_gap">
-          <Container fixed>
-            <Paper sx={{ padding: "50px", borderRadius: "30px" }}>
-              <Grid2 container spacing={10}>
-                <Grid2 lg={5} md={5} xs={12}>
-                  <Box className="sales_content_left">
-                    <Typography variant="h2">
-                      {jobData?.career_title}
-                    </Typography>
-                    <Typography>{jobData?.career_description}</Typography>
+    <>
+      {jobDataLoading && <Loader />}
+      <Wrapper>
+        <SalesWrapperStyled>
+          <figure className="banner_fig">
+            <Image
+              src={careerMediaUrl(jobData?.career_banner_image as string)}
+              alt=""
+              width={1900}
+              height={1000}
+            />
+          </figure>
+          <Box className="cmn_gap">
+            <Container fixed>
+              <Paper sx={{ padding: "50px", borderRadius: "30px" }}>
+                <Grid2 container spacing={10}>
+                  <Grid2 lg={5} md={5} xs={12}>
+                    <Box className="sales_content_left">
+                      <Typography variant="h2">
+                        {jobData?.career_title}
+                      </Typography>
+                      <Typography>{jobData?.career_description}</Typography>
 
-                    <Box className="cmn_block">
-                      <Typography variant="h3">Key Responsibilities</Typography>
-                      <Box
-                        component="div"
-                        dangerouslySetInnerHTML={{
-                          __html: jobData?.career_responsibilities as string
-                        }}
-                      />
+                      <Box className="cmn_block">
+                        <Typography variant="h3">
+                          Key Responsibilities
+                        </Typography>
+                        <Box
+                          component="div"
+                          dangerouslySetInnerHTML={{
+                            __html: jobData?.career_responsibilities as string
+                          }}
+                        />
+                      </Box>
+                      <Box className="cmn_block">
+                        <Typography variant="h3">Requirements</Typography>
+                        <Box
+                          component="div"
+                          dangerouslySetInnerHTML={{
+                            __html: jobData?.career_requirements as string
+                          }}
+                        />
+                      </Box>
                     </Box>
-                    <Box className="cmn_block">
-                      <Typography variant="h3">Requirements</Typography>
-                      <Box
-                        component="div"
-                        dangerouslySetInnerHTML={{
-                          __html: jobData?.career_requirements as string
-                        }}
-                      />
-                    </Box>
-                  </Box>
-                </Grid2>
+                  </Grid2>
 
-                <Grid2 lg={7} md={7} xs={12}>
-                  <Box className="sales_content_right">
-                    <Typography variant="h2" mb={2}>
-                      Application
-                    </Typography>
-                    <form action="">
-                      <Grid2 container spacing={2}>
-                        <Grid2 md={6} xs={12}>
-                          <Typography variant="body2" mb={1}>
-                            First name
-                          </Typography>
-                          <CustomInput
-                            placeholder="Enter First name"
-                            isTypeTwo
-                            fullWidth
-                          />
-                        </Grid2>
-                        <Grid2 md={6} xs={12}>
-                          <Typography variant="body2" mb={1}>
-                            Last name
-                          </Typography>
-                          <CustomInput
-                            placeholder="Enter Last name"
-                            isTypeTwo
-                            fullWidth
-                          />
-                        </Grid2>
-                        <Grid2 md={6} xs={12}>
-                          <Typography variant="body2" mb={1}>
-                            Email
-                          </Typography>
-                          <CustomInput
-                            placeholder="Enter Email"
-                            isTypeTwo
-                            fullWidth
-                          />
-                        </Grid2>
-                        <Grid2 md={6} xs={12}>
-                          <Typography variant="body2" mb={1}>
-                            Phone number
-                          </Typography>
-                          <CustomInput
-                            placeholder="Enter Phone number"
-                            isTypeTwo
-                            fullWidth
-                          />
-                        </Grid2>
-                        <Grid2 xs={12}>
-                          <Typography variant="body2" mb={1}>
-                            Currently employed in
-                          </Typography>
-                          <CustomInput
-                            placeholder="Enter Currently employed in"
-                            isTypeTwo
-                            fullWidth
-                          />
-                        </Grid2>
-                        <Grid2 xs={12}>
-                          <Typography variant="body2" mb={1}>
-                            Cover letter
-                          </Typography>
-                          <CustomInput
-                            placeholder="Enter Cover letter"
-                            isTypeTwo
-                            multiline
-                            rows={4}
-                            fullWidth
-                          />
-                        </Grid2>
-                        <Grid2 xs={12}>
-                          <FormControlLabel
-                            sx={{
-                              "& .MuiTypography-root": {
-                                color: "#0c0d0c",
-                                fontWeight: 300,
-                                fontSize: "14px"
-                              }
-                            }}
-                            control={<Checkbox />}
-                            label="I hereby declare that all the information provided in this application is true
+                  <Grid2 lg={7} md={7} xs={12}>
+                    <Box className="sales_content_right">
+                      <Typography variant="h2" mb={2}>
+                        Application
+                      </Typography>
+                      <form action="">
+                        <Grid2 container spacing={2}>
+                          <Grid2 md={6} xs={12}>
+                            <Typography variant="body2" mb={1}>
+                              First name
+                            </Typography>
+                            <CustomInput
+                              placeholder="Enter First name"
+                              isTypeTwo
+                              fullWidth
+                            />
+                          </Grid2>
+                          <Grid2 md={6} xs={12}>
+                            <Typography variant="body2" mb={1}>
+                              Last name
+                            </Typography>
+                            <CustomInput
+                              placeholder="Enter Last name"
+                              isTypeTwo
+                              fullWidth
+                            />
+                          </Grid2>
+                          <Grid2 md={6} xs={12}>
+                            <Typography variant="body2" mb={1}>
+                              Email
+                            </Typography>
+                            <CustomInput
+                              placeholder="Enter Email"
+                              isTypeTwo
+                              fullWidth
+                            />
+                          </Grid2>
+                          <Grid2 md={6} xs={12}>
+                            <Typography variant="body2" mb={1}>
+                              Phone number
+                            </Typography>
+                            <CustomInput
+                              placeholder="Enter Phone number"
+                              isTypeTwo
+                              fullWidth
+                            />
+                          </Grid2>
+                          <Grid2 xs={12}>
+                            <Typography variant="body2" mb={1}>
+                              Currently employed in
+                            </Typography>
+                            <CustomInput
+                              placeholder="Enter Currently employed in"
+                              isTypeTwo
+                              fullWidth
+                            />
+                          </Grid2>
+                          <Grid2 xs={12}>
+                            <Typography variant="body2" mb={1}>
+                              Cover letter
+                            </Typography>
+                            <CustomInput
+                              placeholder="Enter Cover letter"
+                              isTypeTwo
+                              multiline
+                              rows={4}
+                              fullWidth
+                            />
+                          </Grid2>
+                          <Grid2 xs={12}>
+                            <FormControlLabel
+                              sx={{
+                                "& .MuiTypography-root": {
+                                  color: "#0c0d0c",
+                                  fontWeight: 300,
+                                  fontSize: "14px"
+                                }
+                              }}
+                              control={<Checkbox />}
+                              label="I hereby declare that all the information provided in this application is true
                                     and correct to the best of my knowledge. I consent to allow Citrus Solutions
                                     Pvt. Ltd. to process my personal data for recruitment purposes and
                                     contacting me regarding this application."
-                          />
+                            />
+                          </Grid2>
+                          <Grid2 xs={12}>
+                            <CustomButton isTypeTwo>Submit</CustomButton>
+                          </Grid2>
                         </Grid2>
-                      </Grid2>
-                    </form>
-                  </Box>
+                      </form>
+                    </Box>
+                  </Grid2>
                 </Grid2>
-              </Grid2>
-            </Paper>
-          </Container>
-        </Box>
-      </SalesWrapperStyled>
-    </Wrapper>
+              </Paper>
+            </Container>
+          </Box>
+        </SalesWrapperStyled>
+      </Wrapper>
+    </>
   );
 };
 
