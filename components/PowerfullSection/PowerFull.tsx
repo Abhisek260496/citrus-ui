@@ -35,7 +35,11 @@ const EachPowerFullElement = ({
       </figure>
       <Box className="powerfull_content">
         <Typography variant="h3">{slider_title}</Typography>
-        <Typography>{slider_description}</Typography>
+        <Typography
+          dangerouslySetInnerHTML={{
+            __html: slider_description
+          }}
+        />
       </Box>
     </PowerFullElementStyled>
   );

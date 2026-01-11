@@ -29,7 +29,15 @@ function fixSSRLayout() {
   }
 }
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      // retry: false,
+      cacheTime: 60000,
+      keepPreviousData: true
+    }
+  }
+});
 
 export interface CustomAppProps extends AppProps {
   user?: userData | null;
@@ -44,7 +52,7 @@ export default function CustomApp({
   pageProps,
   hasToken,
   user,
-  emotionCache = clientSideEmotionCache,
+  emotionCache = clientSideEmotionCache
 }: CustomAppProps) {
   fixSSRLayout();
 
@@ -58,8 +66,10 @@ export default function CustomApp({
             <ThemeProvider theme={theme}>
               <CssBaseline />
               <ToastifyProvider>
-              <><EventListeners />
-                <Component {...pageProps} /></>
+                <>
+                  <EventListeners />
+                  <Component {...pageProps} />
+                </>
               </ToastifyProvider>
             </ThemeProvider>
           </CacheProvider>
@@ -94,7 +104,6 @@ CustomApp.getInitialProps = async (context: AppContext) => {
   if (cookies?.user?.length) {
     user = JSON.parse(cookies?.user);
   }
-
 
   return { ...appProps, hasToken, user };
 };

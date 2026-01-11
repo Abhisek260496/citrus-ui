@@ -8,7 +8,6 @@ import NextGenConectivity from "@/components/NextGenConectivity/NextGenConectivi
 import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
 import TwoIndependentDisplay from "@/components/TwoIndependentDisplay/TwoIndependentDisplay";
 import TwoLanSection from "@/components/TwoLanSection/TwoLanSection";
-import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import Loader from "@/ui/Loader/Loder";
 import { useRouter } from "next/router";
@@ -25,10 +24,7 @@ const Index = () => {
     }
   );
 
-  console.log(
-    prodcutMediaUrl(singleProductData?.product_banner_content as string),
-    "singleProductData"
-  );
+  console.log(singleProductData, "singleProductData");
   return (
     <Wrapper>
       {singleProductLoading ? (
@@ -45,7 +41,9 @@ const Index = () => {
             description={
               singleProductData?.product_banner_description as string
             }
-            static_img={assest?.eon13_pro_x_img}
+            static_img={prodcutMediaUrl(
+              singleProductData?.product_banner_animation_img as string
+            )}
           />
           <CoreToEveryThing
             bgImg={prodcutMediaUrl(

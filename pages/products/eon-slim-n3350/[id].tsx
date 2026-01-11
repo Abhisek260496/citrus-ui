@@ -46,6 +46,9 @@ const Index = () => {
               singleProductData?.product_banner_content as string
             )}
             bannerText={singleProductData?.product_banner_description}
+            static_img={prodcutMediaUrl(
+              singleProductData?.product_banner_animation_img as string
+            )}
           />
           <CoreToEveryThing
             bgImg={prodcutMediaUrl(

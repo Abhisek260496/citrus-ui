@@ -311,19 +311,6 @@ export default function Header() {
               >
                 sales@citrusindia.com
               </CustomButton>
-              {/* <Button
-                sx={{
-                  padding: "0px",
-                  minWidth: "0px",
-                  marginLeft: "15px",
-                  "& .MuiButton-startIcon": {
-                    marginLeft: 0,
-                    marginRight: 0
-                  },
-                  "&:hover": { backgroundColor: "transparent" }
-                }}
-                startIcon={<WhatsAppIcon />}
-              /> */}
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
@@ -348,7 +335,7 @@ export default function Header() {
             keepMounted: true
           }}
           sx={{
-            display: { xs: "block", lg: "none" },
+            display: { xs: "block", xl: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,

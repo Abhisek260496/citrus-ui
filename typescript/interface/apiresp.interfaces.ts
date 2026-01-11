@@ -36,6 +36,8 @@ export interface IProduct {
   banner_background_img?: string | null;
   product_img?: string | null;
   product_description?: string | null;
+
+  product_banner_animation_img?: string | null;
 }
 export interface IRelatedProduct {
   product_id: number;
@@ -287,4 +289,20 @@ export interface ICareerResponse {
   career_is_active: number;
   career_created_at: string;
   career_updated_at: string;
+}
+export interface IBlogResponse {
+  blog_id: number;
+  blog_title: string;
+  blog_description: string;
+  blog_image: string;
+  blog_main_image: string | null;
+  blog_slug: string;
+  banner_image: string | null;
+  meta_title: string | null;
+  meta_description: string | null;
+  meta_kewords: string | null;
+  blog_is_active: 0 | 1;
+  blog_created_by_id: number;
+  blog_created_at: string;
+  blog_updated_at: string;
 }

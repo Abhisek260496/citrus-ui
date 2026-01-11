@@ -98,7 +98,7 @@ export const EachRelatedProductStyled = styled(Box, {
       a {
         color: #fff;
         &:hover {
-          color: #ff6106;
+          color: #febd11;
         }
       }
     }

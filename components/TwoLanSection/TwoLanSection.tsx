@@ -146,7 +146,11 @@ const TwoLanSection = ({
                 subTitle={section_title as string}
                 className="cmn_header"
               />
-              <Typography>{section_content}</Typography>
+              <Typography
+                dangerouslySetInnerHTML={{
+                  __html: section_content as string
+                }}
+              />
             </Box>
             <Typography variant="h2" className="faster_hdr">
               2.5 <Typography variant="caption">x faster</Typography>

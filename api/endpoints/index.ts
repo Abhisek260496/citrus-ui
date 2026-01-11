@@ -22,6 +22,9 @@ export const newsMediaUrl = (url: string) => {
 export const ourStoryMediaUrl = (url: string) => {
   return `${baseUrlMedia}/page/${url}`;
 };
+export const blogMediaUrl = (url: string) => {
+  return `${baseUrlMedia}/blog/${url}`;
+};
 
 export const endpoints = {
   auth: {
@@ -46,7 +49,8 @@ export const endpoints = {
     companyLinks: "/companylinks",
     ourStoryPage: "/about",
     getWorks: "/works/12",
-    getJobs: "/jobs"
+    getJobs: "/jobs",
+    blogs: "/blogs"
   }
 };
 

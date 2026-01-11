@@ -14,7 +14,7 @@ export const LanSecWrapper = styled(Box)`
     height: 500px;
   }
   @media (max-width: 599px) {
-    height: 350px;
+    height: 400px;
   }
   .lanBack {
     position: absolute;
@@ -55,6 +55,41 @@ export const LanSecWrapper = styled(Box)`
     p {
       color: #4f5c65;
       max-width: 534px;
+      @media (max-width: 599px) {
+        color: #000;
+        font-size: 14px;
+      }
+    }
+  }
+  .btm_block {
+    position: absolute;
+    bottom: 100px;
+    right: 0;
+    width: 100%;
+    h2 {
+      text-align: right;
+      font-size: 120px;
+      font-weight: 700;
+      color: #041724;
+      span {
+        font-size: 58px;
+        font-weight: 400;
+      }
+    }
+    @media (max-width: 1199px) {
+      bottom: 20px;
+    }
+    @media (max-width: 899px) {
+      right: auto;
+      left: 50%;
+      transform: translateX(-50%);
+      h2 {
+        text-align: center;
+        font-size: 50px;
+        span {
+          font-size: 25px;
+        }
+      }
     }
   }
 `;
@@ -87,6 +122,13 @@ const LanSec = ({
           <Typography variant="body1">{section_content}</Typography>
         </Stack>
       </Container>
+      <Box className="btm_block">
+        <Container fixed>
+          <Typography variant="h2" className="faster_hdr">
+            2.5 <Typography variant="caption">x faster</Typography>
+          </Typography>
+        </Container>
+      </Box>
     </LanSecWrapper>
   );
 };

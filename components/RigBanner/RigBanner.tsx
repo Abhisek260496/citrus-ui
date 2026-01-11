@@ -8,10 +8,10 @@ export const RigBannerWrapper = styled(Box)`
   min-height: 900px;
   /* background-color: #fff; */
   @media (max-width: 1199px) {
-    height: 700px;
+    min-height: 700px;
   }
   @media (max-width: 899px) {
-    height: 500px;
+    min-height: 500px;
   }
   .banner_cnt {
     text-align: center;
@@ -52,12 +52,17 @@ export const RigBannerWrapper = styled(Box)`
       color: #4f5c65;
     }
     .banner_block {
-      position: relative;
-      z-index: 9;
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
       bottom: 100px;
+      @media (max-width: 599px) {
+        position: relative;
+        z-index: 9;
+        left: auto;
+        top: 0;
+        transform: none;
+      }
     }
   }
 `;

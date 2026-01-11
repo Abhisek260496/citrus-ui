@@ -1,5 +1,6 @@
 import {
   I360ProductResponse,
+  IBlogResponse,
   ICareerResponse,
   IClientResponse,
   IFooterQuickLinksResponse,
@@ -191,6 +192,26 @@ export const getJob = async (id: string): Promise<ICareerResponse> => {
   try {
     const res = await ApiRequest.get<ICareerResponse>(
       `${endpoints.cms.getJobs}/${id}`
+    );
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getBlogs = async (): Promise<IBlogResponse[]> => {
+  try {
+    const res = await ApiRequest.get<IBlogResponse[]>(`${endpoints.cms.blogs}`);
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getBlog = async (id: string): Promise<IBlogResponse> => {
+  try {
+    const res = await ApiRequest.get<IBlogResponse>(
+      `${endpoints.cms.blogs}/${id}`
     );
     return res;
   } catch (error) {

@@ -1,120 +1,147 @@
-/* eslint-disable init-declarations */
-/* eslint-disable import/order */
-import { Box, BoxProps, Container, Typography, styled } from "@mui/material";
+import { Box, BoxProps, Container, styled } from "@mui/material";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const Eon13ProBannerStyled = styled(Box)`
-  padding: 90px 0px 200px 0px;
+const Eon13ProBannerStyled = styled(Box)<{ bg: string }>(({ theme, bg }) => ({
+  padding: "90px 0px 200px",
+  backgroundImage: `url(${bg})`,
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
 
-  @media (max-width: 1499px) {
-    padding: 70px 0px 150px 0px;
-  }
-  @media (max-width: 1199px) {
-    padding: 50px 0px 100px 0px;
-  }
-  @media (max-width: 899px) {
-    padding: 40px 0px 70px 0px;
-  }
-  @media (max-width: 599px) {
-    padding: 30px 0px 50px 0px;
-  }
+  [theme.breakpoints.down("lg")]: {
+    padding: "70px 0px 150px"
+  },
+  [theme.breakpoints.down("md")]: {
+    padding: "50px 0px 100px"
+  },
+  [theme.breakpoints.down("sm")]: {
+    padding: "40px 0px 70px"
+  },
 
-  .eon_slim_wrapper {
-    text-align: center;
-    p {
-      max-width: 628px;
-      margin: 0 auto;
+  "& .eon_slim_wrapper": {
+    textAlign: "center",
+
+    "& p": {
+      maxWidth: 628,
+      margin: "0 auto"
+    }
+  },
+
+  "& .productBnrFig": {
+    [theme.breakpoints.down("md")]: {
+      maxWidth: 600,
+      margin: "0 auto 20px"
     }
   }
+}));
 
-  .productBnrFig {
-    @media (max-width: 1199px) {
-      max-width: 600px;
-      margin: 0 auto 20px;
-    }
-  }
-`;
+const ProductImageWrapper = styled("div")({
+  position: "relative",
+  width: "1100px",
+  height: "500px",
+  margin: "0 auto"
+});
+
+const FadeImage = styled("div")<{ visible: boolean }>(({ visible }) => ({
+  position: "absolute",
+  inset: 0,
+  transition: "opacity 600ms ease",
+  opacity: visible ? 1 : 0,
+  pointerEvents: visible ? "auto" : "none"
+}));
 
 interface IEon13ProBannerProps extends BoxProps {
   banner_bg: string;
   product_img: string;
-  description: string;
   static_img: string;
+  description: string;
 }
 
-const GIF_DURATION = 1500;
+const GIF_DURATION = 30000;
 
 const Eon13ProBanner = ({
   banner_bg,
   product_img,
-  description,
   static_img,
+  description,
   ...props
 }: IEon13ProBannerProps) => {
-  const [showGif, setShowGif] = useState(false);
+  const [showGif, setShowGif] = useState(true);
+  const [gifKey, setGifKey] = useState(0);
+
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const hasPlayedRef = useRef(false);
+
+  const playGif = () => {
+    if (hasPlayedRef.current) return;
+
+    hasPlayedRef.current = true;
+    setGifKey((k) => k + 1);
+    setShowGif(true);
+
+    if (timerRef.current) clearTimeout(timerRef.current);
+
+    timerRef.current = setTimeout(() => {
+      setShowGif(false);
+    }, GIF_DURATION);
+  };
 
   useEffect(() => {
-    let timer: NodeJS.Timeout;
+    playGif();
 
     const handleScroll = () => {
       if (window.scrollY === 0) {
-        setShowGif(true);
-
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-          setShowGif(false);
-        }, GIF_DURATION);
+        playGif();
+      } else {
+        hasPlayedRef.current = false;
       }
     };
-
-    // run on initial load
-    handleScroll();
 
     window.addEventListener("scroll", handleScroll);
 
     return () => {
-      clearTimeout(timer);
+      if (timerRef.current) clearTimeout(timerRef.current);
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  console.log(product_img, showGif, static_img, "showGif");
-
   return (
-    <Eon13ProBannerStyled
-      sx={{
-        backgroundImage: `url(${banner_bg})`,
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover"
-      }}
-      {...props}
-    >
+    <Eon13ProBannerStyled bg={banner_bg} {...props}>
       <Container fixed>
         <Box className="eon_slim_wrapper">
           <figure className="productBnrFig">
-            {showGif ? (
-              <Image
-                src={product_img}
-                alt="product animation"
-                width={1100}
-                height={500}
-                unoptimized
-                priority
-              />
-            ) : (
-              <Image
-                src={static_img}
-                alt="product static"
-                width={1100}
-                height={500}
-                priority
-              />
-            )}
+            <ProductImageWrapper>
+              {/* GIF */}
+              <FadeImage visible={showGif}>
+                <Image
+                  key={gifKey} // forces remount
+                  src={product_img}
+                  alt="product animation"
+                  unoptimized
+                  width={700}
+                  height={500}
+                  style={{ objectFit: "cover" }}
+                  priority
+                />
+              </FadeImage>
+
+              {/* Static */}
+              <FadeImage visible={!showGif}>
+                <img
+                  src={static_img}
+                  alt="product static"
+                  style={{
+                    width: "100%",
+                    height: "500px",
+                    objectFit: "contain"
+                  }}
+                />
+              </FadeImage>
+            </ProductImageWrapper>
           </figure>
 
-          <Typography>{description}</Typography>
+          {/* <Typography>{description}</Typography> */}
         </Box>
       </Container>
     </Eon13ProBannerStyled>

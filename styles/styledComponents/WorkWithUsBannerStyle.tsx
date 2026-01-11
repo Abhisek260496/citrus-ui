@@ -158,7 +158,7 @@ export const JobListSectionWrap = styled(Box)`
 
         &:hover {
           background: transparent;
-          color: #ff6106;
+          color: #febd11;
         }
       }
     }

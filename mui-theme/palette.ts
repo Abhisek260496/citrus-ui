@@ -85,9 +85,9 @@ const palette = {
   error: ERROR,
   grey: GREY,
   divider: alpha(GREY[500], 0.24),
-  color004F7A:"#004F7A",
+  color004F7A: "#004F7A",
   text: {
-    primary: "#FF6106",
+    primary: "#febd11",
     secondary: "#000717",
     disabled: GREY[500]
   },

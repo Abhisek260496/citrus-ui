@@ -42,9 +42,9 @@ const Index = () => {
         <Grid2 container spacing={2}>
           <Grid2 lg={7} md={6} xs={12}>
             <Box className="csr_img_block">
-              <Box className="color_block">
+              {/* <Box className="color_block">
                 <Typography>Lorem ipsum Lorem ipsum</Typography>
-              </Box>
+              </Box> */}
               <figure>
                 <Image
                   src={assest?.csr_img1}
@@ -57,9 +57,9 @@ const Index = () => {
           </Grid2>
           <Grid2 lg={5} md={6} xs={12}>
             <Box className="csr_img_block">
-              <Box className="color_block">
+              {/* <Box className="color_block">
                 <Typography>Lorem ipsum Lorem ipsum</Typography>
-              </Box>
+              </Box> */}
               <figure>
                 <Image
                   src={assest?.csr_img2}
@@ -147,8 +147,8 @@ const Index = () => {
                     className="galleryFigureSmall"
                   >
                     <Image
-                      src={assest?.vatsalay_img1}
-                      alt="vatsalay_img1"
+                      src={assest?.vatsalay_img2}
+                      alt="vatsalay_img2"
                       width={650}
                       height={300}
                       className="galleryImage"
@@ -162,8 +162,8 @@ const Index = () => {
                     className="galleryFigureSmall"
                   >
                     <Image
-                      src={assest?.vatsalay_img1}
-                      alt="vatsalay_img1"
+                      src={assest?.vatsalay_img3}
+                      alt="vatsalay_img3"
                       width={650}
                       height={300}
                       className="galleryImage"
@@ -179,8 +179,8 @@ const Index = () => {
                   className="galleryFigureLarge"
                 >
                   <Image
-                    src={assest?.vatsalay_img1}
-                    alt="vatsalay_img1"
+                    src={assest?.vatsalay_img4}
+                    alt="vatsalay_img4"
                     width={650}
                     height={600}
                     className="galleryImage"
@@ -200,8 +200,8 @@ const Index = () => {
                 className="galleryFigureLarge"
               >
                 <Image
-                  src={assest?.vatsalay_img1}
-                  alt="vatsalay_img1"
+                  src={assest?.vatsalay_img5}
+                  alt="vatsalay_img5"
                   width={650}
                   height={600}
                   className="galleryImage"

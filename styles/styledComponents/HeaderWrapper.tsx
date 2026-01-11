@@ -111,7 +111,7 @@ export const HeaderWrap = styled(Box)`
       transition: all 0.3s ease-in-out;
 
       &:hover {
-        color: #ff6106;
+        color: #febd11;
       }
 
       @media (max-width: 1499px) {
@@ -126,17 +126,13 @@ export const DrawerStyle = styled(Box)`
   background: #000717;
   padding: 15px;
   position: relative;
-
   .crossBtn {
     position: absolute;
     top: 10px;
     left: -15px;
-    color: #ff6106;
+    color: #febd11;
   }
-
   .drawerInnerContent {
-    /* height: 100%; */
-
     .listUtrWrap {
       margin-top: 20px;
       max-height: calc(100svh - 120px);
@@ -155,15 +151,14 @@ export const DrawerStyle = styled(Box)`
           transition: all 0.3s ease-in-out;
           font-size: 16px;
           &:hover {
-            color: #ff6106;
+            color: #febd11;
           }
 
           &.active {
-            color: #ff6106;
+            color: #febd11;
           }
         }
       }
-
       .MuiAccordion-root {
         width: 100%;
         background: transparent;
@@ -176,7 +171,6 @@ export const DrawerStyle = styled(Box)`
             margin: 0;
           }
         }
-
         .MuiAccordionDetails-root {
           padding: 0;
           margin-top: 10px;
@@ -189,11 +183,9 @@ export const DrawerStyle = styled(Box)`
       }
     }
   }
-
   .emilBtn {
     margin-top: 20px;
     display: none;
-
     @media (max-width: 599px) {
       display: flex;
     }

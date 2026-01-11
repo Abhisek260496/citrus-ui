@@ -14,9 +14,11 @@ export const ConnectionSecWrapper = styled(Box)`
   }
   @media (max-width: 899px) {
     padding: 60px 0 0;
+    height: 700px;
   }
   @media (max-width: 599px) {
     padding: 30px 0 0;
+    height: 450px;
   }
   .conBack {
     position: absolute;
@@ -26,6 +28,12 @@ export const ConnectionSecWrapper = styled(Box)`
     height: 564px;
     @media (max-width: 1199px) {
       height: 650px;
+    }
+    @media (max-width: 899px) {
+      height: 370px;
+    }
+    @media (max-width: 599px) {
+      height: 180px;
     }
   }
   .sec_hd {

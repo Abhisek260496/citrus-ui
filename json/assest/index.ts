@@ -1,7 +1,7 @@
 export default {
   notfound: "/assets/images/404.svg",
-  logo: "/assets/images/logo.png",
-  logo_img: "/assets/images/logo_img.png",
+  logo: "/assets/images/citrus_logo_new.png",
+  logo_img: "/assets/images/citrus_logo_new.png",
   bannerImage: "/assets/images/banner_image.png",
   powerfull_image1: "/assets/images/powerfull_image1.png",
   powerfull_image2: "/assets/images/powerfull_image2.png",
@@ -156,5 +156,7 @@ export default {
   warrenty_logo: "/assets/images/warrenty_logo.svg",
   warranty_banner: "/assets/images/warranty_banner.png",
   technical_support_banner: "/assets/images/technical_support_banner.png",
-  texh_logo: "/assets/images/texh_logo.svg"
+  texh_logo: "/assets/images/texh_logo.svg",
+  blog_banner: "/assets/images/blog_banner.png",
+  blog_tag: "/assets/images/blog_tag.png"
 };
