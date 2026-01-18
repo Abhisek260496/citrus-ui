@@ -10,6 +10,9 @@ const Banner = () => {
     queryKey: ["getSubMenu"],
     queryFn: () => getSubMenu()
   });
+
+  console.log(navItems, "navItems");
+
   return (
     <BannerStyled>
       <figure>

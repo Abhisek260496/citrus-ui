@@ -52,7 +52,7 @@ export const AccessSecWrapper = styled(Box)`
       p {
         font-size: 49px;
         font-weight: 700;
-        text-transform: uppercase;
+        /* text-transform: uppercase; */
         text-align: center;
 
         @media (max-width: 1199px) {

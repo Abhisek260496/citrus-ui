@@ -22,7 +22,7 @@ const IntelGraphicSec = ({
           }}
         >
           <CommonHeader
-            mainTitle={String(section_title)}
+            mainTitle={`${String(section_title)} `}
             subTitle={String(section_subtitle)}
             sx={{
               marginBottom: "10px"

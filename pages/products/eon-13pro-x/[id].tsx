@@ -24,7 +24,6 @@ const Index = () => {
     }
   );
 
-  console.log(singleProductData, "singleProductData");
   return (
     <Wrapper>
       {singleProductLoading ? (
@@ -93,6 +92,9 @@ const Index = () => {
             description={singleProductData?.sections[5]?.section_content}
             section_title={singleProductData?.sections[5]?.section_title}
             section_subtitle={singleProductData?.sections[5]?.section_subtitle}
+            section_subtitle_one={
+              singleProductData?.sections[5]?.section_subtitle_one
+            }
           />
           <RelatedProducts
             related_products={singleProductData?.related_products}

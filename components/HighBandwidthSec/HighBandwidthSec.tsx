@@ -54,8 +54,8 @@ const HighBandwidthSec = ({
           }}
         >
           <CommonHeader
-            mainTitle={String(section_title)}
-            subTitle={String(section_subtitle)}
+            mainTitle={String(section_subtitle)}
+            subTitle={String(section_title)}
             sx={{
               marginBottom: "10px"
             }}

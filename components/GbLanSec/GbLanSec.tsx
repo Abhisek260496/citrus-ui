@@ -11,7 +11,7 @@ const GbLanSecStyled = styled(Box)`
   @media (max-width: 599px) {
     height: 350px;
   }
-  figure {
+  .gb_per_lanFig {
     position: absolute;
     left: 0;
     top: 0;
@@ -69,6 +69,12 @@ const GbLanSecStyled = styled(Box)`
       }
     }
   }
+  .lan_fig {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 `;
 
 const GbLanSec = ({
@@ -87,6 +93,14 @@ const GbLanSec = ({
           alt="gb_per_lan_bg"
           width={1920}
           height={1080}
+        />
+      </figure>
+      <figure className="lan_fig">
+        <Image
+          src={section_image as string}
+          alt="gb_lan_img"
+          width={550}
+          height={450}
         />
       </figure>
       <Box className="core_wrapper">

@@ -22,7 +22,7 @@ const Index = () => {
     }
   );
 
-  console.log(singleProductData, "singleProductData");
+  console.log(singleProductData?.sections[3], "singleProductData");
 
   return (
     <Wrapper>
@@ -74,6 +74,9 @@ const Index = () => {
           <GbLanSec
             section_background_image={prodcutMediaUrl(
               singleProductData?.sections[3]?.section_background_image
+            )}
+            section_image={prodcutMediaUrl(
+              singleProductData?.sections[3]?.section_image
             )}
             section_content={singleProductData?.sections[3]?.section_content}
           />

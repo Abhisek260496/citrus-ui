@@ -30,8 +30,6 @@ const Xtreme = () => {
     }
   }, [singleProductLoading, singleProductData]);
 
-  console.log(singleProductData, "singleProductData");
-
   return (
     <Wrapper>
       {singleProductLoading ? (

@@ -58,10 +58,10 @@ const Index = () => {
             bgImg={prodcutMediaUrl(
               singleProductData?.sections[1]?.section_background_image as string
             )}
-            mainTitle="independent"
-            subTitle="two"
+            mainTitle={singleProductData?.sections[1]?.section_subtitle}
+            subTitle={singleProductData?.sections[1]?.section_title}
             description={singleProductData?.sections[1]?.section_content}
-            displayText={singleProductData?.sections[1]?.section_subtitle}
+            displayText={singleProductData?.sections[1]?.section_subtitle_one}
           />
           <PalmSizeSection
             section_image={singleProductData?.sections[2]?.section_image}

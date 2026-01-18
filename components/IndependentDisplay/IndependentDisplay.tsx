@@ -56,8 +56,8 @@ const IndependentDisplay = ({
       <Box className="independent_wrapper">
         <Container fixed>
           <CommonHeader
-            mainTitle={section_title as string}
-            subTitle={section_subtitle as string}
+            mainTitle={section_subtitle as string}
+            subTitle={section_title as string}
           />
           <Typography
             dangerouslySetInnerHTML={{

@@ -64,10 +64,8 @@ const GraphicCardSec = ({
       <Box className="graphic_card_wrapper">
         <Container fixed>
           <CommonHeader
-            mainTitle={`${section_title as string} ${String(
-              section_subtitle_one
-            )}`}
-            subTitle={section_subtitle as string}
+            mainTitle={section_subtitle_one as string}
+            subTitle={`${section_title as string} ${String(section_subtitle)}`}
           />
           <Typography
             dangerouslySetInnerHTML={{

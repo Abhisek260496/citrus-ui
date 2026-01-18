@@ -22,6 +22,8 @@ const Index = () => {
     }
   );
 
+  console.log(singleProductData?.sections, "singleProductData");
+
   return (
     <Wrapper>
       {singleProductLoading ? (

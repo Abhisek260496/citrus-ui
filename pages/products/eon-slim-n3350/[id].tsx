@@ -30,8 +30,6 @@ const Index = () => {
     }
   }, [singleProductLoading, singleProductData]);
 
-  console.log(singleProductData?.sections[2], "singleProductData");
-
   return (
     <Wrapper>
       {singleProductLoading ? (
