@@ -158,5 +158,7 @@ export default {
   technical_support_banner: "/assets/images/technical_support_banner.png",
   texh_logo: "/assets/images/texh_logo.svg",
   blog_banner: "/assets/images/blog_banner.png",
-  blog_tag: "/assets/images/blog_tag.png"
+  blog_tag: "/assets/images/blog_tag.png",
+  tech_support: "/assets/images/tech_support.jpg",
+  sales_support: "/assets/images/sales_support.jpg"
 };

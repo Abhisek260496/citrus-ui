@@ -3,7 +3,7 @@ import ShieldOutlinedIcon from "@/ui/Icons/ShieldOutlinedIcon";
 import ShoppingCartOutlinedIcon from "@/ui/Icons/ShoppingCartOutlinedIcon";
 import SupportIcon from "@/ui/Icons/SupportIcon";
 import { Box, Container, Grid, Typography } from "@mui/material";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 const supportList = [
   {
@@ -27,18 +27,22 @@ const supportList = [
 ];
 
 function SupportSection() {
+  const router = useRouter();
   return (
     <SupportSectionWrap className="cmn_gap">
       <Container>
         <Grid container spacing={4} justifyContent="center">
           {supportList.map((item) => (
             <Grid item xs={12} md={4} key={item.id}>
-              <Box className="supportCard">
+              <Box
+                className="supportCard"
+                onClick={() => router.push(item?.link)}
+              >
                 <Box className="supportIcon">{item.icon}</Box>
                 <Typography className="supportTitle">
-                  <Link href={item?.link} style={{ color: "inherit" }}>
-                    {item.title}
-                  </Link>
+                  {/* <Link href={} style={{ color: "inherit" }}> */}
+                  {item.title}
+                  {/* </Link> */}
                 </Typography>
               </Box>
             </Grid>

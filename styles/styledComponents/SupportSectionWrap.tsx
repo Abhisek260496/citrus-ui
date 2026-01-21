@@ -3,7 +3,6 @@ import { Box, styled } from "@mui/material";
 export const SupportSectionWrap = styled(Box)`
   background: #fff;
 
-
   @media (max-width: 1199px) {
   }
 
@@ -14,6 +13,7 @@ export const SupportSectionWrap = styled(Box)`
     flex-direction: column;
     gap: 25px;
     border-radius: 16px;
+    cursor: pointer;
     @media (max-width: 899px) {
       gap: 20px;
       border-radius: 10px;

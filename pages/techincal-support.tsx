@@ -54,8 +54,8 @@ const Index = () => {
         <Box className="banner_sec">
           <figure>
             <Image
-              src={assest?.warranty_banner}
-              alt="warranty_banner"
+              src={assest?.tech_support}
+              alt="tech_support"
               width={1920}
               height={1000}
             />

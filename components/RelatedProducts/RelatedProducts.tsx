@@ -15,7 +15,7 @@ import {
   styled,
   Typography
 } from "@mui/material";
-import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useQueryClient } from "react-query";
 import CommonHeader from "../CommonHeader/CommonHeader";
@@ -35,7 +35,7 @@ export const EachRelatedProductStyled = styled(Box, {
   position: relative;
   min-height: ${({ maxProductHeight }) => `${maxProductHeight}px`};
   height: 100%;
-
+  cursor: pointer;
   @media (max-width: 899px) {
     height: auto;
     min-height: auto;
@@ -170,12 +170,15 @@ const EachRelatedProduct = ({
     }
   }, [data]);
 
-  console.log(data, routePath, title, product_id, "data");
+  const router = useRouter();
 
   return (
     <EachRelatedProductStyled
       className="each_product"
       maxProductHeight={maxProductHeight}
+      onClick={() =>
+        router.push(`/products/${routePath?.route}/${routePath?.id}`)
+      }
     >
       <Box className="product_fig">
         <figure>
@@ -183,9 +186,9 @@ const EachRelatedProduct = ({
         </figure>
         <Typography variant="h6">
           {/* {title} */}
-          <Link href={`/products/${routePath?.route}/${routePath?.id}`}>
-            {title}
-          </Link>
+          {/* <Link href={}> */}
+          {title}
+          {/* </Link> */}
         </Typography>
       </Box>
       <Box className="product_content">
