@@ -6,6 +6,7 @@ import NextGenConectivity from "@/components/NextGenConectivity/NextGenConectivi
 import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
 import TwoIndependentDisplay from "@/components/TwoIndependentDisplay/TwoIndependentDisplay";
 import TwoLanSection from "@/components/TwoLanSection/TwoLanSection";
+import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import Loader from "@/ui/Loader/Loder";
 import { useRouter } from "next/router";
@@ -40,15 +41,18 @@ const Index = () => {
             banner_bg={prodcutMediaUrl(
               singleProductData?.banner_background_img as string
             )}
-            product_img={prodcutMediaUrl(
-              singleProductData?.product_banner_content as string
-            )}
+            // product_img={prodcutMediaUrl(
+            //   singleProductData?.product_banner_animation_img as string
+            // )}
+            // product_title_img={prodcutMediaUrl(
+            //   singleProductData?.product_banner_content as string
+            // )}
+
+            product_img={assest?.eon_13_testing_product}
+            product_title_img={assest?.eon_13_testing_text}
             description={
               singleProductData?.product_banner_description as string
             }
-            static_img={prodcutMediaUrl(
-              singleProductData?.product_banner_animation_img as string
-            )}
           />
           <CoreToEveryThing
             bgImg={prodcutMediaUrl(

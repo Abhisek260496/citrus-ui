@@ -160,5 +160,8 @@ export default {
   blog_banner: "/assets/images/blog_banner.png",
   blog_tag: "/assets/images/blog_tag.png",
   tech_support: "/assets/images/tech_support.jpg",
-  sales_support: "/assets/images/sales_support.jpg"
+  sales_support: "/assets/images/sales_support.jpg",
+  eon_13_testing_product: "/assets/images/eon_13_testing_product.png",
+  eon_13_testing_text: "/assets/images/eon_13_testing_text.png",
+  EON13Pro_video: "/assets/videos/EON13Pro_video.mp4"
 };

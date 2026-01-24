@@ -40,7 +40,7 @@ const Index = () => {
             description={
               singleProductData?.product_banner_description as string
             }
-            static_img={prodcutMediaUrl(
+            product_title_img={prodcutMediaUrl(
               singleProductData?.product_banner_animation_img as string
             )}
           />

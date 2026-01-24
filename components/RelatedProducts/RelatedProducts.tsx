@@ -146,7 +146,6 @@ const EachRelatedProduct = ({
   processor,
   storage,
   title,
-  product_id,
   maxProductHeight,
   product_slug
 }: IRelatedProduct & { maxProductHeight: number }) => {
@@ -156,6 +155,7 @@ const EachRelatedProduct = ({
   });
   const queryClient = useQueryClient();
   const data = queryClient.getQueryData<IProductResponse[]>(["getAllProducts"]);
+  const router = useRouter();
 
   useEffect(() => {
     if (data?.length) {
@@ -169,8 +169,6 @@ const EachRelatedProduct = ({
       });
     }
   }, [data]);
-
-  const router = useRouter();
 
   return (
     <EachRelatedProductStyled
@@ -186,9 +184,7 @@ const EachRelatedProduct = ({
         </figure>
         <Typography variant="h6">
           {/* {title} */}
-          {/* <Link href={}> */}
           {title}
-          {/* </Link> */}
         </Typography>
       </Box>
       <Box className="product_content">
@@ -237,8 +233,6 @@ const RelatedProducts = ({ related_products }: IRelatedProductProps) => {
       setMaxHeight();
     }, 1000);
   }, []);
-
-  console.log(maxProductHeight, "maxProductHeight");
 
   return (
     <RelatedProductsStyled className="cmn_gap">

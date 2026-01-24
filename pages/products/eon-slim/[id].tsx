@@ -1,7 +1,7 @@
 import { prodcutMediaUrl } from "@/api/endpoints";
 import { getSingleProduct } from "@/api/functions/cms.api";
 import CoreToEveryThing from "@/components/CoreToEveryThing/CoreToEveryThing";
-import EonSlimBanner from "@/components/EonSlimBanner/EonSlimBanner";
+import Eon13ProBanner from "@/components/Eon13ProBanner/Eon13ProBanner";
 import PalmSizeSection from "@/components/PalmSizeSection/PalmSizeSection";
 import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
 import TwoIndependentDisplay from "@/components/TwoIndependentDisplay/TwoIndependentDisplay";
@@ -35,15 +35,17 @@ const Index = () => {
         <Loader />
       ) : (
         <>
-          <EonSlimBanner
-            bannerImage={prodcutMediaUrl(
+          <Eon13ProBanner
+            banner_bg={prodcutMediaUrl(
               singleProductData?.banner_background_img as string
             )}
-            productImage={prodcutMediaUrl(
+            product_img={prodcutMediaUrl(
               singleProductData?.product_banner_content as string
             )}
-            bannerText={singleProductData?.product_banner_description}
-            static_img={prodcutMediaUrl(
+            description={
+              singleProductData?.product_banner_description as string
+            }
+            product_title_img={prodcutMediaUrl(
               singleProductData?.product_banner_animation_img as string
             )}
           />
