@@ -72,19 +72,20 @@ const BlogBanner = styled(Box)`
     }
   }
 `;
-const Blogs = styled(Box)``;
+const Blogs = styled(Box)`
+  background-color: #fff;
+`;
 
 const EachBlogComponentStyled = styled(Box)`
   .content {
     margin-top: 20px;
   }
   h6 {
-    font-style: normal;
     font-weight: 400;
     font-size: 25px;
     line-height: 1.3;
     letter-spacing: 0.00585938em;
-    color: #fff;
+    color: #000;
     min-height: 100px;
     a {
       color: inherit;

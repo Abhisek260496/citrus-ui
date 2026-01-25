@@ -41,14 +41,14 @@ const Index = () => {
               singleProductData?.banner_background_img as string
             )}
             product_img={prodcutMediaUrl(
+              singleProductData?.product_banner_animation_img as string
+            )}
+            product_title_img={prodcutMediaUrl(
               singleProductData?.product_banner_content as string
             )}
             description={
               singleProductData?.product_banner_description as string
             }
-            product_title_img={prodcutMediaUrl(
-              singleProductData?.product_banner_animation_img as string
-            )}
           />
           <CoreToEveryThing
             bgImg={prodcutMediaUrl(

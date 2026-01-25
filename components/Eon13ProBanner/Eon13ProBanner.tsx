@@ -23,12 +23,21 @@ const Eon13ProBannerStyled = styled(Box)<{ bg: string }>(({ theme, bg }) => ({
   }
 }));
 
-const ProductImageWrapper = styled("div")({
+const ProductImageWrapper = styled(Box)(({ theme }) => ({
   position: "relative",
-  width: "1100px",
+  maxWidth: "1100px",
   height: "570px",
-  margin: "0 auto"
-});
+  margin: "0 auto",
+  [theme.breakpoints.down("lg")]: {
+    height: "570px"
+  },
+  [theme.breakpoints.down("md")]: {
+    height: "450px"
+  },
+  [theme.breakpoints.down("sm")]: {
+    height: "260px"
+  }
+}));
 
 const FadeImage = styled("div")<{ visible?: boolean }>(({ visible }) => ({
   position: "absolute",
@@ -38,7 +47,11 @@ const FadeImage = styled("div")<{ visible?: boolean }>(({ visible }) => ({
   transform: "translate(-50%,-50%)",
 
   "&.product_img": {
-    zIndex: 2
+    zIndex: 2,
+    height: "300px",
+    img: {
+      height: "100%"
+    }
   },
 
   "&.product_text_img": {
@@ -53,11 +66,11 @@ const FadeImage = styled("div")<{ visible?: boolean }>(({ visible }) => ({
     zIndex: 1,
 
     /* middle → bottom */
-    top: visible ? "auto" : "50%",
+    top: visible ? "auto" : "70%",
     bottom: visible ? "0" : "auto",
 
     opacity: visible ? 1 : 0,
-    transform: visible ? "translateX(-50%)" : "translate(-50%, -50%)",
+    transform: visible ? "translateX(-50%)" : "translate(-50%, -70%)",
 
     transition:
       "top 600ms ease, bottom 600ms ease, opacity 600ms ease, transform 600ms ease"

@@ -55,7 +55,7 @@ const CoreToEveryThing = ({
   bgImg,
   bgText,
   isFullWidth,
-  // subTitle,
+  subTitle,
   isReversed,
   mainTitle,
   ...props
@@ -70,10 +70,13 @@ const CoreToEveryThing = ({
           <Box className="core_content">
             <CommonHeader
               mainTitle={mainTitle || "Core to everything"}
-              // subTitle={` ${subTitle}`}
+              subTitle={` ${subTitle}`}
               isReversed={isReversed}
             />
             <Typography
+              sx={{
+                maxWidth: "930px"
+              }}
               dangerouslySetInnerHTML={{
                 __html:
                   bgText ||
