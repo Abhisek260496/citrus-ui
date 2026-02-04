@@ -50,7 +50,8 @@ export const endpoints = {
     ourStoryPage: "/about",
     getWorks: "/works/12",
     getJobs: "/jobs",
-    blogs: "/blogs"
+    blogs: "/blogs",
+    footerSocial: "/website"
   }
 };
 

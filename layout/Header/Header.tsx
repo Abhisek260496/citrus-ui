@@ -229,7 +229,12 @@ export default function Header() {
           <Toolbar sx={{ p: "0 !important" }}>
             {/* Logo */}
             <Link href="/" className="headerLogo">
-              <Image src={assest.logo} width={133} height={40} alt="logo" />
+              <Image
+                src={assest.citrus_current_logo}
+                width={133}
+                height={40}
+                alt="logo"
+              />
             </Link>
 
             {/* Desktop Menu */}
@@ -303,14 +308,14 @@ export default function Header() {
 
             {/* Right Side Buttons */}
             <Box className="hdr_rgt">
-              <CustomButton
+              {/* <CustomButton
                 variant="contained"
                 color="primary"
                 startIcon={<MailIcon />}
                 className="emilBtn"
               >
                 sales@citrusindia.com
-              </CustomButton>
+              </CustomButton> */}
               <IconButton
                 color="inherit"
                 aria-label="open drawer"

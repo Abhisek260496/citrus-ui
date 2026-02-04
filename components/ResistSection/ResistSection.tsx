@@ -72,6 +72,8 @@ const ResistSection = ({
   section_content,
   section_subtitle_one
 }: ICommonProductSection) => {
+  console.log(section_subtitle_one, "section_subtitle_one");
+
   return (
     <ResistSectionStyled>
       <figure>
@@ -90,7 +92,7 @@ const ResistSection = ({
                 mainTitle={`${String(section_title)} ${String(
                   section_subtitle
                 )}`}
-                subTitle={String(section_subtitle_one)}
+                subTitle={` ${String(section_subtitle_one)}`}
                 className="gradient_header"
                 sx={{
                   fontSize: "68px !important"

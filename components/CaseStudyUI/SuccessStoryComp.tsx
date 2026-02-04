@@ -13,12 +13,12 @@ import Image from "next/image";
 
 function SuccessStoryComp() {
   return (
-    <DigitalSignageCompWrap >
+    <DigitalSignageCompWrap>
       <Box className="digitalSignageBlk successStory">
         <Container fixed>
           <Box className="secHeadWrap">
             <Typography variant="h4" className="digitalSignageHeading">
-              THIN CLIENT SUCCESS STORY <span> for Muthoot Finance</span>
+              THIN CLIENT SUCCESS STORY <span> for The Muthoot Group</span>
             </Typography>
             <Typography variant="body1" className="digitalSignageDescription">
               Muthoot Finance Ltd. is an Indian financial corporation and the
@@ -53,10 +53,10 @@ function SuccessStoryComp() {
               <Grid item xs={12} md={5}>
                 <figure className="digitalRgtSecFig">
                   <Image
-                    src={assest.digitalSignSecRgtImg}
+                    src={assest.case_img3}
                     width={750}
                     height={750}
-                    alt="digitalSignSecRgtImg"
+                    alt="case_img3"
                   />
                 </figure>
               </Grid>

@@ -38,6 +38,7 @@ interface IIsoVerifiedProps {
   block_four_description?: string | null;
   block_four_button_name?: string | null;
   block_four_button_link?: string | null;
+  block_four_image_two?: string | null;
 }
 
 const IsoVerfied = ({ ...props }: IIsoVerifiedProps) => {
@@ -53,12 +54,12 @@ const IsoVerfied = ({ ...props }: IIsoVerifiedProps) => {
       <Container fixed>
         <Box className="iso_verified_content">
           <CommonHeader
-            mainTitle="iso"
-            subTitle="verified"
+            mainTitle="Verified"
+            subTitle="ISO"
             sx={{ marginBottom: "60px" }}
           />
           <Grid container spacing={2}>
-            <Grid item md={6} xs={12}>
+            <Grid item md={4} xs={12}>
               <Image
                 src={ourStoryMediaUrl(String(props?.block_four_image))}
                 alt="iso_img1"
@@ -66,10 +67,18 @@ const IsoVerfied = ({ ...props }: IIsoVerifiedProps) => {
                 height={600}
               />
             </Grid>
-
-            <Grid item md={6} xs={12}>
+            <Grid item md={4} xs={12}>
               <Image
                 src={ourStoryMediaUrl(String(props?.block_four_image_one))}
+                alt="iso_img1"
+                width={424}
+                height={600}
+              />
+            </Grid>
+
+            <Grid item md={4} xs={12}>
+              <Image
+                src={ourStoryMediaUrl(String(props?.block_four_image_two))}
                 alt="iso_img2"
                 width={424}
                 height={600}

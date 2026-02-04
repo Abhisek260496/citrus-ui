@@ -68,7 +68,9 @@ export const WorkWithUsBannerStyle = styled(Box)`
 
 export const JobListSectionWrap = styled(Box)`
   background: #fff;
-
+  .jobCard {
+    cursor: pointer;
+  }
   .jobListSection {
     .jobCard {
       display: flex;

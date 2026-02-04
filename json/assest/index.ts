@@ -163,5 +163,14 @@ export default {
   sales_support: "/assets/images/sales_support.jpg",
   eon_13_testing_product: "/assets/images/eon_13_testing_product.png",
   eon_13_testing_text: "/assets/images/eon_13_testing_text.png",
-  EON13Pro_video: "/assets/videos/EON13Pro_video.mp4"
+  EON13Pro_video: "/assets/videos/EON13Pro_video.mp4",
+  citrus_current_logo: "/assets/images/citrus_current_logo.png",
+  vas1: "/assets/images/vas1.jpg",
+  vas2: "/assets/images/vas2.jpg",
+  vas3: "/assets/images/vas3.jpg",
+  vas4: "/assets/images/vas4.jpg",
+  vas5: "/assets/images/vas5.jpg",
+  microsoft_logo: "/assets/images/microsoft_logo.png",
+  case_img3: "/assets/images/case_img3.png",
+  case_img4: "/assets/images/case_img4.png"
 };

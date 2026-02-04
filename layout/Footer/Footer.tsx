@@ -1,11 +1,14 @@
 import {
   getFooterCompanyLinks,
-  getFooterQuickLinks
+  getFooterQuickLinks,
+  getFooterSocialLinks
 } from "@/api/functions/cms.api";
 import assest from "@/json/assest";
 import palette from "@/themes/palette";
 import CustomButton from "@/ui/Buttons/CustomButton";
 import CallIcon from "@/ui/Icons/CallIcon";
+import LocationIcon from "@/ui/Icons/LocationIcon";
+import MailIcon from "@/ui/Icons/MailIcon";
 import NextArrowIcon from "@/ui/Icons/NextArrow";
 import CustomInput from "@/ui/Inputs/CustomInput";
 import styled from "@emotion/styled";
@@ -33,31 +36,38 @@ const Footer = () => {
     queryFn: () => getFooterCompanyLinks()
   });
 
+  const { data: socialFooterItems, isLoading: socialItemsLoading } = useQuery({
+    queryKey: ["getFooterSocialLinks"],
+    queryFn: () => getFooterSocialLinks()
+  });
+
+  console.log(socialFooterItems, "socialFooterItems");
+
   const socialItems = [
     {
       name: "Facebook",
       img: assest.fb,
-      route: "/"
+      route: `${socialFooterItems?.social_link_one}`
     },
     {
       name: "Instagram",
       img: assest.insta,
-      route: "/"
+      route: `${socialFooterItems?.social_link_two}`
     },
     {
       name: "Twitter",
       img: assest.twiter,
-      route: "/"
+      route: `${socialFooterItems?.social_link_three}`
     },
     {
       name: "Linkedin",
       img: assest.linkedin,
-      route: "/"
+      route: `${socialFooterItems?.social_link_four}`
     },
     {
       name: "Youtube",
       img: assest.youtube,
-      route: "/"
+      route: `${socialFooterItems?.social_link_five}`
     }
   ];
   const router = useRouter();
@@ -123,31 +133,31 @@ const Footer = () => {
                 </i>
                 <Box>
                   <Typography>Call us</Typography>
-                  <Link href="tel:+01 (845) 965 785">+01 (845) 965 785</Link>
-                </Box>
-              </ListItem>
-              <ListItem>
-                <i>
-                  <CallIcon />
-                </i>
-                <Box>
-                  <Typography>Mail us</Typography>
-                  <Link href="mailto:info@citrusindia.com">
-                    info@citrusindia.com
+                  <Link
+                    href={`tel:${socialFooterItems?.phone?.split(" ").at(-1)}`}
+                  >
+                    {socialFooterItems?.phone}
                   </Link>
                 </Box>
               </ListItem>
               <ListItem>
                 <i>
-                  <CallIcon />
+                  <MailIcon />
+                </i>
+                <Box>
+                  <Typography>Mail us</Typography>
+                  <Link href={`mailto:${socialFooterItems?.email}`}>
+                    {socialFooterItems?.email}
+                  </Link>
+                </Box>
+              </ListItem>
+              <ListItem>
+                <i>
+                  <LocationIcon />
                 </i>
                 <Box>
                   <Typography>Reach us</Typography>
-                  <address>
-                    225, A-wing, Lodha Supremus-2, Road Number 22, MIDC, Wagle
-                    Industrial Estate, Thane-West, near New Passport Office,
-                    Mumbai, Maharashtra 400604
-                  </address>
+                  <address>{socialFooterItems?.address}</address>
                 </Box>
               </ListItem>
             </List>
@@ -323,18 +333,22 @@ const Footer = () => {
                 }
               }}
             >
-              {socialItems.map((item: any, index: number) => (
-                <ListItem disablePadding key={index}>
-                  <Link href={item?.route} key={item.name}>
-                    <Image
-                      src={item?.img}
-                      alt={item?.name}
-                      width={40}
-                      height={40}
-                    />
-                  </Link>
-                </ListItem>
-              ))}
+              {!socialItemsLoading ? (
+                <>
+                  {socialItems.map((item: any, index: number) => (
+                    <ListItem disablePadding key={index}>
+                      <Link href={item?.route} key={item.name}>
+                        <Image
+                          src={item?.img}
+                          alt={item?.name}
+                          width={40}
+                          height={40}
+                        />
+                      </Link>
+                    </ListItem>
+                  ))}
+                </>
+              ) : null}
             </List>
           </Box>
         </Stack>

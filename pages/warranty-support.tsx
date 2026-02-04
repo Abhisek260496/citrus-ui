@@ -84,7 +84,7 @@ const Index = () => {
                 />
               </Stack>
               <Typography variant="h1">Warranty Support</Typography>
-              <Typography>Your Next Big Upgrade Starts Here</Typography>
+              <Typography>Confidence built on Support</Typography>
             </Container>
           </Box>
         </Box>
@@ -141,10 +141,10 @@ const Index = () => {
 
                   <Grid2 xs={12}>
                     <Typography variant="body2" mb={1}>
-                      Vendor Name
+                      Mention Your query
                     </Typography>
                     <CustomInput
-                      placeholder="Enter Vendor Name"
+                      placeholder="Mention Your query"
                       isTypeTwo
                       fullWidth
                     />

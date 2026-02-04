@@ -9,7 +9,8 @@ import {
   IProductResponse,
   ISliderResponse,
   ISubMenuReponse,
-  IWorkWithUsResponse
+  IWorkWithUsResponse,
+  WebsiteSettings
 } from "@/interface/apiresp.interfaces";
 import ApiRequest from "../axiosInstance/request";
 import { endpoints } from "../endpoints";
@@ -148,6 +149,17 @@ export const getFooterCompanyLinks = async (): Promise<
   try {
     const res = await ApiRequest.get<IFooterQuickLinksResponse[]>(
       `${endpoints.cms.companyLinks}`
+    );
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getFooterSocialLinks = async (): Promise<WebsiteSettings> => {
+  try {
+    const res = await ApiRequest.get<WebsiteSettings>(
+      `${endpoints.cms.footerSocial}`
     );
     return res;
   } catch (error) {

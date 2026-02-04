@@ -124,10 +124,10 @@ const Index = () => {
 
                     <Grid2 xs={12}>
                       <Typography variant="body2" mb={1}>
-                        Vendor Name
+                        Description
                       </Typography>
                       <CustomInput
-                        placeholder="Enter Vendor Name"
+                        placeholder="Enter Description"
                         isTypeTwo
                         fullWidth
                       />

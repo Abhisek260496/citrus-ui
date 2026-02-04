@@ -33,10 +33,10 @@ function IndustrialComp() {
               <Grid item xs={12} md={5}>
                 <figure className="smartClassroomFigure">
                   <Image
-                    src={assest.smartClassroomImg}
+                    src={assest.case_img4}
                     width={750}
                     height={750}
-                    alt="smartClassroomImg"
+                    alt="case_img4"
                   />
                 </figure>
               </Grid>

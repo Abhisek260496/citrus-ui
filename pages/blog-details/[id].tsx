@@ -1,6 +1,7 @@
 import { blogMediaUrl } from "@/api/endpoints";
 import { getBlog } from "@/api/functions/cms.api";
 import Wrapper from "@/layout/wrapper/Wrapper";
+import Loader from "@/ui/Loader/Loder";
 import { Box, Container, Stack, Typography, styled } from "@mui/material";
 import moment from "moment";
 import Image from "next/image";
@@ -53,51 +54,55 @@ const Index = () => {
 
   return (
     <Wrapper>
-      <BlogDetailsWrapper>
-        <figure>
-          <Image
-            src={blogMediaUrl(blog?.blog_image as string)}
-            alt="blog_image"
-            width={1920}
-            height={600}
-          />
-        </figure>
-        <Box className="blog_content cmn_gap">
-          <Container fixed>
-            <Typography variant="h1">{blog?.blog_title}</Typography>
-            <Box
-              component="div"
-              className="dynamic_content"
-              dangerouslySetInnerHTML={{
-                __html: blog?.blog_description as string
-              }}
+      {blogLoading ? (
+        <Loader />
+      ) : (
+        <BlogDetailsWrapper>
+          <figure>
+            <Image
+              src={blogMediaUrl(blog?.blog_main_image as string)}
+              alt="blog_image"
+              width={1920}
+              height={600}
             />
-          </Container>
-        </Box>
-        <Box className="btm_Stack_wrapper">
-          <Container fixed>
-            <Box className="btm_Stack cmn_gap">
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                alignItems="start"
-              >
-                <Box className="each_stack_block">
-                  <Typography variant="h4">Written By</Typography>
-                  <Typography>Citrus</Typography>
-                </Box>
-                <Box className="each_stack_block">
-                  <Typography variant="h4">Published on</Typography>
-                  <Typography>
-                    {" "}
-                    {moment(blog?.blog_created_at).format("MMM DD, YYYY")}
-                  </Typography>
-                </Box>
-              </Stack>
-            </Box>
-          </Container>
-        </Box>
-      </BlogDetailsWrapper>
+          </figure>
+          <Box className="blog_content cmn_gap">
+            <Container fixed>
+              <Typography variant="h1">{blog?.blog_title}</Typography>
+              <Box
+                component="div"
+                className="dynamic_content"
+                dangerouslySetInnerHTML={{
+                  __html: blog?.blog_description as string
+                }}
+              />
+            </Container>
+          </Box>
+          <Box className="btm_Stack_wrapper">
+            <Container fixed>
+              <Box className="btm_Stack cmn_gap">
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="start"
+                >
+                  <Box className="each_stack_block">
+                    <Typography variant="h4">Written By</Typography>
+                    <Typography>Citrus</Typography>
+                  </Box>
+                  <Box className="each_stack_block">
+                    <Typography variant="h4">Published on</Typography>
+                    <Typography>
+                      {" "}
+                      {moment(blog?.blog_created_at).format("MMM DD, YYYY")}
+                    </Typography>
+                  </Box>
+                </Stack>
+              </Box>
+            </Container>
+          </Box>
+        </BlogDetailsWrapper>
+      )}
     </Wrapper>
   );
 };

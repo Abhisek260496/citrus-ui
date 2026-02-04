@@ -221,8 +221,9 @@ export const successStoryListData = [
 ];
 
 export const industrialListData = [
-  "Citrus was successful in finishing the target of 200 Smart classrooms in 7 days.",
-  "With Micro PCs replacing old CPUs the downtime was brought to almost zero.",
-  "Teachers were showing teaching materials and create presentations with Wi-Fi, a mouse, and a Bluetooth keyboard.",
-  "Teachers could transmit content using micro PCs, students were benefited from better displays."
+  "Citrus Industrial rugged PC was successful in such harsh",
+  "They could implement certain software in those PCs which gave them improved data, control in their existing system.",
+  "Productive work enhancement due to new Technology and better quality outcome of product.",
+  "Better Product gave them better market access. Followed by More Revenue generation for the company.",
+  "Had an advantage of fewer cables, greater security, lower power consumption and backup via a switch which was very important."
 ];

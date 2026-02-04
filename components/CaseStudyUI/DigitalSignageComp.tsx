@@ -10,15 +10,18 @@ import {
   Typography
 } from "@mui/material";
 import Image from "next/image";
+import CommonHeader from "../CommonHeader/CommonHeader";
 
 function DigitalSignageComp() {
   return (
     <DigitalSignageCompWrap>
       <Box className="digitalSignageBlk">
         <Container fixed>
+          <CommonHeader mainTitle="CASE STUDY " sx={{ mb: 4 }} />
           <Box className="secHeadWrap">
             <Typography variant="h4" className="digitalSignageHeading">
-              DIGITAL SIGNAGE SOLUTION <span>FOR ADANI & GMR AIRPORTS</span>
+              FIDS (Flight Information Display System){" "}
+              <span>Digital Signage Solution For Adani & GMR Airports</span>
             </Typography>
             <Typography variant="body1" className="digitalSignageDescription">
               Adani, one of the leading Airport Operators wanted to transform
@@ -29,7 +32,7 @@ function DigitalSignageComp() {
           </Box>
 
           <Box className="objectiveResultWrapper">
-            <Grid container spacing={5} >
+            <Grid container spacing={5}>
               <Grid item xs={12} md={7}>
                 <Typography variant="body1" className="objectiveTitle">
                   Objective

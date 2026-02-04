@@ -124,6 +124,39 @@ export interface IFooterQuickLinksResponse {
   updated_at: string;
 }
 
+export interface WebsiteSettings {
+  id: number;
+  header_logo: string;
+  footer_logo: string;
+  favicon: string;
+  website_title: string;
+  address: string;
+  email: string;
+  phone: string;
+
+  footer_block_one_title: string;
+  footer_block_one_description: string | null;
+
+  footer_block_two_title: string;
+  footer_block_two_description: string | null;
+
+  footer_block_three_title: string;
+  footer_block_three_description: string | null;
+
+  social_link_one: string;
+  social_link_two: string;
+  social_link_three: string;
+  social_link_four: string;
+  social_link_five: string;
+
+  google_analaytic: string | null;
+  schema_code: string | null;
+  tag_code: string | null;
+
+  created_at: string | null;
+  updated_at: string | null;
+}
+
 export interface IOurStoryResponse {
   id?: number;
   title?: string;
@@ -193,6 +226,7 @@ export interface IOurStoryResponse {
   meta_keyword?: string | null;
   created_at?: string | null;
   updated_at?: string | null;
+  block_four_image_two?: string | null;
 }
 
 export interface IWorkWithUsResponse {

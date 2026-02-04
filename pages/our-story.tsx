@@ -16,8 +16,6 @@ const Index = () => {
     }
   );
 
-  console.log(ourStoryContent?.[0], "ourStoryContent");
-
   return (
     <Wrapper>
       {ourStoryContentLoading ? (

@@ -26,7 +26,13 @@ function JobListSection() {
             {!!jobData &&
               jobData?.length &&
               jobData.map((job) => (
-                <Box className="jobCard" key={job.career_id}>
+                <Box
+                  className="jobCard"
+                  key={job.career_id}
+                  onClick={() =>
+                    router.push(`/work-with-us-details/${job?.career_id}`)
+                  }
+                >
                   <Stack
                     direction="row"
                     gap={{ lg: 4, md: 3, sm: 2, xs: 1 }}
@@ -63,13 +69,7 @@ function JobListSection() {
                       </Stack>
                     </Box>
                   </Stack>
-                  <IconButton
-                    className="jobArrow"
-                    disableRipple
-                    onClick={() =>
-                      router.push(`/work-with-us-details/${job?.career_id}`)
-                    }
-                  >
+                  <IconButton className="jobArrow" disableRipple>
                     <ChevronRightIcon />
                   </IconButton>
                 </Box>

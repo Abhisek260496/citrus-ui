@@ -71,9 +71,26 @@ const GbLanSecStyled = styled(Box)`
   }
   .lan_fig {
     position: absolute;
-    left: 50%;
-    top: 50%;
+    left: 40%;
+    top: 55%;
     transform: translate(-50%, -50%);
+    img {
+      position: relative;
+      z-index: 2;
+    }
+    &::after {
+      content: "";
+      width: 500px;
+      height: 500px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: #009fe3;
+      border-radius: 100%;
+      filter: blur(110px);
+      z-index: 1;
+    }
   }
 `;
 

@@ -117,7 +117,7 @@ const Index = () => {
                 className="galleryFigureLarge"
               >
                 <Image
-                  src={assest?.vatsalay_img1}
+                  src={assest?.vas1}
                   alt="vatsalay_img1"
                   width={650}
                   height={600}
@@ -147,7 +147,7 @@ const Index = () => {
                     className="galleryFigureSmall"
                   >
                     <Image
-                      src={assest?.vatsalay_img2}
+                      src={assest?.vas2}
                       alt="vatsalay_img2"
                       width={650}
                       height={300}
@@ -162,7 +162,7 @@ const Index = () => {
                     className="galleryFigureSmall"
                   >
                     <Image
-                      src={assest?.vatsalay_img3}
+                      src={assest?.vas3}
                       alt="vatsalay_img3"
                       width={650}
                       height={300}
@@ -179,7 +179,7 @@ const Index = () => {
                   className="galleryFigureLarge"
                 >
                   <Image
-                    src={assest?.vatsalay_img4}
+                    src={assest?.vas4}
                     alt="vatsalay_img4"
                     width={650}
                     height={600}
@@ -200,7 +200,7 @@ const Index = () => {
                 className="galleryFigureLarge"
               >
                 <Image
-                  src={assest?.vatsalay_img5}
+                  src={assest?.vas5}
                   alt="vatsalay_img5"
                   width={650}
                   height={600}
