@@ -48,9 +48,9 @@ export const CommonStyledSection = styled(Box)`
     }
   }
   .list_block {
-    padding-left: 70px;
-
-    @media (max-width: 1199px) {
+    /* padding-left: 70px; */
+    color: #231f20;
+    /* @media (max-width: 1199px) {
       padding-left: 50px;
     }
     @media (max-width: 899px) {
@@ -58,7 +58,7 @@ export const CommonStyledSection = styled(Box)`
     }
     @media (max-width: 599px) {
       padding-left: 20px;
-    }
+    } */
     li {
       color: #231f20;
       display: flex;

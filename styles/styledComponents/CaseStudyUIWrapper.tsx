@@ -25,12 +25,20 @@ export const CaseStudyUIWrapper = styled(Box)`
   }
 `;
 
-export const DigitalSignageCompWrap = styled(Box)`
-  .digitalSignageBlk {
-    background: url(${assest.digitalSignBg}) center no-repeat;
-    background-size: cover;
-    width: 100%;
-    padding: 120px 0 60px;
+export const DigitalSignageCompWrap = styled(Box)<{
+  casestudy_block_bg_img: string;
+}>`
+   background-image: ${({ casestudy_block_bg_img }) =>
+     casestudy_block_bg_img
+       ? `url(${casestudy_block_bg_img})`
+       : `url(${assest.digitalSignBg})`};
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  width: 100%;
+  padding: 120px 0 60px;
 
     &.successStory {
       background: url(${assest.successStoryBg}) center no-repeat !important;
@@ -88,16 +96,21 @@ export const DigitalSignageCompWrap = styled(Box)`
     }
 
     .resultList {
-      list-style: disc;
-      padding-left: 20px;
-      margin-top: 15px;
-      li {
-        display: list-item;
-        padding: 0;
+      ul {
         list-style: disc;
-        font-size: 20px;
-        &:not(:last-child) {
-          margin-bottom: 10px;
+        padding-left: 20px;
+        margin-top: 15px;
+        li {
+          display: list-item;
+          padding: 0;
+          list-style: disc;
+
+          span {
+            font-size: 20px !important;
+          }
+          &:not(:last-child) {
+            margin-bottom: 10px;
+          }
         }
       }
     }

@@ -6,7 +6,6 @@ import {
 import assest from "@/json/assest";
 import palette from "@/themes/palette";
 import CustomButton from "@/ui/Buttons/CustomButton";
-import CallIcon from "@/ui/Icons/CallIcon";
 import LocationIcon from "@/ui/Icons/LocationIcon";
 import MailIcon from "@/ui/Icons/MailIcon";
 import NextArrowIcon from "@/ui/Icons/NextArrow";
@@ -40,8 +39,6 @@ const Footer = () => {
     queryKey: ["getFooterSocialLinks"],
     queryFn: () => getFooterSocialLinks()
   });
-
-  console.log(socialFooterItems, "socialFooterItems");
 
   const socialItems = [
     {
@@ -127,7 +124,7 @@ const Footer = () => {
                 }
               }}
             >
-              <ListItem>
+              {/* <ListItem>
                 <i>
                   <CallIcon />
                 </i>
@@ -139,7 +136,7 @@ const Footer = () => {
                     {socialFooterItems?.phone}
                   </Link>
                 </Box>
-              </ListItem>
+              </ListItem> */}
               <ListItem>
                 <i>
                   <MailIcon />

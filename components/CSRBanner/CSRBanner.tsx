@@ -1,4 +1,5 @@
-import assest from "@/json/assest";
+import { ourStoryMediaUrl } from "@/api/endpoints";
+import palette from "@/themes/palette";
 import { Box, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 
@@ -65,7 +66,7 @@ const CSRBannerWrapper = styled(Box)`
         margin-bottom: 10px;
       }
       span {
-        color: #f57e22;
+        color: ${palette.text.primary};
       }
     }
     p {
@@ -79,13 +80,19 @@ const CSRBannerWrapper = styled(Box)`
     }
   }
 `;
+interface ICSRBanner {
+  banner_title?: string;
+  banner_sub_title?: string;
+  banner_content?: string;
+  banner_bg_img?: string;
+}
 
-const CSRBanner = () => {
+const CSRBanner = ({ ...props }: ICSRBanner) => {
   return (
     <CSRBannerWrapper>
       <figure className="banner_bg">
         <Image
-          src={assest?.csr_banner}
+          src={ourStoryMediaUrl(props?.banner_bg_img as string)}
           alt="csr_banner"
           width={1600}
           height={900}
@@ -94,10 +101,10 @@ const CSRBanner = () => {
       <Box className="banner_wrapper">
         <Container fixed>
           <Typography variant="h1">
-            <Typography variant="caption">Citrus</Typography> Social
-            Responsibility
+            <Typography variant="caption">{props?.banner_title}</Typography>{" "}
+            {props?.banner_sub_title}
           </Typography>
-          <Typography>Spreading Light, Sharing Warmth</Typography>
+          <Typography>{props?.banner_content}</Typography>
         </Container>
       </Box>
     </CSRBannerWrapper>

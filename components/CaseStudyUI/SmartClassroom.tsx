@@ -1,31 +1,22 @@
-import assest from "@/json/assest";
+import { caseStudyMediaUrl } from "@/api/endpoints";
+import { CaseStudyData } from "@/interface/apiresp.interfaces";
 import { SmartClassroomWrap } from "@/styles/styledComponents/CaseStudyUIWrapper";
-import {
-  Box,
-  Container,
-  Grid,
-  List,
-  ListItem,
-  Typography
-} from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 
-function SmartClassroom() {
+interface DigitalSignageCompProps {
+  data?: CaseStudyData;
+}
+function SmartClassroom({ data }: DigitalSignageCompProps) {
   return (
     <SmartClassroomWrap>
       <Box className="smartClassroomSection">
         <Container fixed>
           <Typography variant="h4" className="smartClassroomHeading">
-            SMART CLASSROOMS FOR KDMC{" "}
-            <span>(Kalyan Dombivli Municipal Corporation)</span>
+            {data?.casestudy_title} <span>{data?.casestudy_sub_title}</span>
           </Typography>
-
           <Typography variant="body1" className="smartClassroomDescription">
-            The Kalyan-Dombivli Municipal Corporation governs the city of
-            Kalyan-Dombivli in the Thane district in the Indian state of
-            Maharashtra. In addition to the city’s infrastructure, public
-            services, and transportation, the municipal corporation oversees the
-            local municipal schools.
+            {data?.casestudy_description}
           </Typography>
 
           <Box className="smartClassroomContent">
@@ -33,7 +24,7 @@ function SmartClassroom() {
               <Grid item xs={12} md={5}>
                 <figure className="smartClassroomFigure">
                   <Image
-                    src={assest.smartClassroomImg}
+                    src={caseStudyMediaUrl(data?.casestudy_image as string)}
                     width={750}
                     height={750}
                     alt="smartClassroomImg"
@@ -43,35 +34,21 @@ function SmartClassroom() {
 
               <Grid item xs={12} md={7}>
                 <Typography variant="h6" className="objectiveTitle">
-                  Objective
+                  {data?.casestudy_block_title}
                 </Typography>
                 <Typography variant="body1" className="objectiveDescription">
-                  They wanted to replace old & outdated existing computers with
-                  new systems. Also the entire action plan was to digitize 200
-                  classrooms within 7 days.
+                  {data?.casestudy_block_description}
                 </Typography>
-
-                <Typography variant="h6" className="resultTitle">
-                  Result
+                <Typography variant="h6" className="objectiveTitle">
+                  {data?.casestudy_block_one_title}
                 </Typography>
-                <List className="resultList">
-                  <ListItem>
-                    Citrus was successful in finishing the target of 200 Smart
-                    classrooms in 7 days.
-                  </ListItem>
-                  <ListItem>
-                    With Micro PCs replacing old CPUs the downtime was brought
-                    to almost zero.
-                  </ListItem>
-                  <ListItem>
-                    Teachers were showing teaching materials and create
-                    presentations with Wi-Fi, a mouse, and a Bluetooth keyboard.
-                  </ListItem>
-                  <ListItem>
-                    Teachers could transmit content using micro PCs, students
-                    were benefited from better displays.
-                  </ListItem>
-                </List>
+                <Box
+                  className="resultList"
+                  component="div"
+                  dangerouslySetInnerHTML={{
+                    __html: data?.casestudy_block_one_description as string
+                  }}
+                />
               </Grid>
             </Grid>
           </Box>

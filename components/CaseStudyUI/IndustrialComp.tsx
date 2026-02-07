@@ -1,31 +1,22 @@
-import assest from "@/json/assest";
-import { industrialListData } from "@/json/dummy";
+import { caseStudyMediaUrl } from "@/api/endpoints";
+import { CaseStudyData } from "@/interface/apiresp.interfaces";
 import { SmartClassroomWrap } from "@/styles/styledComponents/CaseStudyUIWrapper";
-import {
-  Box,
-  Container,
-  Grid,
-  List,
-  ListItem,
-  Typography
-} from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 
-function IndustrialComp() {
+interface DigitalSignageCompProps {
+  data?: CaseStudyData;
+}
+function IndustrialComp({ data }: DigitalSignageCompProps) {
   return (
     <SmartClassroomWrap>
       <Box className="smartClassroomSection">
         <Container fixed>
           <Typography variant="h4" className="smartClassroomHeading">
-            INDUSTRIAL PC SETUP <span>For Excel Industries</span>
+            {data?.casestudy_title} <span>{data?.casestudy_sub_title}</span>
           </Typography>
-
           <Typography variant="body1" className="smartClassroomDescription">
-            Excel Industries Limited, one of the leading domestic chemical
-            manufacturers. Roha their factory site near Mumbai, known for the
-            production of highest quantities of phosphorus sulphate based
-            products in India. A highly corrosive industrial setup, all major
-            brands had failed in their existing setup.
+            {data?.casestudy_description}
           </Typography>
 
           <Box className="smartClassroomContent">
@@ -33,34 +24,31 @@ function IndustrialComp() {
               <Grid item xs={12} md={5}>
                 <figure className="smartClassroomFigure">
                   <Image
-                    src={assest.case_img4}
+                    src={caseStudyMediaUrl(data?.casestudy_image as string)}
                     width={750}
                     height={750}
-                    alt="case_img4"
+                    alt="smartClassroomImg"
                   />
                 </figure>
               </Grid>
 
               <Grid item xs={12} md={7}>
                 <Typography variant="h6" className="objectiveTitle">
-                  Objective
+                  {data?.casestudy_block_title}
                 </Typography>
                 <Typography variant="body1" className="objectiveDescription">
-                  The client wanted to implement computers in their industrial
-                  setup in certain areas especially in emission gas control
-                  systems. All previous exercise to put a computing systems had
-                  failed. He wanted som thing that could work in those harsh
-                  environment.
+                  {data?.casestudy_block_description}
                 </Typography>
-
-                <Typography variant="h6" className="resultTitle">
-                  Result
+                <Typography variant="h6" className="objectiveTitle">
+                  {data?.casestudy_block_one_title}
                 </Typography>
-                <List className="resultList" disablePadding>
-                  {industrialListData.map((item, index) => (
-                    <ListItem key={index}>{item}</ListItem>
-                  ))}
-                </List>
+                <Box
+                  className="resultList"
+                  component="div"
+                  dangerouslySetInnerHTML={{
+                    __html: data?.casestudy_block_one_description as string
+                  }}
+                />
               </Grid>
             </Grid>
           </Box>

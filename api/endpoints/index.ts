@@ -25,6 +25,13 @@ export const ourStoryMediaUrl = (url: string) => {
 export const blogMediaUrl = (url: string) => {
   return `${baseUrlMedia}/blog/${url}`;
 };
+export const cmsMediaUrl = (url: string) => {
+  return `${baseUrlMedia}/blog/${url}`;
+};
+
+export const caseStudyMediaUrl = (url: string) => {
+  return `${baseUrlMedia}/casestudy/${url}`;
+};
 
 export const endpoints = {
   auth: {
@@ -51,7 +58,10 @@ export const endpoints = {
     getWorks: "/works/12",
     getJobs: "/jobs",
     blogs: "/blogs",
-    footerSocial: "/website"
+    footerSocial: "/website",
+    csr: "/csr-page",
+    eWaste: "/ewaste-page",
+    caseStudy: "/casestudy-page"
   }
 };
 

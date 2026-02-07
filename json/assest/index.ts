@@ -172,5 +172,6 @@ export default {
   vas5: "/assets/images/vas5.jpg",
   microsoft_logo: "/assets/images/microsoft_logo.png",
   case_img3: "/assets/images/case_img3.png",
-  case_img4: "/assets/images/case_img4.png"
+  case_img4: "/assets/images/case_img4.png",
+  case_study_banner: "/assets/images/case_study_banner.jpg"
 };

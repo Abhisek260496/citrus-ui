@@ -1,4 +1,7 @@
 import {
+  CaseStudyData,
+  CsrPageData,
+  EwastePageData,
   I360ProductResponse,
   IBlogResponse,
   ICareerResponse,
@@ -224,6 +227,35 @@ export const getBlog = async (id: string): Promise<IBlogResponse> => {
   try {
     const res = await ApiRequest.get<IBlogResponse>(
       `${endpoints.cms.blogs}/${id}`
+    );
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getCSR = async (): Promise<CsrPageData> => {
+  try {
+    const res = await ApiRequest.get<CsrPageData>(`${endpoints.cms.csr}`);
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getEWaste = async (): Promise<EwastePageData> => {
+  try {
+    const res = await ApiRequest.get<EwastePageData>(`${endpoints.cms.eWaste}`);
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getCaseStudy = async (): Promise<CaseStudyData[]> => {
+  try {
+    const res = await ApiRequest.get<CaseStudyData[]>(
+      `${endpoints.cms.caseStudy}`
     );
     return res;
   } catch (error) {

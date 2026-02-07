@@ -340,3 +340,133 @@ export interface IBlogResponse {
   blog_created_at: string;
   blog_updated_at: string;
 }
+
+export interface CsrPageData {
+  id: number;
+
+  banner_title: string;
+  banner_sub_title: string;
+  banner_content: string;
+  banner_bg_img: string;
+
+  csr_description_one: string;
+  csr_description_two: string;
+
+  block_one_img_one: string;
+  block_one_img_two: string;
+
+  block_two_title: string;
+  block_two_description: string;
+
+  block_two_sub_img_one: string;
+  block_two_sub_img_two: string;
+  block_two_sub_img_three: string;
+  block_two_sub_img_four: string;
+  block_two_sub_img_five: string;
+
+  block_three_title: string;
+  block_three_description: string;
+
+  meta_title: string;
+  meta_description: string | null;
+  meta_keyword: string | null;
+
+  created_at: string | null;
+  updated_at: string | null;
+}
+
+export interface EwastePageData {
+  id: number;
+
+  banner_title: string;
+  banner_bg_img: string;
+
+  block_one_title: string;
+  block_one_description: string;
+
+  block_two_title: string;
+  block_two_description: string;
+  block_two_background_img: string;
+  block_two_sub_title: string;
+  block_two_sub_desc_one: string;
+  block_two_sub_desc_two: string;
+  block_two_sub_desc_three: string;
+  block_two_sub_desc_four: string;
+
+  block_three_title: string;
+
+  block_three_sub_title_one: string;
+  block_three_desc_one: string;
+  block_three_desc_two: string;
+
+  block_three_sub_title_two: string;
+  block_three_desc_three: string;
+
+  block_three_sub_title_three: string;
+  block_three_desc_four: string;
+
+  block_three_sub_title_four: string;
+  block_three_desc_five: string;
+
+  block_three_sub_title_five: string;
+  block_three_desc_six: string;
+
+  block_four_title: string;
+  block_four_img_one: string;
+  block_four_img_two: string;
+
+  block_five_title: string;
+  block_five_desc_one: string;
+  block_five_desc_two: string;
+
+  block_five_sub_title_one: string;
+  block_five_sub_desc_one: string;
+
+  block_five_sub_title_two: string;
+  block_five_sub_desc_two: string;
+
+  block_five_sub_title_three: string;
+  block_five_sub_desc_three: string;
+
+  block_six_title: string;
+
+  block_six_sub_title_one: string;
+  block_six_desc_one: string;
+
+  block_six_sub_title_two: string;
+  block_six_desc_two: string;
+
+  meta_title: string;
+  meta_description: string | null;
+  meta_keyword: string | null;
+
+  created_at: string | null;
+  updated_at: string | null;
+}
+
+export interface CaseStudyData {
+  casestudy_id: number;
+
+  casestudy_title: string;
+  casestudy_sub_title: string;
+  casestudy_description: string;
+
+  casestudy_block_title: string;
+  casestudy_block_bg_img: string;
+  casestudy_block_description: string;
+
+  casestudy_block_one_title: string;
+  casestudy_block_one_description: string;
+
+  casestudy_image: string;
+  banner_image: string | null;
+
+  meta_title: string;
+  meta_description: string | null;
+  meta_keywords: string | null;
+
+  casestudy_is_active: boolean | null;
+
+  casestudy_created_at: string;
+  casestudy_updated_at: string;
+}

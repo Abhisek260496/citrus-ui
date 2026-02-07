@@ -1,33 +1,29 @@
-import assest from "@/json/assest";
-import { resultListData } from "@/json/dummy";
+import { caseStudyMediaUrl } from "@/api/endpoints";
+import { CaseStudyData } from "@/interface/apiresp.interfaces";
 import { DigitalSignageCompWrap } from "@/styles/styledComponents/CaseStudyUIWrapper";
-import {
-  Box,
-  Container,
-  Grid,
-  List,
-  ListItem,
-  Typography
-} from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 import Image from "next/image";
-import CommonHeader from "../CommonHeader/CommonHeader";
 
-function DigitalSignageComp() {
+interface DigitalSignageCompProps {
+  data?: CaseStudyData;
+}
+
+function DigitalSignageComp({ data }: DigitalSignageCompProps) {
   return (
-    <DigitalSignageCompWrap>
+    <DigitalSignageCompWrap
+      casestudy_block_bg_img={caseStudyMediaUrl(
+        data?.casestudy_block_bg_img as string
+      )}
+    >
       <Box className="digitalSignageBlk">
         <Container fixed>
-          <CommonHeader mainTitle="CASE STUDY " sx={{ mb: 4 }} />
+          {/* <CommonHeader mainTitle="CASE STUDY " sx={{ mb: 4 }} /> */}
           <Box className="secHeadWrap">
             <Typography variant="h4" className="digitalSignageHeading">
-              FIDS (Flight Information Display System){" "}
-              <span>Digital Signage Solution For Adani & GMR Airports</span>
+              {data?.casestudy_title} <span>{data?.casestudy_sub_title}</span>
             </Typography>
             <Typography variant="body1" className="digitalSignageDescription">
-              Adani, one of the leading Airport Operators wanted to transform
-              all existing airports in the country. They were in an expansion
-              mode they were looking for computing partners with good track
-              record for FIDS (Flight-Information Digital signage).
+              {data?.casestudy_description}
             </Typography>
           </Box>
 
@@ -35,28 +31,26 @@ function DigitalSignageComp() {
             <Grid container spacing={5}>
               <Grid item xs={12} md={7}>
                 <Typography variant="body1" className="objectiveTitle">
-                  Objective
+                  {data?.casestudy_block_title}
                 </Typography>
                 <Typography variant="body1" className="objectiveDescription">
-                  To move from existing US based leading setup which was not
-                  reliable and were exiting their business operations in the
-                  country. They were looking for OEM who can work along with
-                  their existing SI. Citrus was chosen among all available
-                  options nationally, among top Brands.
+                  {data?.casestudy_block_description}
                 </Typography>
                 <Typography variant="body1" className="objectiveTitle">
-                  Result
+                  {data?.casestudy_block_one_title}
                 </Typography>
-                <List disablePadding className="resultList">
-                  {resultListData.map((data, index) => (
-                    <ListItem key={index}>{data}</ListItem>
-                  ))}
-                </List>
+                <Box
+                  className="resultList"
+                  component="div"
+                  dangerouslySetInnerHTML={{
+                    __html: data?.casestudy_block_one_description as string
+                  }}
+                />
               </Grid>
               <Grid item xs={12} md={5}>
                 <figure className="digitalRgtSecFig">
                   <Image
-                    src={assest.digitalSignSecRgtImg}
+                    src={caseStudyMediaUrl(data?.casestudy_image as string)}
                     width={750}
                     height={750}
                     alt="digitalSignSecRgtImg"
