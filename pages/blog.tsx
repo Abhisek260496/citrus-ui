@@ -1,7 +1,6 @@
-import { blogMediaUrl } from "@/api/endpoints";
-import { getBlogs } from "@/api/functions/cms.api";
+import { blogMediaUrl, commonMediaUrl } from "@/api/endpoints";
+import { getBlogBanner, getBlogs } from "@/api/functions/cms.api";
 import { IBlogResponse } from "@/interface/apiresp.interfaces";
-import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import palette from "@/themes/palette";
 import Loader from "@/ui/Loader/Loder";
@@ -126,16 +125,23 @@ export default function Home() {
     queryFn: () => getBlogs()
   });
 
+  const { data: blogBanner, isLoading: blogBannerLoading } = useQuery({
+    queryKey: ["getBlogBanner"],
+    queryFn: () => getBlogBanner()
+  });
+
+  console.log(commonMediaUrl(blogBanner?.banner_image as string), "blogBanner");
+
   return (
     <Wrapper>
-      {blogLoading ? (
+      {blogLoading || blogBannerLoading ? (
         <Loader />
       ) : (
         <>
           <BlogBanner>
             <figure>
               <Image
-                src={assest?.blog_banner}
+                src={commonMediaUrl(blogBanner?.banner_image as string)}
                 alt="blog_banner"
                 width={1920}
                 height={800}
@@ -144,13 +150,12 @@ export default function Home() {
             <Box className="banner_content">
               <Container fixed>
                 <Box className="banner_wrapper">
-                  <Typography variant="h1">
-                    How OPS Is Quietly Reshaping the Way India Teaches and
-                    Learns
-                  </Typography>
+                  <Typography variant="h1">{blogBanner?.title}</Typography>
                   <Image
                     className="tag_img"
-                    src={assest?.blog_tag}
+                    src={commonMediaUrl(
+                      blogBanner?.banner_bottom_image as string
+                    )}
                     alt="blog_tag"
                     width={330}
                     height={120}

@@ -1,7 +1,7 @@
-import assest from "@/json/assest";
 import { CaseStudyUIWrapper } from "@/styles/styledComponents/CaseStudyUIWrapper";
 
-import { getCaseStudy } from "@/api/functions/cms.api";
+import { commonMediaUrl } from "@/api/endpoints";
+import { getCaseStudy, getCaseStudyBanner } from "@/api/functions/cms.api";
 import Loader from "@/ui/Loader/Loder";
 import Image from "next/image";
 import { useQuery } from "react-query";
@@ -16,12 +16,18 @@ function CaseStudyUI() {
     queryFn: () => getCaseStudy()
   });
 
+  const { data: caseStudyBannerData, isLoading: caseStudyBannerLoading } =
+    useQuery({
+      queryKey: ["getCaseStudyBanner"],
+      queryFn: () => getCaseStudyBanner()
+    });
+
   return (
     <CaseStudyUIWrapper>
-      {csrLoading && <Loader />}
+      {csrLoading || (caseStudyBannerLoading && <Loader />)}
       <figure className="caseStudyBnrImg">
         <Image
-          src={assest.case_study_banner}
+          src={commonMediaUrl(caseStudyBannerData?.banner_image as string)}
           width={2055}
           height={1150}
           alt="case_study_banner"

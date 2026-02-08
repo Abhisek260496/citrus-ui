@@ -470,3 +470,12 @@ export interface CaseStudyData {
   casestudy_created_at: string;
   casestudy_updated_at: string;
 }
+
+export interface IBlogMeta {
+  title: string;
+  banner_image: string;
+  banner_bottom_image: string;
+  meta_title: string;
+  meta_description: string;
+  meta_keyword: string | null;
+}

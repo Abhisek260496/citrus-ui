@@ -3,6 +3,7 @@ import {
   CsrPageData,
   EwastePageData,
   I360ProductResponse,
+  IBlogMeta,
   IBlogResponse,
   ICareerResponse,
   IClientResponse,
@@ -257,6 +258,24 @@ export const getCaseStudy = async (): Promise<CaseStudyData[]> => {
     const res = await ApiRequest.get<CaseStudyData[]>(
       `${endpoints.cms.caseStudy}`
     );
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getBlogBanner = async (): Promise<IBlogMeta> => {
+  try {
+    const res = await ApiRequest.get<IBlogMeta>(`${endpoints.cms.blogBanner}`);
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getCaseStudyBanner = async (): Promise<any> => {
+  try {
+    const res = await ApiRequest.get<any>(`${endpoints.cms.caseStudyBanner}`);
     return res;
   } catch (error) {
     throw error;

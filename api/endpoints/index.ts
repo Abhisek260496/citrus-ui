@@ -1,6 +1,7 @@
 export const baseUrl = process.env.NEXT_APP_BASE_URL;
 export const baseUrlApi = `${process.env.NEXT_APP_BASE_URL}/api/`;
 export const baseUrlMedia = `${process.env.NEXT_APP_BASE_URL}/uploads`;
+export const baseCommonUrlMedia = `${process.env.NEXT_APP_BASE_URL}/img`;
 
 // api doc => https://militarymoves-admin.dedicateddevelopers.us/apidoc
 
@@ -32,6 +33,9 @@ export const cmsMediaUrl = (url: string) => {
 export const caseStudyMediaUrl = (url: string) => {
   return `${baseUrlMedia}/casestudy/${url}`;
 };
+export const commonMediaUrl = (url: string) => {
+  return `${baseCommonUrlMedia}/page/${url}`;
+};
 
 export const endpoints = {
   auth: {
@@ -61,7 +65,9 @@ export const endpoints = {
     footerSocial: "/website",
     csr: "/csr-page",
     eWaste: "/ewaste-page",
-    caseStudy: "/casestudy-page"
+    caseStudy: "/casestudy-page",
+    blogBanner: "/blog-banner-data/14",
+    caseStudyBanner: "/case-study-banner-data/15"
   }
 };
 
