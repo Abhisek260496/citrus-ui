@@ -18,7 +18,7 @@ interface responsiveFontSizesProps {
 
 export function responsiveFontSizes({ sm, md, lg }: responsiveFontSizesProps) {
   return {
-    "@media (min-width:320px)": {
+    "@media (min-width:280px)": {
       fontSize: `${sm}px`
     },
     "@media (min-width:900px)": {
@@ -93,13 +93,19 @@ const Typography = (fontFamily: string): TypographyOptions => ({
     fontSize: 18,
     fontFamily: "karla",
     fontWeight: 400,
-    color: palette.common.white
+    color: palette.common.white,
+    "@media (max-width:399px)": {
+      fontSize: "14px"
+    }
   },
   body2: {
     lineHeight: 22 / 14,
     fontSize: 14,
     fontFamily: "karla",
-    color: palette.common.white
+    color: palette.common.white,
+    "@media (max-width:399px)": {
+      fontSize: "14px"
+    }
   },
   caption: {
     lineHeight: "inherit",

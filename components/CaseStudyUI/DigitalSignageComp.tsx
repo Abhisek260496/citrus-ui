@@ -9,6 +9,8 @@ interface DigitalSignageCompProps {
 }
 
 function DigitalSignageComp({ data }: DigitalSignageCompProps) {
+  console.log(data, "datadata");
+
   return (
     <DigitalSignageCompWrap
       casestudy_block_bg_img={caseStudyMediaUrl(

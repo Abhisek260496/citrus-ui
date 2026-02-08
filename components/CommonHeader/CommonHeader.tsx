@@ -12,7 +12,7 @@ const CustomHeadingStyle = styled(Typography)<{ isBgWhite?: boolean }>`
       font-size: 38px;
     }
     @media (max-width: 599px) {
-      font-size: 22px;
+      font-size: 18px;
     }
   }
   span {

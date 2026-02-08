@@ -60,13 +60,27 @@ const Clients = () => {
             options={{
               type: "loop",
               drag: "free",
-              gap: "1rem",
-              perPage: 5,
+              perPage: 8,
+              gap: "3rem",
               autoScroll: { speed: 2 },
               arrows: false,
               pagination: false,
               pauseOnHover: false,
-              pauseOnFocus: false
+              pauseOnFocus: false,
+              breakpoints: {
+                1199: {
+                  perPage: 6,
+                  gap: "2.5rem"
+                },
+                899: {
+                  perPage: 4,
+                  gap: "2rem"
+                },
+                599: {
+                  perPage: 3,
+                  gap: "1rem"
+                }
+              }
             }}
             extensions={{ AutoScroll }}
           >
@@ -85,25 +99,27 @@ const Clients = () => {
             options={{
               type: "loop",
               drag: "free",
-              gap: "1rem",
-              perPage: 5,
+              perPage: 8,
+              gap: "3rem",
               autoScroll: { speed: 2 },
               arrows: false,
               pagination: false,
               pauseOnHover: false,
-              pauseOnFocus: false
-              // breakpoints: {
-              //   1199: {
-              //     perPage: 3
-              //   },
-              //   899: {
-              //     perPage: 2
-              //   },
-              //   599: {
-              //     perPage: 1,
-              //     gap: "0.75rem"
-              //   }
-              // }
+              pauseOnFocus: false,
+              breakpoints: {
+                1199: {
+                  perPage: 6,
+                  gap: "2.5rem"
+                },
+                899: {
+                  perPage: 4,
+                  gap: "2rem"
+                },
+                599: {
+                  perPage: 3,
+                  gap: "1rem"
+                }
+              }
             }}
             extensions={{ AutoScroll }}
           >

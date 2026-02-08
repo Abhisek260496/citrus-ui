@@ -479,3 +479,11 @@ export interface IBlogMeta {
   meta_description: string;
   meta_keyword: string | null;
 }
+
+export interface ICertificateResponse {
+  certificate_id: number;
+  certificate_name: string;
+  certificate_image: string;
+  created_at: string;
+  updated_at: string;
+}

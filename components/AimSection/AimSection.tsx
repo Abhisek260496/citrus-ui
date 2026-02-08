@@ -13,6 +13,9 @@ import { useRef } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 const AimSectionStyled = styled(Box)`
+  @media (max-width: 899px) {
+    padding: 50px 0;
+  }
   position: relative;
   overflow: hidden;
   .fade-up {
@@ -32,6 +35,9 @@ const AimSectionStyled = styled(Box)`
     filter: blur(200px);
     z-index: 1;
     pointer-events: none;
+    /* @media (max-width: 899px) {
+      display: none;
+    } */
   }
   &::before {
     content: "";
@@ -44,6 +50,9 @@ const AimSectionStyled = styled(Box)`
     filter: blur(200px);
     z-index: 1;
     pointer-events: none;
+    @media (max-width: 899px) {
+      display: none;
+    }
   }
   figure {
     width: 100%;
@@ -65,6 +74,9 @@ const AimSectionStyled = styled(Box)`
       p {
         margin-top: 25px;
       }
+      @media (max-width: 899px) {
+        width: auto;
+      }
     }
   }
 `;
@@ -83,59 +95,64 @@ const AimSection = ({ ...props }: IAimSectionProps) => {
   useGSAP(() => {
     if (!sectionRef.current) return;
 
+    const mm = gsap.matchMedia();
 
-    gsap.fromTo(
-      sectionRef.current.querySelectorAll(".fade-up"),
-      { opacity: 0, y: 100 },
-      {
-        opacity: 1,
-        y: -100,
-        ease: "power2.out",
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 50%",
-          end: "bottom 50%",
-          scrub: 1.5
+    mm.add("(min-width: 900px)", () => {
+      gsap.fromTo(
+        sectionRef.current!.querySelectorAll(".fade-up"),
+        { opacity: 0, y: 100 },
+        {
+          opacity: 1,
+          y: -100,
+          ease: "power2.out",
+          stagger: 0.2,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 50%",
+            end: "bottom 50%",
+            scrub: 1.5
+          }
         }
-      }
-    );
-    gsap.fromTo(
-      sectionRef.current.querySelectorAll(".fade-up"),
-      { color: "#7ce3fe" },
-      {
-        color: "#ffffff",
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 10%",
-          end: "top 20%",
-          scrub: 2
-        }
-      }
-    );
+      );
 
-
-    gsap.fromTo(
-      sectionRef.current.querySelector(".transition_img"),
-      {
-        y: 300,
-        opacity: 0,
-        scale: 1.05
-      },
-      {
-        y: 0,
-        opacity: 1,
-        scale: 1,
-        duration: 2.2,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 20%",
-          toggleActions: "play none none reverse"
+      gsap.fromTo(
+        sectionRef.current!.querySelectorAll(".fade-up"),
+        { color: "#7ce3fe" },
+        {
+          color: "#ffffff",
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 10%",
+            end: "top 20%",
+            scrub: 2
+          }
         }
-      }
-    );
+      );
+
+      gsap.fromTo(
+        sectionRef.current!.querySelector(".transition_img"),
+        {
+          y: 300,
+          opacity: 0,
+          scale: 1.05
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 2.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 20%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+
+    return () => mm.revert();
   }, []);
 
   return (

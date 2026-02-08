@@ -1,7 +1,10 @@
-import { ourStoryMediaUrl } from "@/api/endpoints";
+/* eslint-disable react/jsx-no-useless-fragment */
+import { certificatesMediaUrl } from "@/api/endpoints";
+import { getCertificates } from "@/api/functions/cms.api";
 import assest from "@/json/assest";
 import { Box, Container, Grid, styled } from "@mui/material";
 import Image from "next/image";
+import { useQuery } from "react-query";
 import CommonHeader from "../CommonHeader/CommonHeader";
 
 const IsoVerfiedStyled = styled(Box)`
@@ -30,18 +33,12 @@ const IsoVerfiedStyled = styled(Box)`
     z-index: -1;
   }
 `;
-interface IIsoVerifiedProps {
-  block_four_title?: string | null;
-  block_four_sub_title?: string | null;
-  block_four_image?: string | null;
-  block_four_image_one?: string | null;
-  block_four_description?: string | null;
-  block_four_button_name?: string | null;
-  block_four_button_link?: string | null;
-  block_four_image_two?: string | null;
-}
 
-const IsoVerfied = ({ ...props }: IIsoVerifiedProps) => {
+const IsoVerfied = () => {
+  const { data: certificates } = useQuery({
+    queryKey: ["getCertificates"],
+    queryFn: () => getCertificates()
+  });
   return (
     <IsoVerfiedStyled className="cmn_gap">
       <Image
@@ -59,7 +56,23 @@ const IsoVerfied = ({ ...props }: IIsoVerifiedProps) => {
             sx={{ marginBottom: "60px" }}
           />
           <Grid container spacing={2}>
-            <Grid item md={4} xs={12}>
+            {certificates?.length ? (
+              <>
+                {certificates?.map((certificate) => (
+                  <Grid item md={4} xs={12} key={certificate?.certificate_id}>
+                    <Image
+                      src={certificatesMediaUrl(
+                        String(certificate?.certificate_image)
+                      )}
+                      alt="iso_img1"
+                      width={424}
+                      height={600}
+                    />
+                  </Grid>
+                ))}
+              </>
+            ) : null}
+            {/* <Grid item md={4} xs={12}>
               <Image
                 src={ourStoryMediaUrl(String(props?.block_four_image))}
                 alt="iso_img1"
@@ -83,7 +96,7 @@ const IsoVerfied = ({ ...props }: IIsoVerifiedProps) => {
                 width={424}
                 height={600}
               />
-            </Grid>
+            </Grid> */}
           </Grid>
         </Box>
       </Container>

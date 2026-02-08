@@ -6,6 +6,7 @@ import {
   IBlogMeta,
   IBlogResponse,
   ICareerResponse,
+  ICertificateResponse,
   IClientResponse,
   IFooterQuickLinksResponse,
   INewsResponse,
@@ -276,6 +277,17 @@ export const getBlogBanner = async (): Promise<IBlogMeta> => {
 export const getCaseStudyBanner = async (): Promise<any> => {
   try {
     const res = await ApiRequest.get<any>(`${endpoints.cms.caseStudyBanner}`);
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getCertificates = async (): Promise<ICertificateResponse[]> => {
+  try {
+    const res = await ApiRequest.get<ICertificateResponse[]>(
+      `${endpoints.cms.certificates}`
+    );
     return res;
   } catch (error) {
     throw error;

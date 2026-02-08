@@ -62,7 +62,7 @@ export const ConnectionSecWrapper = styled(Box)`
         font-size: 40px;
       }
       @media (max-width: 899px) {
-        font-size: 30px;
+        font-size: 22px;
       }
       /* @media (max-width: 899px) {
         font-size: 30px;

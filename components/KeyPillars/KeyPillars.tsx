@@ -35,7 +35,7 @@ const KeyPillarsStyled = styled(Box)`
     top: -5%;
     background: rgba(0, 159, 227, 0.6);
     filter: blur(200px);
-    z-index: 1;
+    z-index: -1;
   }
   ul {
     display: flex;

@@ -6,8 +6,18 @@ import CommonHeader from "../CommonHeader/CommonHeader";
 
 const ProcessorsStyled = styled(Box)`
   /* padding-top: 150px; */
+  @media (max-width: 399px) {
+    padding: 50px 0;
+  }
   figure {
     height: 1200px;
+    @media (max-width: 399px) {
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
     img {
       width: 100%;
       height: 100%;
@@ -24,10 +34,19 @@ const ProcessorsStyled = styled(Box)`
     z-index: 1;
     padding: 150px 0;
     text-align: center;
+    @media (max-width: 399px) {
+      position: static;
+      padding: 0;
+    }
     .circuit_board_otr {
       position: relative;
       width: 100%;
       height: 900px;
+      @media (max-width: 399px) {
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+      }
     }
     .circuit_board_wrapper {
       position: absolute;
@@ -35,6 +54,11 @@ const ProcessorsStyled = styled(Box)`
       height: 231px;
       padding: 0;
       transition: all 0.3s ease-in-out;
+      @media (max-width: 399px) {
+        position: static;
+        width: 50%;
+        padding: 0 10px;
+      }
       &:nth-of-type(1) {
         left: 0;
         top: 100px;

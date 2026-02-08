@@ -26,6 +26,9 @@ export const PowerFullElementStyled = styled(Box)`
     left: 0;
     bottom: 0;
     padding: 40px;
+    @media (max-width: 399px) {
+      padding: 20px;
+    }
     h3 {
       transition: all 0.5s ease-in-out;
       transform: translateY(80px);
@@ -37,6 +40,9 @@ export const PowerFullElementStyled = styled(Box)`
   }
   figure {
     height: 533px;
+    @media (max-width: 399px) {
+      height: 350px;
+    }
     img {
       width: 100%;
       height: 100%;

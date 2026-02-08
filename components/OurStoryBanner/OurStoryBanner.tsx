@@ -7,6 +7,9 @@ import CountUp from "react-countup";
 
 const OurStoryBannerWrapper = styled(Box)`
   position: relative;
+  @media (max-width: 599px) {
+    padding: 45px 0;
+  }
   .banner_content_wrapper {
     padding: 75px 0;
     position: absolute;
@@ -20,7 +23,8 @@ const OurStoryBannerWrapper = styled(Box)`
       padding: 55px 0;
     }
     @media (max-width: 599px) {
-      padding: 45px 0;
+      position: relative;
+      padding: 0;
     }
     .story_content {
       margin-bottom: 85px;
@@ -49,6 +53,13 @@ const OurStoryBannerWrapper = styled(Box)`
     }
   }
   .story_fig {
+    @media (max-width: 599px) {
+      position: absolute;
+      height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
     figure {
       margin: 0;
       width: 100%;
@@ -57,7 +68,6 @@ const OurStoryBannerWrapper = styled(Box)`
       position: relative;
       line-height: 0;
       font-size: 0;
-
       &::after {
         content: "";
         display: block;
@@ -74,6 +84,9 @@ const OurStoryBannerWrapper = styled(Box)`
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+      @media (max-width: 599px) {
+        height: 100%;
       }
     }
   }
@@ -143,7 +156,7 @@ const OurStoryBannerWrapper = styled(Box)`
       margin-top: 30px;
     }
     @media (max-width: 599px) {
-      margin-top: 0;
+      transform: translateY(0px);
     }
     .extended_content_stack {
       flex-wrap: wrap;

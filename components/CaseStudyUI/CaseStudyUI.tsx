@@ -36,7 +36,7 @@ function CaseStudyUI() {
       <DigitalSignageComp data={caseStudyData?.[0]} />
       <SmartClassroom data={caseStudyData?.[1]} />
       <SuccessStoryComp data={caseStudyData?.[2]} />
-      <IndustrialComp data={caseStudyData?.[0]} />
+      <IndustrialComp data={caseStudyData?.[3]} />
     </CaseStudyUIWrapper>
   );
 }

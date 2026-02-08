@@ -26,7 +26,7 @@ const Index = () => {
           <Processsors {...ourStoryContent?.[0]} />
           <KeyPillars {...ourStoryContent?.[0]} />
           <AimSection {...ourStoryContent?.[0]} />
-          <IsoVerfied {...ourStoryContent?.[0]} />
+          <IsoVerfied />
         </>
       )}
     </Wrapper>

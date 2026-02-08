@@ -33,6 +33,10 @@ export const cmsMediaUrl = (url: string) => {
 export const caseStudyMediaUrl = (url: string) => {
   return `${baseUrlMedia}/casestudy/${url}`;
 };
+
+export const certificatesMediaUrl = (url: string) => {
+  return `${baseUrlMedia}/certificates/${url}`;
+};
 export const commonMediaUrl = (url: string) => {
   return `${baseCommonUrlMedia}/page/${url}`;
 };
@@ -67,7 +71,8 @@ export const endpoints = {
     eWaste: "/ewaste-page",
     caseStudy: "/casestudy-page",
     blogBanner: "/blog-banner-data/14",
-    caseStudyBanner: "/case-study-banner-data/15"
+    caseStudyBanner: "/case-study-banner-data/15",
+    certificates: "/certificates"
   }
 };
 

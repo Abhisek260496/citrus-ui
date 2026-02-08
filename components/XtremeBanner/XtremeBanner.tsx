@@ -61,7 +61,8 @@ const XtremeBannerStyled = styled(Box)(() => ({
 
     "& img": {
       "@media (max-width:899px)": {
-        height: "100%"
+        height: "100%",
+        objectFit: "contain"
       }
     }
   }

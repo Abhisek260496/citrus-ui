@@ -50,7 +50,8 @@ const FadeImage = styled("div")<{ visible?: boolean }>(({ visible }) => ({
     zIndex: 2,
     height: "300px",
     img: {
-      height: "100%"
+      height: "100%",
+      objectFit: "contain"
     }
   },
 
