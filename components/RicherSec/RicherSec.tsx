@@ -17,8 +17,18 @@ export const RicherWrapper = styled(Box)`
     height: 450px;
   }
   @media (max-width: 599px) {
-    padding: 30px 0;
-    height: 350px;
+    padding: 50px 0;
+    height: auto;
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+    }
   }
   .richerBackImg {
     position: absolute;
@@ -39,12 +49,18 @@ export const RicherWrapper = styled(Box)`
       color: #041724;
       font-weight: 400;
       margin-bottom: 15px;
+      @media (max-width: 599px) {
+        color: #fff;
+      }
     }
   }
   p {
     color: #464646;
     max-width: 700px;
     margin: 0 auto;
+    @media (max-width: 599px) {
+      color: #fff;
+    }
   }
 `;
 

@@ -6,7 +6,6 @@ import CommonHeader from "../CommonHeader/CommonHeader";
 const ResistSectionStyled = styled(Box)`
   position: relative;
   min-height: 900px;
-
   @media (max-width: 1199px) {
     min-height: 600px;
   }
@@ -14,12 +13,26 @@ const ResistSectionStyled = styled(Box)`
     min-height: 500px;
   }
   @media (max-width: 599px) {
-    min-height: 450px;
+    min-height: auto;
+    padding: 50px 0;
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 2;
+    }
   }
   figure {
     position: absolute;
     width: 100%;
     height: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
     img {
       width: 100%;
       height: 100%;
@@ -31,6 +44,10 @@ const ResistSectionStyled = styled(Box)`
     top: 0;
     width: 100%;
     height: 100%;
+    @media (max-width: 599px) {
+      position: relative;
+      z-index: 3;
+    }
     .MuiContainer-root {
       height: 100%;
     }
@@ -41,6 +58,9 @@ const ResistSectionStyled = styled(Box)`
       align-items: flex-end;
       justify-content: center;
       padding-bottom: 100px;
+      @media (max-width: 599px) {
+        padding-bottom: 0;
+      }
     }
     .core_content_txt {
       max-width: 1111px;

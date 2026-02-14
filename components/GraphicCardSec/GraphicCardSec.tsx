@@ -18,7 +18,9 @@ const GraphicCardSecStyled = styled(Box)`
       top: 60px;
     }
     @media (max-width: 599px) {
-      top: 30px;
+      top: 0;
+      position: relative;
+      padding: 50px 0;
     }
     h2 {
       margin-bottom: 25px;
@@ -35,7 +37,11 @@ const GraphicCardSecStyled = styled(Box)`
   }
   figure {
     @media (max-width: 599px) {
-      height: 450px;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
     }
     img {
       width: 100%;

@@ -6,12 +6,24 @@ import CommonHeader from "../CommonHeader/CommonHeader";
 
 const CommunicativeStyled = styled(Box)`
   position: relative;
+  @media (max-width: 599px) {
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+    }
+  }
   .independent_wrapper {
     position: absolute;
     left: 0;
     top: 120px;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
 
     @media (max-width: 899px) {
       top: 70px;

@@ -39,6 +39,7 @@ const IsoVerfied = () => {
     queryKey: ["getCertificates"],
     queryFn: () => getCertificates()
   });
+
   return (
     <IsoVerfiedStyled className="cmn_gap">
       <Image

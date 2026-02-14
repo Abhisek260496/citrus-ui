@@ -17,7 +17,17 @@ export const HighSecWrapper = styled(Box)`
     height: 100%;
   }
   @media (max-width: 599px) {
-    padding: 30px 0;
+    padding: 25px 0;
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+    }
   }
   .bandwithImg {
     position: absolute;

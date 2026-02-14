@@ -4,13 +4,24 @@ import CommonHeader from "../CommonHeader/CommonHeader";
 
 const CoreToEveryThingStyled = styled(Box)<{ isFullWidth?: boolean }>`
   position: relative;
-
+  @media (max-width: 599px) {
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+    }
+  }
   .core_wrapper {
     position: absolute;
     left: 0;
     top: 100px;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
     object-fit: cover;
     @media (max-width: 899px) {
       top: 60px;
@@ -31,7 +42,7 @@ const CoreToEveryThingStyled = styled(Box)<{ isFullWidth?: boolean }>`
   figure {
     /* height: 860px; */
     @media (max-width: 599px) {
-      height: 350px;
+      height: 250px;
     }
 
     img {

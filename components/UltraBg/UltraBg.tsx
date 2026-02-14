@@ -7,6 +7,9 @@ import CommonHeader from "../CommonHeader/CommonHeader";
 
 const UltraBgStyled = styled(Box)`
   position: relative;
+  @media (max-width: 599px) {
+    padding: 25px 0;
+  }
   .core_wrapper {
     position: absolute;
     left: 0;
@@ -19,7 +22,9 @@ const UltraBgStyled = styled(Box)`
     }
 
     @media (max-width: 599px) {
-      top: 30px;
+      top: 0;
+      position: relative;
+      z-index: 3;
     }
     .core_content {
       /* max-width: 858px; */
@@ -48,7 +53,23 @@ const UltraBgStyled = styled(Box)`
       z-index: 1;
     } */
     @media (max-width: 599px) {
-      height: 350px;
+      height: auto;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      &::after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+      }
     }
     img {
       width: 100%;

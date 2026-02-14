@@ -34,6 +34,7 @@ const Np500BannerStyled = styled(Box)`
         }
         @media (max-width: 599px) {
           font-size: 40px;
+          margin-bottom: 10px;
         }
       }
     }
@@ -43,7 +44,7 @@ const Np500BannerStyled = styled(Box)`
       height: 500px;
     }
     @media (max-width: 599px) {
-      height: 400px;
+      height: 300px;
     }
     img {
       width: 100%;

@@ -5,9 +5,30 @@ import CommonHeader from "../CommonHeader/CommonHeader";
 
 const FourDependentDisplayStyled = styled(Box)`
   position: relative;
+  @media (max-width: 599px) {
+    padding: 50px 0;
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 2;
+    }
+  }
   figure {
     @media (max-width: 899px) {
       height: 450px;
+    }
+    @media (max-width: 599px) {
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 1;
     }
     img {
       width: 100%;
@@ -20,6 +41,12 @@ const FourDependentDisplayStyled = styled(Box)`
     top: 100px;
     width: 100%;
     height: calc(100% - 200px);
+    z-index: 2;
+    @media (max-width: 599px) {
+      position: relative;
+      z-index: 3;
+      top: 0;
+    }
     .MuiContainer-root {
       height: 100%;
     }
@@ -29,6 +56,10 @@ const FourDependentDisplayStyled = styled(Box)`
     }
     h2 {
       max-width: 533px;
+      @media (max-width: 599px) {
+        max-width: none;
+        margin-bottom: 15px;
+      }
     }
     p {
       position: absolute;
@@ -37,6 +68,10 @@ const FourDependentDisplayStyled = styled(Box)`
       max-width: 522px;
       @media (max-width: 899px) {
         max-width: 100%;
+      }
+      @media (max-width: 599px) {
+        position: static;
+        max-width: none;
       }
     }
   }

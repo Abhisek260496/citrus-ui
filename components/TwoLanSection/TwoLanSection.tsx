@@ -6,6 +6,18 @@ import CommonHeader from "../CommonHeader/CommonHeader";
 
 const TwoLanSectionStyled = styled(Box)`
   position: relative;
+  @media (max-width: 599px) {
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+    }
+  }
   figure {
     position: relative;
     z-index: 1;

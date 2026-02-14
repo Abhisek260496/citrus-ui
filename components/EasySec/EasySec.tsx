@@ -18,6 +18,16 @@ export const EasySecWrapper = styled(Box)`
   }
   @media (max-width: 599px) {
     padding: 80px 0 150px;
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 2;
+    }
   }
   .easyBack {
     position: absolute;
@@ -30,7 +40,7 @@ export const EasySecWrapper = styled(Box)`
   }
   .sec_hd {
     position: relative;
-    z-index: 2;
+    z-index: 3;
 
     @media (max-width: 1199px) {
       flex-direction: column;

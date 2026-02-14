@@ -133,10 +133,10 @@ const Index = () => {
 
                   <Grid2 xs={12}>
                     <Typography variant="body2" mb={1}>
-                      Mention your query
+                      Description
                     </Typography>
                     <CustomInput
-                      placeholder="mention your query"
+                      placeholder="Enter Description"
                       isTypeTwo
                       multiline
                       rows={4}

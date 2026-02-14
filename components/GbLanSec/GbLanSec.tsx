@@ -1,4 +1,5 @@
 import { ICommonProductSection } from "@/interface/apiresp.interfaces";
+import assest from "@/json/assest";
 import { Box, Container, Typography, styled } from "@mui/material";
 import Image from "next/image";
 
@@ -106,20 +107,20 @@ const GbLanSec = ({
     <GbLanSecStyled className="cmn_gap">
       <figure className="gb_per_lanFig">
         <Image
-          src={section_background_image as string}
+          src={assest?.gb_per_lan_bg}
           alt="gb_per_lan_bg"
           width={1920}
           height={1080}
         />
       </figure>
-      <figure className="lan_fig">
+      {/* <figure className="lan_fig">
         <Image
           src={section_image as string}
           alt="gb_lan_img"
           width={550}
           height={450}
         />
-      </figure>
+      </figure> */}
       <Box className="core_wrapper">
         <Container fixed>
           <Box className="core_content">

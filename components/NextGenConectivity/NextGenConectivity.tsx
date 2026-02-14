@@ -6,18 +6,33 @@ import CommonHeader from "../CommonHeader/CommonHeader";
 
 const NextGenConectivityStyled = styled(Box)`
   position: relative;
+  @media (max-width: 599px) {
+    padding: 25px 0;
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+    }
+  }
   .core_wrapper {
     position: absolute;
     left: 0;
     top: 100px;
     width: 100%;
     z-index: 1;
-
     @media (max-width: 899px) {
       top: 70px;
     }
     @media (max-width: 599px) {
       top: 30px;
+      position: relative;
+      z-index: 3;
+      top: 0;
     }
     .core_content {
       max-width: 483px;
@@ -25,12 +40,19 @@ const NextGenConectivityStyled = styled(Box)`
         line-height: 1.3;
         margin-bottom: 20px;
       }
+      @media (max-width: 599px) {
+        max-width: none;
+      }
     }
   }
   figure {
     /* height: 860px; */
     @media (max-width: 599px) {
-      height: 350px;
+      height: auto;
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
     }
     img {
       width: 100%;

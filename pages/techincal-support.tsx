@@ -129,6 +129,8 @@ const Index = () => {
                       <CustomInput
                         placeholder="Enter Description"
                         isTypeTwo
+                        multiline
+                        rows={4}
                         fullWidth
                       />
                     </Grid2>
