@@ -7,28 +7,28 @@ const useNotiStack = () => {
   const toastSuccess = (msg: string) => {
     enqueueSnackbar(msg, {
       variant: "success",
-      autoHideDuration,
+      autoHideDuration
     });
   };
 
   const toastWarning = (msg: string) => {
     enqueueSnackbar(msg, {
       variant: "warning",
-      autoHideDuration,
+      autoHideDuration
     });
   };
 
   const toastInfo = (msg: string) => {
     enqueueSnackbar(msg, {
       variant: "info",
-      autoHideDuration,
+      autoHideDuration
     });
   };
 
   const toastError = (msg: string) => {
     enqueueSnackbar(msg, {
       variant: "error",
-      autoHideDuration,
+      autoHideDuration
     });
   };
 

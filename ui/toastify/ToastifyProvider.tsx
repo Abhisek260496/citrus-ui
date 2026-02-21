@@ -1,12 +1,11 @@
-import React from "react";
 import { SnackbarProvider } from "notistack";
 
 type Props = {
-  children: JSX.Element,
+  children: JSX.Element;
 };
 
-const ToastifyProvider =(props:Props) => {
-  const {children}=props;
+const ToastifyProvider = (props: Props) => {
+  const { children } = props;
   return (
     <SnackbarProvider
       maxSnack={3}

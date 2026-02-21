@@ -11,9 +11,13 @@ import {
   IFooterQuickLinksResponse,
   INewsResponse,
   IOurStoryResponse,
+  IPostAPiResponse,
   IProductResponse,
+  ISalesSuppPayload,
   ISliderResponse,
   ISubMenuReponse,
+  ITechnicalSalesPayload,
+  IWarrantySuppPayload,
   IWorkWithUsResponse,
   WebsiteSettings
 } from "@/interface/apiresp.interfaces";
@@ -216,6 +220,20 @@ export const getJob = async (id: string): Promise<ICareerResponse> => {
   }
 };
 
+export const submitJob = async (
+  payload: FormData
+): Promise<IPostAPiResponse> => {
+  try {
+    const res = await ApiRequest.post<IPostAPiResponse>(
+      `${endpoints.cms.submitJob}`,
+      payload
+    );
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const getBlogs = async (): Promise<IBlogResponse[]> => {
   try {
     const res = await ApiRequest.get<IBlogResponse[]>(`${endpoints.cms.blogs}`);
@@ -287,6 +305,48 @@ export const getCertificates = async (): Promise<ICertificateResponse[]> => {
   try {
     const res = await ApiRequest.get<ICertificateResponse[]>(
       `${endpoints.cms.certificates}`
+    );
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const techSuppSubmit = async (
+  payload: ITechnicalSalesPayload
+): Promise<IPostAPiResponse> => {
+  try {
+    const res = await ApiRequest.post<IPostAPiResponse>(
+      `${endpoints.cms.techSuppSubmit}`,
+      payload
+    );
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const warrantySuppSubmit = async (
+  payload: IWarrantySuppPayload
+): Promise<IPostAPiResponse> => {
+  try {
+    const res = await ApiRequest.post<IPostAPiResponse>(
+      `${endpoints.cms.warrentySuppSubmit}`,
+      payload
+    );
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const salesSuppSubmit = async (
+  payload: ISalesSuppPayload
+): Promise<IPostAPiResponse> => {
+  try {
+    const res = await ApiRequest.post<IPostAPiResponse>(
+      `${endpoints.cms.salesSuppSubmit}`,
+      payload
     );
     return res;
   } catch (error) {

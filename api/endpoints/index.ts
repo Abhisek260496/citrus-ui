@@ -72,7 +72,11 @@ export const endpoints = {
     caseStudy: "/casestudy-page",
     blogBanner: "/blog-banner-data/14",
     caseStudyBanner: "/case-study-banner-data/15",
-    certificates: "/certificates"
+    certificates: "/certificates",
+    submitJob: "/job-application-submit",
+    techSuppSubmit: "/technical-support-submit",
+    warrentySuppSubmit: "/warranty-support-submit",
+    salesSuppSubmit: "/sales-support-submit"
   }
 };
 

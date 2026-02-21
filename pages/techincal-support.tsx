@@ -1,10 +1,24 @@
+import { techSuppSubmit } from "@/api/functions/cms.api";
+import useNotiStack from "@/hooks/useNotistack";
+import { ITechnicalSalesPayload } from "@/interface/apiresp.interfaces";
 import assest from "@/json/assest";
 import Wrapper from "@/layout/wrapper/Wrapper";
 import CustomButton from "@/ui/Buttons/CustomButton";
 import CustomInput from "@/ui/Inputs/CustomInput";
-import { Box, Container, Stack, Typography, styled } from "@mui/material";
+import Loader from "@/ui/Loader/Loder";
+import {
+  Box,
+  Container,
+  Stack,
+  Typography,
+  colors,
+  styled
+} from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { Controller, useForm } from "react-hook-form";
+import { useMutation } from "react-query";
 
 const SalesSupportStyled = styled(Box)`
   background-color: #fff;
@@ -48,104 +62,253 @@ const SalesSupportStyled = styled(Box)`
 `;
 
 const Index = () => {
+  const router = useRouter();
+  const { toastSuccess, toastError } = useNotiStack();
+  const {
+    control,
+    handleSubmit,
+    // formState: { errors },
+    // setValue,
+    reset
+  } = useForm<ITechnicalSalesPayload>({
+    mode: "onChange",
+    defaultValues: {
+      customer_name: "",
+      description: "",
+      email: "",
+      mobile_no: "",
+      product_details: ""
+    }
+  });
+
+  const { mutate: techSuppSubmitMutate, isLoading: techSuppSubmitLoading } =
+    useMutation({
+      mutationKey: ["techSuppSubmit"],
+      mutationFn: (payload: ITechnicalSalesPayload) => techSuppSubmit(payload),
+
+      onSuccess: (res) => {
+        if (res?.status) {
+          toastSuccess(res?.message || "Application submitted successfully");
+          reset();
+          router.push("/support");
+        }
+      },
+
+      onError: (err: any) => {
+        if (err?.response?.data?.errors) {
+          Object.values(err.response.data.errors).forEach((msg: any) => {
+            toastError(String(msg));
+          });
+        } else {
+          toastError(
+            err?.response?.data?.message ||
+              "Submission failed. Please try again."
+          );
+        }
+      }
+    });
+
+  const onSubmit = (payload: ITechnicalSalesPayload) => {
+    techSuppSubmitMutate(payload);
+  };
+
   return (
-    <Wrapper>
-      <SalesSupportStyled>
-        <Box className="banner_sec">
-          <figure>
-            <Image
-              src={assest?.tech_support}
-              alt="tech_support"
-              width={1920}
-              height={1000}
-            />
-          </figure>
-          <Box className="banner_text">
-            <Container fixed>
-              <Box
-                className="form_inner"
-                sx={{
-                  maxWidth: "712px",
-                  margin: "0 auto",
-                  backgroundColor: "#fff"
-                }}
-              >
-                <Stack direction="row" alignItems="center" mb={4}>
-                  <Image
-                    src={assest?.texh_logo}
-                    alt="texh_logo"
-                    width={65}
-                    height={65}
-                  />
-                  <Typography variant="h2">Technical Support</Typography>
-                </Stack>
-                <form action="">
-                  <Grid2 container spacing={2}>
-                    <Grid2 md={6} xs={12}>
-                      <Typography variant="body2" mb={1}>
-                        Product Details
-                      </Typography>
-                      <CustomInput
-                        placeholder="Enter Product Details  "
-                        isTypeTwo
-                        fullWidth
-                      />
-                    </Grid2>
-                    <Grid2 md={6} xs={12}>
-                      <Typography variant="body2" mb={1}>
-                        Customer Name
-                      </Typography>
-                      <CustomInput
-                        placeholder="Enter Customer Name"
-                        isTypeTwo
-                        fullWidth
-                      />
-                    </Grid2>
-                    <Grid2 md={6} xs={12}>
-                      <Typography variant="body2" mb={1}>
-                        Mobile No.
-                      </Typography>
-                      <CustomInput
-                        placeholder="Enter Mobile No."
-                        isTypeTwo
-                        fullWidth
-                      />
-                    </Grid2>
-                    <Grid2 md={6} xs={12}>
-                      <Typography variant="body2" mb={1}>
-                        Email Address
-                      </Typography>
-                      <CustomInput
-                        placeholder="Enter Email Address"
-                        isTypeTwo
-                        fullWidth
-                      />
-                    </Grid2>
+    <>
+      {techSuppSubmitLoading && <Loader />}
+      <Wrapper>
+        <SalesSupportStyled>
+          <Box className="banner_sec">
+            <figure>
+              <Image
+                src={assest?.tech_support}
+                alt="tech_support"
+                width={1920}
+                height={1000}
+              />
+            </figure>
+            <Box className="banner_text">
+              <Container fixed>
+                <Box
+                  className="form_inner"
+                  sx={{
+                    maxWidth: "712px",
+                    margin: "0 auto",
+                    backgroundColor: "#fff"
+                  }}
+                >
+                  <Stack direction="row" alignItems="center" mb={4}>
+                    <Image
+                      src={assest?.texh_logo}
+                      alt="texh_logo"
+                      width={65}
+                      height={65}
+                    />
+                    <Typography variant="h2">Technical Support</Typography>
+                  </Stack>
+                  <form action="" onSubmit={handleSubmit(onSubmit)}>
+                    <Grid2 container spacing={2}>
+                      <Grid2 md={6} xs={12}>
+                        <Typography variant="body2" mb={1}>
+                          Product Details
+                          <span style={{ color: colors?.red?.[500] }}>*</span>
+                        </Typography>
 
-                    <Grid2 xs={12}>
-                      <Typography variant="body2" mb={1}>
-                        Description
-                      </Typography>
-                      <CustomInput
-                        placeholder="Enter Description"
-                        isTypeTwo
-                        multiline
-                        rows={4}
-                        fullWidth
-                      />
-                    </Grid2>
+                        <Controller
+                          name="product_details"
+                          control={control}
+                          rules={{ required: "Product Details is required" }}
+                          render={({
+                            field,
+                            fieldState: { error, invalid }
+                          }) => (
+                            <CustomInput
+                              {...field}
+                              placeholder="Enter Product Details"
+                              isTypeTwo
+                              fullWidth
+                              error={invalid}
+                              helperText={error?.message}
+                            />
+                          )}
+                        />
+                      </Grid2>
+                      <Grid2 md={6} xs={12}>
+                        <Typography variant="body2" mb={1}>
+                          Customer Name
+                          <span style={{ color: colors?.red?.[500] }}>*</span>
+                        </Typography>
 
-                    <Grid2 xs={12}>
-                      <CustomButton isTypeTwo>Submit</CustomButton>
+                        <Controller
+                          name="customer_name"
+                          control={control}
+                          rules={{ required: "Customer Name is required" }}
+                          render={({
+                            field,
+                            fieldState: { error, invalid }
+                          }) => (
+                            <CustomInput
+                              {...field}
+                              placeholder="Enter Customer Name"
+                              isTypeTwo
+                              fullWidth
+                              error={invalid}
+                              helperText={error?.message}
+                            />
+                          )}
+                        />
+                      </Grid2>
+                      <Grid2 md={6} xs={12}>
+                        <Typography variant="body2" mb={1}>
+                          Mobile No.
+                          <span style={{ color: colors?.red?.[500] }}>*</span>
+                        </Typography>
+
+                        <Controller
+                          name="mobile_no"
+                          control={control}
+                          rules={{
+                            required: "Mobile Number is required",
+                            pattern: {
+                              value: /^[0-9]{10}$/,
+                              message: "Enter valid 10 digit mobile number"
+                            }
+                          }}
+                          render={({
+                            field,
+                            fieldState: { error, invalid }
+                          }) => (
+                            <CustomInput
+                              {...field}
+                              placeholder="Enter Mobile No."
+                              isTypeTwo
+                              fullWidth
+                              error={invalid}
+                              helperText={error?.message}
+                            />
+                          )}
+                        />
+                      </Grid2>
+                      <Grid2 md={6} xs={12}>
+                        <Typography variant="body2" mb={1}>
+                          Email Address
+                          <span style={{ color: colors?.red?.[500] }}>*</span>
+                        </Typography>
+
+                        <Controller
+                          name="email"
+                          control={control}
+                          rules={{
+                            required: "Email is required",
+                            pattern: {
+                              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                              message: "Enter valid email address"
+                            }
+                          }}
+                          render={({
+                            field,
+                            fieldState: { error, invalid }
+                          }) => (
+                            <CustomInput
+                              {...field}
+                              placeholder="Enter Email Address"
+                              isTypeTwo
+                              fullWidth
+                              error={invalid}
+                              helperText={error?.message}
+                            />
+                          )}
+                        />
+                      </Grid2>
+
+                      <Grid2 xs={12}>
+                        <Typography variant="body2" mb={1}>
+                          Description
+                          <span style={{ color: colors?.red?.[500] }}>*</span>
+                        </Typography>
+
+                        <Controller
+                          name="description"
+                          control={control}
+                          rules={{
+                            required: "Description is required",
+                            minLength: {
+                              value: 10,
+                              message:
+                                "Description must be at least 10 characters"
+                            }
+                          }}
+                          render={({
+                            field,
+                            fieldState: { error, invalid }
+                          }) => (
+                            <CustomInput
+                              {...field}
+                              placeholder="Enter Description"
+                              isTypeTwo
+                              multiline
+                              rows={4}
+                              fullWidth
+                              error={invalid}
+                              helperText={error?.message}
+                            />
+                          )}
+                        />
+                      </Grid2>
+
+                      <Grid2 xs={12}>
+                        <CustomButton isTypeTwo type="submit">
+                          Submit
+                        </CustomButton>
+                      </Grid2>
                     </Grid2>
-                  </Grid2>
-                </form>
-              </Box>
-            </Container>
+                  </form>
+                </Box>
+              </Container>
+            </Box>
           </Box>
-        </Box>
-      </SalesSupportStyled>
-    </Wrapper>
+        </SalesSupportStyled>
+      </Wrapper>
+    </>
   );
 };
 

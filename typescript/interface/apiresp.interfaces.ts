@@ -487,3 +487,44 @@ export interface ICertificateResponse {
   created_at: string;
   updated_at: string;
 }
+
+export interface IJobApplicationPayload {
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone_number: string;
+  cover_letter: string;
+  job_title: string;
+  currently_employed_in?: string;
+  resume: File | null;
+  declaration: boolean;
+}
+
+export interface IPostAPiResponse {
+  status: boolean;
+  message: string;
+}
+
+export interface ITechnicalSalesPayload {
+  product_details: string;
+  customer_name: string;
+  mobile_no: string;
+  email: string;
+  description: string;
+}
+
+export interface IWarrantySuppPayload {
+  product_details: string;
+  serial_no: string;
+  date_of_purchase: string;
+  email: string;
+  description: string;
+}
+
+export interface ISalesSuppPayload {
+  name: string;
+  contact_no: string;
+  company_name?: string;
+  email: string;
+  description: string;
+}
