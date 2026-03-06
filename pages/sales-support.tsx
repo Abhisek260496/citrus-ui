@@ -70,13 +70,7 @@ const SalesSupportStyled = styled(Box)`
 const Index = () => {
   const router = useRouter();
   const { toastSuccess, toastError } = useNotiStack();
-  const {
-    control,
-    handleSubmit
-    // formState: { errors },
-    // setValue,
-    // reset
-  } = useForm<ISalesSuppPayload>({
+  const { control, handleSubmit } = useForm<ISalesSuppPayload>({
     mode: "onChange",
     defaultValues: {
       company_name: "",
@@ -86,7 +80,6 @@ const Index = () => {
       name: ""
     }
   });
-
   const { mutate: salesSuppSubmitMutate, isLoading: salesSuppSubmitLoading } =
     useMutation({
       mutationKey: ["salesSuppSubmit"],
@@ -112,11 +105,11 @@ const Index = () => {
         }
       }
     });
-
   const onSubmit = (data: ISalesSuppPayload) => {
     console.log("Sales Support Payload:", data);
     salesSuppSubmitMutate(data);
   };
+
   return (
     <>
       {salesSuppSubmitLoading && <Loader />}
