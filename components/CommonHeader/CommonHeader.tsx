@@ -30,11 +30,11 @@ const CustomHeadingStyle = styled(Typography)<{ isBgWhite?: boolean }>`
 
       @media (max-width: 1199px) {
         top: -6px;
-        left: 85px;
+        left: 90px;
         font-size: 25px;
       }
       @media (max-width: 899px) {
-        left: 60px;
+        left: 48px;
         font-size: 18px;
       }
     }
