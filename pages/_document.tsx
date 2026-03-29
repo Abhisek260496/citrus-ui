@@ -1,18 +1,18 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/jsx-props-no-spreading */
-import * as React from "react";
+import createEmotionCache from "@/themes/createEmotionCache";
+import theme from "@/themes/theme";
+import createEmotionServer from "@emotion/server/create-instance";
+import { AppType } from "next/app";
 import Document, {
   DocumentContext,
   DocumentProps,
   Head,
   Html,
   Main,
-  NextScript,
+  NextScript
 } from "next/document";
-import createEmotionServer from "@emotion/server/create-instance";
-import createEmotionCache from "@/themes/createEmotionCache";
-import theme from "@/themes/theme";
-import { AppType } from "next/app";
+import * as React from "react";
 import { CustomAppProps } from "./_app";
 
 interface MyDocumentProps extends DocumentProps {
@@ -25,6 +25,10 @@ export default function MyDocument({ emotionStyleTags }: MyDocumentProps) {
       <Head>
         {/* PWA primary color */}
         <meta name="theme-color" content={theme.palette.primary.main} />
+        <title>Buy Laptops Online | Citrus India</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow" />
+        <meta name="description" content="Best laptops at best price" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link
           rel="stylesheet"
@@ -80,7 +84,7 @@ MyDocument.getInitialProps = async (ctx: DocumentContext) => {
       ) =>
         function EnhanceApp(props) {
           return <App emotionCache={cache} {...props} />;
-        },
+        }
     });
 
   const initialProps = await Document.getInitialProps(ctx);
@@ -98,6 +102,6 @@ MyDocument.getInitialProps = async (ctx: DocumentContext) => {
 
   return {
     ...initialProps,
-    emotionStyleTags,
+    emotionStyleTags
   };
 };

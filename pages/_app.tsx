@@ -68,6 +68,7 @@ export default function CustomApp({
               <ToastifyProvider>
                 <>
                   <EventListeners />
+
                   <Component {...pageProps} />
                 </>
               </ToastifyProvider>
