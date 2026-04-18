@@ -3,6 +3,7 @@ import {
   CsrPageData,
   EwastePageData,
   I360ProductResponse,
+  IBannerApiResponse,
   IBlogMeta,
   IBlogResponse,
   ICareerResponse,
@@ -347,6 +348,17 @@ export const salesSuppSubmit = async (
     const res = await ApiRequest.post<IPostAPiResponse>(
       `${endpoints.cms.salesSuppSubmit}`,
       payload
+    );
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const bannerVideoApi = async (): Promise<IBannerApiResponse> => {
+  try {
+    const res = await ApiRequest.get<IBannerApiResponse>(
+      `${endpoints.cms.homeBanner}`
     );
     return res;
   } catch (error) {

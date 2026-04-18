@@ -528,3 +528,7 @@ export interface ISalesSuppPayload {
   email: string;
   description: string;
 }
+
+export interface IBannerApiResponse {
+  banner_video: string;
+}

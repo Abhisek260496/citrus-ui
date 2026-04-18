@@ -1,6 +1,7 @@
-import { getSubMenu } from "@/api/functions/cms.api";
-import assest from "@/json/assest";
+import { ourStoryMediaUrl } from "@/api/endpoints";
+import { bannerVideoApi, getSubMenu } from "@/api/functions/cms.api";
 import { BannerStyled } from "@/styles/styledComponents/BannerStyled";
+import Loader from "@/ui/Loader/Loder";
 import { Box, Container, List, ListItem } from "@mui/material";
 import Link from "next/link";
 import { useQuery } from "react-query";
@@ -11,13 +12,29 @@ const Banner = () => {
     queryFn: () => getSubMenu()
   });
 
-  console.log(navItems, "navItems");
+  const { data: bannerVideoData, isLoading: bannerVideoDataLoading } = useQuery(
+    {
+      queryKey: ["bannerVideoApi"],
+      queryFn: () => bannerVideoApi()
+    }
+  );
+
+  console.log(bannerVideoData, "bannerVideoData");
 
   return (
     <BannerStyled>
-      <figure>
-        <video src={assest?.bannerVideo} autoPlay loop muted />
-      </figure>
+      {bannerVideoData && !bannerVideoDataLoading ? (
+        <figure>
+          <video
+            src={ourStoryMediaUrl(String(bannerVideoData?.banner_video))}
+            autoPlay
+            loop
+            muted
+          />
+        </figure>
+      ) : (
+        <Loader />
+      )}
       <Box className="banner_btm_block">
         <Container fixed>
           {!!navItems && navItems?.length && !navItemsLaoding ? (

@@ -76,7 +76,8 @@ export const endpoints = {
     submitJob: "/job-application-submit",
     techSuppSubmit: "/technical-support-submit",
     warrentySuppSubmit: "/warranty-support-submit",
-    salesSuppSubmit: "/sales-support-submit"
+    salesSuppSubmit: "/sales-support-submit",
+    homeBanner: "/website"
   }
 };
 
