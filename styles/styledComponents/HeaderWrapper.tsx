@@ -9,7 +9,6 @@ export const HeaderWrap = styled(Box)`
     width: 100%;
     z-index: 1200;
     animation: slideDown 0.3s ease;
-    background: #fff; /* important */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
     z-index: 99;
   }
@@ -31,9 +30,20 @@ export const HeaderWrap = styled(Box)`
   }
 
   .headerContainer {
-    background-color: #000717 !important;
+    background-color: #00bfdf !important;
     padding: 16px 0;
     transition: all 0.4s;
+    position: relative;
+    &::after {
+      content: "";
+      width: 100%;
+      height: 16px;
+      background: #1c51a0;
+      position: absolute;
+      left: 0;
+      bottom: -16px;
+      z-index: 999;
+    }
   }
 
   .headerLogo {
